@@ -4,14 +4,19 @@
             "invocation": {
                 "string": "ping -i 2 localhost | sed -u 's/.*/ping/' | espeak",
                 "bytes": "51",
-                "CRC32": "3025175151"
+                "sha1hex": "20f8aae762b461782e9adea7e49db01046fb0c3f"
             },
             "invocation-long-flags": {
                 "string": "ping -i 2 localhost | sed --unbuffered 's/.*/ping/' | espeak",
                 "bytes": "60",
-                "CRC32" : "300683162"            
+                "sha1hex" : "320ba9096161c69d6513e0d906155ff7e346d325"            
             },
             "description": "Generates audible voice that says 'ping' every 2 seconds.",
+            "component-commands": [
+                "ping",
+                "sed",
+                "espeak"
+            ],
             "component-command-types": {
                 "ping": "file",
                 "sed": "file",
@@ -21,6 +26,11 @@
                 "ping": "iputils-ping",
                 "sed": "sed",
                 "espeak": "espeak"
+            },
+            "component-command-debian-paths": {
+                "ping": "/bin/ping",
+                "sed": "/bin/sed",
+                "espeak": "/usr/bin/espeak"
             },
             "changeable-arguments": {
                 "2" : {
@@ -60,9 +70,13 @@
             "invocation": {
                 "string": "kill $(jobs -ps)",
                 "bytes": "16",
-                "CRC32": "2858471584"            
+                "sha1hex": "b130d1235cd093ef0d6dc5217f89e793192abd83"            
             },
             "description": "Kill stopped jobs.",
+            "component-commands": [
+                "kill",
+                "jobs"
+            ],
             "component-command-types": {
                 "kill": "builtin",
                 "jobs": "builtin"
@@ -89,7 +103,7 @@
             "invocation": {
                 "string": "xset dpms force standby",
                 "bytes": "23",
-                "CRC32": "549082525"  
+                "sha1hex": "cc1938fb35ff47f16a237a9c6cd68add2aa6f4fd"  
             },
             "description": "Turn off the monitor; make the display go dark until the mouse is moved or a key is pressed.",
             "component-command-types": {
