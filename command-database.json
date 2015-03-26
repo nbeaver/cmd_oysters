@@ -1,0 +1,127 @@
+{
+    "commands": [
+        {
+            "invocation": {
+                "string": "ping -i 2 localhost | sed -u 's/.*/ping/' | espeak",
+                "bytes": "51",
+                "CRC32": "3025175151"
+            },
+            "invocation-long-flags": {
+                "string": "ping -i 2 localhost | sed --unbuffered 's/.*/ping/' | espeak",
+                "bytes": "60",
+                "CRC32" : "300683162"            
+            },
+            "description": "Generates audible voice that says 'ping' every 2 seconds.",
+            "component-command-types": {
+                "ping": "file",
+                "sed": "file",
+                "espeak": "file"
+            },
+            "component-command-debian-packages": {
+                "ping": "iputils-ping",
+                "sed": "sed",
+                "espeak": "espeak"
+            },
+            "changeable-arguments": {
+                "2" : {
+                    "description" : "Time interval in seconds.",
+                    "invocation-slice": [8, 9],
+                    "invocation-long-flags-slice": [8, 9]
+                },
+                "localhost": {
+                    "description": "IPv4 address or fully qualified domain name.",
+                    "invocation-slice": [10, 19],
+                    "invocation-long-flags-slice": [10, 19]
+                }
+            },
+            "requirements": {
+                "internet-connection": "maybe",
+                "sudo": "no"           
+            },
+            "related-urls": [
+                "http://ftp.arl.mil/mike/ping.html"
+            ],
+            "compatible-shells": [
+                "bash",
+                "csh",
+                "dash",
+                "fish",
+                "ksh",
+                "POSIX-compatible",
+                "tcsh",
+                "zsh"
+            ],
+            "side-effects": {
+                "filesystem": "no",
+                 "processes": "no"
+            }
+        },
+        {
+            "invocation": {
+                "string": "kill $(jobs -ps)",
+                "bytes": "16",
+                "CRC32": "2858471584"            
+            },
+            "description": "Kill stopped jobs.",
+            "component-command-types": {
+                "kill": "builtin",
+                "jobs": "builtin"
+            },
+            "requirements": {
+                "internet-connection": "no",
+                "sudo": "no"           
+            },
+            "related-urls": [
+                "http://serverfault.com/questions/240155/how-can-i-kill-all-stopped-jobs",
+                "http://ubuntuforums.org/showthread.php?t=1954090&s=c408c62db23afe753dfcfd40f1a86e32&p=11825162#post11825162",
+                "http://superuser.com/a/228926/219809"
+            ],
+            "compatible-shells": [
+                "bash",
+                "TODO"
+            ],
+            "side-effects": {
+                "filesystem": "no",
+                 "processes": "yes"
+            }
+        },
+        {
+            "invocation": {
+                "string": "xset dpms force standby",
+                "bytes": "23",
+                "CRC32": "549082525"  
+            },
+            "description": "Turn off the monitor; make the display go dark until the mouse is moved or a key is pressed.",
+            "component-command-types": {
+                "xset": "file"
+            },
+            "component-command-debian-packages": {
+                "xset": "x11-xserver-utils"
+            },
+            "requirements": {
+                "internet-connection": "no",
+                "sudo": "no"           
+            },
+            "related-urls": [
+                "https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling#Modifying_DPMS_and_screensaver_settings_using_xset",
+                "http://tldp.org/HOWTO/Battery-Powered/methods.html#XF86",
+                "http://superuser.com/a/66923/219809",
+                "http://magnatecha.com/turn-off-display-from-linux-command-line/"
+            ],
+            "compatible-shells": [
+                "bash",
+                "csh",
+                "dash",
+                "fish",
+                "ksh",
+                "POSIX",
+                "tcsh",
+                "zsh"
+            ],
+            "side-effects": {
+                "filesystem": "no",
+                 "processes": "no"
+            }
+        }
+    ]
+}
