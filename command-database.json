@@ -1,211 +1,209 @@
-{
-    "commands": [
-        {
-            "invocation": {
-                "string": "ping -i 2 localhost | sed -u 's/.*/ping/' | espeak",
-                "bytes": "51",
-                "sha1hex": "20f8aae762b461782e9adea7e49db01046fb0c3f"
-            },
-            "invocation-long-flags": {
-                "string": "ping -i 2 localhost | sed --unbuffered 's/.*/ping/' | espeak",
-                "bytes": "60",
-                "sha1hex" : "320ba9096161c69d6513e0d906155ff7e346d325"
-            },
-            "description": "Generates audible voice that says 'ping' every 2 seconds.",
-            "component-commands": [
-                "ping",
-                "sed",
-                "espeak"
-            ],
-            "component-command-types": {
-                "ping": "file",
-                "sed": "file",
-                "espeak": "file"
-            },
-            "component-command-debian-packages": {
-                "ping": "iputils-ping",
-                "sed": "sed",
-                "espeak": "espeak"
-            },
-            "component-command-debian-paths": {
-                "ping": "/bin/ping",
-                "sed": "/bin/sed",
-                "espeak": "/usr/bin/espeak"
-            },
-            "component-command-requirements": {
-                "ping": {
-                    "internet-connection": "maybe",
-                    "sudo": "no"
-                },
-                "sed": {
-                    "internet-connection": "no",
-                    "sudo": "no"
-                },
-                "espeak": {
-                    "internet-connection": "no",
-                    "sudo": "no"
-                }
-            },
-            "changeable-arguments": {
-                "2" : {
-                    "description": "Time interval in seconds.",
-                    "type": "integer",
-                    "component-command": "ping",
-                    "component-command-flag": "-i",
-                    "invocation-slice": [8, 9],
-                    "invocation-long-flags-slice": [8, 9]
-                },
-                "localhost": {
-                    "description": "IPv4 address or fully qualified domain name.",
-                    "type": "string",
-                    "component-command": "ping",
-                    "invocation-slice": [10, 19],
-                    "invocation-long-flags-slice": [10, 19]
-                }
-            },
-            "relevant-urls": [
-                "http://ftp.arl.mil/mike/ping.html"
-            ],
-            "compatible-shells": [
-                "bash",
-                "csh",
-                "dash",
-                "fish",
-                "ksh",
-                "POSIX",
-                "tcsh",
-                "zsh"
-            ],
-            "side-effects": {
-                "filesystem": "no",
-                 "processes": "no"
-            }
+[
+    {
+        "invocation": {
+            "string": "ping -i 2 localhost | sed -u 's/.*/ping/' | espeak",
+            "bytes": "51",
+            "sha1hex": "20f8aae762b461782e9adea7e49db01046fb0c3f"
         },
-        {
-            "invocation": {
-                "string": "kill $(jobs -ps)",
-                "bytes": "16",
-                "sha1hex": "b130d1235cd093ef0d6dc5217f89e793192abd83"
+        "invocation-long-flags": {
+            "string": "ping -i 2 localhost | sed --unbuffered 's/.*/ping/' | espeak",
+            "bytes": "60",
+            "sha1hex": "320ba9096161c69d6513e0d906155ff7e346d325"
+        },
+        "description": "Generates audible voice that says 'ping' every 2 seconds.",
+        "component-commands": [
+            "ping",
+            "sed",
+            "espeak"
+        ],
+        "component-command-types": {
+            "ping": "file",
+            "sed": "file",
+            "espeak": "file"
+        },
+        "component-command-debian-packages": {
+            "ping": "iputils-ping",
+            "sed": "sed",
+            "espeak": "espeak"
+        },
+        "component-command-debian-paths": {
+            "ping": "/bin/ping",
+            "sed": "/bin/sed",
+            "espeak": "/usr/bin/espeak"
+        },
+        "component-command-requirements": {
+            "ping": {
+                "internet-connection": "maybe",
+                "sudo": "no"
             },
-            "description": "Kill stopped jobs.",
-            "component-commands": [
-                "kill",
-                "jobs"
-            ],
-            "component-command-types": {
-                "kill": "builtin",
-                "jobs": "builtin"
-            },
-            "requirements": {
+            "sed": {
                 "internet-connection": "no",
                 "sudo": "no"
             },
-            "relevant-urls": [
-                "http://serverfault.com/questions/240155/how-can-i-kill-all-stopped-jobs",
-                "http://ubuntuforums.org/showthread.php?t=1954090&s=c408c62db23afe753dfcfd40f1a86e32&p=11825162#post11825162",
-                "http://superuser.com/a/228926/219809"
-            ],
-            "compatible-shells": [
-                "bash",
-                "TODO"
-            ],
-            "side-effects": {
-                "filesystem": "no",
-                 "processes": "yes"
-            }
-        },
-        {
-            "invocation": {
-                "string": "xset dpms force standby",
-                "bytes": "23",
-                "sha1hex": "cc1938fb35ff47f16a237a9c6cd68add2aa6f4fd"
-            },
-            "description": "Turn off the monitor; make the display go dark until the mouse is moved or a key is pressed.",
-            "component-command-types": {
-                "xset": "file"
-            },
-            "component-command-debian-packages": {
-                "xset": "x11-xserver-utils"
-            },
-            "requirements": {
+            "espeak": {
                 "internet-connection": "no",
                 "sudo": "no"
-            },
-            "relevant-urls": [
-                "https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling#Modifying_DPMS_and_screensaver_settings_using_xset",
-                "http://tldp.org/HOWTO/Battery-Powered/methods.html#XF86",
-                "http://superuser.com/a/66923/219809",
-                "http://magnatecha.com/turn-off-display-from-linux-command-line/"
-            ],
-            "compatible-shells": [
-                "bash",
-                "csh",
-                "dash",
-                "fish",
-                "ksh",
-                "POSIX",
-                "tcsh",
-                "zsh"
-            ],
-            "side-effects": {
-                "filesystem": "no",
-                 "processes": "no"
             }
         },
-        {
-            "invocation": {
-                "string": "chsh -s $(which zsh) $USER"
+        "changeable-arguments": {
+            "2": {
+                "description": "Time interval in seconds.",
+                "type": "integer",
+                "component-command": "ping",
+                "component-command-flag": "-i",
+                "invocation-slice": [8, 9],
+                "invocation-long-flags-slice": [8, 9]
             },
-            "invocation-long-flags": {
-                "string": "chsh --shell $(which zsh) $USER"
-            },
-            "description": "Change the default shell of the current user to zsh.",
-            "component-commands": [
-                "chsh",
-                "which"
-            ],
-            "component-command-debian-packages": {
-                "chsh": "passwd",
-                "which": "debianutils"
-            },
-            "component-command-requirements": {
-                "chsh": {
-                    "internet-connection": "no",
-                    "sudo": "maybe"
-                },
-                "which": {
-                    "internet-connection": "no",
-                    "sudo": "no"
-                }
-            },
-            "changeable-arguments": {
-                "$(which zsh)" : {
-                    "description" : "Path to desired shell.",
-                    "type": "string",
-                    "component-command": "chsh",
-                    "component-command-flag": "-s",
-                    "component-command-flag-long": "--shell",
-                    "invocation-slice": [8, 20],
-                    "invocation-long-flags-slice": [13, 25]
-                },
-                "zsh" : {
-                    "description" : "Name of desired shell.",
-                    "type": "string",
-                    "component-command": "which",
-                    "invocation-slice": [16, 19],
-                    "invocation-long-flags-slice": [21, 24]
-                },
-                "$USER" : {
-                    "description": "Username. Requires sudo if different than current user.",
-                    "type": "string",
-                    "component-command": "chsh",
-                    "invocation-slice": [21, 26],
-                    "invocation-long-flags-slice": [26, 31]
-                }
-            },
-            "relevant-urls": [
-                "https://wiki.archlinux.org/index.php/Zsh#Making_Zsh_your_default_shell"
-            ]
+            "localhost": {
+                "description": "IPv4 address or fully qualified domain name.",
+                "type": "string",
+                "component-command": "ping",
+                "invocation-slice": [10, 19],
+                "invocation-long-flags-slice": [10, 19]
+            }
+        },
+        "relevant-urls": [
+            "http://ftp.arl.mil/mike/ping.html"
+        ],
+        "compatible-shells": [
+            "bash",
+            "csh",
+            "dash",
+            "fish",
+            "ksh",
+            "POSIX",
+            "tcsh",
+            "zsh"
+        ],
+        "side-effects": {
+            "filesystem": "no",
+             "processes": "no"
         }
-    ]
-}
+    },
+    {
+        "invocation": {
+            "string": "kill $(jobs -ps)",
+            "bytes": "16",
+            "sha1hex": "b130d1235cd093ef0d6dc5217f89e793192abd83"
+        },
+        "description": "Kill stopped jobs.",
+        "component-commands": [
+            "kill",
+            "jobs"
+        ],
+        "component-command-types": {
+            "kill": "builtin",
+            "jobs": "builtin"
+        },
+        "requirements": {
+            "internet-connection": "no",
+            "sudo": "no"
+        },
+        "relevant-urls": [
+            "http://serverfault.com/questions/240155/how-can-i-kill-all-stopped-jobs",
+            "http://ubuntuforums.org/showthread.php?t=1954090&s=c408c62db23afe753dfcfd40f1a86e32&p=11825162#post11825162",
+            "http://superuser.com/a/228926/219809"
+        ],
+        "compatible-shells": [
+            "bash",
+            "TODO"
+        ],
+        "side-effects": {
+            "filesystem": "no",
+             "processes": "yes"
+        }
+    },
+    {
+        "invocation": {
+            "string": "xset dpms force standby",
+            "bytes": "23",
+            "sha1hex": "cc1938fb35ff47f16a237a9c6cd68add2aa6f4fd"
+        },
+        "description": "Turn off the monitor; make the display go dark until the mouse is moved or a key is pressed.",
+        "component-command-types": {
+            "xset": "file"
+        },
+        "component-command-debian-packages": {
+            "xset": "x11-xserver-utils"
+        },
+        "requirements": {
+            "internet-connection": "no",
+            "sudo": "no"
+        },
+        "relevant-urls": [
+            "https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling#Modifying_DPMS_and_screensaver_settings_using_xset",
+            "http://tldp.org/HOWTO/Battery-Powered/methods.html#XF86",
+            "http://superuser.com/a/66923/219809",
+            "http://magnatecha.com/turn-off-display-from-linux-command-line/"
+        ],
+        "compatible-shells": [
+            "bash",
+            "csh",
+            "dash",
+            "fish",
+            "ksh",
+            "POSIX",
+            "tcsh",
+            "zsh"
+        ],
+        "side-effects": {
+            "filesystem": "no",
+             "processes": "no"
+        }
+    },
+    {
+        "invocation": {
+            "string": "chsh -s $(which zsh) $USER"
+        },
+        "invocation-long-flags": {
+            "string": "chsh --shell $(which zsh) $USER"
+        },
+        "description": "Change the default shell of the current user to zsh.",
+        "component-commands": [
+            "chsh",
+            "which"
+        ],
+        "component-command-debian-packages": {
+            "chsh": "passwd",
+            "which": "debianutils"
+        },
+        "component-command-requirements": {
+            "chsh": {
+                "internet-connection": "no",
+                "sudo": "maybe"
+            },
+            "which": {
+                "internet-connection": "no",
+                "sudo": "no"
+            }
+        },
+        "changeable-arguments": {
+            "$(which zsh)": {
+                "description": "Path to desired shell.",
+                "type": "string",
+                "component-command": "chsh",
+                "component-command-flag": "-s",
+                "component-command-flag-long": "--shell",
+                "invocation-slice": [8, 20],
+                "invocation-long-flags-slice": [13, 25]
+            },
+            "zsh": {
+                "description": "Name of desired shell.",
+                "type": "string",
+                "component-command": "which",
+                "invocation-slice": [16, 19],
+                "invocation-long-flags-slice": [21, 24]
+            },
+            "$USER": {
+                "description": "Username. Requires sudo if different than current user.",
+                "type": "string",
+                "component-command": "chsh",
+                "invocation-slice": [21, 26],
+                "invocation-long-flags-slice": [26, 31]
+            }
+        },
+        "relevant-urls": [
+            "https://wiki.archlinux.org/index.php/Zsh#Making_Zsh_your_default_shell"
+        ]
+    }
+]
