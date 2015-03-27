@@ -2,7 +2,7 @@
     {
         "invocation": {
             "string": "ping -i 2 localhost | sed -u 's/.*/ping/' | espeak",
-            "bytes": "51",
+            "bytes": "50",
             "sha1hex": "20f8aae762b461782e9adea7e49db01046fb0c3f"
         },
         "invocation-long-flags": {
