@@ -201,25 +201,22 @@
                     "$(which zsh)": {
                         "description": "Path to desired shell.",
                         "type": "string",
+                        "subtype": "path",
                         "component-command": "chsh",
                         "component-command-flag": "-s",
-                        "component-command-flag-long": "--shell",
-                        "invocation-slice": [8, 20],
-                        "invocation-long-flags-slice": [13, 25]
+                        "invocation-slice": [8, 20]
                     },
                     "zsh": {
                         "description": "Name of desired shell.",
                         "type": "string",
                         "component-command": "which",
-                        "invocation-slice": [16, 19],
-                        "invocation-long-flags-slice": [21, 24]
+                        "invocation-slice": [16, 19]
                     },
                     "$USER": {
                         "description": "Username. Requires sudo if different than current user.",
                         "type": "string",
                         "component-command": "chsh",
-                        "invocation-slice": [21, 26],
-                        "invocation-long-flags-slice": [26, 31]
+                        "invocation-slice": [21, 26]
                     }
                 },
                 "compatible-shells": [
@@ -235,7 +232,41 @@
                 ]
             },
             "bash-long-flags": {
-                "string": "chsh --shell $(which zsh) $USER"
+                "string": "chsh --shell $(which zsh) $USER",
+                "bytes": "32",
+                "sha1hex": "6a0be6c6db0f687c4956ca19281aa8ef3ee5f539",
+                "changeable-arguments": {
+                    "$(which zsh)": {
+                        "description": "Path to desired shell.",
+                        "type": "string",
+                        "component-command": "chsh",
+                        "component-command-flag": "--shell",
+                        "invocation-slice": [13, 25]
+                    },
+                    "zsh": {
+                        "description": "Name of desired shell.",
+                        "type": "string",
+                        "component-command": "which",
+                        "invocation-slice": [21, 24]
+                    },
+                    "$USER": {
+                        "description": "Username. Requires sudo if different than current user.",
+                        "type": "string",
+                        "component-command": "chsh",
+                        "invocation-slice": [26, 31]
+                    }
+                },
+                "compatible-shells": [
+                    "bash",
+                    "dash",
+                    "ksh",
+                    "zsh"
+                ],
+                "incompatible-shells": [
+                    "csh",
+                    "fish",
+                    "tcsh"
+                ]
             }
         },
         "component-commands": [
