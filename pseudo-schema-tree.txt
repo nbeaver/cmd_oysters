@@ -1,0 +1,31 @@
+pseudo-schema/
+├── component-command-bash-types
+│   └── $COMMAND
+├── component-command-debian-packages
+│   └── $COMMAND
+├── component-command-debian-paths
+│   └── $COMMAND
+├── component-command-requirements
+│   └── $COMMAND
+│       ├── internet-connection
+│       └── sudo
+├── component-commands
+├── description
+├── invocations
+│   └── $SHELL
+│       ├── bytes
+│       ├── changeable-arguments
+│       │   └── $ARG
+│       │       ├── component-command
+│       │       ├── component-command-flag
+│       │       ├── description
+│       │       ├── invocation-slice
+│       │       └── type
+│       ├── compatible-shells
+│       ├── incompatible-shells
+│       ├── sha1hex
+│       └── string
+├── relevant-urls
+└── side-effects
+    ├── filesystem
+    └── processes
