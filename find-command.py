@@ -8,6 +8,8 @@ with open("command-database.json") as db_file:
     commands = json.load(db_file)
 
 for command in commands:
-    command_string = command['invocation']['string']
-    if match_string in command_string:
-        print command_string
+    invocations = command['invocations'].keys()
+    for shell in invocations:
+        command_string = command['invocations'][shell]['string']
+        if match_string in command_string:
+            print command_string
