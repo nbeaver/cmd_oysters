@@ -30,6 +30,8 @@
                     "POSIX",
                     "tcsh",
                     "zsh"
+                ],
+                "incompatible-shells": [
                 ]
             },
             "POSIX-long-flags" : {
@@ -60,6 +62,8 @@
                     "POSIX",
                     "tcsh",
                     "zsh"
+                ],
+                "incompatible-shells": [
                 ]
             }
         },
@@ -106,12 +110,26 @@
         }
     },
     {
-        "invocations": {
-            "string": "kill $(jobs -ps)",
-            "bytes": "16",
-            "sha1hex": "b130d1235cd093ef0d6dc5217f89e793192abd83"
-        },
         "description": "Kill stopped jobs.",
+        "invocations": {
+            "bash": {
+                "string": "kill $(jobs -ps)",
+                "bytes": "16",
+                "sha1hex": "b130d1235cd093ef0d6dc5217f89e793192abd83",
+                "changeable-arguments": {},
+                "compatible-shells": [
+                    "bash"
+                ],
+                "incompatible-shells": [
+                    "csh",
+                    "dash",
+                    "fish",
+                    "ksh",
+                    "tcsh",
+                    "zsh"
+                ]
+            }
+        },
         "component-commands": [
             "kill",
             "jobs"
@@ -128,10 +146,6 @@
             "http://serverfault.com/questions/240155/how-can-i-kill-all-stopped-jobs",
             "http://ubuntuforums.org/showthread.php?t=1954090&s=c408c62db23afe753dfcfd40f1a86e32&p=11825162#post11825162",
             "http://superuser.com/a/228926/219809"
-        ],
-        "compatible-shells": [
-            "bash",
-            "TODO"
         ],
         "side-effects": {
             "filesystem": "no",
@@ -177,13 +191,53 @@
         }
     },
     {
-        "invocations": {
-            "string": "chsh -s $(which zsh) $USER"
-        },
-        "invocations-long-flags": {
-            "string": "chsh --shell $(which zsh) $USER"
-        },
         "description": "Change the default shell of the current user to zsh.",
+        "invocations": {
+            "bash": {
+                "string": "chsh -s $(which zsh) $USER",
+                "bytes": "26",
+                "sha1hex": "afcf173a92b8a8b580cfbf6616ba1ce2482cf501",
+                "changeable-arguments": {
+                    "$(which zsh)": {
+                        "description": "Path to desired shell.",
+                        "type": "string",
+                        "component-command": "chsh",
+                        "component-command-flag": "-s",
+                        "component-command-flag-long": "--shell",
+                        "invocation-slice": [8, 20],
+                        "invocation-long-flags-slice": [13, 25]
+                    },
+                    "zsh": {
+                        "description": "Name of desired shell.",
+                        "type": "string",
+                        "component-command": "which",
+                        "invocation-slice": [16, 19],
+                        "invocation-long-flags-slice": [21, 24]
+                    },
+                    "$USER": {
+                        "description": "Username. Requires sudo if different than current user.",
+                        "type": "string",
+                        "component-command": "chsh",
+                        "invocation-slice": [21, 26],
+                        "invocation-long-flags-slice": [26, 31]
+                    }
+                },
+                "compatible-shells": [
+                    "bash",
+                    "dash",
+                    "ksh",
+                    "zsh"
+                ],
+                "incompatible-shells": [
+                    "csh",
+                    "fish",
+                    "tcsh"
+                ]
+            },
+            "bash-long-flags": {
+                "string": "chsh --shell $(which zsh) $USER"
+            }
+        },
         "component-commands": [
             "chsh",
             "which"
@@ -200,31 +254,6 @@
             "which": {
                 "internet-connection": "no",
                 "sudo": "no"
-            }
-        },
-        "changeable-arguments": {
-            "$(which zsh)": {
-                "description": "Path to desired shell.",
-                "type": "string",
-                "component-command": "chsh",
-                "component-command-flag": "-s",
-                "component-command-flag-long": "--shell",
-                "invocation-slice": [8, 20],
-                "invocation-long-flags-slice": [13, 25]
-            },
-            "zsh": {
-                "description": "Name of desired shell.",
-                "type": "string",
-                "component-command": "which",
-                "invocation-slice": [16, 19],
-                "invocation-long-flags-slice": [21, 24]
-            },
-            "$USER": {
-                "description": "Username. Requires sudo if different than current user.",
-                "type": "string",
-                "component-command": "chsh",
-                "invocation-slice": [21, 26],
-                "invocation-long-flags-slice": [26, 31]
             }
         },
         "relevant-urls": [
