@@ -8,7 +8,7 @@ test_python_script : find-command.py Makefile
 	python find-command.py "ping"
 
 lint_database : command-database.json lint-database.py Makefile
-	#python lint-database.py
+	python lint-database.py
 
 pseudo_schema : pseudo-schema Makefile
 	tree --noreport pseudo-schema/ > pseudo-schema-tree.txt

@@ -250,8 +250,8 @@
             },
             "bash-long-flags": {
                 "string": "chsh --shell $(which zsh) $USER",
-                "bytes": "32",
-                "sha1hex": "6a0be6c6db0f687c4956ca19281aa8ef3ee5f539",
+                "bytes": "31",
+                "sha1hex": "a5e12f16ddb255f9b7a115364803c7f6eeb05534",
                 "changeable-arguments": {
                     "$(which zsh)": {
                         "description": "Path to desired shell.",
