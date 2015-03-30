@@ -1,22 +1,74 @@
 [
     {
-        "invocation": {
-            "string": "ping -i 2 localhost | sed -u 's/.*/ping/' | espeak",
-            "bytes": "50",
-            "sha1hex": "20f8aae762b461782e9adea7e49db01046fb0c3f"
-        },
-        "invocation-long-flags": {
-            "string": "ping -i 2 localhost | sed --unbuffered 's/.*/ping/' | espeak",
-            "bytes": "60",
-            "sha1hex": "320ba9096161c69d6513e0d906155ff7e346d325"
-        },
         "description": "Generates audible voice that says 'ping' every 2 seconds.",
+        "invocations": {
+            "POSIX" : {
+                "string": "ping -i 2 localhost | sed -u 's/.*/ping/' | espeak",
+                "bytes": "50",
+                "sha1hex": "20f8aae762b461782e9adea7e49db01046fb0c3f",
+                "changeable-arguments": {
+                    "2": {
+                        "description": "Time interval in seconds.",
+                        "type": "integer",
+                        "component-command": "ping",
+                        "component-command-flag": "-i",
+                        "invocation-slice": [8, 9]
+                    },
+                    "localhost": {
+                        "description": "IPv4 address or fully qualified domain name.",
+                        "type": "string",
+                        "component-command": "ping",
+                        "invocation-slice": [10, 19]
+                    }
+                },
+                "compatible-shells": [
+                    "bash",
+                    "csh",
+                    "dash",
+                    "fish",
+                    "ksh",
+                    "POSIX",
+                    "tcsh",
+                    "zsh"
+                ]
+            },
+            "POSIX-long-flags" : {
+                "string": "ping -i 2 localhost | sed --unbuffered 's/.*/ping/' | espeak",
+                "bytes": "60",
+                "sha1hex": "320ba9096161c69d6513e0d906155ff7e346d325",
+                "changeable-arguments": {
+                    "2": {
+                        "description": "Time interval in seconds.",
+                        "type": "integer",
+                        "component-command": "ping",
+                        "component-command-flag": "-i",
+                        "invocation-slice": [8, 9]
+                    },
+                    "localhost": {
+                        "description": "IPv4 address or fully qualified domain name.",
+                        "type": "string",
+                        "component-command": "ping",
+                        "invocation-slice": [10, 19]
+                    }
+                },
+                "compatible-shells": [
+                    "bash",
+                    "csh",
+                    "dash",
+                    "fish",
+                    "ksh",
+                    "POSIX",
+                    "tcsh",
+                    "zsh"
+                ]
+            }
+        },
         "component-commands": [
             "ping",
             "sed",
             "espeak"
         ],
-        "component-command-types": {
+        "component-command-bash-types": {
             "ping": "file",
             "sed": "file",
             "espeak": "file"
@@ -45,35 +97,8 @@
                 "sudo": "no"
             }
         },
-        "changeable-arguments": {
-            "2": {
-                "description": "Time interval in seconds.",
-                "type": "integer",
-                "component-command": "ping",
-                "component-command-flag": "-i",
-                "invocation-slice": [8, 9],
-                "invocation-long-flags-slice": [8, 9]
-            },
-            "localhost": {
-                "description": "IPv4 address or fully qualified domain name.",
-                "type": "string",
-                "component-command": "ping",
-                "invocation-slice": [10, 19],
-                "invocation-long-flags-slice": [10, 19]
-            }
-        },
         "relevant-urls": [
             "http://ftp.arl.mil/mike/ping.html"
-        ],
-        "compatible-shells": [
-            "bash",
-            "csh",
-            "dash",
-            "fish",
-            "ksh",
-            "POSIX",
-            "tcsh",
-            "zsh"
         ],
         "side-effects": {
             "filesystem": "no",
@@ -81,7 +106,7 @@
         }
     },
     {
-        "invocation": {
+        "invocations": {
             "string": "kill $(jobs -ps)",
             "bytes": "16",
             "sha1hex": "b130d1235cd093ef0d6dc5217f89e793192abd83"
@@ -91,7 +116,7 @@
             "kill",
             "jobs"
         ],
-        "component-command-types": {
+        "component-command-bash-types": {
             "kill": "builtin",
             "jobs": "builtin"
         },
@@ -114,13 +139,13 @@
         }
     },
     {
-        "invocation": {
+        "invocations": {
             "string": "xset dpms force standby",
             "bytes": "23",
             "sha1hex": "cc1938fb35ff47f16a237a9c6cd68add2aa6f4fd"
         },
         "description": "Turn off the monitor; make the display go dark until the mouse is moved or a key is pressed.",
-        "component-command-types": {
+        "component-command-bash-types": {
             "xset": "file"
         },
         "component-command-debian-packages": {
@@ -152,10 +177,10 @@
         }
     },
     {
-        "invocation": {
+        "invocations": {
             "string": "chsh -s $(which zsh) $USER"
         },
-        "invocation-long-flags": {
+        "invocations-long-flags": {
             "string": "chsh --shell $(which zsh) $USER"
         },
         "description": "Change the default shell of the current user to zsh.",
