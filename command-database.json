@@ -18,6 +18,7 @@
                         "description": "IPv4 address or fully qualified domain name.",
                         "type": "string",
                         "component-command": "ping",
+                        "component-command-flag": null,
                         "invocation-slice": [10, 19]
                     }
                 },
@@ -154,9 +155,25 @@
     },
     {
         "invocations": {
-            "string": "xset dpms force standby",
-            "bytes": "23",
-            "sha1hex": "cc1938fb35ff47f16a237a9c6cd68add2aa6f4fd"
+            "POSIX": {
+                "string": "xset dpms force standby",
+                "bytes": "23",
+                "sha1hex": "cc1938fb35ff47f16a237a9c6cd68add2aa6f4fd",
+                "changeable-arguments": null,
+                "compatible-shells": [
+                    "bash",
+                    "csh",
+                    "dash",
+                    "fish",
+                    "ksh",
+                    "POSIX",
+                    "tcsh",
+                    "zsh"
+                ],
+                "incompatible-shells": [
+                ]
+            }
+
         },
         "description": "Turn off the monitor; make the display go dark until the mouse is moved or a key is pressed.",
         "component-command-bash-types": {
