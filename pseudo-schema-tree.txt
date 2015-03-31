@@ -20,6 +20,7 @@ pseudo-schema/
 │       │       ├── component-command-flag
 │       │       ├── description
 │       │       ├── invocation-slice
+│       │       ├── subtype
 │       │       └── type
 │       ├── compatible-shells
 │       ├── incompatible-shells

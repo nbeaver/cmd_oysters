@@ -1,0 +1,37 @@
+These are some notes on the structure of the command database.
+
+├── description: Textual description of what the command does. Need not be unique.
+├── invocations: The actual command that gets run, indexed by shell. All invocations must have the same component commands.
+│   └── $SHELL: Name of the shell (e.g. bash) or class of shells (e.g. POSIX) that the command works in.
+│       ├── string: Actual string that could be passed to the shell and executed.
+│       ├── bytes: Number of bytes in the string.
+│       ├── sha1hex: The SHA1 cryptographic hash of the command string; useful instead of a primary key for linking to related commands.
+│       ├── changeable-arguments: Adjustable parameters of the command or commands; may be nested.
+│       │   └── $ARG: The actual text of the argument; a subset of $SHELL/string.
+│       │       ├── description: Description of the argument.
+│       │       ├── type: The base type of the argument e.g. integer, float, string, boolean. Useful since e.g. JSON does not distinguish floats and integers.
+│       │       ├── subtype: More refined type, e.g. type is string, subtype is absolute path.
+│       │       ├── component-command: The argument is passed to this command.
+│       │       ├── component-command-flag: The argument is passed via this flag; may be null.
+│       │       └── invocation-slice: Position of the argument in $SHELL/string that can be accessed by slice notation.
+│       ├── compatible-shells: List of shells that the command will run correctly on.
+│       └── incompatible-shells: Disjoint set of compatible-shells. Options are not explicitly enumerated because there are many, many shells.
+├── component-commands: List of the individual commands that make up the composite command.
+├── component-command-bash-types: Associates each command to the output of `type -t $COMMAND` in bash.
+│   └── $COMMAND: Each pair maps to one of "alias", "keyword", "function", "builtin", or "file". Not the same for other shells, e.g. which is a "builtin" in zsh but a "file" in bash.
+├── component-command-debian-packages: The Debian package that installs the relevant command.
+│   └── $COMMAND 
+├── component-command-debian-paths: The full path to the binary
+│   └── $COMMAND: Often in e.g. /bin/ or /usr/bin/.
+├── component-command-requirements: Useful for figuring out why a command doesn't work.
+│   └── $COMMAND: These must be per-command.
+│       ├── internet-connection: Does the command require an active internet connection?
+│       └── sudo: Does the command require root priveleges?
+├── relevant-urls: A list of URLs that discuss the command or an equivalent command with the same component commands.
+└── side-effects: What permanent changes does the command have?
+    ├── filesystem: Does it create, remove, or modify files?
+    └── processes: Does it create, remove, or modify processes besides its own?
+
+TODO: in "component-command-debian-packages", should builtins map to "null" or simply not be included?
+TODO: combine "component-command-*" into "component-command-info/*"
+TODO: add fields for how to kill component commands, e.g. Ctrl-C (SIGTERM), Ctrl-D, SIGQUIT, etc. (e.g. ed, telnet, ssh Enter~., 
