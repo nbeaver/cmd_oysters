@@ -1,0 +1,9 @@
+JSON objects get re-ordered by libraries.
+
+http://flyingtomoon.com/2011/04/20/preserving-order-in-json/
+
+root -l
+Ctrl-D and Ctrl-C don't work, must use exit().
+
+cat
+Ctrl-C, Ctrl-D, Ctrl-\
