@@ -1,7 +1,6 @@
 #! /usr/bin/env python
 import json
 import hashlib
-import sys
 
 with open("command-database.json") as db_file:
     commands = json.load(db_file)
@@ -25,6 +24,9 @@ for command in commands:
             assert nominal_sha1 == calculated_sha1, \
                 "SHA1s do not match:\n%s (in database)\n%s (calculated)\n%r (command representation)" \
                 % (nominal_sha1, calculated_sha1, invocation_dict['string'])
+        else:
+            print "No SHA1 for `" + invocation_dict['string'] + "'"
+            print "Should be:", hashlib.sha1(invocation_dict['string']).hexdigest()
 
         if 'changeable-arguments' in invocation_dict.keys():
             arg_dict = invocation_dict['changeable-arguments']
