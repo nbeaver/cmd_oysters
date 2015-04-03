@@ -12,6 +12,9 @@ pseudo-schema/
 │           └── sudo
 ├── component-commands
 ├── description
+│   ├── bytes
+│   ├── sha1hex
+│   └── string
 ├── invocations
 │   └── $INVOCATION
 │       ├── bytes
@@ -19,7 +22,7 @@ pseudo-schema/
 │       │   └── $ARG
 │       │       ├── component-command
 │       │       ├── component-command-flag
-│       │       ├── description
+│       │       ├── description-string
 │       │       ├── invocation-slice
 │       │       ├── subtype
 │       │       └── type

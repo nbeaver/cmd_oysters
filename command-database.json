@@ -1,6 +1,10 @@
 [
     {
-        "description": "Generates audible voice that says 'ping' every 2 seconds.",
+        "description": {
+            "string": "Generates audible voice that says 'ping' every 2 seconds.",
+            "bytes": "57",
+            "sha1hex": "41c5855ef5ccf55bc45dbc632b18424f9b18eaa2"
+        },
         "invocations": {
             "POSIX" : {
                 "string": "ping -i 2 localhost | sed -u 's/.*/ping/' | espeak",
@@ -8,14 +12,14 @@
                 "sha1hex": "20f8aae762b461782e9adea7e49db01046fb0c3f",
                 "changeable-arguments": {
                     "2": {
-                        "description": "Time interval in seconds.",
+                        "description-string": "Time interval in seconds.",
                         "type": "integer",
                         "component-command": "ping",
                         "component-command-flag": "-i",
                         "invocation-slice": [8, 9]
                     },
                     "localhost": {
-                        "description": "IPv4 address or fully qualified domain name.",
+                        "description-string": "IPv4 address or fully qualified domain name.",
                         "type": "string",
                         "component-command": "ping",
                         "component-command-flag": null,
@@ -41,14 +45,14 @@
                 "sha1hex": "320ba9096161c69d6513e0d906155ff7e346d325",
                 "changeable-arguments": {
                     "2": {
-                        "description": "Time interval in seconds.",
+                        "description-string": "Time interval in seconds.",
                         "type": "integer",
                         "component-command": "ping",
                         "component-command-flag": "-i",
                         "invocation-slice": [8, 9]
                     },
                     "localhost": {
-                        "description": "IPv4 address or fully qualified domain name.",
+                        "description-string": "IPv4 address or fully qualified domain name.",
                         "type": "string",
                         "component-command": "ping",
                         "invocation-slice": [10, 19]
@@ -113,7 +117,11 @@
         }
     },
     {
-        "description": "Kill stopped jobs.",
+        "description": {
+            "string":"Kill stopped jobs.",
+            "bytes": "18",
+            "sha1hex": "d3c97a0498d770f39f9e1b386a8dddfdf6c71701"
+        },
         "invocations": {
             "bash": {
                 "string": "kill $(jobs -ps)",
@@ -185,7 +193,11 @@
             }
 
         },
-        "description": "Turn off the monitor; make the display go dark until the mouse is moved or a key is pressed.",
+        "description": {
+            "string":"Turn off the monitor; make the display go dark until the mouse is moved or a key is pressed.",
+            "bytes": "92",
+            "sha1hex": "92604b8815f9197914b456d78abe543e44b614f0"
+        },
         "component-command-info": {
             "bash-types": {
                 "xset": "file"
@@ -206,23 +218,17 @@
             "http://superuser.com/a/66923/219809",
             "http://magnatecha.com/turn-off-display-from-linux-command-line/"
         ],
-        "compatible-shells": [
-            "bash",
-            "csh",
-            "dash",
-            "fish",
-            "ksh",
-            "POSIX",
-            "tcsh",
-            "zsh"
-        ],
         "side-effects": {
             "filesystem": "no",
              "processes": "no"
         }
     },
     {
-        "description": "Change the default shell of the current user to zsh.",
+        "description": {
+            "string": "Change the default shell of the current user to zsh.",
+            "bytes": "52",
+            "sha1hex": "f3951f67052d0a0ea66062977ab7074c88bf9708"
+        },
         "invocations": {
             "bash": {
                 "string": "chsh -s $(which zsh) $USER",
@@ -230,7 +236,7 @@
                 "sha1hex": "afcf173a92b8a8b580cfbf6616ba1ce2482cf501",
                 "changeable-arguments": {
                     "$(which zsh)": {
-                        "description": "Path to desired shell.",
+                        "description-string": "Path to desired shell.",
                         "type": "string",
                         "subtype": "path",
                         "component-command": "chsh",
@@ -238,13 +244,13 @@
                         "invocation-slice": [8, 20]
                     },
                     "zsh": {
-                        "description": "Name of desired shell.",
+                        "description-string": "Name of desired shell.",
                         "type": "string",
                         "component-command": "which",
                         "invocation-slice": [16, 19]
                     },
                     "$USER": {
-                        "description": "Username. Requires sudo if different than current user.",
+                        "description-string": "Username. Requires sudo if different than current user.",
                         "type": "string",
                         "component-command": "chsh",
                         "invocation-slice": [21, 26]
@@ -268,20 +274,20 @@
                 "sha1hex": "a5e12f16ddb255f9b7a115364803c7f6eeb05534",
                 "changeable-arguments": {
                     "$(which zsh)": {
-                        "description": "Path to desired shell.",
+                        "description-string": "Path to desired shell.",
                         "type": "string",
                         "component-command": "chsh",
                         "component-command-flag": "--shell",
                         "invocation-slice": [13, 25]
                     },
                     "zsh": {
-                        "description": "Name of desired shell.",
+                        "description-string": "Name of desired shell.",
                         "type": "string",
                         "component-command": "which",
                         "invocation-slice": [21, 24]
                     },
                     "$USER": {
-                        "description": "Username. Requires sudo if different than current user.",
+                        "description-string": "Username. Requires sudo if different than current user.",
                         "type": "string",
                         "component-command": "chsh",
                         "invocation-slice": [26, 31]

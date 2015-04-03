@@ -17,10 +17,10 @@ def generic_child(child_list):
 def check_pseudoschema(parent, directory, trace_path=""):
     try:
         children = parent.keys()
-        known_children = os.listdir(directory)
     except AttributeError:
         return
 
+    known_children = os.listdir(directory)
     for child in children:
 
         new_parent = parent[child]
@@ -34,7 +34,7 @@ def check_pseudoschema(parent, directory, trace_path=""):
             check_pseudoschema(new_parent, new_path, trace_path+":"+child)
         else:
             # TODO: should this halt the script or not?
-            print "Error: `"+trace_path+":"+child+"' not in",str(known_children),"in",directory
+            print "Error: `"+trace_path+":"+child+"' not in",directory
             # TODO: Can this trace back to the line of the original JSON file?
             return False
 
