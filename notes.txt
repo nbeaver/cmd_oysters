@@ -17,21 +17,22 @@ These are some notes on the structure of the command database.
 │       ├── compatible-shells: List of shells that the command will run correctly on.
 │       └── incompatible-shells: Disjoint set of compatible-shells. Options are not explicitly enumerated because there are many, many shells.
 ├── component-commands: List of the individual commands that make up the composite command.
-├── component-command-bash-types: Associates each command to the output of `type -t $COMMAND` in bash.
-│   └── $COMMAND: Each pair maps to one of "alias", "keyword", "function", "builtin", or "file". Not the same for other shells, e.g. which is a "builtin" in zsh but a "file" in bash.
-├── component-command-debian-packages: The Debian package that installs the relevant command.
-│   └── $COMMAND 
-├── component-command-debian-paths: The full path to the binary
-│   └── $COMMAND: Often in e.g. /bin/ or /usr/bin/.
-├── component-command-requirements: Useful for figuring out why a command doesn't work.
-│   └── $COMMAND: These must be per-command.
-│       ├── internet-connection: Does the command require an active internet connection?
-│       └── sudo: Does the command require root priveleges?
+├── component-command-info: Additional metadata for the component commands.
+│   ├── bash-types: Associates each command to the output of `type -t $COMMAND` in bash.
+│   │   └── $COMMAND: Each pair maps to one of "alias", "keyword", "function", "builtin", or "file". Not the same for other shells, e.g. which is a "builtin" in zsh but a "file" in bash.
+│   ├── debian-packages: the debian package that installs the relevant command.
+│   │   └── $COMMAND
+│   ├── debian-paths: The full path to the binary.
+│   │   └── $COMMAND: Often in e.g. /bin/ or /usr/bin/.
+│   └── requirements: Useful for figuring out why a command doesn't work.
+│       └── $COMMAND: These must be per-command.
+│           ├── internet-connection: Does the command require an active internet connection?
+│           └── sudo: Does the command require root priveleges?
 ├── relevant-urls: A list of URLs that discuss the command or an equivalent command with the same component commands.
 └── side-effects: What permanent changes does the command have?
     ├── filesystem: Does it create, remove, or modify files?
     └── processes: Does it create, remove, or modify processes besides its own?
 
 TODO: in "component-command-debian-packages", should builtins map to "null" or simply not be included?
-TODO: combine "component-command-*" into "component-command-info/*"
+DONE: combine "component-command-*" into "component-command-info/*"
 TODO: add fields for how to kill component commands, e.g. Ctrl-C (SIGTERM), Ctrl-D, SIGQUIT, etc. (e.g. ed, telnet, ssh Enter~., 

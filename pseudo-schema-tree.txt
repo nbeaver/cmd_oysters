@@ -1,14 +1,15 @@
 pseudo-schema/
-├── component-command-bash-types
-│   └── $COMMAND
-├── component-command-debian-packages
-│   └── $COMMAND
-├── component-command-debian-paths
-│   └── $COMMAND
-├── component-command-requirements
-│   └── $COMMAND
-│       ├── internet-connection
-│       └── sudo
+├── component-command-info
+│   ├── bash-types
+│   │   └── $COMMAND
+│   ├── debian-packages
+│   │   └── $COMMAND
+│   ├── debian-paths
+│   │   └── $COMMAND
+│   └── requirements
+│       └── $COMMAND
+│           ├── internet-connection
+│           └── sudo
 ├── component-commands
 ├── description
 ├── invocations

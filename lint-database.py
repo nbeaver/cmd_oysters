@@ -43,3 +43,7 @@ for command in commands:
                     assert arg == get_slice(invocation_dict['string'], arginfo['invocation-slice'])
                     if 'invocation-long-flags' in command.keys():
                         assert arg == get_slice(command['invocation-long-flags']['string'], arginfo['invocation-long-flags-slice'])
+
+# TODO: check all the commands in component commands are substrings of the main command.
+# TODO: check that the commands in component-command-info
+# TODO: check the structure matches the pseudo-schema.

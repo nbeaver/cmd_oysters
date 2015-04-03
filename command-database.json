@@ -73,33 +73,35 @@
             "sed",
             "espeak"
         ],
-        "component-command-bash-types": {
-            "ping": "file",
-            "sed": "file",
-            "espeak": "file"
-        },
-        "component-command-debian-packages": {
-            "ping": "iputils-ping",
-            "sed": "sed",
-            "espeak": "espeak"
-        },
-        "component-command-debian-paths": {
-            "ping": "/bin/ping",
-            "sed": "/bin/sed",
-            "espeak": "/usr/bin/espeak"
-        },
-        "component-command-requirements": {
-            "ping": {
-                "internet-connection": "maybe",
-                "sudo": "no"
+        "component-command-info": {
+            "bash-types": {
+                "ping": "file",
+                "sed": "file",
+                "espeak": "file"
             },
-            "sed": {
-                "internet-connection": "no",
-                "sudo": "no"
+            "debian-packages": {
+                "ping": "iputils-ping",
+                "sed": "sed",
+                "espeak": "espeak"
             },
-            "espeak": {
-                "internet-connection": "no",
-                "sudo": "no"
+            "debian-paths": {
+                "ping": "/bin/ping",
+                "sed": "/bin/sed",
+                "espeak": "/usr/bin/espeak"
+            },
+            "requirements": {
+                "ping": {
+                    "internet-connection": "maybe",
+                    "sudo": "no"
+                },
+                "sed": {
+                    "internet-connection": "no",
+                    "sudo": "no"
+                },
+                "espeak": {
+                    "internet-connection": "no",
+                    "sudo": "no"
+                }
             }
         },
         "relevant-urls": [
@@ -135,13 +137,21 @@
             "kill",
             "jobs"
         ],
-        "component-command-bash-types": {
-            "kill": "builtin",
-            "jobs": "builtin"
-        },
-        "requirements": {
-            "internet-connection": "no",
-            "sudo": "no"
+        "component-command-info": {
+            "bash-types": {
+                "kill": "builtin",
+                "jobs": "builtin"
+            },
+            "requirements": {
+                "kill": {
+                    "internet-connection": "no",
+                    "sudo": "no"
+                },
+                "jobs": {
+                    "internet-connection": "no",
+                    "sudo": "no"
+                }
+            }
         },
         "relevant-urls": [
             "http://serverfault.com/questions/240155/how-can-i-kill-all-stopped-jobs",
@@ -176,15 +186,19 @@
 
         },
         "description": "Turn off the monitor; make the display go dark until the mouse is moved or a key is pressed.",
-        "component-command-bash-types": {
-            "xset": "file"
-        },
-        "component-command-debian-packages": {
-            "xset": "x11-xserver-utils"
-        },
-        "requirements": {
-            "internet-connection": "no",
-            "sudo": "no"
+        "component-command-info": {
+            "bash-types": {
+                "xset": "file"
+            },
+            "debian-packages": {
+                "xset": "x11-xserver-utils"
+            },
+            "requirements": {
+                "xset": {
+                    "internet-connection": "no",
+                    "sudo": "no"
+                }
+            }
         },
         "relevant-urls": [
             "https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling#Modifying_DPMS_and_screensaver_settings_using_xset",
@@ -290,18 +304,20 @@
             "chsh",
             "which"
         ],
-        "component-command-debian-packages": {
-            "chsh": "passwd",
-            "which": "debianutils"
-        },
-        "component-command-requirements": {
-            "chsh": {
-                "internet-connection": "no",
-                "sudo": "maybe"
+        "component-command-info": {
+            "debian-packages": {
+                "chsh": "passwd",
+                "which": "debianutils"
             },
-            "which": {
-                "internet-connection": "no",
-                "sudo": "no"
+            "requirements": {
+                "chsh": {
+                    "internet-connection": "no",
+                    "sudo": "maybe"
+                },
+                "which": {
+                    "internet-connection": "no",
+                    "sudo": "no"
+                }
             }
         },
         "relevant-urls": [
