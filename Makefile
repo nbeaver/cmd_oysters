@@ -10,5 +10,6 @@ test_python_script : find-command.py Makefile
 lint_database : command-database.json lint-database.py Makefile
 	python lint-database.py
 
-pseudo_schema : pseudo-schema Makefile
+pseudo_schema : pseudo-schema check-pseudoschema.py Makefile
 	tree --noreport pseudo-schema/ > pseudo-schema-tree.txt
+	python check-pseudoschema.py

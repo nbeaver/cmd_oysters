@@ -13,7 +13,7 @@ pseudo-schema/
 ├── component-commands
 ├── description
 ├── invocations
-│   └── $SHELL
+│   └── $INVOCATION
 │       ├── bytes
 │       ├── changeable-arguments
 │       │   └── $ARG

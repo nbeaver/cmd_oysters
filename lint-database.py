@@ -46,4 +46,3 @@ for command in commands:
 
 # TODO: check all the commands in component commands are substrings of the main command.
 # TODO: check that the commands in component-command-info
-# TODO: check the structure matches the pseudo-schema.
