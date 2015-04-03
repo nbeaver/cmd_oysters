@@ -1,99 +1,26 @@
 [
     {
-        "description": {
-            "string": "Generates audible voice that says 'ping' every 2 seconds.",
-            "bytes": "57",
-            "sha1hex": "41c5855ef5ccf55bc45dbc632b18424f9b18eaa2"
-        },
-        "invocations": {
-            "POSIX" : {
-                "string": "ping -i 2 localhost | sed -u 's/.*/ping/' | espeak",
-                "bytes": "50",
-                "sha1hex": "20f8aae762b461782e9adea7e49db01046fb0c3f",
-                "changeable-arguments": {
-                    "2": {
-                        "description-string": "Time interval in seconds.",
-                        "type": "integer",
-                        "component-command": "ping",
-                        "component-command-flag": "-i",
-                        "invocation-slice": [8, 9]
-                    },
-                    "localhost": {
-                        "description-string": "IPv4 address or fully qualified domain name.",
-                        "type": "string",
-                        "component-command": "ping",
-                        "component-command-flag": null,
-                        "invocation-slice": [10, 19]
-                    }
-                },
-                "compatible-shells": [
-                    "bash",
-                    "csh",
-                    "dash",
-                    "fish",
-                    "ksh",
-                    "POSIX",
-                    "tcsh",
-                    "zsh"
-                ],
-                "incompatible-shells": [
-                ]
-            },
-            "POSIX-long-flags" : {
-                "string": "ping -i 2 localhost | sed --unbuffered 's/.*/ping/' | espeak",
-                "bytes": "60",
-                "sha1hex": "320ba9096161c69d6513e0d906155ff7e346d325",
-                "changeable-arguments": {
-                    "2": {
-                        "description-string": "Time interval in seconds.",
-                        "type": "integer",
-                        "component-command": "ping",
-                        "component-command-flag": "-i",
-                        "invocation-slice": [8, 9]
-                    },
-                    "localhost": {
-                        "description-string": "IPv4 address or fully qualified domain name.",
-                        "type": "string",
-                        "component-command": "ping",
-                        "invocation-slice": [10, 19]
-                    }
-                },
-                "compatible-shells": [
-                    "bash",
-                    "csh",
-                    "dash",
-                    "fish",
-                    "ksh",
-                    "POSIX",
-                    "tcsh",
-                    "zsh"
-                ],
-                "incompatible-shells": [
-                ]
-            }
-        },
-        "component-commands": [
-            "ping",
-            "sed",
-            "espeak"
-        ],
         "component-command-info": {
             "bash-types": {
+                "espeak": "file",
                 "ping": "file",
-                "sed": "file",
-                "espeak": "file"
+                "sed": "file"
             },
             "debian-packages": {
+                "espeak": "espeak",
                 "ping": "iputils-ping",
-                "sed": "sed",
-                "espeak": "espeak"
+                "sed": "sed"
             },
             "debian-paths": {
+                "espeak": "/usr/bin/espeak",
                 "ping": "/bin/ping",
-                "sed": "/bin/sed",
-                "espeak": "/usr/bin/espeak"
+                "sed": "/bin/sed"
             },
             "requirements": {
+                "espeak": {
+                    "internet-connection": "no",
+                    "sudo": "no"
+                },
                 "ping": {
                     "internet-connection": "maybe",
                     "sudo": "no"
@@ -101,11 +28,84 @@
                 "sed": {
                     "internet-connection": "no",
                     "sudo": "no"
-                },
-                "espeak": {
-                    "internet-connection": "no",
-                    "sudo": "no"
                 }
+            }
+        },
+        "component-commands": [
+            "espeak",
+            "ping",
+            "sed"
+        ],
+        "description": {
+            "bytes": "57",
+            "sha1hex": "41c5855ef5ccf55bc45dbc632b18424f9b18eaa2",
+            "string": "Generates audible voice that says 'ping' every 2 seconds."
+        },
+        "invocations": {
+            "POSIX" : {
+                "bytes": "50",
+                "changeable-arguments": {
+                    "2": {
+                        "component-command": "ping",
+                        "component-command-flag": "-i",
+                        "description-string": "Time interval in seconds.",
+                        "invocation-slice": [8, 9],
+                        "type": "integer"
+                    },
+                    "localhost": {
+                        "component-command": "ping",
+                        "component-command-flag": null,
+                        "description-string": "IPv4 address or fully qualified domain name.",
+                        "invocation-slice": [10, 19],
+                        "type": "string"
+                    }
+                },
+                "compatible-shells": [
+                    "bash",
+                    "csh",
+                    "dash",
+                    "fish",
+                    "ksh",
+                    "POSIX",
+                    "tcsh",
+                    "zsh"
+                ],
+                "incompatible-shells": [
+                ],
+                "sha1hex": "20f8aae762b461782e9adea7e49db01046fb0c3f",
+                "string": "ping -i 2 localhost | sed -u 's/.*/ping/' | espeak"
+            },
+            "POSIX-long-flags" : {
+                "bytes": "60",
+                "changeable-arguments": {
+                    "2": {
+                        "component-command": "ping",
+                        "component-command-flag": "-i",
+                        "description-string": "Time interval in seconds.",
+                        "invocation-slice": [8, 9],
+                        "type": "integer"
+                    },
+                    "localhost": {
+                        "component-command": "ping",
+                        "description-string": "IPv4 address or fully qualified domain name.",
+                        "invocation-slice": [10, 19],
+                        "type": "string"
+                    }
+                },
+                "compatible-shells": [
+                    "bash",
+                    "csh",
+                    "dash",
+                    "fish",
+                    "ksh",
+                    "POSIX",
+                    "tcsh",
+                    "zsh"
+                ],
+                "incompatible-shells": [
+                ],
+                "sha1hex": "320ba9096161c69d6513e0d906155ff7e346d325",
+                "string": "ping -i 2 localhost | sed --unbuffered 's/.*/ping/' | espeak"
             }
         },
         "relevant-urls": [
@@ -117,16 +117,34 @@
         }
     },
     {
+        "component-command-info": {
+            "bash-types": {
+                "jobs": "builtin",
+                "kill": "builtin"
+            },
+            "requirements": {
+                "jobs": {
+                    "internet-connection": "no",
+                    "sudo": "no"
+                },
+                "kill": {
+                    "internet-connection": "no",
+                    "sudo": "no"
+                }
+            }
+        },
+        "component-commands": [
+            "jobs",
+            "kill"
+        ],
         "description": {
-            "string":"Kill stopped jobs.",
             "bytes": "18",
-            "sha1hex": "d3c97a0498d770f39f9e1b386a8dddfdf6c71701"
+            "sha1hex": "d3c97a0498d770f39f9e1b386a8dddfdf6c71701",
+            "string":"Kill stopped jobs."
         },
         "invocations": {
             "bash": {
-                "string": "kill $(jobs -ps)",
                 "bytes": "16",
-                "sha1hex": "b130d1235cd093ef0d6dc5217f89e793192abd83",
                 "changeable-arguments": {},
                 "compatible-shells": [
                     "bash"
@@ -138,33 +156,15 @@
                     "ksh",
                     "tcsh",
                     "zsh"
-                ]
-            }
-        },
-        "component-commands": [
-            "kill",
-            "jobs"
-        ],
-        "component-command-info": {
-            "bash-types": {
-                "kill": "builtin",
-                "jobs": "builtin"
-            },
-            "requirements": {
-                "kill": {
-                    "internet-connection": "no",
-                    "sudo": "no"
-                },
-                "jobs": {
-                    "internet-connection": "no",
-                    "sudo": "no"
-                }
+                ],
+                "sha1hex": "b130d1235cd093ef0d6dc5217f89e793192abd83",
+                "string": "kill $(jobs -ps)"
             }
         },
         "relevant-urls": [
             "http://serverfault.com/questions/240155/how-can-i-kill-all-stopped-jobs",
-            "http://ubuntuforums.org/showthread.php?t=1954090&s=c408c62db23afe753dfcfd40f1a86e32&p=11825162#post11825162",
-            "http://superuser.com/a/228926/219809"
+            "http://superuser.com/a/228926/219809",
+            "http://ubuntuforums.org/showthread.php?t=1954090&s=c408c62db23afe753dfcfd40f1a86e32&p=11825162#post11825162"
         ],
         "side-effects": {
             "filesystem": "no",
@@ -172,32 +172,6 @@
         }
     },
     {
-        "invocations": {
-            "POSIX": {
-                "string": "xset dpms force standby",
-                "bytes": "23",
-                "sha1hex": "cc1938fb35ff47f16a237a9c6cd68add2aa6f4fd",
-                "changeable-arguments": null,
-                "compatible-shells": [
-                    "bash",
-                    "csh",
-                    "dash",
-                    "fish",
-                    "ksh",
-                    "POSIX",
-                    "tcsh",
-                    "zsh"
-                ],
-                "incompatible-shells": [
-                ]
-            }
-
-        },
-        "description": {
-            "string":"Turn off the monitor; make the display go dark until the mouse is moved or a key is pressed.",
-            "bytes": "92",
-            "sha1hex": "92604b8815f9197914b456d78abe543e44b614f0"
-        },
         "component-command-info": {
             "bash-types": {
                 "xset": "file"
@@ -212,11 +186,40 @@
                 }
             }
         },
+        "component-commands": [
+            "xset"
+        ],
+        "description": {
+            "bytes": "92",
+            "sha1hex": "92604b8815f9197914b456d78abe543e44b614f0",
+            "string":"Turn off the monitor; make the display go dark until the mouse is moved or a key is pressed."
+        },
+        "invocations": {
+            "POSIX": {
+                "bytes": "23",
+                "changeable-arguments": null,
+                "compatible-shells": [
+                    "bash",
+                    "csh",
+                    "dash",
+                    "fish",
+                    "ksh",
+                    "POSIX",
+                    "tcsh",
+                    "zsh"
+                ],
+                "incompatible-shells": [
+                ],
+                "sha1hex": "cc1938fb35ff47f16a237a9c6cd68add2aa6f4fd",
+                "string": "xset dpms force standby"
+            }
+
+        },
         "relevant-urls": [
-            "https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling#Modifying_DPMS_and_screensaver_settings_using_xset",
-            "http://tldp.org/HOWTO/Battery-Powered/methods.html#XF86",
+            "http://magnatecha.com/turn-off-display-from-linux-command-line/",
             "http://superuser.com/a/66923/219809",
-            "http://magnatecha.com/turn-off-display-from-linux-command-line/"
+            "http://tldp.org/HOWTO/Battery-Powered/methods.html#XF86",
+            "https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling#Modifying_DPMS_and_screensaver_settings_using_xset"
         ],
         "side-effects": {
             "filesystem": "no",
@@ -224,92 +227,6 @@
         }
     },
     {
-        "description": {
-            "string": "Change the default shell of the current user to zsh.",
-            "bytes": "52",
-            "sha1hex": "f3951f67052d0a0ea66062977ab7074c88bf9708"
-        },
-        "invocations": {
-            "bash": {
-                "string": "chsh -s $(which zsh) $USER",
-                "bytes": "26",
-                "sha1hex": "afcf173a92b8a8b580cfbf6616ba1ce2482cf501",
-                "changeable-arguments": {
-                    "$(which zsh)": {
-                        "description-string": "Path to desired shell.",
-                        "type": "string",
-                        "subtype": "path",
-                        "component-command": "chsh",
-                        "component-command-flag": "-s",
-                        "invocation-slice": [8, 20]
-                    },
-                    "zsh": {
-                        "description-string": "Name of desired shell.",
-                        "type": "string",
-                        "component-command": "which",
-                        "invocation-slice": [16, 19]
-                    },
-                    "$USER": {
-                        "description-string": "Username. Requires sudo if different than current user.",
-                        "type": "string",
-                        "component-command": "chsh",
-                        "invocation-slice": [21, 26]
-                    }
-                },
-                "compatible-shells": [
-                    "bash",
-                    "dash",
-                    "ksh",
-                    "zsh"
-                ],
-                "incompatible-shells": [
-                    "csh",
-                    "fish",
-                    "tcsh"
-                ]
-            },
-            "bash-long-flags": {
-                "string": "chsh --shell $(which zsh) $USER",
-                "bytes": "31",
-                "sha1hex": "a5e12f16ddb255f9b7a115364803c7f6eeb05534",
-                "changeable-arguments": {
-                    "$(which zsh)": {
-                        "description-string": "Path to desired shell.",
-                        "type": "string",
-                        "component-command": "chsh",
-                        "component-command-flag": "--shell",
-                        "invocation-slice": [13, 25]
-                    },
-                    "zsh": {
-                        "description-string": "Name of desired shell.",
-                        "type": "string",
-                        "component-command": "which",
-                        "invocation-slice": [21, 24]
-                    },
-                    "$USER": {
-                        "description-string": "Username. Requires sudo if different than current user.",
-                        "type": "string",
-                        "component-command": "chsh",
-                        "invocation-slice": [26, 31]
-                    }
-                },
-                "compatible-shells": [
-                    "bash",
-                    "dash",
-                    "ksh",
-                    "zsh"
-                ],
-                "incompatible-shells": [
-                    "csh",
-                    "fish",
-                    "tcsh"
-                ]
-            }
-        },
-        "component-commands": [
-            "chsh",
-            "which"
-        ],
         "component-command-info": {
             "debian-packages": {
                 "chsh": "passwd",
@@ -324,6 +241,92 @@
                     "internet-connection": "no",
                     "sudo": "no"
                 }
+            }
+        },
+        "component-commands": [
+            "chsh",
+            "which"
+        ],
+        "description": {
+            "bytes": "52",
+            "sha1hex": "f3951f67052d0a0ea66062977ab7074c88bf9708",
+            "string": "Change the default shell of the current user to zsh."
+        },
+        "invocations": {
+            "bash": {
+                "bytes": "26",
+                "changeable-arguments": {
+                    "$(which zsh)": {
+                        "component-command": "chsh",
+                        "component-command-flag": "-s",
+                        "description-string": "Path to desired shell.",
+                        "invocation-slice": [8, 20],
+                        "subtype": "path",
+                        "type": "string"
+                    },
+                    "$USER": {
+                        "component-command": "chsh",
+                        "description-string": "Username. Requires sudo if different than current user.",
+                        "invocation-slice": [21, 26],
+                        "type": "string"
+                    },
+                    "zsh": {
+                        "component-command": "which",
+                        "description-string": "Name of desired shell.",
+                        "invocation-slice": [16, 19],
+                        "type": "string"
+                    }
+                },
+                "compatible-shells": [
+                    "bash",
+                    "dash",
+                    "ksh",
+                    "zsh"
+                ],
+                "incompatible-shells": [
+                    "csh",
+                    "fish",
+                    "tcsh"
+                ],
+                "sha1hex": "afcf173a92b8a8b580cfbf6616ba1ce2482cf501",
+                "string": "chsh -s $(which zsh) $USER"
+            },
+            "bash-long-flags": {
+                "bytes": "31",
+                "changeable-arguments": {
+                    "$(which zsh)": {
+                        "component-command": "chsh",
+                        "component-command-flag": "--shell",
+                        "description-string": "Path to desired shell.",
+                        "invocation-slice": [13, 25],
+                        "type": "string"
+                    },
+                    "$USER": {
+                        "component-command": "chsh",
+                        "description-string": "Username. Requires sudo if different than current user.",
+                        "invocation-slice": [26, 31],
+                        "type": "string"
+                    },
+                    "zsh": {
+                        "component-command": "which",
+                        "description-string": "Name of desired shell.",
+                        "invocation-slice": [21, 24],
+                        "type": "string"
+                    }
+                },
+                "compatible-shells": [
+                    "bash",
+                    "dash",
+                    "ksh",
+                    "zsh"
+                ],
+                "incompatible-shells": [
+                    "csh",
+                    "fish",
+                    "tcsh"
+                ],
+                "sha1hex": "a5e12f16ddb255f9b7a115364803c7f6eeb05534",
+                "string": "chsh --shell $(which zsh) $USER"
             }
         },
         "relevant-urls": [
