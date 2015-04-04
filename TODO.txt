@@ -1,9 +1,8 @@
-JSON objects get re-ordered by libraries.
+Tailor invocation according to host OS,
+or at least add a shell options or config file for preferred shell.
 
-http://flyingtomoon.com/2011/04/20/preserving-order-in-json/
+Add information about how to exit an interactive command, e.g.:
 
-root -l
-Ctrl-D and Ctrl-C don't work, must use exit().
-
-cat
-Ctrl-C, Ctrl-D, Ctrl-\
+-- root -l:  Ctrl-D and Ctrl-C don't work, must use exit().
+-- cat: Ctrl-C, Ctrl-D, Ctrl-\
+-- ssh: Have to use <Enter>~. when a connection hangs.
