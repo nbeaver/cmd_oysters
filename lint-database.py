@@ -1,8 +1,13 @@
 #! /usr/bin/env python
 import json
 import hashlib
+import sys
 
-with open("command-database.json") as db_file:
+if len(sys.argv) == 1:
+    print "Usage: python lint-database.py database.json"
+    sys.exit(1)
+
+with open(sys.argv[1]) as db_file:
     commands = json.load(db_file)
 
 def check_sha1(string, nominal_sha1):
@@ -12,8 +17,8 @@ def check_sha1(string, nominal_sha1):
         % (nominal_sha1, calculated_sha1, string)
 
 def prompt_sha1(string):
-    print "No SHA1 for `" + string + "'"
-    print "Should be:", hashlib.sha1(string).hexdigest()
+    sys.stderr("No SHA1 for `" + string + "'")
+    sys.stderr("Should be: "+hashlib.sha1(string).hexdigest())
 
 def check_len(string, nominal_len):
     calculated_len = len(invocation_dict['string'])

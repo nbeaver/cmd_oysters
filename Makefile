@@ -8,11 +8,11 @@ test_python_script : find-command.py Makefile
 	python find-command.py "ping"
 
 lint_database : command-database.json lint-database.py Makefile
-	python lint-database.py
+	python lint-database.py command-database.json
 
 sort_database : command-database.json sort-json.py Makefile
 	python sort-json.py
 
 pseudo_schema : pseudo-schema check-pseudoschema.py Makefile
 	tree --noreport pseudo-schema/ > pseudo-schema-tree.txt
-	python check-pseudoschema.py
+	python check-pseudoschema.py command-database.json

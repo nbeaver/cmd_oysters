@@ -1,8 +1,13 @@
 #! /usr/bin/env python
 import json
 import os
+import sys
 
-with open("command-database.json") as db_file:
+if len(sys.argv) == 1:
+    print "Usage: python check-pseudoschema.py database.json"
+    sys.exit(1)
+
+with open(sys.argv[1]) as db_file:
     commands = json.load(db_file)
 
 def generic_child(child_list):
@@ -34,9 +39,8 @@ def check_pseudoschema(parent, directory, trace_path=""):
             check_pseudoschema(new_parent, new_path, trace_path+":"+child)
         else:
             # TODO: should this halt the script or not?
-            print "Error: `"+trace_path+":"+child+"' not in",directory
+            raise ValueError, "Input does not match pseudoschema: `"+trace_path+":"+child+"' not in", directory
             # TODO: Can this trace back to the line of the original JSON file?
-            return False
 
 for command in commands:
     check_pseudoschema(command, "./pseudo-schema")
