@@ -33,6 +33,15 @@ def get_slice(string_to_slice, slice_index_list):
     i2 = int(slice_index_list[1])
     return str(string_to_slice)[i1:i2]
 
+def pretty_print_slice(string_to_slice, slice_index_list):
+    assert len(slice_index_list) == 2
+    i1 = int(slice_index_list[0])
+    i2 = int(slice_index_list[1])
+    assert i2 > i1
+    print " "*i1 + str(string_to_slice)[i1:i2]
+    print string_to_slice
+    print ' '*i1 + '^' + ' '*(i2-i1-2) + '^'
+
 for command in commands:
     assert 'description' in command.keys(), "Error: no description."
     assert 'string' in command['description'].keys(), "Error: no description string."
@@ -61,9 +70,12 @@ for command in commands:
             if arg_dict:
                 for arg, arginfo in arg_dict.iteritems():
                     # Check that the argument actually matches the sliced command.
-                    assert arg == get_slice(invocation_dict['string'], arginfo['invocation-slice'])
-                    if 'invocation-long-flags' in command.keys():
-                        assert arg == get_slice(command['invocation-long-flags']['string'], arginfo['invocation-long-flags-slice'])
+                    arg_slice = get_slice(invocation_dict['string'], arginfo['invocation-slice'])
+                    try:
+                        assert arg == arg_slice, "arg is:\n'"+arg+"'\nbut slice is:\n'"+arg_slice+"'"
+                    except AssertionError:
+                        pretty_print_slice(invocation_dict['string'], arginfo['invocation-slice'])
+                        raise
 
 # TODO: check all the commands in component commands are substrings of the main command.
 # TODO: check that the commands in component-command-info
