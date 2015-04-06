@@ -113,7 +113,7 @@
         ],
         "side-effects": {
             "filesystem": "no",
-             "processes": "no"
+            "processes": "no"
         }
     },
     {
@@ -168,7 +168,7 @@
         ],
         "side-effects": {
             "filesystem": "no",
-             "processes": "yes"
+            "processes": "yes"
         }
     },
     {
@@ -223,7 +223,7 @@
         ],
         "side-effects": {
             "filesystem": "no",
-             "processes": "no"
+            "processes": "no"
         }
     },
     {
@@ -332,5 +332,93 @@
         "relevant-urls": [
             "https://wiki.archlinux.org/index.php/Zsh#Making_Zsh_your_default_shell"
         ]
+    },
+    {
+        "component-command-info": {
+            "bash-types": {
+                "grep" : "file",
+                "less" : "file"
+            },
+            "debian-packages": {
+                "grep" : "grep",
+                "less" : "less"
+            },
+            "debian-paths": {
+                "grep" : "/bin/grep",
+                "less" : "/usr/bin/less"
+            },
+            "requirements": {
+                "grep": {
+                    "internet-connection": "no",
+                    "sudo": "maybe"
+                },
+                "less": {
+                    "internet-connection": "no",
+                    "sudo": "no"
+                }
+            }
+        },
+        "component-commands": [
+            "grep",
+            "less"
+        ],
+        "description": {
+            "bytes": "1",
+            "sha1hex": "118f2d8f8666f09b5d9c9db536d645be5f923f6c",
+            "string": "Highlight non-ASCII characters (e.g. Unicode) in a text file and give the line number they are on."
+        },
+        "invocations": {
+            "POSIX" : {
+                "bytes": "59",
+                "changeable-arguments": {
+                    "myfile.txt": {
+                        "component-command": "grep",
+                        "description-string": "File or file path of text file.",
+                        "invocation-slice": [39, 49],
+                        "subtype": "path",
+                        "type": "string"
+                    }
+                },
+                "compatible-shells": [
+                    "bash",
+                    "TODO"
+                ],
+                "incompatible-shells": [
+                    "TODO"
+                ],
+                "sha1hex": "8f78d31acfe82ec49214053d40ad2c338a9b51aa",
+                "string": "grep -nP '[^[:ascii:]]' --color=always myfile.txt | less -R"
+            },
+            "POSIX-long-flags" : {
+                "bytes": "100",
+                "changeable-arguments": {
+                    "myfile.txt": {
+                        "component-command": "grep",
+                        "description-string": "File or file path of text file.",
+                        "invocation-slice": [63, 73],
+                        "subtype": "path",
+                        "type": "string"
+                    }
+                },
+                "compatible-shells": [
+                    "bash",
+                    "TODO"
+                ],
+                "incompatible-shells": [
+                ],
+                "sha1hex": "c2fe383b7f8e87e5baa638b3f4f074ad2f057614",
+                "string": "grep --line-number --perl-regexp '[^[:ascii:]]' --color=always myfile.txt | less --RAW-CONTROL-CHARS"
+            }
+        },
+        "relevant-urls": [
+            "http://lists.gnu.org/archive/html/bug-gnu-utils/2006-03/msg00000.html",
+            "https://groups.google.com/forum/#!topic/comp.unix.programmer/Auge3Bz4iCA",
+            "https://stackoverflow.com/questions/3001177/how-do-i-grep-for-all-non-ascii-characters-in-unix",
+            "http://superuser.com/questions/417305/how-can-i-identify-non-ascii-characters-from-the-shell"
+        ],
+        "side-effects": {
+            "filesystem": "no",
+            "processes": "no"
+        }
     }
 ]
