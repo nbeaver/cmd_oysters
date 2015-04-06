@@ -5,7 +5,9 @@ validate_json : command-database.json Makefile
 	json_verify < command-database.json
 
 test_python_script : find-command.py Makefile
-	python find-command.py -s "ping"
+	python find-command.py --substring 'ping -i'
+	python find-command.py --commands ping espeak sed
+	python find-command.py --token '|' sed localhost ping
 
 lint_database : command-database.json lint-database.py Makefile
 	python lint-database.py command-database.json

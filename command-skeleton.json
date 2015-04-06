@@ -9,8 +9,8 @@
             },
             "requirements": {
                 "command-name": {
-                    "internet-connection": "no",
-                    "sudo": "no"
+                    "internet-connection": "",
+                    "sudo": ""
                 }
             }
         },
@@ -22,10 +22,10 @@
             "string": ""
         },
         "invocations": {
-            "POSIX" : {
+            "<replace with name of invocation>" : {
                 "bytes": "",
                 "changeable-arguments": {
-                    "arg1": {
+                    "<replace with name of argument>": {
                         "component-command": "",
                         "component-command-flag": "",
                         "description-string": "",
@@ -38,7 +38,7 @@
                 "incompatible-shells": [
                 ],
                 "sha1hex": "",
-                "string": "command"
+                "string": ""
             }
         },
         "relevant-urls": [
