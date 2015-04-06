@@ -14,12 +14,11 @@ with open(args.database) as db_file:
     commands = json.load(db_file)
 
 # TODO: take --commands argument and search in component commands.
-
-print args
+# TODO: take multiple arguments to --substring so it's effectively a regex search for 'arg1.*arg2.*arg3'
 
 for command in commands:
     invocations = command['invocations'].keys()
-    for shell in invocations:
-        command_string = command['invocations'][shell]['string']
+    for invocation in invocations:
+        command_string = command['invocations'][invocation]['string']
         if args.substring in command_string:
             print command_string
