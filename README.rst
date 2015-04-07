@@ -14,7 +14,12 @@ Quickstart
 ----------
 Motivation
 ----------
-.. Talk about motivation (restarting daemons, changing permissions, shell incompatibility).
+
+.. Ever tried to debug your laptop without an internet connection and not had the commands?
+
+.. Ever stored a useful command for later in a text file and been unable to find it later?
+
+.. restarting daemons, changing permissions, shell incompatibility
 
 .. Security of shell commands, looking online ones.
 
