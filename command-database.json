@@ -420,5 +420,70 @@
             "filesystem": "no",
             "processes": "no"
         }
+    },
+    {
+        "component-command-info": {
+            "bash-types": {
+                "awk": "file",
+                "grep": "file",
+                "lscpu": "file"
+            },
+            "debian-packages": {
+                "awk": "gawk",
+                "grep": "grep",
+                "lscpu": "util-linux"
+            },
+            "debian-paths": {
+                "awk": "/usr/bin/awk",
+                "grep": "/bin/grep",
+                "lscpu": "/usr/bin/lscpu"
+            },
+            "requirements": {
+                "awk": {
+                    "internet-connection": "no",
+                    "sudo": "no"
+                },
+                "grep": {
+                    "internet-connection": "no",
+                    "sudo": "no"
+                },
+                "lscpu": {
+                    "internet-connection": "no",
+                    "sudo": "no"
+                }
+            }
+        },
+        "component-commands": [
+            "awk",
+            "grep",
+            "lscpu"
+        ],
+        "description": {
+            "bytes": "0",
+            "sha1hex": "9f2fdee93e84817e73dcbe46d01e28af001fbe1e",
+            "string": "Display name of hardware's CPU architecture, e.g. x86_64 for 64-bit Intel processors and i686 for 32-bit Intel processors."
+        },
+        "invocations": {
+            "Linux" : {
+                "bytes": "48",
+                "compatible-shells": [
+                    "bash",
+                    "TODO"
+                ],
+                "incompatible-shells": [
+                    "TODO"
+                ],
+                "sha1hex": "8c7c73684c9524cfb00d5eed10b428164d48b7c9",
+                "string": "lscpu | grep '^Architecture:' | awk '{print $2}'"
+            }
+        },
+        "relevant-urls": [
+            "http://stackoverflow.com/a/22100700",
+            "http://www.cyberciti.biz/faq/lscpu-command-find-out-cpu-architecture-information/"
+        ],
+        "side-effects": {
+            "filesystem": "no",
+            "processes": "no"
+        }
     }
 ]
