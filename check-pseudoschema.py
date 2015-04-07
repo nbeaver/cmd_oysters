@@ -39,8 +39,8 @@ def check_pseudoschema(parent, directory, trace_path=""):
             check_pseudoschema(new_parent, new_path, trace_path+":"+child)
         else:
             # TODO: should this halt the script or not?
-            raise ValueError, "Input does not match pseudoschema: `"+trace_path+":"+child+"' not in", directory
+            raise ValueError, "Input does not match pseudoschema: `"+trace_path+":"+child+"' not in "+directory
             # TODO: Can this trace back to the line of the original JSON file?
 
 for command in commands:
-    check_pseudoschema(command, "./pseudo-schema")
+    check_pseudoschema(command, "pseudo-schema/")
