@@ -8,7 +8,7 @@
             "debian-paths": {
             },
             "requirements": {
-                "command-name": {
+                "<replace with name of command>": {
                     "internet-connection": "",
                     "sudo": ""
                 }
@@ -44,6 +44,8 @@
         "relevant-urls": [
         ],
         "side-effects": {
+            "filesystem": "",
+            "processes": ""
         }
     }
 ]
