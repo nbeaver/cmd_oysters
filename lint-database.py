@@ -16,15 +16,19 @@ def check_sha1(string, nominal_sha1):
         "SHA1s do not match:\n%s (in database)\n%s (calculated)\n%r (command representation)" \
         % (nominal_sha1, calculated_sha1, string)
 
+def check_bytes(string, nominal_bytes):
+    calculated_bytes = len(string)
+    assert nominal_bytes == calculated_bytes, \
+        "String lengths do not match: %d != %d\n%s" \
+        % (nominal_bytes, calculated_bytes, string)
+
 def prompt_sha1(string):
     sys.stderr("No SHA1 for `" + string + "'")
     sys.stderr("Should be: "+hashlib.sha1(string).hexdigest())
 
-def check_len(string, nominal_len):
-    calculated_len = len(invocation_dict['string'])
-    assert nominal_len == calculated_len, \
-        "String lengths do not match: %d != %d\n%s" \
-        % (nominal_len, calculated_len, string)
+def prompt_bytes(string):
+    sys.stderr("No bytes for `" + string + "'")
+    sys.stderr("Should be: "+len(string))
 
 def get_slice(string_to_slice, slice_index_list):
     # We're slicing a string, so the list should only have the start and stop of the slice.
@@ -47,6 +51,12 @@ for command in commands:
     assert 'string' in command['description'].keys(), "Error: no description string."
 
     try:
+        check_bytes(command['description']['string'],
+                   int(command['description']['bytes']))
+    except KeyError:
+        prompt_bytes(command['description']['string'])
+
+    try:
         check_sha1(command['description']['string'],
                    command['description']['sha1hex'])
     except KeyError:
@@ -58,7 +68,7 @@ for command in commands:
         invocation_dict = command['invocations'][shell]
 
         if 'bytes' in invocation_dict.keys():
-            check_len(invocation_dict['string'], int(invocation_dict['bytes']))
+            check_bytes(invocation_dict['string'], int(invocation_dict['bytes']))
 
         try:
             check_sha1(invocation_dict['string'], invocation_dict['sha1hex'])
