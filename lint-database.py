@@ -79,3 +79,5 @@ for command in commands:
 
 # TODO: check all the commands in component commands are substrings of the main command.
 # TODO: check that the commands in component-command-info
+# TODO: check that bash-type is one of `keyword', `builtin', or `file'.
+# TODO: check debian-path is correct using `which`.
