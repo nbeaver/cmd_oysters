@@ -466,13 +466,6 @@
         "invocations": {
             "Linux" : {
                 "bytes": "48",
-                "compatible-shells": [
-                    "bash",
-                    "TODO"
-                ],
-                "incompatible-shells": [
-                    "TODO"
-                ],
                 "sha1hex": "8c7c73684c9524cfb00d5eed10b428164d48b7c9",
                 "string": "lscpu | grep '^Architecture:' | awk '{print $2}'"
             }
@@ -480,6 +473,98 @@
         "relevant-urls": [
             "http://stackoverflow.com/a/22100700",
             "http://www.cyberciti.biz/faq/lscpu-command-find-out-cpu-architecture-information/"
+        ],
+        "side-effects": {
+            "filesystem": "no",
+            "processes": "no"
+        }
+    },
+    {
+        "component-command-info": {
+            "bash-types": {
+                "uname": "file"
+            },
+            "debian-packages": {
+                "uname": "coreutils"
+            },
+            "debian-paths": {
+                "uname": "/bin/uname"
+            },
+            "requirements": {
+                "uname": {
+                    "internet-connection": "no",
+                    "sudo": "no"
+                }
+            }
+        },
+        "component-commands": [
+            "uname"
+        ],
+        "description": {
+            "bytes": "1",
+            "sha1hex": "c061264c95aede5a5e512500e5069e2c5f3a71f5",
+            "string": "Determine which architecture the Linux kernel is configured for; may not be the same as the actual CPU architecture. For example, an Intel i686 kernel can run on an Intel x86_64 processor, but its RAM will be limited unless the kernel has PAE is enabled."
+        },
+        "invocations": {
+            "Linux" : {
+                "bytes": "8",
+                "sha1hex": "c7a75171158ee220514b48bf7b7065fccaa6b37b",
+                "string": "uname -m"
+            },
+            "Linux (long flags)" : {
+                "bytes": "15",
+                "sha1hex": "0f86bfd2af49de656a8a318ea310727e6052525a",
+                "string": "uname --machine"
+            }
+        },
+        "relevant-urls": [
+            "http://www.cyberciti.biz/faq/linux-how-to-find-if-processor-is-64-bit-or-not/",
+            "http://stackoverflow.com/questions/2565282/difference-between-machine-hardware-and-hardware-platform",
+            "https://www.ibm.com/developerworks/community/blogs/58e72888-6340-46ac-b488-d31aa4058e9c/entry/know_about_your_linux_system_using_uname_command77?lang=en"
+        ],
+        "side-effects": {
+            "filesystem": "no",
+            "processes": "no"
+        }
+    },
+    {
+        "component-command-info": {
+            "bash-types": {
+                "getconf": "file"
+            },
+            "debian-packages": {
+                "getconf": "libc-bin"
+            },
+            "debian-paths": {
+                "getconf": "/usr/bin/getconf"
+            },
+            "requirements": {
+                "getconf": {
+                    "internet-connection": "no",
+                    "sudo": "no"
+                }
+            }
+        },
+        "component-commands": [
+            "getconf"
+        ],
+        "description": {
+            "bytes": "1",
+            "sha1hex": "0bf4d29f2f25021251414c41f8eac14e440c016f",
+            "string": "Display the word size of the kernel, e.g. 32-bit or 64-bit."
+        },
+        "invocations": {
+            "Linux" : {
+                "bytes": "16",
+                "sha1hex": "95480eceb7facbd35f4363138b7ef9d5b98fc02a",
+                "string": "getconf LONG_BIT"
+            }
+        },
+        "relevant-urls": [
+            "http://www.cyberciti.biz/faq/linux-how-to-find-if-processor-is-64-bit-or-not/",
+            "http://stackoverflow.com/questions/10137880/need-help-32-bit-64-bit-check-for-linux",
+            "http://superuser.com/questions/412024/is-my-system-64-bit",
+            "http://lists.us.dell.com/pipermail/linux-poweredge/2011-February/044344.html"
         ],
         "side-effects": {
             "filesystem": "no",
