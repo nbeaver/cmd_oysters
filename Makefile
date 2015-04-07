@@ -7,8 +7,9 @@ validate_json : command-database.json Makefile
 test_python_script : find-command.py Makefile
 	python find-command.py --substring 'ping -i'
 	python find-command.py --commands ping espeak sed
-	python find-command.py --token '|' sed localhost ping
+	python find-command.py --tokens '|' sed localhost ping
 	python find-command.py --description 'audible voice'
+	python find-command.py --substring 'ping -i' --commands ping espeak sed --tokens '|' sed localhost ping --description 'audible voice'
 
 lint_database : command-database.json lint-database.py Makefile
 	python lint-database.py command-database.json
