@@ -27,9 +27,12 @@ pseudo-schema/
 │       │       ├── subtype
 │       │       └── type
 │       ├── compatible-shells
+│       ├── example-outputs
 │       ├── incompatible-shells
+│       ├── related-invocations
 │       ├── sha1hex
 │       └── string
+├── related-commands
 ├── relevant-urls
 └── side-effects
     ├── filesystem

@@ -234,6 +234,7 @@
             },
             "requirements": {
                 "chsh": {
+                    "authentication": "yes",
                     "internet-connection": "no",
                     "sudo": "maybe"
                 },
@@ -363,7 +364,7 @@
             "less"
         ],
         "description": {
-            "bytes": "1",
+            "bytes": "98",
             "sha1hex": "118f2d8f8666f09b5d9c9db536d645be5f923f6c",
             "string": "Highlight non-ASCII characters (e.g. Unicode) in a text file and give the line number they are on."
         },
@@ -459,13 +460,22 @@
             "lscpu"
         ],
         "description": {
-            "bytes": "0",
+            "bytes": "122",
             "sha1hex": "9f2fdee93e84817e73dcbe46d01e28af001fbe1e",
             "string": "Display name of hardware's CPU architecture, e.g. x86_64 for 64-bit Intel processors and i686 for 32-bit Intel processors."
         },
         "invocations": {
             "Linux" : {
                 "bytes": "48",
+                "example-outputs": [
+                    "i686",
+                    "x86_64"
+                ],
+                "related-invocations": [
+                    "c7a75171158ee220514b48bf7b7065fccaa6b37b",
+                    "0f86bfd2af49de656a8a318ea310727e6052525a",
+                    "95480eceb7facbd35f4363138b7ef9d5b98fc02a"
+                ],
                 "sha1hex": "8c7c73684c9524cfb00d5eed10b428164d48b7c9",
                 "string": "lscpu | grep '^Architecture:' | awk '{print $2}'"
             }
@@ -501,18 +511,26 @@
             "uname"
         ],
         "description": {
-            "bytes": "1",
+            "bytes": "254",
             "sha1hex": "c061264c95aede5a5e512500e5069e2c5f3a71f5",
             "string": "Determine which architecture the Linux kernel is configured for; may not be the same as the actual CPU architecture. For example, an Intel i686 kernel can run on an Intel x86_64 processor, but its RAM will be limited unless the kernel has PAE is enabled."
         },
         "invocations": {
             "Linux" : {
                 "bytes": "8",
+                "example-outputs": [
+                    "i686",
+                    "x86_64"
+                ],
                 "sha1hex": "c7a75171158ee220514b48bf7b7065fccaa6b37b",
                 "string": "uname -m"
             },
             "Linux (long flags)" : {
                 "bytes": "15",
+                "example-outputs": [
+                    "i686",
+                    "x86_64"
+                ],
                 "sha1hex": "0f86bfd2af49de656a8a318ea310727e6052525a",
                 "string": "uname --machine"
             }
@@ -549,17 +567,25 @@
             "getconf"
         ],
         "description": {
-            "bytes": "1",
+            "bytes": "59",
             "sha1hex": "0bf4d29f2f25021251414c41f8eac14e440c016f",
             "string": "Display the word size of the kernel, e.g. 32-bit or 64-bit."
         },
         "invocations": {
             "Linux" : {
                 "bytes": "16",
+                "example-outputs": [
+                    "32",
+                    "64"
+                ],
                 "sha1hex": "95480eceb7facbd35f4363138b7ef9d5b98fc02a",
                 "string": "getconf LONG_BIT"
             }
         },
+        "related-commands": [
+            "c061264c95aede5a5e512500e5069e2c5f3a71f5",
+            "9f2fdee93e84817e73dcbe46d01e28af001fbe1e"
+        ],
         "relevant-urls": [
             "http://www.cyberciti.biz/faq/linux-how-to-find-if-processor-is-64-bit-or-not/",
             "http://stackoverflow.com/questions/10137880/need-help-32-bit-64-bit-check-for-linux",
