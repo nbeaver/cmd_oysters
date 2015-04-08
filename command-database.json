@@ -748,7 +748,7 @@
         },
         "invocations": {
             "bash" : {
-                "bytes": 86,
+                "bytes": 88,
                 "changeable-arguments": {
                     "\"${f%.*}\"": {
                         "description-string": "Filename of PDF with '.pdf' stripped off. Used as the directory to store the images and image-root for image filenames.",
@@ -774,8 +774,8 @@
                     "fish",
                     "tcsh"
                 ],
-                "sha1hex": "8f1d896550edd3eddd138871f23d4b1776c0aa11",
-                "string": "for f in *.pdf; do dir=\"${f%.*}\"; mkdir -p \"$dir\"; pdfimages -j \"$f\" \"$dir/$dir\"; done"
+                "sha1hex": "69eb231e93a2ec3f9ad6fdbcfede4fba0cbe6b15",
+                "string": "for f in *.pdf; do dir=\"${f%.*}\"; mkdir -p \"$dir\" && pdfimages -j \"$f\" \"$dir/$dir\"; done"
             }
         }
     }
