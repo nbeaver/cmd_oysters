@@ -1,9 +1,9 @@
 all: validate_json test_python_script lint_database pseudo_schema sort_database
 .PHONY : validate_json test_python_script lint_database pseudo_schema sort_database
 
-validate_json : command-database.json command-skeleton.json Makefile
+validate_json : command-database.json new-command-template.json Makefile
 	json_verify < command-database.json
-	json_verify < command-skeleton.json
+	json_verify < new-command-template.json
 
 test_python_script : find-command.py Makefile
 	python find-command.py --substring 'ping -i' > /dev/null
