@@ -5,7 +5,7 @@
             "other-processes" : false
         },
         "component-command-info": {
-            "bash-types": {
+            "bash-type": {
                 "$COMMAND": "builtin | keyword | file"
             },
             "debian": {
