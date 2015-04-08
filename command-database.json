@@ -1,5 +1,9 @@
 [
     {
+        "can-affect": {
+            "filesystem": false,
+            "other-processes": false
+        },
         "component-command-info": {
             "bash-type": {
                 "espeak": "file",
@@ -115,13 +119,13 @@
         },
         "relevant-urls": [
             "http://ftp.arl.mil/mike/ping.html"
-        ],
-        "can-affect": {
-            "filesystem": false,
-            "other-processes": false
-        }
+        ]
     },
     {
+        "can-affect": {
+            "filesystem": false,
+            "other-processes": true
+        },
         "component-command-info": {
             "bash-type": {
                 "jobs": "builtin",
@@ -172,13 +176,13 @@
             "http://serverfault.com/questions/240155/how-can-i-kill-all-stopped-jobs",
             "http://superuser.com/a/228926/219809",
             "http://ubuntuforums.org/showthread.php?t=1954090&s=c408c62db23afe753dfcfd40f1a86e32&p=11825162#post11825162"
-        ],
-        "can-affect": {
-            "filesystem": false,
-            "other-processes": true
-        }
+        ]
     },
     {
+        "can-affect": {
+            "filesystem": false,
+            "other-processes": false
+        },
         "component-command-info": {
             "bash-type": {
                 "xset": "file"
@@ -233,11 +237,7 @@
             "http://superuser.com/a/66923/219809",
             "http://tldp.org/HOWTO/Battery-Powered/methods.html#XF86",
             "https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling#Modifying_DPMS_and_screensaver_settings_using_xset"
-        ],
-        "can-affect": {
-            "filesystem": false,
-            "other-processes": false
-        }
+        ]
     },
     {
         "component-command-info": {
@@ -359,6 +359,10 @@
         ]
     },
     {
+        "can-affect": {
+            "filesystem": false,
+            "other-processes": false
+        },
         "component-command-info": {
             "bash-type": {
                 "grep" : "file",
@@ -444,13 +448,13 @@
             "https://groups.google.com/forum/#!topic/comp.unix.programmer/Auge3Bz4iCA",
             "https://stackoverflow.com/questions/3001177/how-do-i-grep-for-all-non-ascii-characters-in-unix",
             "http://superuser.com/questions/417305/how-can-i-identify-non-ascii-characters-from-the-shell"
-        ],
+        ]
+    },
+    {
         "can-affect": {
             "filesystem": false,
             "other-processes": false
-        }
-    },
-    {
+        },
         "component-command-info": {
             "bash-type": {
                 "awk": "file",
@@ -513,13 +517,13 @@
         "relevant-urls": [
             "http://stackoverflow.com/a/22100700",
             "http://www.cyberciti.biz/faq/lscpu-command-find-out-cpu-architecture-information/"
-        ],
+        ]
+    },
+    {
         "can-affect": {
             "filesystem": false,
             "other-processes": false
-        }
-    },
-    {
+        },
         "component-command-info": {
             "bash-type": {
                 "uname": "file"
@@ -571,13 +575,13 @@
             "http://www.cyberciti.biz/faq/linux-how-to-find-if-processor-is-64-bit-or-not/",
             "http://stackoverflow.com/questions/2565282/difference-between-machine-hardware-and-hardware-platform",
             "https://www.ibm.com/developerworks/community/blogs/58e72888-6340-46ac-b488-d31aa4058e9c/entry/know_about_your_linux_system_using_uname_command77?lang=en"
-        ],
+        ]
+    },
+    {
         "can-affect": {
             "filesystem": false,
             "other-processes": false
-        }
-    },
-    {
+        },
         "component-command-info": {
             "bash-type": {
                 "getconf": "file"
@@ -625,10 +629,6 @@
             "http://stackoverflow.com/questions/10137880/need-help-32-bit-64-bit-check-for-linux",
             "http://superuser.com/questions/412024/is-my-system-64-bit",
             "http://lists.us.dell.com/pipermail/linux-poweredge/2011-February/044344.html"
-        ],
-        "can-affect": {
-            "filesystem": false,
-            "other-processes": false
-        }
+        ]
     }
 ]
