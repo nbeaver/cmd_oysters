@@ -33,14 +33,14 @@ def prompt_bytes(string):
 def get_slice(string_to_slice, slice_index_list):
     # We're slicing a string, so the list should only have the start and stop of the slice.
     assert len(slice_index_list) == 2
-    i1 = int(slice_index_list[0])
-    i2 = int(slice_index_list[1])
+    i1 = slice_index_list[0]
+    i2 = slice_index_list[1]
     return str(string_to_slice)[i1:i2]
 
 def pretty_print_slice(string_to_slice, slice_index_list):
     assert len(slice_index_list) == 2
-    i1 = int(slice_index_list[0])
-    i2 = int(slice_index_list[1])
+    i1 = slice_index_list[0]
+    i2 = slice_index_list[1]
     assert i2 > i1
     print " "*i1 + str(string_to_slice)[i1:i2]
     print string_to_slice
@@ -52,7 +52,7 @@ for command in commands:
 
     try:
         check_bytes(command['description']['string'],
-                   int(command['description']['bytes']))
+                   command['description']['bytes'])
     except KeyError:
         prompt_bytes(command['description']['string'])
 
@@ -68,7 +68,7 @@ for command in commands:
         invocation_dict = command['invocations'][shell]
 
         if 'bytes' in invocation_dict.keys():
-            check_bytes(invocation_dict['string'], int(invocation_dict['bytes']))
+            check_bytes(invocation_dict['string'], invocation_dict['bytes'])
 
         try:
             check_sha1(invocation_dict['string'], invocation_dict['sha1hex'])
