@@ -17,9 +17,15 @@
                     "sed": "/bin/sed"
                 },
                 "required-packages": {
-                    "espeak": ["espeak"],
-                    "ping": ["iputils-ping"],
-                    "sed": ["sed"]
+                    "espeak": [
+                        "espeak"
+                    ],
+                    "ping": [
+                        "iputils-ping"
+                    ],
+                    "sed": [
+                        "sed"
+                    ]
                 }
             },
             "requirements": {
@@ -58,14 +64,20 @@
                         "component-command": "ping",
                         "component-command-flag": "-i",
                         "description-string": "Time interval in seconds.",
-                        "invocation-slice": [8, 9],
+                        "invocation-slice": [
+                            8,
+                            9
+                        ],
                         "type": "integer"
                     },
                     "localhost": {
                         "component-command": "ping",
                         "component-command-flag": null,
                         "description-string": "IPv4 address or fully qualified domain name.",
-                        "invocation-slice": [10, 19],
+                        "invocation-slice": [
+                            10,
+                            19
+                        ],
                         "type": "string"
                     }
                 },
@@ -79,8 +91,7 @@
                     "tcsh",
                     "zsh"
                 ],
-                "incompatible-shells": [
-                ],
+                "incompatible-shells": [],
                 "sha1hex": "20f8aae762b461782e9adea7e49db01046fb0c3f",
                 "string": "ping -i 2 localhost | sed -u 's/.*/ping/' | espeak"
             },
@@ -91,13 +102,19 @@
                         "component-command": "ping",
                         "component-command-flag": "-i",
                         "description-string": "Time interval in seconds.",
-                        "invocation-slice": [8, 9],
+                        "invocation-slice": [
+                            8,
+                            9
+                        ],
                         "type": "integer"
                     },
                     "localhost": {
                         "component-command": "ping",
                         "description-string": "IPv4 address or fully qualified domain name.",
-                        "invocation-slice": [10, 19],
+                        "invocation-slice": [
+                            10,
+                            19
+                        ],
                         "type": "string"
                     }
                 },
@@ -111,8 +128,7 @@
                     "tcsh",
                     "zsh"
                 ],
-                "incompatible-shells": [
-                ],
+                "incompatible-shells": [],
                 "sha1hex": "320ba9096161c69d6513e0d906155ff7e346d325",
                 "string": "ping -i 2 localhost | sed --unbuffered 's/.*/ping/' | espeak"
             }
@@ -192,7 +208,9 @@
                     "xset": "/usr/bin/xset"
                 },
                 "required-packages": {
-                    "xset": ["x11-xserver-utils"]
+                    "xset": [
+                        "x11-xserver-utils"
+                    ]
                 }
             },
             "requirements": {
@@ -209,7 +227,7 @@
         "description": {
             "bytes": 92,
             "sha1hex": "92604b8815f9197914b456d78abe543e44b614f0",
-            "string":"Turn off the monitor; make the display go dark until the mouse is moved or a key is pressed."
+            "string": "Turn off the monitor; make the display go dark until the mouse is moved or a key is pressed."
         },
         "invocations": {
             "POSIX": {
@@ -225,8 +243,7 @@
                     "tcsh",
                     "zsh"
                 ],
-                "incompatible-shells": [
-                ],
+                "incompatible-shells": [],
                 "sha1hex": "cc1938fb35ff47f16a237a9c6cd68add2aa6f4fd",
                 "string": "xset dpms force standby"
             }
@@ -251,8 +268,12 @@
                     "which": "/usr/bin/which"
                 },
                 "required-packages": {
-                    "chsh": ["passwd"],
-                    "which": ["debianutils"]
+                    "chsh": [
+                        "passwd"
+                    ],
+                    "which": [
+                        "debianutils"
+                    ]
                 }
             },
             "requirements": {
@@ -285,20 +306,29 @@
                         "component-command": "chsh",
                         "component-command-flag": "-s",
                         "description-string": "Path to desired shell.",
-                        "invocation-slice": [8, 20],
+                        "invocation-slice": [
+                            8,
+                            20
+                        ],
                         "subtype": "path",
                         "type": "string"
                     },
                     "$USER": {
                         "component-command": "chsh",
                         "description-string": "Username. Requires sudo if different than current user.",
-                        "invocation-slice": [21, 26],
+                        "invocation-slice": [
+                            21,
+                            26
+                        ],
                         "type": "string"
                     },
                     "zsh": {
                         "component-command": "which",
                         "description-string": "Name of desired shell.",
-                        "invocation-slice": [16, 19],
+                        "invocation-slice": [
+                            16,
+                            19
+                        ],
                         "type": "string"
                     }
                 },
@@ -323,19 +353,28 @@
                         "component-command": "chsh",
                         "component-command-flag": "--shell",
                         "description-string": "Path to desired shell.",
-                        "invocation-slice": [13, 25],
+                        "invocation-slice": [
+                            13,
+                            25
+                        ],
                         "type": "string"
                     },
                     "$USER": {
                         "component-command": "chsh",
                         "description-string": "Username. Requires sudo if different than current user.",
-                        "invocation-slice": [26, 31],
+                        "invocation-slice": [
+                            26,
+                            31
+                        ],
                         "type": "string"
                     },
                     "zsh": {
                         "component-command": "which",
                         "description-string": "Name of desired shell.",
-                        "invocation-slice": [21, 24],
+                        "invocation-slice": [
+                            21,
+                            24
+                        ],
                         "type": "string"
                     }
                 },
@@ -374,8 +413,12 @@
                     "less" : "/usr/bin/less"
                 },
                 "required-packages": {
-                    "grep" : ["grep"],
-                    "less" : ["less"]
+                    "grep" : [
+                        "grep"
+                    ],
+                    "less" : [
+                        "less"
+                    ]
                 }
             },
             "requirements": {
@@ -407,7 +450,10 @@
                     "myfile.txt": {
                         "component-command": "grep",
                         "description-string": "File or file path of text file.",
-                        "invocation-slice": [39, 49],
+                        "invocation-slice": [
+                            39,
+                            49
+                        ],
                         "subtype": "path",
                         "type": "string"
                     }
@@ -428,7 +474,10 @@
                     "myfile.txt": {
                         "component-command": "grep",
                         "description-string": "File or file path of text file.",
-                        "invocation-slice": [63, 73],
+                        "invocation-slice": [
+                            63,
+                            73
+                        ],
                         "subtype": "path",
                         "type": "string"
                     }
@@ -438,6 +487,7 @@
                     "TODO"
                 ],
                 "incompatible-shells": [
+                    "TODO"
                 ],
                 "sha1hex": "c2fe383b7f8e87e5baa638b3f4f074ad2f057614",
                 "string": "grep --line-number --perl-regexp '[^[:ascii:]]' --color=always myfile.txt | less --RAW-CONTROL-CHARS"
@@ -468,9 +518,15 @@
                     "lscpu": "/usr/bin/lscpu"
                 },
                 "required-packages": {
-                    "awk": ["gawk"],
-                    "grep": ["grep"],
-                    "lscpu": ["util-linux"]
+                    "awk": [
+                        "gawk"
+                    ],
+                    "grep": [
+                        "grep"
+                    ],
+                    "lscpu": [
+                        "util-linux"
+                    ]
                 }
             },
             "requirements": {
@@ -533,7 +589,9 @@
                     "uname": "/bin/uname"
                 },
                 "required-packages": {
-                    "uname": ["coreutils"]
+                    "uname": [
+                        "coreutils"
+                    ]
                 }
             },
             "requirements": {
@@ -591,7 +649,9 @@
                     "getconf": "/usr/bin/getconf"
                 },
                 "required-packages": {
-                    "getconf": ["libc-bin"]
+                    "getconf": [
+                        "libc-bin"
+                    ]
                 }
             },
             "requirements": {
