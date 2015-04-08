@@ -49,7 +49,7 @@ Design goals
 Future improvements
 -------------------
 
-.. Make it spit out the required packages for a given command,
+.. Make it spit out the required packages for a given command, depending on OS.
 
 .. Semantics of command requirements: is it only as the command is used in the invocation, or anytime the command is used?
 
