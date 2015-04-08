@@ -1,0 +1,69 @@
+[
+    {
+        "can-affect": {
+            "filesystem": false,
+            "other-processes" : false
+        },
+        "component-command-info": {
+            "bash-types": {
+                "$COMMAND": "builtin | keyword | file"
+            },
+            "debian": {
+                "executable-path": {
+                    "$COMMAND": "/path/to/command"
+                },
+                "required-packages": {
+                    "$COMMAND": [
+                        "debian-package-name"
+                    ]
+                }
+            },
+            "requirements": {
+                "$COMMAND": {
+                    "authentication": "always | sometimes | never",
+                    "internet-connection": "always | sometimes | never",
+                    "sudo": "always | sometimes | never"
+                }
+            }
+        },
+        "component-commands": [
+            "$COMMAND"
+        ],
+        "description": {
+            "bytes": 0,
+            "sha1hex": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+            "string": ""
+        },
+        "invocations": {
+            "$INVOCATION" : {
+                "bytes": 1,
+                "changeable-arguments": {
+                    "$ARG": {
+                        "component-command": "$CMD",
+                        "component-command-flag": "$FLAG",
+                        "description-string": "",
+                        "invocation-slice": [
+                            0,
+                            1
+                        ],
+                        "subtype":"<replace with more specific type, e.g. path>",
+                        "type": "string | integer | float"
+                    }
+                },
+                "compatible-shells": [
+                    "ash | bash | bsh | csh | dash | fish | ksh | pdksh | POSIX | rc | scsh | tcsh | zsh | ..."
+                ],
+                "incompatible-shells": [
+                    "ash | bash | bsh | csh | dash | fish | ksh | pdksh | POSIX | rc | scsh | tcsh | zsh | ..."
+                ],
+                "sha1hex": "b858cb282617fb0956d960215c8e84d1ccf909c6",
+                "string": " "
+            }
+        },
+        "relevant-urls": [
+            "http://www.linuxjournal.com/",
+            "http://www.gnu.org/software/bash/manual/bash.html",
+            "http://unix.stackexchange.com/"
+        ]
+    }
+]
