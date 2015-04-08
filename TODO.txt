@@ -10,3 +10,11 @@ Add information about how to exit an interactive command, e.g.:
 How to include version numbers in "commands this shell works with/doesn't work with"?
 
 Verify that all the pseudo-schema fields are in command-template.json.
+
+Verify temp.json when make is run.
+
+Sometimes changeable arguments are repeated -- should slice be a list of slices?
+
+Omit requirements for shell keywords, since they don't do anything on their own? Or use null?
+
+Required packages for shell keywords and builtins -- just omit them, since it depends on the shell anyway?
