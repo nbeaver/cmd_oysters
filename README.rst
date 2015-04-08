@@ -27,6 +27,10 @@ Motivation
 
 .. Order of arguments.
 
+--------
+Examples
+--------
+
 ------------
 Design goals
 ------------
@@ -39,6 +43,14 @@ Design goals
 
 .. Why different invocations? Same component commands, different forms.
 
---------
-Examples
---------
+.. Requirements: if the command fails, why? Is it an installation problem? Is it a permissions problem? Is it a network problem?
+
+-------------------
+Future improvements
+-------------------
+
+.. Make it spit out the required packages for a given command,
+
+.. Semantics of command requirements: is it only as the command is used in the invocation, or anytime the command is used?
+
+.. The "always, sometimes, never" is a useful distinction, but what about "depends on flags" or "dependson on arguments" or "depends on configuration" or "depends on shell"?

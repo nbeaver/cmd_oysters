@@ -86,8 +86,13 @@ for command in commands:
                     except AssertionError:
                         pretty_print_slice(invocation_dict['string'], arginfo['invocation-slice'])
                         raise
+        if 'can-affect' in invocation_dict.keys():
+            for key in invocation_dict['can-affect']:
+                true_false = invocation_dict['can-affect'][key]
+                assert type(true_false) == bool, true_false+" is not a boolean."
 
 # TODO: check all the commands in component commands are substrings of the main command.
 # TODO: check that the commands in component-command-info
 # TODO: check that bash-type is one of `keyword', `builtin', or `file'.
 # TODO: check debian-path is correct using `which`.
+# TODO: make a proper JSON schema to check the types are correct.

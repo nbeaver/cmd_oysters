@@ -1,13 +1,18 @@
 pseudo-schema/
+├── can-affect
+│   ├── filesystem
+│   └── other-processes
 ├── component-command-info
-│   ├── bash-types
+│   ├── bash-type
 │   │   └── $COMMAND
-│   ├── debian-packages
-│   │   └── $COMMAND
-│   ├── debian-paths
-│   │   └── $COMMAND
+│   ├── debian
+│   │   ├── executable-path
+│   │   │   └── $COMMAND
+│   │   └── required-packages
+│   │       └── $COMMAND
 │   └── requirements
 │       └── $COMMAND
+│           ├── authentication
 │           ├── internet-connection
 │           └── sudo
 ├── component-commands
@@ -33,7 +38,4 @@ pseudo-schema/
 │       ├── sha1hex
 │       └── string
 ├── related-commands
-├── relevant-urls
-└── side-effects
-    ├── filesystem
-    └── processes
+└── relevant-urls

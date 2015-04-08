@@ -1,33 +1,38 @@
 [
     {
         "component-command-info": {
-            "bash-types": {
+            "bash-type": {
                 "espeak": "file",
                 "ping": "file",
                 "sed": "file"
             },
-            "debian-packages": {
-                "espeak": "espeak",
-                "ping": "iputils-ping",
-                "sed": "sed"
-            },
-            "debian-paths": {
-                "espeak": "/usr/bin/espeak",
-                "ping": "/bin/ping",
-                "sed": "/bin/sed"
+            "debian": {
+                "executable-path": {
+                    "espeak": "/usr/bin/espeak",
+                    "ping": "/bin/ping",
+                    "sed": "/bin/sed"
+                },
+                "required-packages": {
+                    "espeak": ["espeak"],
+                    "ping": ["iputils-ping"],
+                    "sed": ["sed"]
+                }
             },
             "requirements": {
                 "espeak": {
-                    "internet-connection": "no",
-                    "sudo": "no"
+                    "authentication": "never",
+                    "internet-connection": "never",
+                    "sudo": "never"
                 },
                 "ping": {
-                    "internet-connection": "maybe",
-                    "sudo": "no"
+                    "authentication": "sometimes",
+                    "internet-connection": "sometimes",
+                    "sudo": "sometimes"
                 },
                 "sed": {
-                    "internet-connection": "no",
-                    "sudo": "no"
+                    "authentication": "never",
+                    "internet-connection": "never",
+                    "sudo": "never"
                 }
             }
         },
@@ -111,25 +116,27 @@
         "relevant-urls": [
             "http://ftp.arl.mil/mike/ping.html"
         ],
-        "side-effects": {
-            "filesystem": "no",
-            "processes": "no"
+        "can-affect": {
+            "filesystem": false,
+            "other-processes": false
         }
     },
     {
         "component-command-info": {
-            "bash-types": {
+            "bash-type": {
                 "jobs": "builtin",
                 "kill": "builtin"
             },
             "requirements": {
                 "jobs": {
-                    "internet-connection": "no",
-                    "sudo": "no"
+                    "authentication": "never",
+                    "internet-connection": "never",
+                    "sudo": "never"
                 },
                 "kill": {
-                    "internet-connection": "no",
-                    "sudo": "no"
+                    "authentication": "sometimes",
+                    "internet-connection": "never",
+                    "sudo": "sometimes"
                 }
             }
         },
@@ -166,23 +173,29 @@
             "http://superuser.com/a/228926/219809",
             "http://ubuntuforums.org/showthread.php?t=1954090&s=c408c62db23afe753dfcfd40f1a86e32&p=11825162#post11825162"
         ],
-        "side-effects": {
-            "filesystem": "no",
-            "processes": "yes"
+        "can-affect": {
+            "filesystem": false,
+            "other-processes": true
         }
     },
     {
         "component-command-info": {
-            "bash-types": {
+            "bash-type": {
                 "xset": "file"
             },
-            "debian-packages": {
-                "xset": "x11-xserver-utils"
+            "debian": {
+                "executable-path": {
+                    "xset": "/usr/bin/xset"
+                },
+                "required-packages": {
+                    "xset": ["x11-xserver-utils"]
+                }
             },
             "requirements": {
                 "xset": {
-                    "internet-connection": "no",
-                    "sudo": "no"
+                    "authentication": "never",
+                    "internet-connection": "never",
+                    "sudo": "never"
                 }
             }
         },
@@ -221,26 +234,37 @@
             "http://tldp.org/HOWTO/Battery-Powered/methods.html#XF86",
             "https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling#Modifying_DPMS_and_screensaver_settings_using_xset"
         ],
-        "side-effects": {
-            "filesystem": "no",
-            "processes": "no"
+        "can-affect": {
+            "filesystem": false,
+            "other-processes": false
         }
     },
     {
         "component-command-info": {
-            "debian-packages": {
-                "chsh": "passwd",
-                "which": "debianutils"
+            "bash-type": {
+                "chsh": "file",
+                "which": "file"
+            },
+            "debian": {
+                "executable-path": {
+                    "chsh": "/usr/bin/xset",
+                    "which": "/usr/bin/which"
+                },
+                "required-packages": {
+                    "chsh": ["passwd"],
+                    "which": ["debianutils"]
+                }
             },
             "requirements": {
                 "chsh": {
-                    "authentication": "yes",
-                    "internet-connection": "no",
-                    "sudo": "maybe"
+                    "authentication": "always",
+                    "internet-connection": "never",
+                    "sudo": "sometimes"
                 },
                 "which": {
-                    "internet-connection": "no",
-                    "sudo": "no"
+                    "authentication": "never",
+                    "internet-connection": "never",
+                    "sudo": "never"
                 }
             }
         },
@@ -336,26 +360,30 @@
     },
     {
         "component-command-info": {
-            "bash-types": {
+            "bash-type": {
                 "grep" : "file",
                 "less" : "file"
             },
-            "debian-packages": {
-                "grep" : "grep",
-                "less" : "less"
-            },
-            "debian-paths": {
-                "grep" : "/bin/grep",
-                "less" : "/usr/bin/less"
+            "debian": {
+                "executable-path": {
+                    "grep" : "/bin/grep",
+                    "less" : "/usr/bin/less"
+                },
+                "required-packages": {
+                    "grep" : ["grep"],
+                    "less" : ["less"]
+                }
             },
             "requirements": {
                 "grep": {
-                    "internet-connection": "no",
-                    "sudo": "maybe"
+                    "authentication": "sometimes",
+                    "internet-connection": "never",
+                    "sudo": "sometimes"
                 },
                 "less": {
-                    "internet-connection": "no",
-                    "sudo": "no"
+                    "authentication": "sometimes",
+                    "internet-connection": "never",
+                    "sudo": "sometimes"
                 }
             }
         },
@@ -417,40 +445,42 @@
             "https://stackoverflow.com/questions/3001177/how-do-i-grep-for-all-non-ascii-characters-in-unix",
             "http://superuser.com/questions/417305/how-can-i-identify-non-ascii-characters-from-the-shell"
         ],
-        "side-effects": {
-            "filesystem": "no",
-            "processes": "no"
+        "can-affect": {
+            "filesystem": false,
+            "other-processes": false
         }
     },
     {
         "component-command-info": {
-            "bash-types": {
+            "bash-type": {
                 "awk": "file",
                 "grep": "file",
                 "lscpu": "file"
             },
-            "debian-packages": {
-                "awk": "gawk",
-                "grep": "grep",
-                "lscpu": "util-linux"
-            },
-            "debian-paths": {
-                "awk": "/usr/bin/awk",
-                "grep": "/bin/grep",
-                "lscpu": "/usr/bin/lscpu"
+            "debian": {
+                "executable-path": {
+                    "awk": "/usr/bin/awk",
+                    "grep": "/bin/grep",
+                    "lscpu": "/usr/bin/lscpu"
+                },
+                "required-packages": {
+                    "awk": ["gawk"],
+                    "grep": ["grep"],
+                    "lscpu": ["util-linux"]
+                }
             },
             "requirements": {
                 "awk": {
-                    "internet-connection": "no",
-                    "sudo": "no"
+                    "internet-connection": "never",
+                    "sudo": "never"
                 },
                 "grep": {
-                    "internet-connection": "no",
-                    "sudo": "no"
+                    "internet-connection": "never",
+                    "sudo": "never"
                 },
                 "lscpu": {
-                    "internet-connection": "no",
-                    "sudo": "no"
+                    "internet-connection": "never",
+                    "sudo": "never"
                 }
             }
         },
@@ -484,26 +514,28 @@
             "http://stackoverflow.com/a/22100700",
             "http://www.cyberciti.biz/faq/lscpu-command-find-out-cpu-architecture-information/"
         ],
-        "side-effects": {
-            "filesystem": "no",
-            "processes": "no"
+        "can-affect": {
+            "filesystem": false,
+            "other-processes": false
         }
     },
     {
         "component-command-info": {
-            "bash-types": {
+            "bash-type": {
                 "uname": "file"
             },
-            "debian-packages": {
-                "uname": "coreutils"
-            },
-            "debian-paths": {
-                "uname": "/bin/uname"
+            "debian": {
+                "executable-path": {
+                    "uname": "/bin/uname"
+                },
+                "required-packages": {
+                    "uname": ["coreutils"]
+                }
             },
             "requirements": {
                 "uname": {
-                    "internet-connection": "no",
-                    "sudo": "no"
+                    "internet-connection": "never",
+                    "sudo": "never"
                 }
             }
         },
@@ -540,26 +572,28 @@
             "http://stackoverflow.com/questions/2565282/difference-between-machine-hardware-and-hardware-platform",
             "https://www.ibm.com/developerworks/community/blogs/58e72888-6340-46ac-b488-d31aa4058e9c/entry/know_about_your_linux_system_using_uname_command77?lang=en"
         ],
-        "side-effects": {
-            "filesystem": "no",
-            "processes": "no"
+        "can-affect": {
+            "filesystem": false,
+            "other-processes": false
         }
     },
     {
         "component-command-info": {
-            "bash-types": {
+            "bash-type": {
                 "getconf": "file"
             },
-            "debian-packages": {
-                "getconf": "libc-bin"
-            },
-            "debian-paths": {
-                "getconf": "/usr/bin/getconf"
+            "debian": {
+                "executable-path": {
+                    "getconf": "/usr/bin/getconf"
+                },
+                "required-packages": {
+                    "getconf": ["libc-bin"]
+                }
             },
             "requirements": {
                 "getconf": {
-                    "internet-connection": "no",
-                    "sudo": "no"
+                    "internet-connection": "never",
+                    "sudo": "never"
                 }
             }
         },
@@ -592,9 +626,9 @@
             "http://superuser.com/questions/412024/is-my-system-64-bit",
             "http://lists.us.dell.com/pipermail/linux-poweredge/2011-February/044344.html"
         ],
-        "side-effects": {
-            "filesystem": "no",
-            "processes": "no"
+        "can-affect": {
+            "filesystem": false,
+            "other-processes": false
         }
     }
 ]
