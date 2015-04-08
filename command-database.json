@@ -690,5 +690,93 @@
             "http://superuser.com/questions/412024/is-my-system-64-bit",
             "http://lists.us.dell.com/pipermail/linux-poweredge/2011-February/044344.html"
         ]
+    },
+    {
+        "can-affect": {
+            "filesystem": true,
+            "other-processes" : false
+        },
+        "component-command-info": {
+            "bash-type": {
+                "do": "keyword",
+                "done": "keyword",
+                "for": "keyword",
+                "mkdir": "file",
+                "pdfimages": "file"
+            },
+            "debian": {
+                "executable-path": {
+                    "do": null,
+                    "done": null,
+                    "for": null,
+                    "mkdir": "/bin/mkdir",
+                    "pdfimages": "/usr/bin/pdfimages"
+                },
+                "required-packages": {
+                    "mkdir": [
+                        "coreutils"
+                    ],
+                    "pdfimages": [
+                        "poppler-utils"
+                    ]
+                }
+            },
+            "requirements": {
+                "mkdir": {
+                    "authentication": "never",
+                    "internet-connection": "never",
+                    "sudo": "sometimes"
+                },
+                "pdfimages": {
+                    "authentication": "never",
+                    "internet-connection": "never",
+                    "sudo": "sometimes"
+                }
+            }
+        },
+        "component-commands": [
+            "do",
+            "done",
+            "for",
+            "mkdir",
+            "pdfimages"
+        ],
+        "description": {
+            "bytes": 162,
+            "sha1hex": "040662df76d8e74369a2b56c10764ba16b44d2a7",
+            "string": "For each file ending with '.pdf' in the current directory, extract the images from the pdf file into a new directory with the name of the file stripped of '.pdf'."
+        },
+        "invocations": {
+            "bash" : {
+                "bytes": 86,
+                "changeable-arguments": {
+                    "\"${f%.*}\"": {
+                        "description-string": "Filename of PDF with '.pdf' stripped off. Used as the directory to store the images and image-root for image filenames.",
+                        "invocation-slice": [
+                            23,
+                            32
+                        ],
+                        "subtype":"Shell expression that can be stored in a variable.",
+                        "type": "string"
+                    }
+                },
+                "compatible-shells": [
+                    "bash",
+                    "bsh",
+                    "dash",
+                    "ksh",
+                    "pdksh",
+                    "posh",
+                    "zsh"
+                ],
+                "incompatible-shells": [
+                    "csh",
+                    "fish",
+                    "tcsh"
+                ],
+                "sha1hex": "8f1d896550edd3eddd138871f23d4b1776c0aa11",
+                "string": "for f in *.pdf; do dir=\"${f%.*}\"; mkdir -p \"$dir\"; pdfimages -j \"$f\" \"$dir/$dir\"; done"
+            }
+        }
     }
 ]
