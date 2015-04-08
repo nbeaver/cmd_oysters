@@ -4,6 +4,7 @@ all: validate_json test_python_script lint_database pseudo_schema sort_database
 validate_json : command-database.json new-command-template.json Makefile
 	json_verify < command-database.json
 	json_verify < new-command-template.json
+	json_verify < temp.json
 
 test_python_script : find-command.py Makefile
 	python find-command.py --substring 'ping -i' > /dev/null
