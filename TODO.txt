@@ -6,3 +6,7 @@ Add information about how to exit an interactive command, e.g.:
 -- root -l:  Ctrl-D and Ctrl-C don't work, must use exit().
 -- cat: Ctrl-C, Ctrl-D, Ctrl-\
 -- ssh: Have to use <Enter>~. when a connection hangs.
+
+How to include version numbers in "commands this shell works with/doesn't work with"?
+
+Verify that all the pseudo-schema fields are in command-template.json.
