@@ -43,7 +43,11 @@ Design goals
 
 .. Why different invocations? Same component commands, different forms.
 
-.. Requirements: if the command fails, why? Is it an installation problem? Is it a permissions problem? Is it a network problem?
+.. Requirements: if the command fails, why? Is it an installation problem? Is the command not in my $PATH? Is it a permissions problem? Is it a network problem?
+
+----------------------------------
+Process for adding to the database
+----------------------------------
 
 -------------------
 Future improvements

@@ -48,4 +48,4 @@ for command in commands:
 # TODO: take multiple arguments to --substring so it's effectively a regex search for 'arg1.*arg2.*arg3'
 # TODO: make the description search case-insensitive.
 # TODO: make the description search into a full regex search.
-
+# TODO: do some unit tests instead of the hacky makefile tests.
