@@ -46,6 +46,15 @@ def pretty_print_slice(string_to_slice, slice_index_list):
     print string_to_slice
     print ' '*i1 + '^' + ' '*(i2-i1-2) + '^'
 
+def find_slice(string, substring):
+    # TODO: find all the slices, not just the first one.
+    if substring not in string:
+        return None
+    else:
+        start = string.find(substring)
+        stop = start + len(substring)
+        return [start, stop]
+
 for command in commands:
     assert 'description' in command.keys(), "Error: no description."
     assert 'string' in command['description'].keys(), "Error: no description string."
@@ -85,6 +94,8 @@ for command in commands:
                         assert arg == arg_slice, "arg is:\n'"+arg+"'\nbut slice is:\n'"+arg_slice+"'"
                     except AssertionError:
                         pretty_print_slice(invocation_dict['string'], arginfo['invocation-slice'])
+                        print "Suggested slice:", str(find_slice(invocation_dict['string'], arg))
+                        pretty_print_slice(invocation_dict['string'], find_slice(invocation_dict['string'], arg))
                         raise
         if 'can-affect' in invocation_dict.keys():
             for key in invocation_dict['can-affect']:
