@@ -1,10 +1,9 @@
-all: validate_json test_python_script lint_database pseudo_schema sort_database
-.PHONY : validate_json test_python_script lint_database pseudo_schema sort_database
+all: validate_json test_python_script lint_database pseudo_schema sort_database check_temp_json
+.PHONY : validate_json test_python_script lint_database pseudo_schema sort_database check_temp_json
 
 validate_json : command-database.json new-command-template.json Makefile
 	json_verify < command-database.json
 	json_verify < new-command-template.json
-	json_verify < temp.json
 
 test_python_script : find-command.py Makefile
 	python find-command.py --substring 'ping -i' > /dev/null
@@ -23,3 +22,8 @@ sort_database : command-database.json sort-json.py Makefile
 pseudo_schema : pseudo-schema check-pseudoschema.py Makefile
 	tree --noreport pseudo-schema/ > pseudo-schema-tree.txt
 	python check-pseudoschema.py command-database.json
+
+check_temp_json : temp.json lint-database.py
+	json_verify < temp.json
+	python lint-database.py temp.json
+	python check-pseudoschema.py temp.json
