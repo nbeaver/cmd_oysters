@@ -129,8 +129,10 @@ for command in commands:
                 true_false = invocation_dict['can-affect'][key]
                 assert type(true_false) == bool, true_false+" is not a boolean."
 
+        for component_command in command['component-commands']:
+            assert component_command in invocation_dict['string'], "component_command:\n"+component_command+"\nis not in invocation:\n"+invocation_dict['string']
 
-# TODO: check all the commands in component commands are substrings of the main command.
+# DONE: check all the commands in component commands are substrings of the main command.
 # TODO: check that the commands in component-command-info
 # TODO: check that bash-type is one of `keyword', `builtin', or `file'.
 # TODO: check debian-path is correct using `which`.
