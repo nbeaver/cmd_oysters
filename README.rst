@@ -35,6 +35,24 @@ Examples
 Design goals
 ------------
 
+- Simple textual format.
+
+Well-maintained JSON libraries are readily available for almost all programming languages,
+but the same is unfortunately not true for YAML.
+
+The data are not complex enough to require XML.
+
+A single JSON file makes code work cross-platform easily.
+
+- Mergeability.
+
+The commands do not have arbitarily designated primary keys,
+since two different databases could have keys that clash.
+
+Instead, commands can reference related commands by the SHA1 hash of the description text.
+
+This means that two different commands must not have the same description text.
+
 .. Mergeability (use hashes of descriptions and commands, not arbitrary primary keys).
 
 .. One-liners vs longer scripts.
@@ -44,6 +62,34 @@ Design goals
 .. Why different invocations? Same component commands, different forms.
 
 .. Requirements: if the command fails, why? Is it an installation problem? Is the command not in my $PATH? Is it a permissions problem? Is it a network problem?
+
+---------
+Questions
+---------
+
+- What are component commands?
+
+- What's the difference between commands and invocations?
+
+Often times, there are multiple ways to write the same command,
+such as long flag/short flag versions,
+or a different order of arguments,
+or just a different method,
+e.g. removing a file in the current directory named ``-``
+using either ``rm ./-`` or ``rm -- -``.
+
+Rather than list these as separate commands,
+they are grouped together as equivalent invocations of the same command.
+
+If there is a similar command that uses different component commands,
+it must be listed as a different command,
+not an equivalent invocation:
+e.g. ``unlink -`` will accomplish the same thing,
+but is considered a different command.
+
+- Is it ok for command invocations to span multiple lines?
+
+Yes, but one-liners have been the focus for now.
 
 ----------------------------------
 Process for adding to the database
