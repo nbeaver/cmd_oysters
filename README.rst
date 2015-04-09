@@ -8,6 +8,16 @@ Shell command repository and metadatabase.
 Quickstart
 ----------
 
+.. TODO: Add URL here.
+
+#. ``git clone https://github.com/``
+
+.. TODO: Add directory name here.
+
+#. ``cd name-of-directory/``
+
+#. ``python2 find-command.py --substring 'ping'``
+
 .. Required packages: python
 .. Recommended packages: tree (for pseudoschema), yajl (for verification)
 
@@ -27,41 +37,49 @@ Motivation
 
 .. Order of arguments.
 
---------
-Examples
---------
+.. Requirements: if the command fails, why? Is it an installation problem? Is the command not in my $PATH? Is it a permissions problem? Is it a network problem?
 
 ------------
 Design goals
 ------------
 
-- Simple textual format.
+- Simple textual format (JSON).
 
 Well-maintained JSON libraries are readily available for almost all programming languages,
 but the same is unfortunately not true for YAML.
 
 The data are not complex enough to require XML.
 
-A single JSON file makes code work cross-platform easily.
+A single JSON file makes code work cross-platform and cross-language easily.
 
 - Mergeability.
 
-The commands do not have arbitarily designated primary keys,
+The JSON fields must appear in alphanumeric order.
+This way, diffing and merging becomes much less problematic.
+
+Also, commands are not assigned arbitrary primary keys,
 since two different databases could have keys that clash.
 
 Instead, commands can reference related commands by the SHA1 hash of the description text.
 
 This means that two different commands must not have the same description text.
 
-.. Mergeability (use hashes of descriptions and commands, not arbitrary primary keys).
+- Extensbility.
 
-.. One-liners vs longer scripts.
+New fields can be added to the JSON objects without breaking existing code.
 
-.. Extensibility of JSON fields without breaking.
+- Cross-referencing.
 
-.. Why different invocations? Same component commands, different forms.
+Commands can "link" to related commands via their SHA1 hash hex digests.
 
-.. Requirements: if the command fails, why? Is it an installation problem? Is the command not in my $PATH? Is it a permissions problem? Is it a network problem?
+- Similarity detection.
+
+Similar commands can be found by comparing their Nilsimsa hash hex digests.
+
+`Nilsimsa`_ is a `locality-sensitive`_ hashing algorithm originally developed for spam detection.
+
+.. _Nilsimsa: http://en.wikipedia.org/wiki/Nilsimsa_Hash
+.. _locality-sensitive: http://en.wikipedia.org/wiki/Locality-sensitive_hashing
 
 ---------
 Questions
@@ -85,19 +103,29 @@ If there is a similar command that uses different component commands,
 it must be listed as a different command,
 not an equivalent invocation:
 e.g. ``unlink -`` will accomplish the same thing,
-but is considered a different command.
+but it must be listed as a different command.
 
 - Is it ok for command invocations to span multiple lines?
 
-Yes, but one-liners have been the focus for now.
+Yes, but one-liners are the focus for now.
 
-----------------------------------
-Process for adding to the database
-----------------------------------
+- Why use python2?
+
+Cross-platform and has access to the 
+
+--------------------------------------
+How I add new commands to the database
+--------------------------------------
+
+------------------------------------
+How I add new fields to the database
+------------------------------------
 
 -------------------
 Future improvements
 -------------------
+
+.. Incremental search mode.
 
 .. Make it spit out the required packages for a given command, depending on OS.
 
