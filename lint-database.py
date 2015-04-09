@@ -76,8 +76,20 @@ def find_slice(string, substring):
 
 unique_SHA1s = NoDuplicates()
 for command in commands:
+    # Required fields.
     assert 'description' in command.keys(), "Error: no description."
     assert 'string' in command['description'].keys(), "Error: no description string."
+
+    if "component-command-info" in command.keys():
+        for key, item in command['component-command-info'].iteritems():
+            # TODO: there doesn't seem to be a better way to do this,
+            # other than requiring all the component command information
+            # to be at the same nesting level.
+            if key in ['bash-type', 'requirements']:
+                assert set(item.keys()).issubset(set(command['component-commands'])), repr(item.keys())+ " not a subset of "+repr(command['component-commands'])
+            elif key in ['debian']:
+                for key2, item2 in item.iteritems():
+                    assert set(item2.keys()).issubset(set(command['component-commands'])), repr(item.keys())+ " not a subset of "+repr(command['component-commands'])
 
     try:
         check_sha1(command['description']['string'],
@@ -124,6 +136,9 @@ for command in commands:
                             print "Suggested slice:", str(slice_candidate)
                             pretty_print_slice(invocation_dict['string'], slice_candidate)
                         raise
+                    if 'component-command' in arginfo.keys():
+                        assert arginfo['component-command'] in command['component-commands'], arginfo['component-command']+" is not one of "+repr(command['component-commands'])
+
         if 'can-affect' in invocation_dict.keys():
             for key in invocation_dict['can-affect']:
                 true_false = invocation_dict['can-affect'][key]
