@@ -14,9 +14,9 @@ pseudo-schema/
 │   │       └── $COMMAND
 │   └── requirements: Useful for figuring out why a command doesn't work.
 │       └── $COMMAND: These must be per-command.
-│           ├── authentication
-│           ├── internet-connection: Does the command require an active internet connection?
-│           └── sudo: Does the command require root priveleges?
+│           ├── authentication: Will the command require the user to enter their password? Examples: chsh, passwd
+│           ├── internet-connection: Does the command require an active internet connection? Examples: wget, whois, dig
+│           └── sudo: Does the command require superuser priveleges? Examples: shutdown, rtcwake
 ├── component-commands: List of the individual commands that make up the composite command.
 ├── description: Textual description of what the command does. Need not be unique.
 │   ├── sha1hex: The SHA1 cryptographic hash of the description string; useful instead of a primary key for linking to related commands.
