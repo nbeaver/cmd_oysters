@@ -52,6 +52,7 @@
             "sed"
         ],
         "description": {
+            "nilsimsa-hex": "217cfb78b2e3277296d479d13e8e029182a97cd4e5f87d5c363bb1d7f24108ce",
             "sha1hex": "41c5855ef5ccf55bc45dbc632b18424f9b18eaa2",
             "string": "Generates audible voice that says 'ping' every 2 seconds."
         },
@@ -90,6 +91,7 @@
                     "zsh"
                 ],
                 "incompatible-shells": [],
+                "nilsimsa-hex": "208fe2086713b058dc0435631528fca291cd63f02942391141c1b4a52439f0ca",
                 "sha1hex": "20f8aae762b461782e9adea7e49db01046fb0c3f",
                 "string": "ping -i 2 localhost | sed -u 's/.*/ping/' | espeak"
             },
@@ -126,6 +128,7 @@
                     "zsh"
                 ],
                 "incompatible-shells": [],
+                "nilsimsa-hex": "7bcfe299e6d5985adc0435e31f7b7ee295c973e0a942791247c135ad2439f0da",
                 "sha1hex": "320ba9096161c69d6513e0d906155ff7e346d325",
                 "string": "ping -i 2 localhost | sed --unbuffered 's/.*/ping/' | espeak"
             }
@@ -162,8 +165,9 @@
             "kill"
         ],
         "description": {
+            "nilsimsa-hex": "92205548180110a4f04214bf9400a6f7228a14c9b8170c060306d02559146d41",
             "sha1hex": "d3c97a0498d770f39f9e1b386a8dddfdf6c71701",
-            "string":"Kill stopped jobs."
+            "string": "Kill stopped jobs."
         },
         "invocations": {
             "bash": {
@@ -179,6 +183,7 @@
                     "tcsh",
                     "zsh"
                 ],
+                "nilsimsa-hex": "95560a8904819572142344708a24984448a08285a030d214009f48041ab27909",
                 "sha1hex": "b130d1235cd093ef0d6dc5217f89e793192abd83",
                 "string": "kill $(jobs -ps)"
             }
@@ -220,6 +225,7 @@
             "xset"
         ],
         "description": {
+            "nilsimsa-hex": "35b403d934eeacb44ab8b4fb99a6a5f12d093bab5122262d6d0d8e1437186de8",
             "sha1hex": "92604b8815f9197914b456d78abe543e44b614f0",
             "string": "Turn off the monitor; make the display go dark until the mouse is moved or a key is pressed."
         },
@@ -237,6 +243,7 @@
                     "zsh"
                 ],
                 "incompatible-shells": [],
+                "nilsimsa-hex": "8374e121c48c68c95f74590404c5446692e20d19f5fa514977662ab1aca71809",
                 "sha1hex": "cc1938fb35ff47f16a237a9c6cd68add2aa6f4fd",
                 "string": "xset dpms force standby"
             }
@@ -287,6 +294,7 @@
             "which"
         ],
         "description": {
+            "nilsimsa-hex": "0738a1fd95d102ce83c06f112af0109595e988b9712b5c86b50d6e31c0d2c488",
             "sha1hex": "f3951f67052d0a0ea66062977ab7074c88bf9708",
             "string": "Change the default shell of the current user to zsh."
         },
@@ -334,6 +342,7 @@
                     "fish",
                     "tcsh"
                 ],
+                "nilsimsa-hex": "8b06778d52b4dbeb952fc39d1f9103e02f53ad81d371fe4247ae891751332d07",
                 "sha1hex": "afcf173a92b8a8b580cfbf6616ba1ce2482cf501",
                 "string": "chsh -s $(which zsh) $USER"
             },
@@ -379,6 +388,7 @@
                     "fish",
                     "tcsh"
                 ],
+                "nilsimsa-hex": "c31ef75d52b5d9ffbd7d53dd3f9393ec0f33afb5f37bfc332f2ec917c1333d83",
                 "sha1hex": "a5e12f16ddb255f9b7a115364803c7f6eeb05534",
                 "string": "chsh --shell $(which zsh) $USER"
             }
@@ -429,6 +439,7 @@
             "less"
         ],
         "description": {
+            "nilsimsa-hex": "3efcd29b3a75e43c4748e7b9e8a87dbd3c5700739963c6a7b7169fd3de9477ef",
             "sha1hex": "118f2d8f8666f09b5d9c9db536d645be5f923f6c",
             "string": "Highlight non-ASCII characters (e.g. Unicode) in a text file and give the line number they are on."
         },
@@ -453,6 +464,7 @@
                 "incompatible-shells": [
                     "TODO"
                 ],
+                "nilsimsa-hex": "da8f7868256c22fcd1fcec9e9420ff1b662e8c915d8a0749e0f878503658e048",
                 "sha1hex": "8f78d31acfe82ec49214053d40ad2c338a9b51aa",
                 "string": "grep -nP '[^[:ascii:]]' --color=always myfile.txt | less -R"
             },
@@ -476,6 +488,7 @@
                 "incompatible-shells": [
                     "TODO"
                 ],
+                "nilsimsa-hex": "f8c2d869056620e65268ac8a1020381b44260413fd882749c0787890365880ec",
                 "sha1hex": "c2fe383b7f8e87e5baa638b3f4f074ad2f057614",
                 "string": "grep --line-number --perl-regexp '[^[:ascii:]]' --color=always myfile.txt | less --RAW-CONTROL-CHARS"
             }
@@ -537,6 +550,7 @@
             "lscpu"
         ],
         "description": {
+            "nilsimsa-hex": "d8c42b2efc2ce62d5bb75b81d4962ead3d0311087668ed288778f9f0e56d746d",
             "sha1hex": "9f2fdee93e84817e73dcbe46d01e28af001fbe1e",
             "string": "Display name of hardware's CPU architecture, e.g. x86_64 for 64-bit Intel processors and i686 for 32-bit Intel processors."
         },
@@ -546,6 +560,7 @@
                     "i686",
                     "x86_64"
                 ],
+                "nilsimsa-hex": "115a331849b2cf082ac652d44c61b0042c59891b564b970d43e1b4fb7478650d",
                 "related-invocations": [
                     "c7a75171158ee220514b48bf7b7065fccaa6b37b",
                     "0f86bfd2af49de656a8a318ea310727e6052525a",
@@ -590,6 +605,7 @@
             "uname"
         ],
         "description": {
+            "nilsimsa-hex": "57f47eaab6d8e80e9b3a5b89fb94b873cd0f20355b2cac0e271c0f82748db14c",
             "sha1hex": "c061264c95aede5a5e512500e5069e2c5f3a71f5",
             "string": "Determine which architecture the Linux kernel is configured for; may not be the same as the actual CPU architecture. For example, an Intel i686 kernel can run on an Intel x86_64 processor, but its RAM will be limited unless the kernel has PAE is enabled."
         },
@@ -599,6 +615,7 @@
                     "i686",
                     "x86_64"
                 ],
+                "nilsimsa-hex": "040020244000221010000000082002b000020a00881000000000685122400422",
                 "sha1hex": "c7a75171158ee220514b48bf7b7065fccaa6b37b",
                 "string": "uname -m"
             },
@@ -607,6 +624,7 @@
                     "i686",
                     "x86_64"
                 ],
+                "nilsimsa-hex": "548222a578302a1113002404f8a112b94cb3091080928c4020016a582248a427",
                 "sha1hex": "0f86bfd2af49de656a8a318ea310727e6052525a",
                 "string": "uname --machine"
             }
@@ -647,6 +665,7 @@
             "getconf"
         ],
         "description": {
+            "nilsimsa-hex": "98d007e8f9da8416a238193443bcbd850cb9f82bf338fd10ef3bdd5975ef209f",
             "sha1hex": "0bf4d29f2f25021251414c41f8eac14e440c016f",
             "string": "Display the word size of the kernel, e.g. 32-bit or 64-bit."
         },
@@ -656,6 +675,7 @@
                     "32",
                     "64"
                 ],
+                "nilsimsa-hex": "b5845f34cb2450221727442019db4822404111600930104230a10426cee2180a",
                 "sha1hex": "95480eceb7facbd35f4363138b7ef9d5b98fc02a",
                 "string": "getconf LONG_BIT"
             }
@@ -722,6 +742,7 @@
             "pdfimages"
         ],
         "description": {
+            "nilsimsa-hex": "10b965aad81349edd7663a81e2b0979594cb293fd122f840578e2ef1f623ce2a",
             "sha1hex": "040662df76d8e74369a2b56c10764ba16b44d2a7",
             "string": "For each file ending with '.pdf' in the current directory, extract the images from the pdf file into a new directory with the name of the file stripped of '.pdf'."
         },
@@ -752,6 +773,7 @@
                     "fish",
                     "tcsh"
                 ],
+                "nilsimsa-hex": "b287705fc40a710595646eda32e76b609dd82a885a74afe40f82d0c46a75f23e",
                 "sha1hex": "69eb231e93a2ec3f9ad6fdbcfede4fba0cbe6b15",
                 "string": "for f in *.pdf; do dir=\"${f%.*}\"; mkdir -p \"$dir\" && pdfimages -j \"$f\" \"$dir/$dir\"; done"
             }
@@ -839,6 +861,7 @@
             "zip"
         ],
         "description": {
+            "nilsimsa-hex": "410d65684b2528882cf698c091a7505f05a49035c8ab31edd10e880df82c0c0c",
             "sha1hex": "f200d2b9c05860539eff503d392be186fa479bb7",
             "string": "Resize all the images in an OpenDocument (ODT) file to 10% of their former size."
         },
@@ -873,6 +896,7 @@
                         "type": "string"
                     }
                 },
+                "nilsimsa-hex": "30c4304ac12b50059198af4a12e432043982060ad8e05b842713100c4451822b",
                 "sha1hex": "451c4d67106c8189e61cc28c341b631620e76702",
                 "string": "dir=\"$(mktemp -d --tmpdir=.)\" && unzip -q file.odt -d \"$dir\" && cd \"$dir\" && mogrify -resize 10x10% Pictures/* && zip -qrm ../resized.odt * && cd .. && rmdir \"$dir\""
             }
@@ -909,6 +933,7 @@
             "find"
         ],
         "description": {
+            "nilsimsa-hex": "9e74cd22f0d68ce48ff7128166a01fa9139bbe845907d36c76472ae5a91229b1",
             "sha1hex": "c3248866c4ec72d23e3912e1589e1781fd9b92e5",
             "string": "Find files in your home directory that you don't own."
         },
@@ -937,6 +962,7 @@
                         "type": "string"
                     }
                 },
+                "nilsimsa-hex": "a5274945a6b08943c1c52b882d9121e005b9185cbb325c3fbbc39e54e63f3788",
                 "sha1hex": "1648be79c2a5b366c37d0ec72d20736fcbf5566d",
                 "string": "find $HOME ! -user $USER"
             }
@@ -947,6 +973,7 @@
             "ls"
         ],
         "description": {
+            "nilsimsa-hex": "6a244034060e206b31500290ca285ea0840a0210a9132700009f29b402485a31",
             "sha1hex": "2d0b6b2b90eeb1efbd9591dbfa593766f6cf540a",
             "string": "List hidden files and folders (dotfiles)."
         },
@@ -968,6 +995,7 @@
                     "posh",
                     "rc"
                 ],
+                "nilsimsa-hex": "5a1d404958840221c5c0020011053b3049d024094940003e025b6403b8005230",
                 "sha1hex": "41c50a75714eafa9176f7133ce46be179a2df4b3",
                 "string": "ls -d -- .[^.]*"
             },
@@ -988,6 +1016,7 @@
                     "posh",
                     "rc"
                 ],
+                "nilsimsa-hex": "1edddb03d98c0f6d6fb41a991f0517943bf32e8d7902249e2778f6b3a01844b0",
                 "sha1hex": "11a8677bbc4b7dc77c04e95436d6f36ae64c587f",
                 "string": "ls --directory -- .[^.]*"
             }

@@ -2,6 +2,10 @@
 import json
 import hashlib
 import sys
+try:
+    import nilsimsa
+except ImportError:
+    pass
 
 if len(sys.argv) == 1:
     print "Usage: python lint-database.py database.json"
@@ -17,8 +21,19 @@ def check_sha1(string, nominal_sha1):
         % (nominal_sha1, calculated_sha1, string)
 
 def prompt_sha1(string):
-    sys.stderr("No SHA1 for `" + string + "'")
-    sys.stderr("Should be: "+hashlib.sha1(string).hexdigest())
+    sys.stderr.write("No SHA1 for `" + string + "'")
+    sys.stderr.write("Should be: "+hashlib.sha1(string).hexdigest())
+
+if 'nilsimsa' in sys.modules:
+    def check_nilsimsa(string, nominal_nilsimsa):
+        calculated_nilsimsa = nilsimsa.Nilsimsa(string).hexdigest()
+        assert nominal_nilsimsa == calculated_nilsimsa, \
+            "nilsimsas do not match:\n%s (in database)\n%s (calculated)\n%r (command representation)" \
+            % (nominal_nilsimsa, calculated_nilsimsa, string)
+
+    def prompt_nilsimsa(string):
+        sys.stderr.write("No nilsimsa for `" + string + "'\n")
+        sys.stderr.write("Should be: "+nilsimsa.Nilsimsa(string).hexdigest()+"\n")
 
 def get_slice(string_to_slice, slice_index_list):
     # We're slicing a string, so the list should only have the start and stop of the slice.
@@ -55,15 +70,27 @@ for command in commands:
     except KeyError:
         prompt_sha1(command['description']['string'])
 
-    invocations = command['invocations'].keys()
-    for shell in invocations:
+    if 'nilsimsa' in sys.modules:
+        try:
+            check_nilsimsa(command['description']['string'],
+                       command['description']['nilsimsa-hex'])
+        except KeyError:
+            prompt_nilsimsa(command['description']['string'])
 
-        invocation_dict = command['invocations'][shell]
+    for invocation, invocation_dict in command['invocations'].iteritems():
+
+        invocation_dict = command['invocations'][invocation]
 
         try:
             check_sha1(invocation_dict['string'], invocation_dict['sha1hex'])
         except KeyError:
             prompt_sha1(invocation_dict['string'])
+
+        if 'nilsimsa' in sys.modules:
+            try:
+                check_nilsimsa(invocation_dict['string'], invocation_dict['nilsimsa-hex'])
+            except KeyError:
+                prompt_nilsimsa(invocation_dict['string'])
 
         if 'changeable-arguments' in invocation_dict.keys():
             arg_dict = invocation_dict['changeable-arguments']

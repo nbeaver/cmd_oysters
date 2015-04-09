@@ -17,6 +17,7 @@ pseudo-schema/
 │           └── sudo
 ├── component-commands
 ├── description
+│   ├── nilsimsa-hex
 │   ├── sha1hex
 │   └── string
 ├── invocations
@@ -32,6 +33,7 @@ pseudo-schema/
 │       ├── compatible-shells
 │       ├── example-outputs
 │       ├── incompatible-shells
+│       ├── nilsimsa-hex
 │       ├── related-invocations
 │       ├── sha1hex
 │       └── string

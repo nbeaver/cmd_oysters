@@ -30,6 +30,7 @@
             "$COMMAND"
         ],
         "description": {
+            "nilsimsa-hex": "217cfb78b2e3277296d479d13e8e029182a97cd4e5f87d5c363bb1d7f24108ce",
             "sha1hex": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
             "string": ""
         },
@@ -57,6 +58,7 @@
                 "incompatible-shells": [
                     "ash | bash | bsh | csh | dash | fish | ksh | mksh | pdksh | posh | POSIX | rc | scsh | tcsh | zsh | ..."
                 ],
+                "nilsimsa-hex": "208fe2086713b058dc0435631528fca291cd63f02942391141c1b4a52439f0ca",
                 "related-invocations": [
                     "b858cb282617fb0956d960215c8e84d1ccf909c6"
                 ],

@@ -18,7 +18,8 @@ pseudo-schema/
 │           ├── internet-connection: Does the command require an active internet connection? Examples: wget, whois, dig
 │           └── sudo: Does the command require superuser priveleges? Examples: shutdown, rtcwake
 ├── component-commands: List of the individual commands that make up the composite command.
-├── description: Textual description of what the command does. Need not be unique.
+├── description: Textual description of what the command does. Must be unique, since its SHA1 hash is effectively the primary key.
+│   ├── nilsimsa-hex: A locality-sensitive hash, helping to detect similar descriptions.
 │   ├── sha1hex: The SHA1 cryptographic hash of the description string; useful instead of a primary key for linking to related commands.
 │   └── string: The actual text of the description.
 ├── invocations: The actual command that gets run, indexed by shell. All invocations must have the same component commands.
@@ -34,6 +35,7 @@ pseudo-schema/
 │       ├── compatible-shells: List of shells that the command will run correctly on.
 │       ├── example-outputs: If the output is short and provides insight into what the command does, it is useful to know.
 │       ├── incompatible-shells: Disjoint set of compatible-shells. Options are not explicitly enumerated because there are many, many shells.
+│       ├── nilsimsa-hex: A locality-sensitive hash, helping to detect similar commands.
 │       ├── related-invocations: SHA1 hashes of invocations for different commands that are related to this invocation. A kind of hyper-linking.
 │       ├── sha1hex: The SHA1 cryptographic hash of the command string; useful for linking to related commands.
 │       └── string: Actual string that could be passed to the shell and executed.
