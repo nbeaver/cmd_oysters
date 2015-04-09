@@ -26,6 +26,7 @@ simple_template : simple-template.json pseudo-schema/ check-full-template.py che
 full_command_template : full-command-template.json pseudo-schema/ check-full-template.py check-pseudoschema.py
 	json_verify < full-command-template.json
 	python check-pseudoschema.py full-command-template.json
+	python lint-database.py full-command-template.json
 	python check-full-template.py full-command-template.json pseudo-schema/
 
 temp : lint-database.py check-pseudoschema.py

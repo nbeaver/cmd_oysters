@@ -102,8 +102,10 @@ for command in commands:
                         assert arg == arg_slice, "arg is:\n'"+arg+"'\nbut slice is:\n'"+arg_slice+"'"
                     except AssertionError:
                         pretty_print_slice(invocation_dict['string'], arginfo['invocation-slice'])
-                        print "Suggested slice:", str(find_slice(invocation_dict['string'], arg))
-                        pretty_print_slice(invocation_dict['string'], find_slice(invocation_dict['string'], arg))
+                        slice_candidate = find_slice(invocation_dict['string'], arg)
+                        if slice_candidate:
+                            print "Suggested slice:", str(slice_candidate)
+                            pretty_print_slice(invocation_dict['string'], slice_candidate)
                         raise
         if 'can-affect' in invocation_dict.keys():
             for key in invocation_dict['can-affect']:

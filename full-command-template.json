@@ -30,7 +30,7 @@
             "$COMMAND"
         ],
         "description": {
-            "nilsimsa-hex": "217cfb78b2e3277296d479d13e8e029182a97cd4e5f87d5c363bb1d7f24108ce",
+            "nilsimsa-hex": "0000000000000000000000000000000000000000000000000000000000000000",
             "sha1hex": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
             "string": ""
         },
@@ -42,8 +42,8 @@
                         "component-command-flag": "$FLAG",
                         "description-string": "",
                         "invocation-slice": [
-                            0,
-                            1
+                            15,
+                            19
                         ],
                         "subtype":"<replace with more specific type, e.g. path>",
                         "type": "string | integer | float"
@@ -58,12 +58,12 @@
                 "incompatible-shells": [
                     "ash | bash | bsh | csh | dash | fish | ksh | mksh | pdksh | posh | POSIX | rc | scsh | tcsh | zsh | ..."
                 ],
-                "nilsimsa-hex": "208fe2086713b058dc0435631528fca291cd63f02942391141c1b4a52439f0ca",
+                "nilsimsa-hex": "2d75aea6d0809620c0a86ea403010392a1b90483493d415481d4922e58c00777",
                 "related-invocations": [
-                    "b858cb282617fb0956d960215c8e84d1ccf909c6"
+                    "0000000000000000000000000000000000000000"
                 ],
-                "sha1hex": "b858cb282617fb0956d960215c8e84d1ccf909c6",
-                "string": " "
+                "sha1hex": "6da5385cfec34278b7df38f78685aaaba7ebc9c8",
+                "string": "$COMMAND $FLAG $ARG"
             }
         },
         "related-commands": [
