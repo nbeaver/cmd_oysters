@@ -877,5 +877,125 @@
                 "string": "dir=\"$(mktemp -d --tmpdir=.)\" && unzip -q file.odt -d \"$dir\" && cd \"$dir\" && mogrify -resize 10x10% Pictures/* && zip -qrm ../resized.odt * && cd .. && rmdir \"$dir\""
             }
         }
+    },
+    {
+        "can-affect": {
+            "filesystem": false,
+            "other-processes" : false
+        },
+        "component-command-info": {
+            "bash-type": {
+                "find": "file"
+            },
+            "debian": {
+                "executable-path": {
+                    "find": "/usr/bin/find"
+                },
+                "required-packages": {
+                    "find": [
+                        "findutils"
+                    ]
+                }
+            },
+            "requirements": {
+                "find": {
+                    "authentication": "never",
+                    "internet-connection": "never",
+                    "sudo": "sometimes"
+                }
+            }
+        },
+        "component-commands": [
+            "find"
+        ],
+        "description": {
+            "sha1hex": "c3248866c4ec72d23e3912e1589e1781fd9b92e5",
+            "string": "Find files in your home directory that you don't own."
+        },
+        "invocations": {
+            "POSIX" : {
+                "changeable-arguments": {
+                    "$HOME": {
+                        "component-command": "find",
+                        "description-string": "Path to search.",
+                        "invocation-slice": [
+                            5,
+                            10
+                        ],
+                        "subtype":"Path to file or directory.",
+                        "type": "string"
+                    },
+                    "$USER": {
+                        "component-command": "find",
+                        "component-command-flag": "-user",
+                        "description-string": "User login the file is not owned by.",
+                        "invocation-slice": [
+                            19,
+                            24
+                        ],
+                        "subtype":"Login user name.",
+                        "type": "string"
+                    }
+                },
+                "sha1hex": "1648be79c2a5b366c37d0ec72d20736fcbf5566d",
+                "string": "find $HOME ! -user $USER"
+            }
+        }
+    },
+    {
+        "component-commands": [
+            "ls"
+        ],
+        "description": {
+            "sha1hex": "2d0b6b2b90eeb1efbd9591dbfa593766f6cf540a",
+            "string": "List hidden files and folders (dotfiles)."
+        },
+        "invocations": {
+            "bash" : {
+                "compatible-shells": [
+                    "bash",
+                    "csh",
+                    "ksh",
+                    "tcsh",
+                    "zsh"
+                ],
+                "incompatible-shells": [
+                    "bsh",
+                    "dash",
+                    "fish",
+                    "mksh",
+                    "pdksh",
+                    "posh",
+                    "rc"
+                ],
+                "sha1hex": "41c50a75714eafa9176f7133ce46be179a2df4b3",
+                "string": "ls -d -- .[^.]*"
+            },
+            "bash-long-flags" : {
+                "compatible-shells": [
+                    "bash",
+                    "csh",
+                    "ksh",
+                    "tcsh",
+                    "zsh"
+                ],
+                "incompatible-shells": [
+                    "bsh",
+                    "dash",
+                    "fish",
+                    "mksh",
+                    "pdksh",
+                    "posh",
+                    "rc"
+                ],
+                "sha1hex": "11a8677bbc4b7dc77c04e95436d6f36ae64c587f",
+                "string": "ls --directory -- .[^.]*"
+            }
+        },
+        "relevant-urls": [
+            "http://www.gnu.org/software/coreutils/faq/coreutils-faq.html#ls-_002da-_002a-does-not-list-dot-files",
+            "http://stackoverflow.com/a/699071/1608986",
+            "http://stackoverflow.com/a/2550243/1608986"
+        ]
     }
 ]
