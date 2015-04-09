@@ -14,6 +14,20 @@ if len(sys.argv) == 1:
 with open(sys.argv[1]) as db_file:
     commands = json.load(db_file)
 
+class NoDuplicates:
+    def __init__(self, iterable=[]):
+        self.set = set()
+        for elem in iterable:
+            if elem in self.set:
+                raise RuntimeError("Duplicate element: "+repr(elem))
+            else:
+                self.set.add(elem)
+    def add(self, elem):
+        if elem in self.set:
+            raise RuntimeError("Duplicate element: "+repr(elem))
+        else:
+            self.set.add(elem)
+
 def check_sha1(string, nominal_sha1):
     calculated_sha1 = hashlib.sha1(string).hexdigest()
     assert nominal_sha1 == calculated_sha1, \
@@ -60,6 +74,7 @@ def find_slice(string, substring):
         stop = start + len(substring)
         return [start, stop]
 
+unique_SHA1s = NoDuplicates()
 for command in commands:
     assert 'description' in command.keys(), "Error: no description."
     assert 'string' in command['description'].keys(), "Error: no description string."
@@ -67,6 +82,7 @@ for command in commands:
     try:
         check_sha1(command['description']['string'],
                    command['description']['sha1hex'])
+        unique_SHA1s.add(command['description']['sha1hex'])
     except KeyError:
         prompt_sha1(command['description']['string'])
 
@@ -83,6 +99,7 @@ for command in commands:
 
         try:
             check_sha1(invocation_dict['string'], invocation_dict['sha1hex'])
+            unique_SHA1s.add(invocation_dict['sha1hex'])
         except KeyError:
             prompt_sha1(invocation_dict['string'])
 
@@ -112,8 +129,10 @@ for command in commands:
                 true_false = invocation_dict['can-affect'][key]
                 assert type(true_false) == bool, true_false+" is not a boolean."
 
+
 # TODO: check all the commands in component commands are substrings of the main command.
 # TODO: check that the commands in component-command-info
 # TODO: check that bash-type is one of `keyword', `builtin', or `file'.
 # TODO: check debian-path is correct using `which`.
 # TODO: make a proper JSON schema to check the types are correct.
+# DONE: check that no two commands have the same SHA1s of description text.
