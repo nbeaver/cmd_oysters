@@ -9,6 +9,8 @@ Add information about how to exit an interactive command, e.g.:
 
 How to include version numbers in "commands this shell works with/doesn't work with"?
 
+How to extend this to work for other programming languages.
+
 Verify that all the pseudo-schema fields are in command-template.json.
 
 Verify temp.json when make is run.
@@ -28,3 +30,5 @@ Decide which fields are required and which are optional (JSON schema?).
 Decide if all command information should be at the same nesting level or not.
 
 Add to find-command.py: Add a --shell -x flag to spawn a prompt for the user with the command already filled in (use pexpect).
+
+Re-order command info so there is a platform-independent, then ones for Debian, etc.
