@@ -1026,5 +1026,77 @@
             "http://stackoverflow.com/a/699071/1608986",
             "http://stackoverflow.com/a/2550243/1608986"
         ]
+    },
+    {
+        "can-affect": {
+            "filesystem": false,
+            "other-processes" : false
+        },
+        "component-command-info": {
+            "bash-type": {
+                "stat": "file"
+            },
+            "debian": {
+                "executable-path": {
+                    "stat": "/usr/bin/stat"
+                },
+                "required-packages": {
+                    "stat": [
+                        "coreutils"
+                    ]
+                }
+            },
+            "requirements": {
+                "stat": {
+                    "authentication": "never",
+                    "internet-connection": "never",
+                    "sudo": "sometimes"
+                }
+            }
+        },
+        "component-commands": [
+            "stat"
+        ],
+        "description": {
+            "nilsimsa-hex": "baf564ac3e3a812c881331ec28a090f10068e971c9396fd83b028e2243c68d69",
+            "sha1hex": "1744989ea5403ab4d565a4f2b86857403d6160dc",
+            "string": "Show the time when `updatedb' was run to update the database for the `locate' command."
+        },
+        "invocations": {
+            "POSIX" : {
+                "changeable-arguments": {
+                    "/var/lib/mlocate/mlocate.db": {
+                        "component-command": "stat",
+                        "description-string": "Path to the `locate' database.",
+                        "invocation-slice": [
+                            11,
+                            38
+                        ],
+                        "subtype":"Path to file or directory.",
+                        "type": "string"
+                    }
+                },
+                "nilsimsa-hex": "041ba01644121d3b1d800d80c95108008076449c0021033e810454210210886a",
+                "sha1hex": "5c399609864502df606983e7ff57a8cf37814b3f",
+                "string": "stat -c %y /var/lib/mlocate/mlocate.db"
+            },
+            "POSIX-long-flags" : {
+                "changeable-arguments": {
+                    "/var/lib/mlocate/mlocate.db": {
+                        "component-command": "stat",
+                        "description-string": "Path to the `locate' database.",
+                        "invocation-slice": [
+                            17,
+                            44
+                        ],
+                        "subtype":"Path to file or directory.",
+                        "type": "string"
+                    }
+                },
+                "nilsimsa-hex": "041f801204123d2b9d901da08c5189408066c49d010103bf810654218290886a",
+                "sha1hex": "2d15ff6529c90e0048ec370eaf4d3c03995fa4b6",
+                "string": "stat --format %y /var/lib/mlocate/mlocate.db"
+            }
+        }
     }
 ]
