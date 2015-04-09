@@ -75,7 +75,8 @@ def find_slice(string, substring):
         return [start, stop]
 
 unique_SHA1s = NoDuplicates()
-for command in commands:
+num_invocations = 0
+for i, command in enumerate(commands):
     # Required fields.
     assert 'description' in command.keys(), "Error: no description."
     assert 'string' in command['description'].keys(), "Error: no description string."
@@ -106,6 +107,7 @@ for command in commands:
             prompt_nilsimsa(command['description']['string'])
 
     for invocation, invocation_dict in command['invocations'].iteritems():
+        num_invocations += 1
 
         invocation_dict = command['invocations'][invocation]
 
@@ -139,13 +141,16 @@ for command in commands:
                     if 'component-command' in arginfo.keys():
                         assert arginfo['component-command'] in command['component-commands'], arginfo['component-command']+" is not one of "+repr(command['component-commands'])
 
-        if 'can-affect' in invocation_dict.keys():
-            for key in invocation_dict['can-affect']:
-                true_false = invocation_dict['can-affect'][key]
+        if 'can-modify' in invocation_dict.keys():
+            for key in invocation_dict['can-modify']:
+                true_false = invocation_dict['can-modify'][key]
                 assert type(true_false) == bool, true_false+" is not a boolean."
 
         for component_command in command['component-commands']:
             assert component_command in invocation_dict['string'], "component_command:\n"+component_command+"\nis not in invocation:\n"+invocation_dict['string']
+
+num_commands = i + 1 # enumerate starts from 0.
+print "Validated", num_commands ,"command(s) and", num_invocations, "invocation(s)."
 
 # DONE: check all the commands in component commands are substrings of the main command.
 # TODO: check that the commands in component-command-info

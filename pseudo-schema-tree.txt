@@ -1,5 +1,5 @@
 pseudo-schema/
-├── can-affect
+├── can-modify
 │   ├── filesystem
 │   └── other-processes
 ├── component-command-info

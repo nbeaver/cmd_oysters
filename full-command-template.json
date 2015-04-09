@@ -1,6 +1,6 @@
 [
     {
-        "can-affect": {
+        "can-modify": {
             "filesystem": false,
             "other-processes" : false
         },

@@ -1,7 +1,7 @@
 These are some notes on the structure of the command database.
 
 pseudo-schema/
-├── can-affect
+├── can-modify
 │   ├── filesystem
 │   └── other-processes
 ├── component-command-info: Additional metadata for the component commands.
