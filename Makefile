@@ -1,10 +1,10 @@
 all: command_database simple_template full_command_template temp sorted.json pseudo_schema_tree
 .PHONY : command_database simple_template full_command temp pseudo_schema_tree
 
-command_database : command-database.json check-pseudoschema.py lint-database.py find-command.py
+command_database : command-database.json check-pseudoschema.py validate-database.py find-command.py
 	json_verify < command-database.json
 	python check-pseudoschema.py command-database.json
-	python lint-database.py command-database.json
+	python validate-database.py command-database.json
 	python find-command.py --substring 'ping -i' > /dev/null
 	python find-command.py --commands ping espeak sed > /dev/null
 	python find-command.py --tokens '|' sed localhost ping > /dev/null
@@ -26,10 +26,10 @@ simple_template : simple-template.json pseudo-schema/ check-full-template.py che
 full_command_template : full-command-template.json pseudo-schema/ check-full-template.py check-pseudoschema.py
 	json_verify < full-command-template.json
 	python check-pseudoschema.py full-command-template.json
-	python lint-database.py full-command-template.json
+	python validate-database.py full-command-template.json
 	python check-full-template.py full-command-template.json pseudo-schema/
 
-temp : lint-database.py check-pseudoschema.py
+temp : validate-database.py check-pseudoschema.py
 	json_verify < temp.json
-	python lint-database.py temp.json
+	python validate-database.py temp.json
 	python check-pseudoschema.py temp.json

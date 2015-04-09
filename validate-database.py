@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python2
 import json
 import hashlib
 import sys
@@ -8,7 +8,7 @@ except ImportError:
     pass
 
 if len(sys.argv) == 1:
-    print "Usage: python lint-database.py database.json"
+    print "Usage: python "+sys.argv[0]+" database.json"
     sys.exit(1)
 
 with open(sys.argv[1]) as db_file:
