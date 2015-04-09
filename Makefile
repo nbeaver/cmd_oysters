@@ -1,4 +1,4 @@
-all: command_database simple_template full_command_template temp sorted.json pseudo_schema_tree
+all : command_database simple_template full_command_template temp sorted.json pseudo_schema_tree README.html
 .PHONY : command_database simple_template full_command temp pseudo_schema_tree
 
 command_database : command-database.json check-pseudoschema.py validate-database.py find-command.py
@@ -15,7 +15,7 @@ sorted.json : sort-json.py command-database.json
 	python sort-json.py
 	diff --ignore-all-space --ignore-blank-lines command-database.json sorted.json
 
-pseudo_schema_tree: pseudo-schema
+pseudo_schema_tree : pseudo-schema
 	tree --noreport pseudo-schema/ > pseudo-schema-tree.txt
 
 simple_template : simple-template.json pseudo-schema/ check-full-template.py check-pseudoschema.py
@@ -33,3 +33,6 @@ temp : validate-database.py check-pseudoschema.py
 	json_verify < temp.json
 	python validate-database.py temp.json
 	python check-pseudoschema.py temp.json
+
+README.html : README.rst
+	rst2html README.rst README.html
