@@ -38,7 +38,7 @@
             "$INVOCATION" : {
                 "changeable-arguments": {
                     "$ARG": {
-                        "component-command": "$CMD",
+                        "component-command": "$COMMAND",
                         "component-command-flag": "$FLAG",
                         "description-string": "",
                         "invocation-slice": [
