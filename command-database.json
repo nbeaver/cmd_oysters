@@ -52,13 +52,11 @@
             "sed"
         ],
         "description": {
-            "bytes": 57,
             "sha1hex": "41c5855ef5ccf55bc45dbc632b18424f9b18eaa2",
             "string": "Generates audible voice that says 'ping' every 2 seconds."
         },
         "invocations": {
             "POSIX" : {
-                "bytes": 50,
                 "changeable-arguments": {
                     "2": {
                         "component-command": "ping",
@@ -96,7 +94,6 @@
                 "string": "ping -i 2 localhost | sed -u 's/.*/ping/' | espeak"
             },
             "POSIX-long-flags" : {
-                "bytes": 60,
                 "changeable-arguments": {
                     "2": {
                         "component-command": "ping",
@@ -165,13 +162,11 @@
             "kill"
         ],
         "description": {
-            "bytes": 18,
             "sha1hex": "d3c97a0498d770f39f9e1b386a8dddfdf6c71701",
             "string":"Kill stopped jobs."
         },
         "invocations": {
             "bash": {
-                "bytes": 16,
                 "changeable-arguments": {},
                 "compatible-shells": [
                     "bash"
@@ -225,13 +220,11 @@
             "xset"
         ],
         "description": {
-            "bytes": 92,
             "sha1hex": "92604b8815f9197914b456d78abe543e44b614f0",
             "string": "Turn off the monitor; make the display go dark until the mouse is moved or a key is pressed."
         },
         "invocations": {
             "POSIX": {
-                "bytes": 23,
                 "changeable-arguments": null,
                 "compatible-shells": [
                     "bash",
@@ -294,13 +287,11 @@
             "which"
         ],
         "description": {
-            "bytes": 52,
             "sha1hex": "f3951f67052d0a0ea66062977ab7074c88bf9708",
             "string": "Change the default shell of the current user to zsh."
         },
         "invocations": {
             "bash": {
-                "bytes": 26,
                 "changeable-arguments": {
                     "$(which zsh)": {
                         "component-command": "chsh",
@@ -347,7 +338,6 @@
                 "string": "chsh -s $(which zsh) $USER"
             },
             "bash-long-flags": {
-                "bytes": 31,
                 "changeable-arguments": {
                     "$(which zsh)": {
                         "component-command": "chsh",
@@ -439,13 +429,11 @@
             "less"
         ],
         "description": {
-            "bytes": 98,
             "sha1hex": "118f2d8f8666f09b5d9c9db536d645be5f923f6c",
             "string": "Highlight non-ASCII characters (e.g. Unicode) in a text file and give the line number they are on."
         },
         "invocations": {
             "POSIX" : {
-                "bytes": 59,
                 "changeable-arguments": {
                     "myfile.txt": {
                         "component-command": "grep",
@@ -469,7 +457,6 @@
                 "string": "grep -nP '[^[:ascii:]]' --color=always myfile.txt | less -R"
             },
             "POSIX-long-flags" : {
-                "bytes": 100,
                 "changeable-arguments": {
                     "myfile.txt": {
                         "component-command": "grep",
@@ -550,13 +537,11 @@
             "lscpu"
         ],
         "description": {
-            "bytes": 122,
             "sha1hex": "9f2fdee93e84817e73dcbe46d01e28af001fbe1e",
             "string": "Display name of hardware's CPU architecture, e.g. x86_64 for 64-bit Intel processors and i686 for 32-bit Intel processors."
         },
         "invocations": {
             "Linux" : {
-                "bytes": 48,
                 "example-outputs": [
                     "i686",
                     "x86_64"
@@ -605,13 +590,11 @@
             "uname"
         ],
         "description": {
-            "bytes": 254,
             "sha1hex": "c061264c95aede5a5e512500e5069e2c5f3a71f5",
             "string": "Determine which architecture the Linux kernel is configured for; may not be the same as the actual CPU architecture. For example, an Intel i686 kernel can run on an Intel x86_64 processor, but its RAM will be limited unless the kernel has PAE is enabled."
         },
         "invocations": {
             "Linux" : {
-                "bytes": 8,
                 "example-outputs": [
                     "i686",
                     "x86_64"
@@ -620,7 +603,6 @@
                 "string": "uname -m"
             },
             "Linux (long flags)" : {
-                "bytes": 15,
                 "example-outputs": [
                     "i686",
                     "x86_64"
@@ -665,13 +647,11 @@
             "getconf"
         ],
         "description": {
-            "bytes": 59,
             "sha1hex": "0bf4d29f2f25021251414c41f8eac14e440c016f",
             "string": "Display the word size of the kernel, e.g. 32-bit or 64-bit."
         },
         "invocations": {
             "Linux" : {
-                "bytes": 16,
                 "example-outputs": [
                     "32",
                     "64"
@@ -742,13 +722,11 @@
             "pdfimages"
         ],
         "description": {
-            "bytes": 162,
             "sha1hex": "040662df76d8e74369a2b56c10764ba16b44d2a7",
             "string": "For each file ending with '.pdf' in the current directory, extract the images from the pdf file into a new directory with the name of the file stripped of '.pdf'."
         },
         "invocations": {
             "bash" : {
-                "bytes": 88,
                 "changeable-arguments": {
                     "\"${f%.*}\"": {
                         "description-string": "Filename of PDF with '.pdf' stripped off. Used as the directory to store the images and image-root for image filenames.",
@@ -861,13 +839,11 @@
             "zip"
         ],
         "description": {
-            "bytes": 80,
             "sha1hex": "f200d2b9c05860539eff503d392be186fa479bb7",
             "string": "Resize all the images in an OpenDocument (ODT) file to 10% of their former size."
         },
         "invocations": {
             "bash" : {
-                "bytes": 164,
                 "changeable-arguments": {
                     "\"$(mktemp -d --tmpdir=.)\"": {
                         "description-string": "Temporary directory to hold the images; removed as command completes.",

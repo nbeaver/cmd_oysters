@@ -30,13 +30,11 @@
             "$COMMAND"
         ],
         "description": {
-            "bytes": 0,
             "sha1hex": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
             "string": ""
         },
         "invocations": {
             "$INVOCATION" : {
-                "bytes": 1,
                 "changeable-arguments": {
                     "$ARG": {
                         "component-command": "$CMD",
@@ -61,7 +59,7 @@
             }
         },
         "related-commands": [
-            "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+            "da39a3ee5e6b4b0d3255bfef95601890afd80709"
         ],
         "relevant-urls": [
             "http://unix.stackexchange.com/",

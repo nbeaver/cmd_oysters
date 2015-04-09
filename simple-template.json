@@ -4,13 +4,11 @@
             "ls"
         ],
         "description": {
-            "bytes": 29,
             "sha1hex": "62f6a0e19cae58eefb0e39bc09aaf7b9469202e5",
             "string": "List contents of a directory."
         },
         "invocations": {
             "POSIX" : {
-                "bytes": 2,
                 "sha1hex": "ebfdec641529d4b59a54e18f8b0e9730f85939fb",
                 "string": "ls"
             }
