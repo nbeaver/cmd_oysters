@@ -778,5 +778,128 @@
                 "string": "for f in *.pdf; do dir=\"${f%.*}\"; mkdir -p \"$dir\" && pdfimages -j \"$f\" \"$dir/$dir\"; done"
             }
         }
+    },
+    {
+        "can-affect": {
+            "filesystem": true,
+            "other-processes" : false
+        },
+        "component-command-info": {
+            "bash-type": {
+                "cd": "builtin",
+                "mktemp": "file",
+                "mogrify": "file",
+                "rmdir": "file",
+                "unzip": "file",
+                "zip": "file"
+            },
+            "debian": {
+                "executable-path": {
+                    "mktemp": "/bin/mktemp",
+                    "mogrify": "/usr/bin/mogrify",
+                    "rmdir": "/bin/rmdir",
+                    "unzip": "/usr/bin/unzip",
+                    "zip": "/usr/bin/zip"
+                },
+                "required-packages": {
+                    "mktemp": [
+                        "coreutils"
+                    ],
+                    "mogrify": [
+                        "imagemagick"
+                    ],
+                    "rmdir": [
+                        "coreutils"
+                    ],
+                    "unzip": [
+                        "unzip"
+                    ],
+                    "zip": [
+                        "zip"
+                    ]
+                }
+            },
+            "requirements": {
+                "cd": {
+                    "authentication": "never",
+                    "internet-connection": "never",
+                    "sudo": "never"
+                },
+                "mktemp": {
+                    "authentication": "never",
+                    "internet-connection": "never",
+                    "sudo": "sometimes"
+                },
+                "mogrify": {
+                    "authentication": "never",
+                    "internet-connection": "never",
+                    "sudo": "sometimes"
+                },
+                "rmdir": {
+                    "authentication": "never",
+                    "internet-connection": "never",
+                    "sudo": "sometimes"
+                },
+                "unzip": {
+                    "authentication": "never",
+                    "internet-connection": "never",
+                    "sudo": "sometimes"
+                },
+                "zip": {
+                    "authentication": "never",
+                    "internet-connection": "never",
+                    "sudo": "sometimes"
+                }
+            }
+        },
+        "component-commands": [
+            "cd",
+            "mktemp",
+            "mogrify",
+            "rmdir",
+            "unzip",
+            "zip"
+        ],
+        "description": {
+            "bytes": 80,
+            "sha1hex": "f200d2b9c05860539eff503d392be186fa479bb7",
+            "string": "Resize all the images in an OpenDocument (ODT) file to 10% of their former size."
+        },
+        "invocations": {
+            "bash" : {
+                "bytes": 164,
+                "changeable-arguments": {
+                    "\"$(mktemp -d --tmpdir=.)\"": {
+                        "description-string": "Temporary directory to hold the images; removed as command completes.",
+                        "invocation-slice": [
+                            4,
+                            29
+                        ],
+                        "subtype":"Path to a writeable directory.",
+                        "type": "string"
+                    },
+                    "../resized.odt": {
+                        "description-string": "Output OpenDocument (.odt) file.",
+                        "invocation-slice": [
+                            123,
+                            137
+                        ],
+                        "subtype":"Path to a writeable or non-existant file.",
+                        "type": "string"
+                    },
+                    "file.odt": {
+                        "description-string": "Input OpenDocument (.odt) file containing images.",
+                        "invocation-slice": [
+                            42,
+                            50
+                        ],
+                        "subtype":"Path to a file.",
+                        "type": "string"
+                    }
+                },
+                "sha1hex": "451c4d67106c8189e61cc28c341b631620e76702",
+                "string": "dir=\"$(mktemp -d --tmpdir=.)\" && unzip -q file.odt -d \"$dir\" && cd \"$dir\" && mogrify -resize 10x10% Pictures/* && zip -qrm ../resized.odt * && cd .. && rmdir \"$dir\""
+            }
+        }
     }
 ]
