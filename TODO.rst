@@ -19,4 +19,12 @@ Omit requirements for shell keywords, since they don't do anything on their own?
 
 Required packages for shell keywords and builtins -- just omit them, since it depends on the shell anyway?
 
-Requirements are vague, e.g. using `ls` in an sshfs does require an internet connection, but only indirectly.
+Requirements are vague, e.g. using ``ls`` in an sshfs does require an internet connection, but only indirectly.
+
+Should the requirements refer to the command as used, or to any potential use of the command?
+
+Decide which fields are required and which are optional (JSON schema?).
+
+Decide if all command information should be at the same nesting level or not.
+
+Add to find-command.py: Add a --shell -x flag to spawn a prompt for the user with the command already filled in (use pexpect).
