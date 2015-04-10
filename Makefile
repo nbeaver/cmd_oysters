@@ -1,4 +1,4 @@
-all : command_database simple_template full_command_template temp sorted.json pseudo_schema_tree README.html
+all : command_database simple_template full_command_template temp sorted.json pseudo_schema_tree README.html pseudo-schema-notes.html
 .PHONY : command_database simple_template full_command_template temp pseudo_schema_tree
 
 command_database : command-database.json check-pseudoschema.py validate-database.py find-command.py
@@ -21,10 +21,10 @@ sorted.json : sort-json.py command-database.json
 pseudo_schema_tree : pseudo-schema
 	tree --noreport pseudo-schema/ > pseudo-schema-tree.txt
 
-simple_template : simple-template.json pseudo-schema/ check-full-template.py check-pseudoschema.py
+simple_template : simple-template.json pseudo-schema/ check-pseudoschema.py
 	json_verify < simple-template.json
 	python check-pseudoschema.py simple-template.json
-	python check-full-template.py full-command-template.json pseudo-schema/
+	python validate-database.py simple-template.json
 
 full_command_template : full-command-template.json pseudo-schema/ check-full-template.py check-pseudoschema.py
 	json_verify < full-command-template.json
@@ -39,3 +39,6 @@ temp : validate-database.py check-pseudoschema.py
 
 README.html : README.rst
 	rst2html README.rst README.html
+
+pseudo-schema-notes.html : pseudo-schema-notes.markdown
+	pandoc --from markdown --to html5 pseudo-schema-notes.markdown > pseudo-schema-notes.html
