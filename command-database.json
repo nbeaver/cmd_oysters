@@ -5,41 +5,43 @@
             "other-processes": false
         },
         "component-command-info": {
-            "bash-type": {
-                "espeak": "file",
-                "ping": "file",
-                "sed": "file"
-            },
-            "debian": {
-                "executable-path": {
-                    "espeak": "/usr/bin/espeak",
-                    "ping": "/bin/ping",
-                    "sed": "/bin/sed"
-                },
-                "required-packages": {
-                    "espeak": [
+            "espeak": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/usr/bin/espeak",
+                    "required-packages": [
                         "espeak"
-                    ],
-                    "ping": [
-                        "iputils-ping"
-                    ],
-                    "sed": [
-                        "sed"
                     ]
-                }
-            },
-            "requirements": {
-                "espeak": {
+                },
+                "requirements-in-general": {
                     "authentication": "never",
                     "internet-connection": "never",
                     "sudo": "never"
+                }
+            },
+            "ping": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/bin/ping",
+                    "required-packages": [
+                        "iputils-ping"
+                    ]
                 },
-                "ping": {
+                "requirements-in-general": {
                     "authentication": "sometimes",
                     "internet-connection": "sometimes",
                     "sudo": "sometimes"
+                }
+            },
+            "sed": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/bin/sed",
+                    "required-packages": [
+                        "sed"
+                    ]
                 },
-                "sed": {
+                "requirements-in-general": {
                     "authentication": "never",
                     "internet-connection": "never",
                     "sudo": "never"
