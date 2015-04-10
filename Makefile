@@ -1,5 +1,5 @@
 all : command_database simple_template full_command_template temp sorted.json pseudo_schema_tree README.html
-.PHONY : command_database simple_template full_command temp pseudo_schema_tree
+.PHONY : command_database simple_template full_command_template temp pseudo_schema_tree
 
 command_database : command-database.json check-pseudoschema.py validate-database.py find-command.py
 	json_verify < command-database.json
@@ -15,6 +15,9 @@ sorted.json : sort-json.py command-database.json
 	python sort-json.py
 	diff --ignore-all-space --ignore-blank-lines command-database.json sorted.json
 
+# The target really should be pseudo-schema-tree.txt,
+# but the timestamp of the directory doesn't change when the files inside are,
+# so we need to make it a phony target so that it gets called every time.
 pseudo_schema_tree : pseudo-schema
 	tree --noreport pseudo-schema/ > pseudo-schema-tree.txt
 
