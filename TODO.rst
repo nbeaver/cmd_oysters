@@ -6,6 +6,8 @@ Add information about how to exit an interactive command, e.g.:
 - root -l:  Ctrl-D and Ctrl-C don't work, must use exit().
 - cat: Ctrl-C, Ctrl-D, Ctrl-\
 - ssh: Have to use <Enter>~. when a connection hangs.
+- pacmd: Don't use exit, use Ctrl-D, or you'll kill the daemon.
+- ed: use q, not anything else.
 
 How to include version numbers in "commands this shell works with/doesn't work with"?
 
@@ -32,3 +34,7 @@ Decide if all command information should be at the same nesting level or not.
 Add to find-command.py: Add a --shell -x flag to spawn a prompt for the user with the command already filled in (use pexpect).
 
 Re-order command info so there is a platform-independent, then ones for Debian, etc.
+
+How to express the various options for debian packages, e.g. various shells or awks.
+
+Nilsimsa is not good for short strings. Better locality-sensitive hash for short strings?
