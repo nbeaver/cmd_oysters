@@ -5,21 +5,15 @@
             "other-processes" : false
         },
         "component-command-info": {
-            "bash-type": {
-                "$COMMAND": "builtin | keyword | file"
-            },
-            "debian": {
-                "executable-path": {
-                    "$COMMAND": "/path/to/command"
-                },
-                "required-packages": {
-                    "$COMMAND": [
+            "$COMMAND": {
+                "bash-type": "builtin | keyword | file",
+                "debian": {
+                    "executable-path": "/path/to/command",
+                    "required-packages": [
                         "debian-package-name"
                     ]
-                }
-            },
-            "requirements": {
-                "$COMMAND": {
+                },
+                "requirements-in-general": {
                     "authentication": "always | sometimes | never",
                     "internet-connection": "always | sometimes | never",
                     "sudo": "always | sometimes | never"
@@ -47,6 +41,13 @@
                         ],
                         "subtype":"<replace with more specific type, e.g. path>",
                         "type": "string | integer | float"
+                    }
+                },
+                "command-requirements-as-invoked": {
+                    "$COMMAND": {
+                        "authentication": "always | sometimes | never",
+                        "internet-connection": "always | sometimes | never",
+                        "sudo": "always | sometimes | never"
                     }
                 },
                 "example-outputs": [

@@ -82,15 +82,8 @@ for i, command in enumerate(commands):
     assert 'string' in command['description'].keys(), "Error: no description string."
 
     if "component-command-info" in command.keys():
-        for key, item in command['component-command-info'].iteritems():
-            # TODO: there doesn't seem to be a better way to do this,
-            # other than requiring all the component command information
-            # to be at the same nesting level.
-            if key in ['bash-type', 'requirements']:
-                assert set(item.keys()).issubset(set(command['component-commands'])), repr(item.keys())+ " not a subset of "+repr(command['component-commands'])
-            elif key in ['debian']:
-                for key2, item2 in item.iteritems():
-                    assert set(item2.keys()).issubset(set(command['component-commands'])), repr(item.keys())+ " not a subset of "+repr(command['component-commands'])
+        assert set(command['component-command-info'].keys()).issubset(set(command['component-commands'])), \
+            repr(command['component-command-info'].keys())+ "is not a subset of "+repr(command['component-commands'])
 
     try:
         check_sha1(command['description']['string'],
