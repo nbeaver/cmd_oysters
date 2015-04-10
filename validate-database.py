@@ -81,9 +81,25 @@ for i, command in enumerate(commands):
     assert 'description' in command.keys(), "Error: no description."
     assert 'string' in command['description'].keys(), "Error: no description string."
 
-    if "component-command-info" in command.keys():
+    if 'component-command-info' in command.keys():
         assert set(command['component-command-info'].keys()).issubset(set(command['component-commands'])), \
             repr(command['component-command-info'].keys())+ "is not a subset of "+repr(command['component-commands'])
+        for command_name, info in command['component-command-info'].iteritems():
+            for info_key, info_item in info.iteritems():
+                if info_key == 'bash-type':
+                    bash_types = set(['alias', 'builtin', 'file', 'function', 'keyword'])
+                    assert info_item in bash_types or info_item == "builtin | keyword | file", \
+                        "`"+info_item+"' not in "+repr(bash_types)
+
+                elif info_key == 'debian':
+                    if 'executable-path' in info_item.keys() and info_item['executable-path']:
+                        # e.g. `ls` is in `/bin/ls`
+                        assert command_name in info_item['executable-path']
+                elif info_key == 'requirements-in-general':
+                    for requirement, incidence in info_item.iteritems():
+                        frequencies = set(['always', 'sometimes' , 'never'])
+                        assert incidence in frequencies or incidence == "always | sometimes | never", \
+                            "`"+incidence+"' not in "+repr(frequencies)
 
     try:
         check_sha1(command['description']['string'],
