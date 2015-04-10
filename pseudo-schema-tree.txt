@@ -3,15 +3,12 @@ pseudo-schema/
 │   ├── filesystem
 │   └── other-processes
 ├── component-command-info
-│   ├── bash-type
-│   │   └── $COMMAND
-│   ├── debian
-│   │   ├── executable-path
-│   │   │   └── $COMMAND
-│   │   └── required-packages
-│   │       └── $COMMAND
-│   └── requirements
-│       └── $COMMAND
+│   └── $COMMAND
+│       ├── bash-type
+│       ├── debian
+│       │   ├── executable-path
+│       │   └── required-packages
+│       └── requirements-in-general
 │           ├── authentication
 │           ├── internet-connection
 │           └── sudo
@@ -30,6 +27,11 @@ pseudo-schema/
 │       │       ├── invocation-slice
 │       │       ├── subtype
 │       │       └── type
+│       ├── command-requirements-as-invoked
+│       │   └── $COMMAND
+│       │       ├── authentication
+│       │       ├── internet-connection
+│       │       └── sudo
 │       ├── compatible-shells
 │       ├── example-outputs
 │       ├── incompatible-shells
