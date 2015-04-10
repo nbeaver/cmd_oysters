@@ -8,7 +8,7 @@
             "$COMMAND": {
                 "bash-type": "builtin | keyword | file",
                 "debian": {
-                    "executable-path": "/path/to/command",
+                    "executable-path": "/path/to/$COMMAND",
                     "required-packages": [
                         "debian-package-name"
                     ]
