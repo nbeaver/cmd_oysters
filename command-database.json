@@ -82,6 +82,23 @@
                         "type": "string"
                     }
                 },
+                "command-requirements-as-invoked": {
+                    "espeak": {
+                        "authentication": "no",
+                        "internet-connection": "no",
+                        "sudo": "no"
+                    },
+                    "ping": {
+                        "authentication": "no",
+                        "internet-connection": "no",
+                        "sudo": "no"
+                    },
+                    "sed": {
+                        "authentication": "no",
+                        "internet-connection": "no",
+                        "sudo": "no"
+                    }
+                },
                 "compatible-shells": [
                     "bash",
                     "csh",
@@ -117,6 +134,23 @@
                             19
                         ],
                         "type": "string"
+                    }
+                },
+                "command-requirements-as-invoked": {
+                    "espeak": {
+                        "authentication": "no",
+                        "internet-connection": "no",
+                        "sudo": "no"
+                    },
+                    "ping": {
+                        "authentication": "no",
+                        "internet-connection": "no",
+                        "sudo": "no"
+                    },
+                    "sed": {
+                        "authentication": "no",
+                        "internet-connection": "no",
+                        "sudo": "no"
                     }
                 },
                 "compatible-shells": [
@@ -329,6 +363,18 @@
                             19
                         ],
                         "type": "string"
+                    }
+                },
+                "command-requirements-as-invoked": {
+                    "chsh": {
+                        "authentication": "yes",
+                        "internet-connection": "no",
+                        "sudo": "no"
+                    },
+                    "which": {
+                        "authentication": "no",
+                        "internet-connection": "no",
+                        "sudo": "no"
                     }
                 },
                 "compatible-shells": [
