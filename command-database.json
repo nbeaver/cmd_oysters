@@ -145,17 +145,23 @@
             "other-processes": true
         },
         "component-command-info": {
-            "bash-type": {
-                "jobs": "builtin",
-                "kill": "builtin"
-            },
-            "requirements": {
-                "jobs": {
+            "jobs": {
+                "bash-type": "builtin",
+                "debian": {
+                    "executable-path": null
+                },
+                "requirements-in-general": {
                     "authentication": "never",
                     "internet-connection": "never",
                     "sudo": "never"
+                }
+            },
+            "kill": {
+                "bash-type": "builtin",
+                "debian": {
+                    "executable-path": null
                 },
-                "kill": {
+                "requirements-in-general": {
                     "authentication": "sometimes",
                     "internet-connection": "never",
                     "sudo": "sometimes"
@@ -202,21 +208,15 @@
             "other-processes": false
         },
         "component-command-info": {
-            "bash-type": {
-                "xset": "file"
-            },
-            "debian": {
-                "executable-path": {
-                    "xset": "/usr/bin/xset"
-                },
-                "required-packages": {
-                    "xset": [
+            "xset": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/usr/bin/xset",
+                    "required-packages": [
                         "x11-xserver-utils"
                     ]
-                }
-            },
-            "requirements": {
-                "xset": {
+                },
+                "requirements-in-general": {
                     "authentication": "never",
                     "internet-connection": "never",
                     "sudo": "never"
@@ -260,31 +260,29 @@
     },
     {
         "component-command-info": {
-            "bash-type": {
-                "chsh": "file",
-                "which": "file"
-            },
-            "debian": {
-                "executable-path": {
-                    "chsh": "/usr/bin/xset",
-                    "which": "/usr/bin/which"
-                },
-                "required-packages": {
-                    "chsh": [
+            "chsh": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/usr/bin/chsh",
+                    "required-packages": [
                         "passwd"
-                    ],
-                    "which": [
-                        "debianutils"
                     ]
-                }
-            },
-            "requirements": {
-                "chsh": {
+                },
+                "requirements-in-general": {
                     "authentication": "always",
                     "internet-connection": "never",
                     "sudo": "sometimes"
+                }
+            },
+            "which": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/usr/bin/which",
+                    "required-packages": [
+                        "debianutils"
+                    ]
                 },
-                "which": {
+                "requirements-in-general": {
                     "authentication": "never",
                     "internet-connection": "never",
                     "sudo": "never"
@@ -405,31 +403,29 @@
             "other-processes": false
         },
         "component-command-info": {
-            "bash-type": {
-                "grep" : "file",
-                "less" : "file"
-            },
-            "debian": {
-                "executable-path": {
-                    "grep" : "/bin/grep",
-                    "less" : "/usr/bin/less"
-                },
-                "required-packages": {
-                    "grep" : [
+            "grep": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/bin/grep",
+                    "required-packages": [
                         "grep"
-                    ],
-                    "less" : [
-                        "less"
                     ]
-                }
-            },
-            "requirements": {
-                "grep": {
+                },
+                "requirements-in-general": {
                     "authentication": "sometimes",
                     "internet-connection": "never",
                     "sudo": "sometimes"
+                }
+            },
+            "less": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/usr/bin/less",
+                    "required-packages": [
+                        "less"
+                    ]
                 },
-                "less": {
+                "requirements-in-general": {
                     "authentication": "sometimes",
                     "internet-connection": "never",
                     "sudo": "sometimes"
@@ -508,39 +504,41 @@
             "other-processes": false
         },
         "component-command-info": {
-            "bash-type": {
-                "awk": "file",
-                "grep": "file",
-                "lscpu": "file"
-            },
-            "debian": {
-                "executable-path": {
-                    "awk": "/usr/bin/awk",
-                    "grep": "/bin/grep",
-                    "lscpu": "/usr/bin/lscpu"
-                },
-                "required-packages": {
-                    "awk": [
+            "awk": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/usr/bin/awk",
+                    "required-packages": [
                         "gawk"
-                    ],
-                    "grep": [
-                        "grep"
-                    ],
-                    "lscpu": [
-                        "util-linux"
                     ]
+                },
+                "requirements-in-general": {
+                    "internet-connection": "never",
+                    "sudo": "never"
                 }
             },
-            "requirements": {
-                "awk": {
-                    "internet-connection": "never",
-                    "sudo": "never"
+            "grep": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/bin/grep",
+                    "required-packages": [
+                        "grep"
+                    ]
                 },
-                "grep": {
+                "requirements-in-general": {
                     "internet-connection": "never",
-                    "sudo": "never"
+                    "sudo": "sometimes"
+                }
+            },
+            "lscpu": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/usr/bin/lscpu",
+                    "required-packages": [
+                        "util-linux"
+                    ]
                 },
-                "lscpu": {
+                "requirements-in-general": {
                     "internet-connection": "never",
                     "sudo": "never"
                 }
@@ -583,21 +581,15 @@
             "other-processes": false
         },
         "component-command-info": {
-            "bash-type": {
-                "uname": "file"
-            },
-            "debian": {
-                "executable-path": {
-                    "uname": "/bin/uname"
-                },
-                "required-packages": {
-                    "uname": [
+            "uname": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/bin/uname",
+                    "required-packages": [
                         "coreutils"
                     ]
-                }
-            },
-            "requirements": {
-                "uname": {
+                },
+                "requirements-in-general": {
                     "internet-connection": "never",
                     "sudo": "never"
                 }
@@ -643,21 +635,15 @@
             "other-processes": false
         },
         "component-command-info": {
-            "bash-type": {
-                "getconf": "file"
-            },
-            "debian": {
-                "executable-path": {
-                    "getconf": "/usr/bin/getconf"
-                },
-                "required-packages": {
-                    "getconf": [
+            "getconf": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/usr/bin/getconf",
+                    "required-packages": [
                         "libc-bin"
                     ]
-                }
-            },
-            "requirements": {
-                "getconf": {
+                },
+                "requirements-in-general": {
                     "internet-connection": "never",
                     "sudo": "never"
                 }
@@ -699,37 +685,47 @@
             "other-processes" : false
         },
         "component-command-info": {
-            "bash-type": {
-                "do": "keyword",
-                "done": "keyword",
-                "for": "keyword",
-                "mkdir": "file",
-                "pdfimages": "file"
-            },
-            "debian": {
-                "executable-path": {
-                    "do": null,
-                    "done": null,
-                    "for": null,
-                    "mkdir": "/bin/mkdir",
-                    "pdfimages": "/usr/bin/pdfimages"
-                },
-                "required-packages": {
-                    "mkdir": [
-                        "coreutils"
-                    ],
-                    "pdfimages": [
-                        "poppler-utils"
-                    ]
+            "do": {
+                "bash-type": "keyword",
+                "debian": {
+                    "executable-path": null
                 }
             },
-            "requirements": {
-                "mkdir": {
+            "done": {
+                "bash-type": "keyword",
+                "debian": {
+                    "executable-path": null
+                }
+            },
+            "for": {
+                "bash-type": "keyword",
+                "debian": {
+                    "executable-path": null
+                }
+            },
+            "mkdir": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/bin/mkdir",
+                    "required-packages": [
+                        "coreutils"
+                    ]
+                },
+                "requirements-in-general": {
                     "authentication": "never",
                     "internet-connection": "never",
                     "sudo": "sometimes"
+                }
+            },
+            "pdfimages": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/usr/bin/pdfimages",
+                    "required-packages": [
+                        "poppler-utils"
+                    ]
                 },
-                "pdfimages": {
+                "requirements-in-general": {
                     "authentication": "never",
                     "internet-connection": "never",
                     "sudo": "sometimes"
@@ -787,67 +783,82 @@
             "other-processes" : false
         },
         "component-command-info": {
-            "bash-type": {
-                "cd": "builtin",
-                "mktemp": "file",
-                "mogrify": "file",
-                "rmdir": "file",
-                "unzip": "file",
-                "zip": "file"
-            },
-            "debian": {
-                "executable-path": {
-                    "mktemp": "/bin/mktemp",
-                    "mogrify": "/usr/bin/mogrify",
-                    "rmdir": "/bin/rmdir",
-                    "unzip": "/usr/bin/unzip",
-                    "zip": "/usr/bin/zip"
+            "cd": {
+                "bash-type": "builtin",
+                "debian": {
+                    "executable-path": null
                 },
-                "required-packages": {
-                    "mktemp": [
-                        "coreutils"
-                    ],
-                    "mogrify": [
-                        "imagemagick"
-                    ],
-                    "rmdir": [
-                        "coreutils"
-                    ],
-                    "unzip": [
-                        "unzip"
-                    ],
-                    "zip": [
-                        "zip"
-                    ]
-                }
-            },
-            "requirements": {
-                "cd": {
+                "requirements-in-general": {
                     "authentication": "never",
                     "internet-connection": "never",
                     "sudo": "never"
+                }
+            },
+            "mktemp": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/bin/mktemp",
+                    "required-packages": [
+                        "coreutils"
+                    ]
                 },
-                "mktemp": {
+                "requirements-in-general": {
                     "authentication": "never",
                     "internet-connection": "never",
                     "sudo": "sometimes"
+                }
+            },
+            "mogrify": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/usr/bin/mogrify",
+                    "required-packages": [
+                        "imagemagick"
+                    ]
                 },
-                "mogrify": {
+                "requirements-in-general": {
                     "authentication": "never",
                     "internet-connection": "never",
                     "sudo": "sometimes"
+                }
+            },
+            "rmdir": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/bin/rmdir",
+                    "required-packages": [
+                        "coreutils"
+                    ]
                 },
-                "rmdir": {
+                "requirements-in-general": {
                     "authentication": "never",
                     "internet-connection": "never",
                     "sudo": "sometimes"
+                }
+            },
+            "unzip": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/usr/bin/unzip",
+                    "required-packages": [
+                        "unzip"
+                    ]
                 },
-                "unzip": {
+                "requirements-in-general": {
                     "authentication": "never",
                     "internet-connection": "never",
                     "sudo": "sometimes"
+                }
+            },
+            "zip": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/usr/bin/zip",
+                    "required-packages": [
+                        "zip"
+                    ]
                 },
-                "zip": {
+                "requirements-in-general": {
                     "authentication": "never",
                     "internet-connection": "never",
                     "sudo": "sometimes"
@@ -910,21 +921,15 @@
             "other-processes" : false
         },
         "component-command-info": {
-            "bash-type": {
-                "find": "file"
-            },
-            "debian": {
-                "executable-path": {
-                    "find": "/usr/bin/find"
-                },
-                "required-packages": {
-                    "find": [
+            "find": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/usr/bin/find",
+                    "required-packages": [
                         "findutils"
                     ]
-                }
-            },
-            "requirements": {
-                "find": {
+                },
+                "requirements-in-general": {
                     "authentication": "never",
                     "internet-connection": "never",
                     "sudo": "sometimes"
@@ -1035,21 +1040,15 @@
             "other-processes" : false
         },
         "component-command-info": {
-            "bash-type": {
-                "stat": "file"
-            },
-            "debian": {
-                "executable-path": {
-                    "stat": "/usr/bin/stat"
-                },
-                "required-packages": {
-                    "stat": [
+            "stat": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/usr/bin/stat",
+                    "required-packages": [
                         "coreutils"
                     ]
-                }
-            },
-            "requirements": {
-                "stat": {
+                },
+                "requirements-in-general": {
                     "authentication": "never",
                     "internet-connection": "never",
                     "sudo": "sometimes"
@@ -1107,21 +1106,15 @@
             "other-processes" : false
         },
         "component-command-info": {
-            "bash-type": {
-                "curl": "file"
-            },
-            "debian": {
-                "executable-path": {
-                    "curl": "/usr/bin/curl"
-                },
-                "required-packages": {
-                    "curl": [
+            "curl": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/usr/bin/curl",
+                    "required-packages": [
                         "curl"
                     ]
-                }
-            },
-            "requirements": {
-                "curl": {
+                },
+                "requirements-in-general": {
                     "authentication": "never",
                     "internet-connection": "sometimes",
                     "sudo": "never"
