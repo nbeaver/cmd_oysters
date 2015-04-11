@@ -1182,5 +1182,76 @@
                 "string": "curl --proto https ifconfig.me"
             }
         }
+    },
+    {
+        "can-modify": {
+            "filesystem": true,
+            "other-processes" : false
+        },
+        "component-command-info": {
+            "xclip": {
+                "bash-type": "file",
+                "debian": {
+                    "executable-path": "/usr/bin/xclip",
+                    "required-packages": [
+                        "xclip"
+                    ]
+                },
+                "requirements-in-general": {
+                    "authentication": "never",
+                    "internet-connection": "never",
+                    "sudo": "never"
+                }
+            }
+        },
+        "component-commands": [
+            "xclip"
+
+        ],
+        "description": {
+            "nilsimsa-hex": "ceb939785d208b4e6c17c5e96df232342ae5a898fa0ab70c2336914543936c68",
+            "sha1hex": "2e1ca763ebea072b02b583a7a91af95abfacf31f",
+            "string": "Save copied image to file."
+        },
+        "invocations": {
+            "POSIX" : {
+                "changeable-arguments": {
+                    "out.png": {
+                        "component-command": "xclip",
+                        "description-string": "Filename of image.",
+                        "invocation-slice": [
+                            45,
+                            52
+                        ],
+                        "subtype":"Path to image filename.",
+                        "type": "string"
+                    }
+                },
+                "nilsimsa-hex": "a5cfff9ac40b8024850c784b85eb24090a820dd5aad0c72228f18eed6b1ad1e7",
+                "sha1hex": "e44dd9a6721b775889264363cbfa49d7c3dd6fda",
+                "string": "xclip -selection clipboard -t image/png -o > out.png"
+            },
+            "POSIX-long-flags" : {
+                "changeable-arguments": {
+                    "out.png": {
+                        "component-command": "xclip",
+                        "description-string": "Filename of image.",
+                        "invocation-slice": [
+                            52,
+                            59
+                        ],
+                        "subtype":"Path to image filename.",
+                        "type": "string"
+                    }
+                },
+                "nilsimsa-hex": "a7cf7f9af70bab24879c6c4985ef744d0ae23acd8ad2c76768188aed5b1ed1e7",
+                "sha1hex": "331cbf7a000cea9d941670504c916d1bf7f197b3",
+                "string": "xclip -selection clipboard -target image/png -out > out.png"
+            }
+        },
+        "relevant-urls": [
+            "http://unix.stackexchange.com/questions/145131/copy-image-from-clipboard-to-file",
+            "http://ubuntuforums.org/showthread.php?t=1335075"
+        ]
     }
 ]
