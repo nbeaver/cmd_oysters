@@ -35,7 +35,7 @@ def check_sha1(string, nominal_sha1):
         % (nominal_sha1, calculated_sha1, string)
 
 def prompt_sha1(string):
-    sys.stderr.write("No SHA1 for `" + string + "'")
+    sys.stderr.write("Warning: No SHA1 for `" + string + "'")
     sys.stderr.write("Should be: "+hashlib.sha1(string).hexdigest())
 
 if 'nilsimsa' in sys.modules:
@@ -46,7 +46,7 @@ if 'nilsimsa' in sys.modules:
             % (nominal_nilsimsa, calculated_nilsimsa, string)
 
     def prompt_nilsimsa(string):
-        sys.stderr.write("No nilsimsa for `" + string + "'\n")
+        sys.stderr.write("Warning: No nilsimsa for `" + string + "'\n")
         sys.stderr.write("Should be: "+nilsimsa.Nilsimsa(string).hexdigest()+"\n")
 
 def get_slice(string_to_slice, slice_index_list):
