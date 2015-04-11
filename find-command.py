@@ -49,3 +49,4 @@ for command in commands:
 # TODO: make the description search case-insensitive.
 # TODO: make the description search into a full regex search.
 # TODO: do some unit tests instead of the hacky makefile tests.
+# TODO: add a description token search, stripping out punctuation.
