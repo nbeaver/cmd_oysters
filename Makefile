@@ -41,4 +41,10 @@ README.html : README.rst
 	rst2html README.rst README.html
 
 pseudo-schema-notes.html : pseudo-schema-notes.markdown
-	pandoc --from markdown --to html5 pseudo-schema-notes.markdown > pseudo-schema-notes.html
+	markdown pseudo-schema-notes.markdown > pseudo-schema-notes.html
+
+clean :
+	rm --force --verbose pseudo-schema-tree.txt
+	rm --force --verbose sorted.json
+	rm --force --verbose README.html
+	rm --force --verbose pseudo-schema-notes.html
