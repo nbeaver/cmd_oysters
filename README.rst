@@ -109,17 +109,53 @@ but it must be listed as a different command.
 
 Yes, but one-liners are the focus for now.
 
-- Why use python2?
+This is mean for helping with interactive uses of a shell,
+or core building blocks of shell scripts,
+not a collection of well-designed and documented multiline shell scripts.
 
-Cross-platform and has access to the 
+- Why use ``python2``?
 
---------------------------------------
-How I add new commands to the database
---------------------------------------
+The main focus for this project is the JSON data,
+not the search application as such.
 
-------------------------------------
-How I add new fields to the database
-------------------------------------
+However, python is widespread, cross-platform,
+and has a ``nilsimsa`` hash library.
+
+---------------------------------------
+How to add new commands to the database
+---------------------------------------
+
+Copy `<simple-template.json>`_ to ``temp.json``.
+
+Change the description and invocation strings.
+
+Run `<validate-database.py>`_ to supply the SHA1 and Nilsimsa hashes.
+
+Copy over some of the fields from previous entries or from `<full-command-template.json>`_.
+
+Run ``make`` to ensure the JSON is valid.
+
+Repeat until satisfied.
+
+Copy into `<command-database.json>`_.
+
+-------------------------------------
+How to add new fields to the database
+-------------------------------------
+
+Navigate to the relevant directory in `<pseudo-schema/>`_.
+
+If the new field is an object, make a new directory.
+Otherwise, make an empty file.
+
+If the field is a wildcard and permits any name,
+start it with a ``$`` (dollar sign) and use all caps,
+e.g ``$COMMAND`` or ``$ARG``.
+(The dollar sign is required, but the caps are optional).
+
+Run ``make`` to update `<pseudo-schema-tree.txt>`_.
+Copy over the field to `<pseudo-schema-notes.markdown>`_
+and add a description.
 
 -------------------
 Future improvements
