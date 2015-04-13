@@ -19,15 +19,23 @@ Quickstart
 #. ``python2 find-command.py --substring 'ping'``
 
 .. Required packages: python
-.. Recommended packages: tree (for pseudoschema), yajl (for verification)
+.. Recommended packages: tree (for pseudoschema), yajl (for verification), markdown and rst (for documentation)
 
 ----------
 Motivation
 ----------
 
-.. Ever tried to debug your laptop without an internet connection and not had the commands?
+Ever tried to debug your internet connection without another computer with a working connection?
 
-.. Ever stored a useful command for later in a text file and been unable to find it later?
+Ever had trouble with a complex shell command and had a hard time figuring out which part of the command was misbehaving?
+
+Ever been frustrated by a shell command that relied on `unportable shell extensions <http://tldp.org/LDP/abs/html/portabilityissues.html>`_ to work correctly?
+
+Ever tried to use a command and find out that the version you're using is too old?
+
+Ever filed away a useful command snippet and been unable to find it later?
+
+Ever been stymied by a `man page without examples <https://wiki.freebsd.org/ManPagesWithoutExamples>`_?
 
 .. Restarting daemons, changing permissions, shell incompatibility.
 
