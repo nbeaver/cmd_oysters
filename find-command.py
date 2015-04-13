@@ -40,8 +40,9 @@ for command in commands:
                 # so try the next invocation.
                 continue
         # At this point, the command must be a match.
-        if args.description:
-            print '# ' + command['description']['string']
+        # TODO: break the description on 80 lines,
+        # and add a comment character at each point.
+        print '# ' + invocation + ': ' + command['description']['string']
         print command_string
 
 # DONE: take --commands argument and search in component commands.
