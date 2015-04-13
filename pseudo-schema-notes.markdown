@@ -7,7 +7,7 @@ These are some notes on the structure of the command database.
 pseudo-schema/  
 ├── can-modify  
 │   ├── filesystem: Could the command modify the filesystem? Examples: `rm`, `mv`.  
-│   └── other-processes: Could the command modify other processes? Examples: `kill`, `disown`.   
+│   └── other-processes: Could the command modify other processes? Examples: `kill`, `disown`.  
 ├── component-command-info: Additional metadata for the component commands.  
 │   └── $COMMAND  
 │       ├── bash-type: The output of `type -t $COMMAND` in bash; one of `alias`, `keyword`, `function`, `builtin`, or `file`. May be different in other shells, e.g. which is a `builtin` in zsh but a `file` in bash.  
@@ -22,7 +22,7 @@ pseudo-schema/
 ├── description: Textual description of what the command does. Must be unique, since its SHA1 hash is effectively the primary key.  
 │   ├── nilsimsa-hex: A locality-sensitive hash, helping to detect similar descriptions.  
 │   ├── sha1hex: The SHA1 cryptographic hash of the description string; useful instead of a primary key for linking to related commands.  
-│   └── string: The actual text of the description.  
+│   └── string: The actual text of the description. Don't add hard linebreaks; let the output formatter decide how to do that.  
 ├── invocations: The actual command that gets run, indexed by shell. All invocations must have the same component commands.  
 │   └── $INVOCATION: Name of the shell (e.g. bash) or class of shells (e.g. POSIX) that the command works in.  
 │       ├── changeable-arguments: Adjustable parameters of the command or commands; may be nested.  
@@ -51,5 +51,5 @@ pseudo-schema/
 DONE: combine debian-paths and debian-packages into single debian tree.  
 TODO: in "component-command-debian-packages", should builtins map to "null" or simply not be included?  
 DONE: combine `component-command-*` into `component-command-info/*`  
-TODO: add fields for how to kill component commands, e.g. Ctrl-C (SIGTERM), Ctrl-D, SIGQUIT, etc.
+TODO: add fields for how to kill component commands, e.g. Ctrl-C (SIGTERM), Ctrl-D, SIGQUIT, etc.  
 </html>
