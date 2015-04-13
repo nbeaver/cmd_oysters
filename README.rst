@@ -64,6 +64,18 @@ Instead, commands can reference related commands by the SHA1 hash of the descrip
 
 This means that two different commands must not have the same description text.
 
+- Explicity requirements and portability metadata.
+
+The metadata about the commands should indicate which shells they are compatible with,
+and what their dependencies are.
+
+Also, if an invocation only works for a particular shell,
+an alternative invocation using the same commands can be added
+while retaining the context and connection to the other command.
+
+This way, if a command fails or does not behave as expected,
+it is easier to debug.
+
 - Extensbility.
 
 New fields can be added to the JSON objects without breaking existing code.

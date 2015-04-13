@@ -51,5 +51,5 @@ pseudo-schema/
 DONE: combine debian-paths and debian-packages into single debian tree.  
 TODO: in "component-command-debian-packages", should builtins map to "null" or simply not be included?  
 DONE: combine `component-command-*` into `component-command-info/*`  
-TODO: add fields for how to kill component commands, e.g. Ctrl-C (SIGTERM), Ctrl-D, SIGQUIT, etc. (e.g. ed, telnet, ssh Enter~., vim is :wq, emacs is C-x C-c, ed is q<Enter>)  
+TODO: add fields for how to kill component commands, e.g. Ctrl-C (SIGTERM), Ctrl-D, SIGQUIT, etc.
 </html>

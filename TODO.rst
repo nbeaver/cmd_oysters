@@ -10,6 +10,7 @@ Add information about how to exit an interactive command, e.g.:
 - vim: ``:quit!<Enter>`` or ``ZQ``
 - emacs: ``Ctrl-X Ctrl-C``
 - nano: ``Ctrl-X``
+- wine cmd: ``exit``, not ``quit`` or ``Ctrl-D``.
 
 How to include version numbers in "commands this shell works with/doesn't work with"?
 
