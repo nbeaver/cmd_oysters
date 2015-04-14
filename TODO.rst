@@ -43,3 +43,5 @@ Nilsimsa of "ls", "rm", "cd", "cp", "bc", "du", "df", "ln", and "bg" is the same
 
 man xclip
 "I hate man pages without examples!"
+
+TODO: syntax highlighting of output.
