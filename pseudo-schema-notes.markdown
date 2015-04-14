@@ -35,9 +35,9 @@ pseudo-schema/
 │       │       └── type: The base type of the argument e.g. integer, float, string, boolean. Useful since e.g. JSON does not distinguish floats and integers.  
 │       ├── command-requirements-as-invoked: Requirements for a command as its used in the invocation.  
 │       │   └── $COMMAND  
-│       │       ├── authentication  
-│       │       ├── internet-connection  
-│       │       └── sudo  
+│       │       ├── authentication: See above.  
+│       │       ├── internet-connection: See above.  
+│       │       └── sudo: See above.  
 │       ├── compatible-shells: List of shells that the command will run correctly on.  
 │       ├── example-outputs: If the output is short and provides insight into what the command does, it is useful to know.  
 │       ├── incompatible-shells: Disjoint set of compatible-shells. Options are not explicitly enumerated because there are many, many shells.  
