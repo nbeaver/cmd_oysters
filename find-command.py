@@ -6,14 +6,19 @@ import argparse
 
 parser = argparse.ArgumentParser(description='search for shell commands')
 parser.add_argument('-c', '--commands', help='component command search', required=False, nargs='+')
-parser.add_argument('-s', '--substring', help='simple substring search', required=False)
-parser.add_argument('-t', '--tokens', help='unordered token subset search',required=False, nargs='+')
+parser.add_argument('-s', '--substring', help='simple command substring search', required=False)
+parser.add_argument('-t', '--tokens', help='unordered token subset command search',required=False, nargs='+')
 parser.add_argument('-d', '--description', help='command description', required=False)
+# parser.add_argument('-D', '--description-tokens', help='description token search', required=False)
 
 default_json_file = os.path.join(sys.path[0],"command-database.json") # need to do it this way for symlinks to work.
 parser.add_argument('-j', '--json', help='path to JSON input file', required=False, default=default_json_file)
 
 args = parser.parse_args()
+
+if len(sys.argv) < 2:
+    parser.print_help()
+    sys.exit(1)
 
 with open(args.json) as db_file:
     commands = json.load(db_file)
