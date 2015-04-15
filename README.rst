@@ -25,17 +25,33 @@ Quickstart
 Motivation
 ----------
 
-Ever tried to debug your wifi card without a working internet connection?
-
-Ever tried to run a complex shell command and had a hard time figuring out which part of the command was misbehaving?
-
-Ever been frustrated by a shell command that relied on `unportable shell extensions <http://tldp.org/LDP/abs/html/portabilityissues.html>`_ to work correctly?
-
-Ever tried to use a command and find out that the version you're using is too old?
-
-Ever filed away a useful command snippet and been unable to find it later?
+Ever filed away a useful shell command and been unable to find it later?
 
 Ever been stymied by a `man page without examples <https://wiki.freebsd.org/ManPagesWithoutExamples>`_?
+
+This is intended to provide a repository of shell commands that:
+
+- Explicitly state which shells they work with, and `which ones they don't <http://tldp.org/LDP/abs/html/portabilityissues.html>`_.
+
+- Explicitly state which version the software requires for the command to work properly.
+
+- Explicitly state which arguments can be modified.
+
+- Explicitly state when they require a working internet connection.
+
+- Explicitly state when they require root privileges.
+
+- Are straightforward to query because of robust metadata instead of fragile regular expression searches.
+
+- Link to sources and relevant documentation.
+
+Example scenarios this is intended to be useful for:
+
+- Debugging a wifi card without a working internet connection.
+
+- Building up a complex ``find`` command by combining simpler examples.
+
+More generally, this is intended to be extendable to textual commands and code snippets in general.
 
 .. Restarting daemons, changing permissions, shell incompatibility.
 
