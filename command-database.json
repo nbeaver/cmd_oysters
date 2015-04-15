@@ -54,9 +54,9 @@
             "sed"
         ],
         "description": {
-            "nilsimsa-hex": "217cfb78b2e3277296d479d13e8e029182a97cd4e5f87d5c363bb1d7f24108ce",
-            "sha1hex": "41c5855ef5ccf55bc45dbc632b18424f9b18eaa2",
-            "string": "Generates audible voice that says 'ping' every 2 seconds."
+            "nilsimsa-hex": "1474fd432b82c522955258d13e861291222d7e96e164755c363a8cd7aa06c8d7",
+            "sha1hex": "4599d9679d5c2de5d9e987b681b790949039cb18",
+            "string": "Generates audible voice that says 'ping' every time it gets an an ICMP ECHO_RESPONSE, sent in intervals of 2 seconds."
         },
         "invocations": {
             "POSIX" : {
