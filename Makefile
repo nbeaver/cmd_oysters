@@ -10,6 +10,7 @@ command_database : command-database.json check-pseudoschema.py validate-database
 	python find-command.py --tokens '|' sed localhost ping > /dev/null
 	python find-command.py --description 'audible voice' > /dev/null
 	python find-command.py --substring 'ping -i' --commands ping espeak sed --tokens '|' sed localhost ping --description 'audible voice' > /dev/null
+	python find-command.py --description-tokens ping generates seconds > /dev/null
 
 sorted.json : sort-json.py command-database.json
 	python sort-json.py

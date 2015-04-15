@@ -24,6 +24,9 @@ if len(sys.argv) < 2:
 with open(args.json) as db_file:
     commands = json.load(db_file)
 
+# TODO: add stemming or lemmatising.
+# https://pythonhosted.org/Whoosh/stemming.html
+# http://marcobonzanini.com/2015/01/26/stemming-lemmatisation-and-pos-tagging-with-python-and-nltk/
 def tokens(text):
     return text.encode('utf-8').translate(None, string.punctuation).split()
 
