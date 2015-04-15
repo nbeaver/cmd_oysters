@@ -25,9 +25,9 @@ Quickstart
 Motivation
 ----------
 
-Ever tried to debug your internet connection without another computer with a working connection?
+Ever tried to debug your wifi card without a working internet connection?
 
-Ever had trouble with a complex shell command and had a hard time figuring out which part of the command was misbehaving?
+Ever tried to run a complex shell command and had a hard time figuring out which part of the command was misbehaving?
 
 Ever been frustrated by a shell command that relied on `unportable shell extensions <http://tldp.org/LDP/abs/html/portabilityissues.html>`_ to work correctly?
 
@@ -105,7 +105,16 @@ Similar commands can be found by comparing their Nilsimsa hash hex digests.
 Questions
 ---------
 
-- What are component commands?
+- Why not just make an alias or shell function and add it to your ``bashrc``?
+
+It's not always easy to find a short, memorable name for an alias that doesn't conflict with existing commands,
+and a multitude of aliases tend to make autocompletion more unwieldy and less predictable.
+
+Aliases and shell functions are great for commonly used commands with a particular shell,
+but not so great for remembering how to use a command from several months ago,
+or for keeping track of how to do the same thing with a variety of different shells.
+
+- What does the term ``component command`` refer to?
 
 - What's the difference between commands and invocations?
 
@@ -133,13 +142,13 @@ This is mean for helping with interactive uses of a shell,
 or core building blocks of shell scripts,
 not a collection of well-designed and documented multiline shell scripts.
 
-- Why use ``python2``?
+- Why use ``python2`` as the implementation?
 
-The main focus for this project is the JSON data,
-not the search application as such.
+The main focus for this project is the command metadatabase (expressed as a JSON file),
+not the search application or validation programs as such.
 
-However, python is widespread, cross-platform,
-and has a ``nilsimsa`` hash library.
+However, Python is widespread and cross-platform,
+and ``python2`` has a ``nilsimsa`` hash library.
 
 ---------------------------------------
 How to add new commands to the database
@@ -155,7 +164,7 @@ Copy over some of the fields from previous entries or from `<full-command-templa
 
 Run ``make`` to ensure the JSON is valid.
 
-Repeat until satisfied.
+Continue adding metdata and invocations until satisfied.
 
 Copy into `<command-database.json>`_.
 
