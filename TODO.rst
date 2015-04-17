@@ -2,23 +2,27 @@
 TODO
 ====
 
----------------------------------------
-Specific items (in no particular order)
----------------------------------------
+----------------------------------------------
+Specific items by file, in no particular order
+----------------------------------------------
 
-- ``[ ]`` Split `<command-database.json>`_ into individual JSON documents.
+- ``[*]`` Make a minimal template with only required fields (`<minimal-template.json>`_).
 
-- ``[ ]`` Tailor invocation according to host OS and environment.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+`<check-full-template.py>`_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- ``[ ]`` Add a config file for e.g. preferred shell.
+- ``[*]`` Verify that all the pseudo-schema fields are in `<command-template.json>`_.
+
+~~~~~~~~~~~~~~~~~~~~~
+`<command-database>`_
+~~~~~~~~~~~~~~~~~~~~~
+
+- ``[ ]`` Split `<command-database.json>`_ into individual JSON files.
 
 - ``[ ]`` Include version numbers in "commands this shell works with/doesn't work with".
 
 - ``[ ]`` Change field name from ``compatible-shells`` to ``compatible-with`` so it works
-
-- ``[*]`` `<validate-database.py>`_: Verify that all the pseudo-schema fields are in `<command-template.json>`_.
-
-- ``[ ]`` `<find-command.py>`_: Add a --shell -x flag to spawn a prompt for the user with the command already filled in (use pexpect).
 
 - ``[*]`` Split requirements into ``requirements-in-general`` and ``requirements-as-invoked``.
 
@@ -26,13 +30,33 @@ Specific items (in no particular order)
 
 - ``[ ]`` Use ``null`` for ``executable-path`` of shell builtins and keywords.
 
-- ``[ ]`` `<find-command.py>`_: Syntax highlighting of output.
+~~~~~~~~~~~~~~~~~~~~
+`<find-command.py>`_
+~~~~~~~~~~~~~~~~~~~~
 
-- ``[*]`` Say which fields are required in `<pseudo-schema-notes.markdown>`_.
+- ``[ ]`` Add a --shell -x flag to spawn a prompt for the user with the command already filled in (use pexpect).
+  - ``[ ]`` Tailor invocation according to host OS and environment.
+  - ``[ ]`` Add a config file for e.g. preferred shell.
 
-- ``[*]`` Make a minimal template with only required field (`<minimal-template.json>`_).
+- ``[ ]`` Syntax highlighting of output.
 
-- ``[ ]`` Make a JSON schema.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+`<pseudo-schema-notes.markdown>`_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- ``[*]`` Specify which fields are required.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~
+`<validate-database.py>`_
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- ``[*]`` Check all the commands in component commands are substrings of the main command.
+- ``[ ]`` Check that ``bash-type`` is one of ``keyword``, ``builtin``, or ``file``.
+- ``[ ]`` Check that the commands in ``component-command-info`` are a subset of ``component-commands``.
+- ``[ ]`` Check ``debian-path`` is correct using `which`.
+- ``[*]`` Check that no two commands have the same SHA1s of description text.
+- ``[ ]`` Make a JSON schema to do at least part of this more systematically.
 
 -----------------------------------
 Non-specific notes and observations
