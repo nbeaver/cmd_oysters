@@ -1,8 +1,8 @@
 .. -*- coding: utf-8 -*-
 
-========================================
-CmdOyster: shell commands with metadata.
-========================================
+=========================================
+CmdOysters: shell commands with metadata.
+=========================================
 
 ---------------
 Minimal example
@@ -40,9 +40,9 @@ Here are some less trivial examples:
 Quickstart
 ----------
 
-#. ``git clone https://github.com/nbeaver/cmd-oyster``
+#. ``git clone https://github.com/nbeaver/command-oysters``
 
-#. ``cd cmd-oyster/``
+#. ``cd command-oysters/``
 
 #. ``python2 ./find-command.py --substring "ping -i"``
 
@@ -90,6 +90,9 @@ Example scenarios this is intended to be useful for:
 
 More generally, this is intended to be make the use of shell commands
 less surprising, more portable, and more robust.
+
+It's also intended to make sharing the knowledge of how to use a shell command
+as simple as sending a text file.
 
 ------------
 Design goals
@@ -250,6 +253,19 @@ not the search application or validation programs as such.
 However, Python is widespread and cross-platform,
 and ``python2`` has a ``nilsimsa`` hash library.
 
+- Why call them CmdOysters?
+
+This is a metaphor for surrounding a shell command with contextual metadata;
+the shell command is like the pearl inside,
+and the metadata like the protective shell and oyster tissue.
+The metaphor is particularly appropriate for shell commands since
+curly bracket pairs look visually similar
+to a stylized bivalve mollusk shell: ``{}``
+
+The name is also a nod to the reputation of Perl
+for cryptic one-liners,
+a reputation it shares with UNIX shells.
+
 -----------------------------------------------
 Example of adding a new command to the database
 -----------------------------------------------
@@ -317,10 +333,10 @@ Here are some highlights:
 
 - More robust validation, including a proper JSON schema.
 
-- Extend CmdOysters to interactive textual commands in general, such as ``gnuplot``, ``ipython``, ``irb``, ``maxima``, and so on.
-
 - Incremental search interface.
 
 - Generate list of required packages for a given command, depending on OS.
 
 - Spawn a shell with the command automatically filled in and ready to edit or press enter.
+
+- Extend CmdOysters to interactive textual commands in general, such as ``gnuplot``, ``ipython``, ``irb``, ``maxima``, and so on.
