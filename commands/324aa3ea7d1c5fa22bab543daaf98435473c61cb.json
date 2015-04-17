@@ -24,8 +24,8 @@
     ],
     "description": {
         "nilsimsa-hex": "35b403d934eeacb44ab8b4fb99a6a5f12d093bab5122262d6d0d8e1437186de8",
-        "sha1hex": "92604b8815f9197914b456d78abe543e44b614f0",
-        "string": "Turn off the monitor; make the display go dark until the mouse is moved or a key is pressed."
+        "sha1hex": "324aa3ea7d1c5fa22bab543daaf98435473c61cb",
+        "string": "Turn off the monitor; make the display go dark; blank the screen until the mouse is moved or a key is pressed."
     },
     "invocations": {
         "POSIX": {
