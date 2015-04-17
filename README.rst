@@ -19,7 +19,7 @@ Quickstart
 #. ``python2 find-command.py --substring ping``
 
 .. Required packages: python
-.. Recommended packages: tree (for pseudoschema), yajl (for verification), markdown and rst (for documentation)
+.. Recommended packages: tree (for pseudo-schema), markdown and rst (for documentation)
 
 ----------
 Motivation
@@ -32,6 +32,8 @@ Ever been stymied by a `man page without examples <https://wiki.freebsd.org/ManP
 This is intended to provide a repository of shell commands that:
 
 - Explicitly state which shells they work with, and `which ones they don't <http://tldp.org/LDP/abs/html/portabilityissues.html>`_.
+
+- Explicitly state which packages they require for multiple platforms.
 
 - Explicitly state which version the software requires for the command to work properly.
 
@@ -51,16 +53,12 @@ Example scenarios this is intended to be useful for:
 
 - Building up a complex ``find`` command by combining simpler examples.
 
-- Leveraging existing commands without copying and pasting them from online forums.
+- Leveraging well-known commands without copying and pasting them from online forums.
 
-- Rapidly finding commands for administering an unfamiliar system.
+- Quick lookup of commands for doing familiar tasks on an unfamiliar system.
 
-More generally, this is intended to be extendable to interactive textual commands in general,
-such as ``gnuplot``, ``ipython``, ``irb``,
-
-.. Restarting daemons, changing permissions, shell incompatibility.
-
-.. Security of shell commands, looking online ones.
+More generally, this is intended to be extendible to interactive textual commands in general,
+such as ``gnuplot``, ``ipython``, ``irb``, ``maxima``, and so on.
 
 .. Composite commands versus component commands.
 
@@ -72,31 +70,39 @@ such as ``gnuplot``, ``ipython``, ``irb``,
 Design goals
 ------------
 
-- Simple textual format (JSON).
+~~~~~~~~~~~~~~~~~~~~~
+Simple textual format
+~~~~~~~~~~~~~~~~~~~~~
 
 Well-maintained JSON libraries are readily available for almost all programming languages,
 but the same is unfortunately not true for YAML.
 
 The data are not complex enough to require XML.
 
-A single JSON file makes code work cross-platform and cross-language easily.
+A directory of JSON files makes code work cross-platform and cross-language easily.
 
-- Mergeability.
+~~~~~~~~~~~~
+Mergeability
+~~~~~~~~~~~~
 
-The JSON fields must appear in alphanumeric order.
+The JSON fields should appear in alphanumeric order.
 This way, diffing and merging becomes much less problematic.
 
 Also, commands are not assigned arbitrary primary keys,
 since two different databases could have keys that clash.
 
-Instead, commands can reference related commands by the SHA1 hash of the description text.
+Instead, commands can reference related commands
+by the SHA-1 hash of the description text or invocation string
+(see `Cross-referencing`_).
 
 This means that two different commands must not have the same description text.
 
-- Explicity requirements and portability metadata.
+~~~~~~~~~~~~~~~~~~~~~~
+Compatibility metadata
+~~~~~~~~~~~~~~~~~~~~~~
 
 The metadata about the commands should indicate which shells they are compatible with,
-and what their dependencies are.
+and what their dependencies are (e.g. a list of Debian package names).
 
 Also, if an invocation only works for a particular shell,
 an alternative invocation using the same commands can be added
@@ -105,15 +111,27 @@ while retaining the context and connection to the other command.
 This way, if a command fails or does not behave as expected,
 it is easier to debug.
 
-- Extensbility.
+~~~~~~~~~~~~~
+Extensibility
+~~~~~~~~~~~~~
 
 New fields can be added to the JSON objects without breaking existing code.
 
-- Cross-referencing.
+Fields can be omitted and added later
 
-Commands can "link" to related commands via their SHA1 hash hex digests.
+~~~~~~~~~~~~~~~~~
+Cross-referencing
+~~~~~~~~~~~~~~~~~
 
-- Similarity detection.
+Commands can "link" to related commands via their SHA-1 hash hex digests.
+
+This also makes finding commands indexed by search engines much easier,
+since most search engines do not match special characters,
+but a SHA-1 hash is a unique alphanumeric identifier.
+
+~~~~~~~~~~~~~~~~~~~~
+Similarity detection
+~~~~~~~~~~~~~~~~~~~~
 
 Similar commands or command descriptions can be found by comparing their Nilsimsa hash hex digests.
 
@@ -128,17 +146,16 @@ Questions and answers
 
 - How is this different from, say, an offline cache of `commandlinefu`_?
 
-  Commandlinefu is a remarkable and dedicated online community,
-  but there are some things it lacks or was never designed to have, such as:
+Commandlinefu is a remarkable and dedicated online community,
+but there are some things it lacks or was never designed to have, such as:
 
-  #. Thorough metadata.
-  #. Mergeable invocations instead of alternatives.
-  #. Independent search options.
-  #. Cross-referencing.
-  #. Unique (SHA-1) and locality-sensitive (Nilsimsa) hashes of commands.
-  
-  In addition, the focus of commandlinefu is in providing a platform for commenting and upvoting,
-  which is not the same as a customized repository of commands which may only be useful to their creator.
+#. Metadata and search based on metadata.
+#. Cross-referencing.
+#. Unique (SHA-1) and string similarity (Nilsimsa) hashes of commands.
+
+In addition, the focus of commandlinefu is in providing a platform for commenting and upvoting,
+which is different from the focus of a customized repository of commands,
+many of which may only be useful to their creator.
 
 .. _commandlinefu: http://www.commandlinefu.com/
 
@@ -175,33 +192,33 @@ but it must be listed as a different command.
 
 Yes, but one-liners are the focus for now.
 
-This is mean for helping with interactive uses of a shell,
-or core building blocks of shell scripts,
-not a collection of well-designed and documented multiline shell scripts.
+This is meant to aid interactive use of commandline programs,
+such as core building blocks of shell scripts,
+not a library of robust and well-commented shell scripts.
 
 - Why use ``python2`` as the implementation?
 
-The main focus for this project is the command metadatabase (expressed as a JSON file),
+The main focus for this project is the database of commands (expressed as JSON files),
 not the search application or validation programs as such.
 
 However, Python is widespread and cross-platform,
 and ``python2`` has a ``nilsimsa`` hash library.
 
----------------------------------------
-How to add new commands to the database
----------------------------------------
+-----------------------------------------------
+Example of adding a new command to the database
+-----------------------------------------------
 
-Copy `<simple-template.json>`_ to ``temp.json``.
+Copy `<command-templates/minimal-template.json>`_ to ``command-templates/temp.json``.
 
-Change the description and invocation strings.
+Change the ``description`` and ``invocation strings``.
 
-Run `<validate-database.py>`_ to supply the SHA1 and Nilsimsa hashes.
+Run `<validate-database.py>`_ to supply the SHA-1 and Nilsimsa hashes.
 
 Copy over some of the fields from previous entries or from `<full-command-template.json>`_.
 
 Run ``make`` to ensure the JSON is valid.
 
-Continue adding metdata and invocations until satisfied.
+Continue adding metadata and invocations until satisfied.
 
 Copy into `<command-database.json>`_.
 
@@ -233,4 +250,4 @@ Future improvements
 
 .. Semantics of command requirements: is it only as the command is used in the invocation, or anytime the command is used?
 
-.. The "always, sometimes, never" is a useful distinction, but what about "depends on flags" or "dependson on arguments" or "depends on configuration" or "depends on shell"?
+.. The "always, sometimes, never" is a useful distinction, but what about "depends on flags" or "depends on the arguments" or "depends on configuration" or "depends on shell"?
