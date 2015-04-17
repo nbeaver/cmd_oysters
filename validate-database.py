@@ -7,13 +7,6 @@ try:
 except ImportError:
     pass
 
-if len(sys.argv) == 1:
-    print "Usage: python "+sys.argv[0]+" database.json"
-    sys.exit(1)
-
-with open(sys.argv[1]) as db_file:
-    commands = json.load(db_file)
-
 class NoDuplicates:
     def __init__(self, iterable=[]):
         self.set = set()
@@ -73,6 +66,13 @@ def find_slice(string, substring):
         start = string.find(substring)
         stop = start + len(substring)
         return [start, stop]
+
+if len(sys.argv) == 1:
+    print "Usage: python "+sys.argv[0]+" path-to-json-files/"
+    sys.exit(1)
+
+with open(sys.argv[1]) as directory:
+    commands = json.load(db_file)
 
 unique_SHA1s = NoDuplicates()
 num_invocations = 0
