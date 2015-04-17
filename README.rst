@@ -1,25 +1,18 @@
 .. -*- coding: utf-8 -*-
 
-==========================================
-Shell command repository and metadatabase.
-==========================================
+=================================================
+CmdOyster: a command repository and metadatabase.
+=================================================
 
 ----------
 Quickstart
 ----------
 
-.. TODO: Add URL here.
+#. ``git clone https://github.com/nbeaver/cmd-oyster``
 
-#. ``git clone https://github.com/``
+#. ``cd cmd-oyster/``
 
-.. TODO: Add directory name here.
-
-#. ``cd name-of-directory/``
-
-#. ``python2 find-command.py --substring ping``
-
-.. Required packages: python
-.. Recommended packages: tree (for pseudo-schema), markdown and rst (for documentation)
+#. ``python2 ./find-command.py --substring ping``
 
 ----------
 Motivation
@@ -220,13 +213,24 @@ and ``python2`` has a ``nilsimsa`` hash library.
 Example of adding a new command to the database
 -----------------------------------------------
 
+Install `tree`_, `markdown`_, and `docutils`_ for generating documentation.
+
+On Debian, this is accomplished with ``apt-get install tree markdown python-docutils``.
+
+Optionally, install the `nilsimsa library`_ with e.g. ``pip install nilsimsa``.
+
+.. _tree: http://mama.indstate.edu/users/ice/tree/
+.. _markdown: http://daringfireball.net/projects/markdown/
+.. _docutils: http://docutils.sourceforge.net/
+.. _nilsimsa library: https://pypi.python.org/pypi/nilsimsa/0.3.2
+
 Copy `<command-templates/minimal-template.json>`_ to ``command-templates/temp.json``.
 
 Change the ``description`` and ``invocation`` strings.
 
 Run `<validate-database.py>`_ to supply the SHA-1 and Nilsimsa hashes.
 
-Copy over some of the fields from previous entries or from `<command-templates/full-command-template.json>`_.
+Copy over some of the fields from other entries or from `<command-templates/full-command-template.json>`_.
 
 Run ``make`` to ensure the JSON is valid.
 
@@ -259,10 +263,10 @@ and add a description.
 Future improvements
 -------------------
 
-.. Incremental search mode.
+See also `<README.rst>`_.
 
-.. Make it spit out the required packages for a given command, depending on OS.
+- Incremental search interface.
 
-.. Semantics of command requirements: is it only as the command is used in the invocation, or anytime the command is used?
+- Generate list of required packages for a given command, depending on OS.
 
-.. The "always, sometimes, never" is a useful distinction, but what about "depends on flags" or "depends on the arguments" or "depends on configuration" or "depends on shell"?
+- Spawn a shell with the command automatically filled in and ready to edit or press enter.
