@@ -140,7 +140,7 @@ Questions and answers
   In addition, the focus of commandlinefu is in providing a platform for commenting and upvoting,
   which is not the same as a customized repository of commands which may only be useful to their creator.
 
-.. commandlinefu: http://www.commandlinefu.com/
+.. _commandlinefu: http://www.commandlinefu.com/
 
 - Why not just make an alias or shell function and add it to your ``bashrc``?
 
