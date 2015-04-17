@@ -171,7 +171,7 @@ for i, filename in enumerate(json_filenames):
         try:
             json_data = json.load(json_file)
         except:
-            print "Exception for file: `"+filename+"'"
+            print "Invalid JSON for file: `"+filename+"'"
             raise
         validate_command(json_data)
         num_invocations += count_invocations(json_data)
