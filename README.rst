@@ -16,7 +16,7 @@ Quickstart
 
 #. ``cd name-of-directory/``
 
-#. ``python2 find-command.py --substring 'ping'``
+#. ``python2 find-command.py --substring ping``
 
 .. Required packages: python
 .. Recommended packages: tree (for pseudoschema), yajl (for verification), markdown and rst (for documentation)
@@ -51,7 +51,12 @@ Example scenarios this is intended to be useful for:
 
 - Building up a complex ``find`` command by combining simpler examples.
 
-More generally, this is intended to be extendable to textual commands and code snippets in general.
+- Leveraging existing commands without copying and pasting them from online forums.
+
+- Rapidly finding commands for administering an unfamiliar system.
+
+More generally, this is intended to be extendable to interactive textual commands in general,
+such as ``gnuplot``, ``ipython``, ``irb``,
 
 .. Restarting daemons, changing permissions, shell incompatibility.
 
@@ -110,16 +115,32 @@ Commands can "link" to related commands via their SHA1 hash hex digests.
 
 - Similarity detection.
 
-Similar commands can be found by comparing their Nilsimsa hash hex digests.
+Similar commands or command descriptions can be found by comparing their Nilsimsa hash hex digests.
 
 `Nilsimsa`_ is a `locality-sensitive`_ hashing algorithm originally developed for spam detection.
 
 .. _Nilsimsa: http://en.wikipedia.org/wiki/Nilsimsa_Hash
 .. _locality-sensitive: http://en.wikipedia.org/wiki/Locality-sensitive_hashing
 
----------
-Questions
----------
+---------------------
+Questions and answers
+---------------------
+
+- How is this different from, say, an offline cache of `commandlinefu`_?
+
+  Commandlinefu is a remarkable and dedicated online community,
+  but there are some things it lacks or was never designed to have, such as:
+
+  #. Thorough metadata.
+  #. Mergeable invocations instead of alternatives.
+  #. Independent search options.
+  #. Cross-referencing.
+  #. Unique (SHA-1) and locality-sensitive (Nilsimsa) hashes of commands.
+  
+  In addition, the focus of commandlinefu is in providing a platform for commenting and upvoting,
+  which is not the same as a customized repository of commands which may only be useful to their creator.
+
+.. commandlinefu: http://www.commandlinefu.com/
 
 - Why not just make an alias or shell function and add it to your ``bashrc``?
 
