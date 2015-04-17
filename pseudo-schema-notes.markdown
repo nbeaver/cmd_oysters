@@ -18,13 +18,13 @@ pseudo-schema/
 │           ├── authentication: Will the command require the user to enter their password? Examples: `chsh`, `passwd`.  
 │           ├── internet-connection: Does the command require an active internet connection? Examples: `wget`, `whois`, `dig`.  
 │           └── sudo: Does the command require superuser priveleges? Examples: `shutdown`, `rtcwake`.  
-├── component-commands: List of the individual commands that make up the composite command.  
-├── description: Textual description of what the command does. Must be unique, since its SHA1 hash is effectively the primary key.  
+├── component-commands: List of the individual commands that make up the composite command. Required field.  
+├── description: Textual description of what the command does. Must be unique, since its SHA1 hash is effectively the primary key. Required field.  
 │   ├── nilsimsa-hex: A locality-sensitive hash, helping to detect similar descriptions.  
-│   ├── sha1hex: The SHA1 cryptographic hash of the description string; useful instead of a primary key for linking to related commands.  
-│   └── string: The actual text of the description. Don't add hard linebreaks; let the output formatter decide how to do that.  
-├── invocations: The actual command that gets run, indexed by shell. All invocations must have the same component commands.  
-│   └── $INVOCATION: Name of the shell (e.g. bash) or class of shells (e.g. POSIX) that the command works in.  
+│   ├── sha1hex: The SHA1 cryptographic hash of the description string; useful instead of a primary key for linking to related commands. Required field.  
+│   └── string: The actual text of the description. Don't add hard linebreaks; let the output formatter decide how to do that. Required field.  
+├── invocations: The actual command that gets run, indexed by shell. All invocations must have the same component commands. Required field.  
+│   └── $INVOCATION: Name of the shell (e.g. bash) or class of shells (e.g. POSIX) that the command works in. Required field.  
 │       ├── changeable-arguments: Adjustable parameters of the command or commands; may be nested.  
 │       │   └── $ARG: The actual text of the argument; a subset of $SHELL/string.  
 │       │       ├── component-command: The argument is passed to this command.  
@@ -43,8 +43,8 @@ pseudo-schema/
 │       ├── incompatible-shells: Disjoint set of compatible-shells. Options are not explicitly enumerated because there are many, many shells.  
 │       ├── nilsimsa-hex: A locality-sensitive hash, helping to detect similar commands.  
 │       ├── related-invocations: SHA1 hashes of invocations for different commands that are related to this invocation. A kind of hyper-linking.  
-│       ├── sha1hex: The SHA1 cryptographic hash of the command string; useful for linking to related commands.  
-│       └── string: Actual string that could be passed to the shell and executed.  
+│       ├── sha1hex: The SHA1 cryptographic hash of the command string; useful for linking to related commands. Required field.  
+│       └── string: Actual string that could be passed to the shell and executed. Required field.  
 ├── related-commands: SHA1 hashes of the descriptions of other commands that are related to this one, e.g. a command that accomplishes the same thing with different component commands.  
 └── relevant-urls: A list of URLs that discuss the command or an equivalent command with the same component commands.  
 
