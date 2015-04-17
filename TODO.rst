@@ -42,6 +42,7 @@ Specific items by file, in no particular order
 
   - ``[ ]`` Tailor invocation according to host OS and environment.
   - ``[ ]`` Add a config file for e.g. preferred shell.
+  - ``[ ]`` Check if dependencies are installed, and generate OS-specific command (e.g. ``apt-get``) to install the necessary packages.
 
 - ``[ ]`` Syntax highlighting of output.
 - ``[*]`` Take ``--commands`` argument and search in component commands.
@@ -55,6 +56,8 @@ Specific items by file, in no particular order
 - ``[*]`` Add a description token search, stripping out punctuation.
 
   - ``[ ]`` Add `stemming`_ or `lemmatising`_.
+
+- ``[ ]`` Incremental search for all search modes, possibly using ``ncurses``.
 
 .. _stemming: https://pythonhosted.org/Whoosh/stemming.html
 .. _lemmatising: http://marcobonzanini.com/2015/01/26/stemming-lemmatisation-and-pos-tagging-with-python-and-nltk/

@@ -215,9 +215,15 @@ Example of adding a new command to the database
 
 Install `tree`_, `markdown`_, and `docutils`_ for generating documentation.
 
-On Debian, this is accomplished with ``apt-get install tree markdown python-docutils``.
+On Debian, this is accomplished with::
 
-Optionally, install the `nilsimsa library`_ with e.g. ``pip install nilsimsa``.
+    apt-get install tree markdown python-docutils
+
+and the optional `nilsimsa library`_ can be installed with:: 
+
+    pip install nilsimsa
+
+which appears to currently be Python 2 only.
 
 .. _tree: http://mama.indstate.edu/users/ice/tree/
 .. _markdown: http://daringfireball.net/projects/markdown/
@@ -239,7 +245,7 @@ Continue adding metadata and invocations until satisfied.
 Rename file to the SHA-1 hash of its description,
 appended with ``.json``.
 
-Copy into `<commands/>`_.
+Move the JSON file into `<commands/>`_.
 
 -------------------------------------
 How to add new fields to the database
@@ -256,14 +262,17 @@ e.g ``$COMMAND`` or ``$ARG``.
 (The dollar sign is required, but the caps are optional).
 
 Run ``make`` to update `<pseudo-schema-tree.txt>`_.
-Copy over the field to `<pseudo-schema-notes.markdown>`_
+
+Copy over the new field to `<pseudo-schema-notes.markdown>`_
 and add a description.
 
 -------------------
 Future improvements
 -------------------
 
-See also `<README.rst>`_.
+See `<TODO.rst>`_.
+
+Here are some highlights:
 
 - Incremental search interface.
 
