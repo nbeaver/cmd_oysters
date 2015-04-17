@@ -205,11 +205,11 @@ for i, path in enumerate(json_filepaths):
         try:
             json_data = json.load(json_file)
         except:
-            print "Invalid JSON for file: `"+path+"'"
+            print "Invalid JSON in file: `"+path+"'"
             raise
         validate_command(json_data)
         check_pseudoschema(json_data, "pseudo-schema/")
         num_invocations += count_invocations(json_data)
 
 num_commands = i + 1 # enumerate starts from 0.
-print "Validated", num_commands ,"command(s) and", num_invocations, "invocation(s)."
+print "Validated", num_commands ,"files(s) and", num_invocations, "invocation(s)."
