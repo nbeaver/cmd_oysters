@@ -10,7 +10,7 @@ Specific items (in no particular order)
 
 - ``[ ]`` Tailor invocation according to host OS and environment.
 
-- ``[ ]`` Add a config file for preferred shell.
+- ``[ ]`` Add a config file for e.g. preferred shell.
 
 - ``[ ]`` Include version numbers in "commands this shell works with/doesn't work with".
 
