@@ -2,9 +2,11 @@
 TODO
 ====
 
---------------
-Specific items
---------------
+---------------------------------------
+Specific items (in no particular order)
+---------------------------------------
+
+- ``[ ]`` Split `<command-database.json>`_ into individual JSON documents.
 
 - ``[ ]`` Tailor invocation according to host OS and environment.
 
@@ -12,17 +14,25 @@ Specific items
 
 - ``[ ]`` Include version numbers in "commands this shell works with/doesn't work with".
 
-- ``[x]`` `<validate-database.py>`_: Verify that all the pseudo-schema fields are in `<command-template.json>`_.
+- ``[ ]`` Change field name from ``compatible-shells`` to ``compatible-with`` so it works
+
+- ``[*]`` `<validate-database.py>`_: Verify that all the pseudo-schema fields are in `<command-template.json>`_.
 
 - ``[ ]`` `<find-command.py>`_: Add a --shell -x flag to spawn a prompt for the user with the command already filled in (use pexpect).
 
-- ``[x]`` Split requirements into ``requirements-in-general`` and ``requirements-as-invoked``.
+- ``[*]`` Split requirements into ``requirements-in-general`` and ``requirements-as-invoked``.
 
 - ``[ ]`` Indicate options for alternatives in Debian packages, e.g. ``mawk`` or ``gawk``, but not both.
 
 - ``[ ]`` Use ``null`` for ``executable-path`` of shell builtins and keywords.
 
 - ``[ ]`` `<find-command.py>`_: Syntax highlighting of output.
+
+- ``[*]`` Say which fields are required in `<pseudo-schema-notes.markdown>`_.
+
+- ``[*]`` Make a minimal template with only required field (`<minimal-template.json>`_).
+
+- ``[ ]`` Make a JSON schema.
 
 -----------------------------------
 Non-specific notes and observations
