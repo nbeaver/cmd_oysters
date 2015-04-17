@@ -25,17 +25,17 @@ pseudo_schema_tree : pseudo-schema
 minimal_template : minimal-template.json pseudo-schema/ check-pseudoschema.py
 	json_verify < minimal-template.json
 	python check-pseudoschema.py minimal-template.json
-	python validate-database.py minimal-template.json
+	#python validate-database.py minimal-template.json
 
 full_command_template : full-command-template.json pseudo-schema/ check-full-template.py check-pseudoschema.py
 	json_verify < full-command-template.json
 	python check-pseudoschema.py full-command-template.json
-	python validate-database.py full-command-template.json
+	#python validate-database.py full-command-template.json
 	python check-full-template.py full-command-template.json pseudo-schema/
 
 temp : validate-database.py check-pseudoschema.py
 	json_verify < temp.json
-	python validate-database.py temp.json
+	#python validate-database.py temp.json
 	python check-pseudoschema.py temp.json
 
 README.html : README.rst
