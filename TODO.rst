@@ -6,19 +6,19 @@ TODO
 Specific items by file, in no particular order
 ----------------------------------------------
 
-- ``[*]`` Make a minimal template with only required fields (`<minimal-template.json>`_).
+- ``[*]`` Make a minimal template with only required fields (`<command-templates/minimal-template.json>`_).
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 `<check-full-template.py>`_
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- ``[*]`` Verify that all the pseudo-schema fields are in `<command-template.json>`_.
+- ``[*]`` Verify that all the pseudo-schema fields are in `<command-templates/full-command-template.json>`_.
 
-~~~~~~~~~~~~~~~~~~~~~
-`<command-database>`_
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
+`<commands>`_
+~~~~~~~~~~~~~
 
-- ``[ ]`` Split `<command-database.json>`_ into individual JSON files.
+- ``[*]`` Split `<command-database.json>`_ into individual JSON files.
 
 - ``[ ]`` Include version numbers in "commands this shell works with/doesn't work with".
 
@@ -35,6 +35,7 @@ Specific items by file, in no particular order
 ~~~~~~~~~~~~~~~~~~~~
 
 - ``[ ]`` Add a --shell -x flag to spawn a prompt for the user with the command already filled in (use pexpect).
+
   - ``[ ]`` Tailor invocation according to host OS and environment.
   - ``[ ]`` Add a config file for e.g. preferred shell.
 
@@ -42,10 +43,13 @@ Specific items by file, in no particular order
 - ``[*]`` Take ``--commands`` argument and search in component commands.
 - ``[ ]`` Take multiple arguments to ``--substring`` so it's effectively a regex search for 'arg1.*arg2.*arg3'
 - ``[*]`` Add a ``--description`` search.
+
   - ``[ ]`` Make the description search case-insensitive.
   - ``[ ]`` Make the description search into a full regex search.
+
 - ``[ ]`` Do some unit tests instead of the hacky makefile tests.
 - ``[*]`` Add a description token search, stripping out punctuation.
+
   - ``[ ]`` Add `stemming`_ or `lemmatising`_.
 
 .. _stemming: https://pythonhosted.org/Whoosh/stemming.html
@@ -82,19 +86,21 @@ Non-specific notes and observations
   - emacs: ``Ctrl-X Ctrl-C``
   - nano: ``Ctrl-X``
   - wine cmd: ``exit``, not ``quit`` or ``Ctrl-D``.
-  - maxima: ``Ctrl-D`` or ``quit();``
+  - maxima: ``Ctrl-D`` or ``quit();<Enter>``
+  - irb: ``quit<Enter>`` or ``Ctrl-D``
+  - gnuplot: ``quit<Enter>``, ``exit<Enter>``, or ``Ctrl-D``.
 
   Or should this be a separate project?
 
 - Would be good to extend this to work for any programming language, not just shells.
 
-- Sometimes changeable arguments are repeated -- should slice be a list of slices?
+- Sometimes changeable arguments show up more than once -- should slice be a list of slices?
 
-- Omit requirements for shell keywords, since they don't do anything on their own? Or use null?
+- Omit requirements for shell keywords, since they don't do anything on their own? Or use ``null``?
 
-- Required packages for shell keywords and builtins -- just omit them, since it depends on the shell anyway? Or use null?
+- Required packages for shell keywords and builtins -- just omit them, since it depends on the shell anyway? Or use ``null``?
 
-- Requirements are vague, e.g. using ``ls`` in an sshfs does require an internet connection, but only indirectly.
+- Requirements are vague, e.g. using ``ls`` in an ``sshfs`` does require an internet connection, but only indirectly.
 
 - Decide which fields are required and which are optional (JSON schema?).
 
