@@ -38,11 +38,11 @@ if 'nilsimsa' in sys.modules:
     def check_nilsimsa(string, nominal_nilsimsa, filepath):
         calculated_nilsimsa = nilsimsa.Nilsimsa(string).hexdigest()
         assert nominal_nilsimsa == calculated_nilsimsa, \
-            "in file: %s\n nilsimsas do not match:\n%s (in database)\n%s (calculated)\n%r (command representation)" \
+            "in file '%s'\n nilsimsas do not match:\n%s (in database)\n%s (calculated)\n%r (command representation)" \
             % (filepath, nominal_nilsimsa, calculated_nilsimsa, string)
 
     def prompt_nilsimsa(string, filepath):
-        sys.stderr.write("Warning: in file" + filepath + "'\n")
+        sys.stderr.write("Warning: in file '" + filepath + "'\n")
         sys.stderr.write("No nilsimsa for `" + string + "'\n")
         sys.stderr.write("Should be: "+nilsimsa.Nilsimsa(string).hexdigest()+"\n")
 
