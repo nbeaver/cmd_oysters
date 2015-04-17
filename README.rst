@@ -44,13 +44,13 @@ Quickstart
 
 #. ``cd command-oysters/``
 
-#. ``python2 ./find-command.py --substring "ping -i"``
+#. ``python2 find-command.py --substring "ping -i"``
 
 More examples:
 
-#. ``python find-command.py --commands awk grep``
+#. ``python2 find-command.py --commands awk grep``
    
-#. ``python find-command.py --description-tokens architecture bit``
+#. ``python2 find-command.py --description-tokens architecture bit``
 
 ----------
 Motivation
@@ -110,7 +110,7 @@ but the same is unfortunately not true for YAML.
 
 A directory of JSON files makes code work cross-platform and cross-language easily.
 
-In addition, JSON permits Unicode and only requires escaping double quotes,
+In addition, JSON permits Unicode and only requires escaping double quotes and backslashes,
 so many commands are very close to the actual string that would be sent to the shell.
 
 ~~~~~~~~~~~~
@@ -180,7 +180,9 @@ Similar invocations or descriptions can be found by comparing their Nilsimsa has
 Questions and answers
 ---------------------
 
-- How is this different from, say, an offline cache of `commandlinefu`_?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+How is this different from, say, an offline cache of `commandlinefu`_?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Commandlinefu is a remarkable and dedicated online community,
 but there are some things it lacks or was never designed to have, such as:
@@ -195,7 +197,9 @@ many of which may only be useful to their creator.
 
 .. _commandlinefu: http://www.commandlinefu.com/
 
-- Why not just make an alias or shell function and add it to your ``bashrc``?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Why not just make an alias or shell function and add it to your ``bashrc``?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 It's not always easy to find a short, memorable name for an alias that doesn't conflict with existing commands,
 and a multitude of aliases tend to make autocompletion more unwieldy and less predictable.
@@ -204,16 +208,25 @@ Aliases and shell functions are great for commonly used commands with a particul
 but not so great for remembering how to use a command from several months ago,
 or for keeping track of how to do the same thing with a variety of different shells.
 
-- What does the term ``component command`` refer to?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+What does the term "component command" refer to?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-One of the greatest strength of shell commands is that they can be piped together,
-evaluated to supply arguments to other commands,
-or even taken directly as arguments to other commands.
+One of the greatest strengths of UNIX shell commands
+is that they can be composed in many ways.
+
+They can be
+used in sequence (e.g. ``./configure && make``),
+piped together (e.g. ``du | sort -nr``),
+evaluated to supply arguments to other commands (e.g. ``find | grep bash``),
+or even taken directly as arguments to other commands (e.g. ``find . -exec file '{}' +``).
 
 These composite commands consist of more than one component command,
 which may be executable in the filesystem or shell builtins.
 
-- What's the difference between commands and invocations?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+What's the difference between commands and invocations?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Often times, there are multiple ways to write the same command,
 such as long flag/short flag versions,
@@ -232,19 +245,35 @@ it must be listed as a different command,
 not an equivalent invocation:
 e.g. ``unlink -`` will accomplish the same thing as ``rm ./-``,
 but it must be listed as a different command.
-However, they can be `cross-referenced`_.
+
+However, these command can (and should) be `cross-referenced`_.
 
 .. _cross-referenced: `Cross-referencing`_
 
-- Is it ok for command invocations to span multiple lines?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Why aren't there many commands yet?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This project is new and under active development.
+
+Changes to the JSON schema will be necessary,
+and if they are breaking changes
+it's easier to fix a smaller number of CmdOysters.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Is it ok for command invocations to span multiple lines?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Yes, but one-liners are the focus for now.
 
 This is meant to aid interactive use of commandline programs,
 such as core building blocks of shell scripts,
 not a library of robust and well-commented shell scripts.
+Those already exist.
 
-- Why use ``python2`` as the implementation language?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Why use Python 2.7 as the implementation language?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The main focus for this project is the database of CmdOysters,
 expressed as JSON files,
@@ -253,18 +282,21 @@ not the search application or validation programs as such.
 However, Python is widespread and cross-platform,
 and ``python2`` has a ``nilsimsa`` hash library.
 
-- Why call them CmdOysters?
+~~~~~~~~~~~~~~~~~~~~~~~~~
+Why call them CmdOysters?
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This is a metaphor for surrounding a shell command with contextual metadata;
 the shell command is like the pearl inside,
 and the metadata like the protective shell and oyster tissue.
+
 The metaphor is particularly appropriate for shell commands since
-curly bracket pairs look visually similar
+JSON's curly bracket pairs look visually similar
 to a stylized bivalve mollusk shell: ``{}``
 
 The name is also a nod to the reputation of Perl
 for cryptic one-liners,
-a reputation it shares with UNIX shells.
+a reputation it shares with the UNIX shells.
 
 -----------------------------------------------
 Example of adding a new command to the database
@@ -304,9 +336,9 @@ appended with ``.json``.
 
 Move the JSON file into `<commands/>`_.
 
--------------------------------------
-How to add new fields to the database
--------------------------------------
+------------------------------
+How to add new metadata fields
+------------------------------
 
 Navigate to the relevant directory in `<pseudo-schema/>`_.
 
@@ -322,6 +354,14 @@ Run ``make`` to update `<pseudo-schema-tree.txt>`_.
 
 Copy over the new field to `<pseudo-schema-notes.markdown>`_
 and add a description.
+
+Note that the best metadata to include is information that is:
+
+- not readily available in man pages,
+
+- directly applicable to the specific use of the invocation,
+
+- and easy to verify or falsify.
 
 -------------------
 Future improvements

@@ -32,29 +32,39 @@ Specific items by file, in no particular order
 
 - ``[*]`` Combine debian-paths and debian-packages into single debian tree.
 
-- ``[*]`` Combine `component-command-*` into `component-command-info/*`.
+- ``[*]`` Combine ``component-command-*`` into ``component-command-info/*``.
 
-- ``[ ]`` Make related commands a list of objects, not SHA-1 hashes, so that e.g. broken links to similar commands can be found by Nilsima hash.
+- ``[ ]`` Change ``related-commands`` to a list of objects, not SHA-1 hashes, so that e.g. broken links to similar commands can be found by Nilsima hash.
+
+- ``[ ]`` Change ``related-invocations`` to a list of objects, not SHA-1 hashes, so that e.g. broken links to similar invocations can be found by Nilsima hash.
+
+- ``[ ]`` Change ``relevant-urls`` to a list of objects, not SHA-1 hashes, so that e.g. broken links to similar commands can be found by Nilsima hash.
 
 ~~~~~~~~~~~~~~~~~~~~
 `<find-command.py>`_
 ~~~~~~~~~~~~~~~~~~~~
 
-- ``[ ]`` Add a --shell -x flag to spawn a prompt for the user with the command already filled in (use pexpect).
+- ``[ ]`` Add a ``--shell`` flag (short flag ``-x``) to spawn a prompt for the user with the command already filled in (use ``pexpect``).
 
   - ``[ ]`` Tailor invocation according to host OS and environment.
   - ``[ ]`` Add a config file for e.g. preferred shell.
   - ``[ ]`` Check if dependencies are installed, and generate OS-specific command (e.g. ``apt-get``) to install the necessary packages.
 
 - ``[ ]`` Syntax highlighting of output.
+
 - ``[*]`` Take ``--commands`` argument and search in component commands.
+
 - ``[ ]`` Take multiple arguments to ``--substring`` so it's effectively a regex search for 'arg1.*arg2.*arg3'
+
+- ``[ ]`` Add a flags for excluding patterns and commands.
+
 - ``[*]`` Add a ``--description`` search.
 
   - ``[ ]`` Make the description search case-insensitive.
   - ``[ ]`` Make the description search into a full regex search.
 
 - ``[ ]`` Do some unit tests instead of the hacky makefile tests.
+
 - ``[*]`` Add a description token search, stripping out punctuation.
 
   - ``[ ]`` Add `stemming`_ or `lemmatising`_.
