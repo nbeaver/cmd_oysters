@@ -1,81 +1,79 @@
-[
-    {
-        "can-modify": {
-            "filesystem": false,
-            "other-processes" : false
-        },
-        "component-command-info": {
-            "$COMMAND": {
-                "bash-type": "builtin | keyword | file",
-                "debian": {
-                    "executable-path": "/path/to/$COMMAND",
-                    "required-packages": [
-                        "debian-package-name"
-                    ]
-                },
-                "requirements-in-general": {
-                    "authentication": "always | sometimes | never",
-                    "internet-connection": "always | sometimes | never",
-                    "sudo": "always | sometimes | never"
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes" : false
+    },
+    "component-command-info": {
+        "$COMMAND": {
+            "bash-type": "builtin | keyword | file",
+            "debian": {
+                "executable-path": "/path/to/$COMMAND",
+                "required-packages": [
+                    "debian-package-name"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "always | sometimes | never",
+                "internet-connection": "always | sometimes | never",
+                "sudo": "always | sometimes | never"
+            }
+        }
+    },
+    "component-commands": [
+        "$COMMAND"
+    ],
+    "description": {
+        "nilsimsa-hex": "0000000000000000000000000000000000000000000000000000000000000000",
+        "sha1hex": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+        "string": ""
+    },
+    "invocations": {
+        "$INVOCATION" : {
+            "changeable-arguments": {
+                "$ARG": {
+                    "component-command": "$COMMAND",
+                    "component-command-flag": "$FLAG",
+                    "description-string": "",
+                    "invocation-slice": [
+                        15,
+                        19
+                    ],
+                    "subtype":"<replace with more specific type, e.g. path>",
+                    "type": "string | integer | float"
                 }
-            }
-        },
-        "component-commands": [
-            "$COMMAND"
-        ],
-        "description": {
-            "nilsimsa-hex": "0000000000000000000000000000000000000000000000000000000000000000",
-            "sha1hex": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
-            "string": ""
-        },
-        "invocations": {
-            "$INVOCATION" : {
-                "changeable-arguments": {
-                    "$ARG": {
-                        "component-command": "$COMMAND",
-                        "component-command-flag": "$FLAG",
-                        "description-string": "",
-                        "invocation-slice": [
-                            15,
-                            19
-                        ],
-                        "subtype":"<replace with more specific type, e.g. path>",
-                        "type": "string | integer | float"
-                    }
-                },
-                "command-requirements-as-invoked": {
-                    "$COMMAND": {
-                        "authentication": "yes | no | maybe",
-                        "internet-connection": "yes | no | maybe",
-                        "sudo": "yes | no | maybe"
-                    }
-                },
-                "example-outputs": [
-                    "output text"
-                ],
-                "compatible-shells": [
-                    "ash | bash | bsh | csh | dash | fish | ksh | mksh | pdksh | posh | POSIX | rc | scsh | tcsh | zsh | ..."
-                ],
-                "incompatible-shells": [
-                    "ash | bash | bsh | csh | dash | fish | ksh | mksh | pdksh | posh | POSIX | rc | scsh | tcsh | zsh | ..."
-                ],
-                "nilsimsa-hex": "2d75aea6d0809620c0a86ea403010392a1b90483493d415481d4922e58c00777",
-                "related-invocations": [
-                    "0000000000000000000000000000000000000000"
-                ],
-                "sha1hex": "6da5385cfec34278b7df38f78685aaaba7ebc9c8",
-                "string": "$COMMAND $FLAG $ARG"
-            }
-        },
-        "related-commands": [
-            "da39a3ee5e6b4b0d3255bfef95601890afd80709"
-        ],
-        "relevant-urls": [
-            "http://unix.stackexchange.com/",
-            "http://tldp.org/",
-            "http://www.linuxjournal.com/",
-            "http://www.gnu.org/software/bash/manual/bash.html",
-            "https://www.kernel.org/"
-        ]
-    }
-]
+            },
+            "command-requirements-as-invoked": {
+                "$COMMAND": {
+                    "authentication": "yes | no | maybe",
+                    "internet-connection": "yes | no | maybe",
+                    "sudo": "yes | no | maybe"
+                }
+            },
+            "example-outputs": [
+                "output text"
+            ],
+            "compatible-shells": [
+                "ash | bash | bsh | csh | dash | fish | ksh | mksh | pdksh | posh | POSIX | rc | scsh | tcsh | zsh | ..."
+            ],
+            "incompatible-shells": [
+                "ash | bash | bsh | csh | dash | fish | ksh | mksh | pdksh | posh | POSIX | rc | scsh | tcsh | zsh | ..."
+            ],
+            "nilsimsa-hex": "2d75aea6d0809620c0a86ea403010392a1b90483493d415481d4922e58c00777",
+            "related-invocations": [
+                "0000000000000000000000000000000000000000"
+            ],
+            "sha1hex": "6da5385cfec34278b7df38f78685aaaba7ebc9c8",
+            "string": "$COMMAND $FLAG $ARG"
+        }
+    },
+    "related-commands": [
+        "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+    ],
+    "relevant-urls": [
+        "http://unix.stackexchange.com/",
+        "http://tldp.org/",
+        "http://www.linuxjournal.com/",
+        "http://www.gnu.org/software/bash/manual/bash.html",
+        "https://www.kernel.org/"
+    ]
+}

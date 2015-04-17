@@ -8,7 +8,7 @@ if len(sys.argv) == 1:
     sys.exit(1)
 
 json_file = sys.argv[1]
-commands = json.load(open(json_file))
+command = json.load(open(json_file))
     
 pseudoschema_root = sys.argv[2]
 if not os.path.isdir(pseudoschema_root):
@@ -22,5 +22,4 @@ def validate(path, json_object):
         if os.path.isdir(child_path):
             validate(child_path, json_object[child])
 
-for command in commands:
-    validate(pseudoschema_root, command)
+validate(pseudoschema_root, command)
