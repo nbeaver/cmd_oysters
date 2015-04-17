@@ -1,4 +1,4 @@
-all : command_database simple_template full_command_template temp sorted.json pseudo_schema_tree README.html pseudo-schema-notes.html
+all : command_database simple_template full_command_template temp sorted.json pseudo_schema_tree README.html pseudo-schema-notes.html TODO.html
 .PHONY : command_database simple_template full_command_template temp pseudo_schema_tree
 
 command_database : command-database.json check-pseudoschema.py validate-database.py find-command.py
@@ -41,6 +41,9 @@ temp : validate-database.py check-pseudoschema.py
 README.html : README.rst
 	rst2html README.rst README.html
 
+TODO.html : TODO.rst
+	rst2html TODO.rst TODO.html
+
 pseudo-schema-notes.html : pseudo-schema-notes.markdown
 	markdown pseudo-schema-notes.markdown > pseudo-schema-notes.html
 
@@ -48,4 +51,5 @@ clean :
 	rm --force --verbose pseudo-schema-tree.txt
 	rm --force --verbose sorted.json
 	rm --force --verbose README.html
+	rm --force --verbose TODO.html
 	rm --force --verbose pseudo-schema-notes.html
