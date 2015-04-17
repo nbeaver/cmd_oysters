@@ -31,8 +31,6 @@ if len(sys.argv) < 2:
     sys.exit(1)
 
 json_filenames = glob.glob(args.json + "/*.json")
-print json_filenames
-print json_filenames
 for filename in json_filenames:
     with open(os.path.join(args.json, filename)) as json_file:
         try:
