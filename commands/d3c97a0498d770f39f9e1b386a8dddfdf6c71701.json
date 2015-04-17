@@ -1,0 +1,63 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes": true
+    },
+    "component-command-info": {
+        "jobs": {
+            "bash-type": "builtin",
+            "debian": {
+                "executable-path": null
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "never"
+            }
+        },
+        "kill": {
+            "bash-type": "builtin",
+            "debian": {
+                "executable-path": null
+            },
+            "requirements-in-general": {
+                "authentication": "sometimes",
+                "internet-connection": "never",
+                "sudo": "sometimes"
+            }
+        }
+    },
+    "component-commands": [
+        "jobs",
+        "kill"
+    ],
+    "description": {
+        "nilsimsa-hex": "92205548180110a4f04214bf9400a6f7228a14c9b8170c060306d02559146d41",
+        "sha1hex": "d3c97a0498d770f39f9e1b386a8dddfdf6c71701",
+        "string": "Kill stopped jobs."
+    },
+    "invocations": {
+        "bash": {
+            "changeable-arguments": {},
+            "compatible-shells": [
+                "bash"
+            ],
+            "incompatible-shells": [
+                "csh",
+                "dash",
+                "fish",
+                "ksh",
+                "tcsh",
+                "zsh"
+            ],
+            "nilsimsa-hex": "95560a8904819572142344708a24984448a08285a030d214009f48041ab27909",
+            "sha1hex": "b130d1235cd093ef0d6dc5217f89e793192abd83",
+            "string": "kill $(jobs -ps)"
+        }
+    },
+    "relevant-urls": [
+        "http://serverfault.com/questions/240155/how-can-i-kill-all-stopped-jobs",
+        "http://superuser.com/a/228926/219809",
+        "http://ubuntuforums.org/showthread.php?t=1954090&s=c408c62db23afe753dfcfd40f1a86e32&p=11825162#post11825162"
+    ]
+}

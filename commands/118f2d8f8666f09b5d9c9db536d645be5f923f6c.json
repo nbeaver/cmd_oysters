@@ -1,0 +1,101 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "grep": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/bin/grep",
+                "required-packages": [
+                    "grep"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "sometimes",
+                "internet-connection": "never",
+                "sudo": "sometimes"
+            }
+        },
+        "less": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/less",
+                "required-packages": [
+                    "less"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "sometimes",
+                "internet-connection": "never",
+                "sudo": "sometimes"
+            }
+        }
+    },
+    "component-commands": [
+        "grep",
+        "less"
+    ],
+    "description": {
+        "nilsimsa-hex": "3efcd29b3a75e43c4748e7b9e8a87dbd3c5700739963c6a7b7169fd3de9477ef",
+        "sha1hex": "118f2d8f8666f09b5d9c9db536d645be5f923f6c",
+        "string": "Highlight non-ASCII characters (e.g. Unicode) in a text file and give the line number they are on."
+    },
+    "invocations": {
+        "POSIX": {
+            "changeable-arguments": {
+                "myfile.txt": {
+                    "component-command": "grep",
+                    "description-string": "File or file path of text file.",
+                    "invocation-slice": [
+                        39,
+                        49
+                    ],
+                    "subtype": "path",
+                    "type": "string"
+                }
+            },
+            "compatible-shells": [
+                "bash",
+                "TODO"
+            ],
+            "incompatible-shells": [
+                "TODO"
+            ],
+            "nilsimsa-hex": "da8f7868256c22fcd1fcec9e9420ff1b662e8c915d8a0749e0f878503658e048",
+            "sha1hex": "8f78d31acfe82ec49214053d40ad2c338a9b51aa",
+            "string": "grep -nP '[^[:ascii:]]' --color=always myfile.txt | less -R"
+        },
+        "POSIX-long-flags": {
+            "changeable-arguments": {
+                "myfile.txt": {
+                    "component-command": "grep",
+                    "description-string": "File or file path of text file.",
+                    "invocation-slice": [
+                        63,
+                        73
+                    ],
+                    "subtype": "path",
+                    "type": "string"
+                }
+            },
+            "compatible-shells": [
+                "bash",
+                "TODO"
+            ],
+            "incompatible-shells": [
+                "TODO"
+            ],
+            "nilsimsa-hex": "f8c2d869056620e65268ac8a1020381b44260413fd882749c0787890365880ec",
+            "sha1hex": "c2fe383b7f8e87e5baa638b3f4f074ad2f057614",
+            "string": "grep --line-number --perl-regexp '[^[:ascii:]]' --color=always myfile.txt | less --RAW-CONTROL-CHARS"
+        }
+    },
+    "relevant-urls": [
+        "http://lists.gnu.org/archive/html/bug-gnu-utils/2006-03/msg00000.html",
+        "https://groups.google.com/forum/#!topic/comp.unix.programmer/Auge3Bz4iCA",
+        "https://stackoverflow.com/questions/3001177/how-do-i-grep-for-all-non-ascii-characters-in-unix",
+        "http://superuser.com/questions/417305/how-can-i-identify-non-ascii-characters-from-the-shell"
+    ]
+}

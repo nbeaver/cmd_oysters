@@ -1,0 +1,59 @@
+{
+    "component-commands": [
+        "ls"
+    ],
+    "description": {
+        "nilsimsa-hex": "6a244034060e206b31500290ca285ea0840a0210a9132700009f29b402485a31",
+        "sha1hex": "2d0b6b2b90eeb1efbd9591dbfa593766f6cf540a",
+        "string": "List hidden files and folders (dotfiles)."
+    },
+    "invocations": {
+        "bash": {
+            "compatible-shells": [
+                "bash",
+                "csh",
+                "ksh",
+                "tcsh",
+                "zsh"
+            ],
+            "incompatible-shells": [
+                "bsh",
+                "dash",
+                "fish",
+                "mksh",
+                "pdksh",
+                "posh",
+                "rc"
+            ],
+            "nilsimsa-hex": "5a1d404958840221c5c0020011053b3049d024094940003e025b6403b8005230",
+            "sha1hex": "41c50a75714eafa9176f7133ce46be179a2df4b3",
+            "string": "ls -d -- .[^.]*"
+        },
+        "bash-long-flags": {
+            "compatible-shells": [
+                "bash",
+                "csh",
+                "ksh",
+                "tcsh",
+                "zsh"
+            ],
+            "incompatible-shells": [
+                "bsh",
+                "dash",
+                "fish",
+                "mksh",
+                "pdksh",
+                "posh",
+                "rc"
+            ],
+            "nilsimsa-hex": "1edddb03d98c0f6d6fb41a991f0517943bf32e8d7902249e2778f6b3a01844b0",
+            "sha1hex": "11a8677bbc4b7dc77c04e95436d6f36ae64c587f",
+            "string": "ls --directory -- .[^.]*"
+        }
+    },
+    "relevant-urls": [
+        "http://www.gnu.org/software/coreutils/faq/coreutils-faq.html#ls-_002da-_002a-does-not-list-dot-files",
+        "http://stackoverflow.com/a/699071/1608986",
+        "http://stackoverflow.com/a/2550243/1608986"
+    ]
+}

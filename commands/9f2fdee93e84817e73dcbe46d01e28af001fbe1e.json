@@ -1,0 +1,77 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "awk": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/awk",
+                "required-packages": [
+                    "gawk"
+                ]
+            },
+            "requirements-in-general": {
+                "internet-connection": "never",
+                "sudo": "never"
+            }
+        },
+        "grep": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/bin/grep",
+                "required-packages": [
+                    "grep"
+                ]
+            },
+            "requirements-in-general": {
+                "internet-connection": "never",
+                "sudo": "sometimes"
+            }
+        },
+        "lscpu": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/lscpu",
+                "required-packages": [
+                    "util-linux"
+                ]
+            },
+            "requirements-in-general": {
+                "internet-connection": "never",
+                "sudo": "never"
+            }
+        }
+    },
+    "component-commands": [
+        "awk",
+        "grep",
+        "lscpu"
+    ],
+    "description": {
+        "nilsimsa-hex": "d8c42b2efc2ce62d5bb75b81d4962ead3d0311087668ed288778f9f0e56d746d",
+        "sha1hex": "9f2fdee93e84817e73dcbe46d01e28af001fbe1e",
+        "string": "Display name of hardware's CPU architecture, e.g. x86_64 for 64-bit Intel processors and i686 for 32-bit Intel processors."
+    },
+    "invocations": {
+        "Linux": {
+            "example-outputs": [
+                "i686",
+                "x86_64"
+            ],
+            "nilsimsa-hex": "115a331849b2cf082ac652d44c61b0042c59891b564b970d43e1b4fb7478650d",
+            "related-invocations": [
+                "c7a75171158ee220514b48bf7b7065fccaa6b37b",
+                "0f86bfd2af49de656a8a318ea310727e6052525a",
+                "95480eceb7facbd35f4363138b7ef9d5b98fc02a"
+            ],
+            "sha1hex": "8c7c73684c9524cfb00d5eed10b428164d48b7c9",
+            "string": "lscpu | grep '^Architecture:' | awk '{print $2}'"
+        }
+    },
+    "relevant-urls": [
+        "http://stackoverflow.com/a/22100700",
+        "http://www.cyberciti.biz/faq/lscpu-command-find-out-cpu-architecture-information/"
+    ]
+}
