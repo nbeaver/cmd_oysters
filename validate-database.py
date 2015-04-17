@@ -35,14 +35,15 @@ def prompt_sha1(string):
     sys.stderr.write("Should be: "+hashlib.sha1(string).hexdigest())
 
 if 'nilsimsa' in sys.modules:
-    def check_nilsimsa(string, nominal_nilsimsa):
+    def check_nilsimsa(string, nominal_nilsimsa, filepath):
         calculated_nilsimsa = nilsimsa.Nilsimsa(string).hexdigest()
         assert nominal_nilsimsa == calculated_nilsimsa, \
-            "nilsimsas do not match:\n%s (in database)\n%s (calculated)\n%r (command representation)" \
-            % (nominal_nilsimsa, calculated_nilsimsa, string)
+            "in file: %s\n nilsimsas do not match:\n%s (in database)\n%s (calculated)\n%r (command representation)" \
+            % (filepath, nominal_nilsimsa, calculated_nilsimsa, string)
 
-    def prompt_nilsimsa(string):
-        sys.stderr.write("Warning: No nilsimsa for `" + string + "'\n")
+    def prompt_nilsimsa(string, filepath):
+        sys.stderr.write("Warning: in file" + filepath + "'\n")
+        sys.stderr.write("No nilsimsa for `" + string + "'\n")
         sys.stderr.write("Should be: "+nilsimsa.Nilsimsa(string).hexdigest()+"\n")
 
 def get_slice(string_to_slice, slice_index_list):
@@ -77,21 +78,22 @@ def validate_invocation(invocation):
     # TODO: flesh this out.
     pass
 
-def validate_command(command):
+def validate_command(command, filepath):
     #TODO: refactor this, including splitting out to validate_invocation().
     # Required fields.
-    assert 'description' in command.keys(), "Error: no description."
-    assert 'string' in command['description'].keys(), "Error: no description string."
+    assert 'description' in command.keys(), "Error: no description in file "+filepath
+    assert 'string' in command['description'].keys(), "Error: no description string in file "+filepath
 
     if 'component-command-info' in command.keys():
+        #TODO: make this less of a horrific mess.
         assert set(command['component-command-info'].keys()).issubset(set(command['component-commands'])), \
-            repr(command['component-command-info'].keys())+ "is not a subset of "+repr(command['component-commands'])
+            "In file "+filepath+"\n"+repr(command['component-command-info'].keys())+ "is not a subset of "+repr(command['component-commands'])
         for command_name, info in command['component-command-info'].iteritems():
             for info_key, info_item in info.iteritems():
                 if info_key == 'bash-type':
                     bash_types = set(['alias', 'builtin', 'file', 'function', 'keyword'])
                     assert info_item in bash_types or info_item == "builtin | keyword | file", \
-                        "`"+info_item+"' not in "+repr(bash_types)
+                        "In file "+filepath+"\n"+"`"+info_item+"' not in "+repr(bash_types)
 
                 elif info_key == 'debian':
                     if 'executable-path' in info_item.keys() and info_item['executable-path']:
@@ -112,10 +114,12 @@ def validate_command(command):
 
     if 'nilsimsa' in sys.modules:
         try:
-            check_nilsimsa(command['description']['string'],
-                       command['description']['nilsimsa-hex'])
+            check_nilsimsa( \
+                command['description']['string'],
+                command['description']['nilsimsa-hex'],
+                filepath)
         except KeyError:
-            prompt_nilsimsa(command['description']['string'])
+            prompt_nilsimsa(command['description']['string'], filepath)
 
     for invocation, invocation_dict in command['invocations'].iteritems():
 
@@ -129,9 +133,12 @@ def validate_command(command):
 
         if 'nilsimsa' in sys.modules:
             try:
-                check_nilsimsa(invocation_dict['string'], invocation_dict['nilsimsa-hex'])
+                check_nilsimsa( \
+                    invocation_dict['string'],
+                    invocation_dict['nilsimsa-hex'],
+                    filepath)
             except KeyError:
-                prompt_nilsimsa(invocation_dict['string'])
+                prompt_nilsimsa(invocation_dict['string'], filepath)
 
         if 'changeable-arguments' in invocation_dict.keys():
             arg_dict = invocation_dict['changeable-arguments']
@@ -205,10 +212,10 @@ for i, path in enumerate(json_filepaths):
         try:
             json_data = json.load(json_file)
         except:
-            print "Invalid JSON in file: `"+path+"'"
+            print "Invalid JSON in file: `"+json_file.name+"'"
             raise
-        validate_command(json_data)
-        check_pseudoschema(json_data, "pseudo-schema/")
+        validate_command(json_data, path)
+        check_pseudoschema(json_file.name, "pseudo-schema/")
         num_invocations += count_invocations(json_data)
 
 num_commands = i + 1 # enumerate starts from 0.

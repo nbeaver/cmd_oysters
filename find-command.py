@@ -67,5 +67,6 @@ for filename in json_filenames:
         # At this point, the command must be a match.
         # TODO: break the description on 80 lines,
         # and add a comment character at each point.
+        print '# ' + filename
         print '# ' + invocation + ': ' + command['description']['string']
         print command_string
