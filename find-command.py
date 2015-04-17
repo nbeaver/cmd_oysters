@@ -5,28 +5,6 @@ import sys
 import argparse
 import string
 
-parser = argparse.ArgumentParser(description='search for shell commands')
-parser.add_argument('-c', '--commands', help='component command search', required=False, nargs='+')
-parser.add_argument('-s', '--substring', help='simple command substring search', required=False)
-parser.add_argument('-t', '--tokens', help='unordered token subset command search',required=False, nargs='+')
-parser.add_argument('-d', '--description', help='command description', required=False)
-parser.add_argument('-D', '--description-tokens', help='description token search (case-insensitive)', required=False, nargs='+')
-
-default_json_file = os.path.join(sys.path[0],"command-database.json") # need to do it this way for symlinks to work.
-parser.add_argument('-j', '--json', help='path to JSON input file', required=False, default=default_json_file)
-
-args = parser.parse_args()
-
-if len(sys.argv) < 2:
-    parser.print_help()
-    sys.exit(1)
-
-with open(args.json) as db_file:
-    commands = json.load(db_file)
-
-# TODO: add stemming or lemmatising.
-# https://pythonhosted.org/Whoosh/stemming.html
-# http://marcobonzanini.com/2015/01/26/stemming-lemmatisation-and-pos-tagging-with-python-and-nltk/
 def tokens(text):
     return text.encode('utf-8').translate(None, string.punctuation).split()
 
@@ -35,7 +13,31 @@ def lowercase_subset(A, B):
     set_b = set([b.lower() for b in B])
     return set_a.issubset(set_b)
 
-for command in commands:
+parser = argparse.ArgumentParser(description='search for shell commands')
+parser.add_argument('-c', '--commands', help='component command search', required=False, nargs='+')
+parser.add_argument('-s', '--substring', help='simple command substring search', required=False)
+parser.add_argument('-t', '--tokens', help='unordered token subset command search',required=False, nargs='+')
+parser.add_argument('-d', '--description', help='command description', required=False)
+parser.add_argument('-D', '--description-tokens', help='description token search (case-insensitive)', required=False, nargs='+')
+
+default_json_path = os.path.join(sys.path[0],"commands") # need to do it this way for symlinks to work.
+parser.add_argument('-j', '--json', help='path to root directory of JSON input files', required=False, default=default_json_path)
+
+args = parser.parse_args()
+
+if len(sys.argv) < 2:
+    parser.print_help()
+    sys.exit(1)
+
+json_filenames = os.listdir(args.json)
+for filename in json_filenames:
+    with open(os.path.join(args.json, filename)) as json_file:
+        try:
+            command = json.load(json_file)
+        except:
+            print "Invalid JSON for file: `"+filename+"'"
+            raise
+
     if args.commands:
         if not set(args.commands).issubset(set(command['component-commands'])):
             # The command list is not a subset of the component commands,
@@ -67,10 +69,3 @@ for command in commands:
         # and add a comment character at each point.
         print '# ' + invocation + ': ' + command['description']['string']
         print command_string
-
-# DONE: take --commands argument and search in component commands.
-# TODO: take multiple arguments to --substring so it's effectively a regex search for 'arg1.*arg2.*arg3'
-# TODO: make the description search case-insensitive.
-# TODO: make the description search into a full regex search.
-# TODO: do some unit tests instead of the hacky makefile tests.
-# TODO: add a description token search, stripping out punctuation.

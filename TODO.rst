@@ -39,7 +39,17 @@ Specific items by file, in no particular order
   - ``[ ]`` Add a config file for e.g. preferred shell.
 
 - ``[ ]`` Syntax highlighting of output.
+- ``[*]`` Take ``--commands`` argument and search in component commands.
+- ``[ ]`` Take multiple arguments to ``--substring`` so it's effectively a regex search for 'arg1.*arg2.*arg3'
+- ``[*]`` Add a ``--description`` search.
+  - ``[ ]`` Make the description search case-insensitive.
+  - ``[ ]`` Make the description search into a full regex search.
+- ``[ ]`` Do some unit tests instead of the hacky makefile tests.
+- ``[*]`` Add a description token search, stripping out punctuation.
+  - ``[ ]`` Add `stemming`_ or `lemmatising`_.
 
+.. _stemming: https://pythonhosted.org/Whoosh/stemming.html
+.. _lemmatising: http://marcobonzanini.com/2015/01/26/stemming-lemmatisation-and-pos-tagging-with-python-and-nltk/
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 `<pseudo-schema-notes.markdown>`_
