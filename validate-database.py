@@ -2,6 +2,8 @@
 import json
 import hashlib
 import sys
+import os
+
 try:
     import nilsimsa
 except ImportError:
@@ -67,16 +69,15 @@ def find_slice(string, substring):
         stop = start + len(substring)
         return [start, stop]
 
-if len(sys.argv) == 1:
-    print "Usage: python "+sys.argv[0]+" path-to-json-files/"
-    sys.exit(1)
+def count_invocations(command):
+    return len(command['invocations'].keys())
 
-with open(sys.argv[1]) as directory:
-    commands = json.load(db_file)
+def validate_invocation(invocation):
+    # TODO: flesh this out.
+    pass
 
-unique_SHA1s = NoDuplicates()
-num_invocations = 0
-for i, command in enumerate(commands):
+def validate_command(command):
+    #TODO: refactor this, including splitting out to validate_invocation().
     # Required fields.
     assert 'description' in command.keys(), "Error: no description."
     assert 'string' in command['description'].keys(), "Error: no description string."
@@ -116,7 +117,6 @@ for i, command in enumerate(commands):
             prompt_nilsimsa(command['description']['string'])
 
     for invocation, invocation_dict in command['invocations'].iteritems():
-        num_invocations += 1
 
         invocation_dict = command['invocations'][invocation]
 
@@ -158,12 +158,23 @@ for i, command in enumerate(commands):
         for component_command in command['component-commands']:
             assert component_command in invocation_dict['string'], "component_command:\n"+component_command+"\nis not in invocation:\n"+invocation_dict['string']
 
+if len(sys.argv) == 1:
+    print "Usage: python "+sys.argv[0]+" path-to-json-files/"
+    sys.exit(1)
+
+unique_SHA1s = NoDuplicates()
+num_invocations = 0
+root_directory = sys.argv[1]
+json_filenames = os.listdir(root_directory)
+for i, filename in enumerate(json_filenames):
+    with open(os.path.join(root_directory, filename)) as json_file:
+        try:
+            json_data = json.load(json_file)
+        except:
+            print "Exception for file: `"+filename+"'"
+            raise
+        validate_command(json_data)
+        num_invocations += count_invocations(json_data)
+
 num_commands = i + 1 # enumerate starts from 0.
 print "Validated", num_commands ,"command(s) and", num_invocations, "invocation(s)."
-
-# DONE: check all the commands in component commands are substrings of the main command.
-# TODO: check that the commands in component-command-info
-# TODO: check that bash-type is one of `keyword', `builtin', or `file'.
-# TODO: check debian-path is correct using `which`.
-# TODO: make a proper JSON schema to check the types are correct.
-# DONE: check that no two commands have the same SHA1s of description text.
