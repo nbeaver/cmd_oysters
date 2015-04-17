@@ -170,23 +170,35 @@ or for keeping track of how to do the same thing with a variety of different she
 
 - What does the term ``component command`` refer to?
 
+One of the greatest strength of shell commands is that they can be piped together,
+evaluated to supply arguments to other commands,
+or even taken directly as arguments to other commands.
+
+These composite commands consist of more than one component command,
+which may be executable in the filesystem or shell builtins.
+
 - What's the difference between commands and invocations?
 
 Often times, there are multiple ways to write the same command,
 such as long flag/short flag versions,
-or a different order of arguments,
+a different order of arguments,
 or just a different method,
 e.g. removing a file in the current directory named ``-``
 using either ``rm ./-`` or ``rm -- -``.
 
-Rather than list these as separate commands,
-they are grouped together as equivalent invocations of the same command.
+Since these use the same component commands,
+it makes sense to group them together
+than list them redundantly as separate commands.
+These are said to be equivalent invocations of the same command.
 
 If there is a similar command that uses different component commands,
 it must be listed as a different command,
 not an equivalent invocation:
-e.g. ``unlink -`` will accomplish the same thing,
+e.g. ``unlink -`` will accomplish the same thing as ``rm ./-``,
 but it must be listed as a different command.
+However, they can be `cross-referenced`_.
+
+.. _cross-referenced: `Cross-referencing`_
 
 - Is it ok for command invocations to span multiple lines?
 
@@ -210,17 +222,20 @@ Example of adding a new command to the database
 
 Copy `<command-templates/minimal-template.json>`_ to ``command-templates/temp.json``.
 
-Change the ``description`` and ``invocation strings``.
+Change the ``description`` and ``invocation`` strings.
 
 Run `<validate-database.py>`_ to supply the SHA-1 and Nilsimsa hashes.
 
-Copy over some of the fields from previous entries or from `<full-command-template.json>`_.
+Copy over some of the fields from previous entries or from `<command-templates/full-command-template.json>`_.
 
 Run ``make`` to ensure the JSON is valid.
 
 Continue adding metadata and invocations until satisfied.
 
-Copy into `<command-database.json>`_.
+Rename file to the SHA-1 hash of its description,
+appended with ``.json``.
+
+Copy into `<commands/>`_.
 
 -------------------------------------
 How to add new fields to the database
