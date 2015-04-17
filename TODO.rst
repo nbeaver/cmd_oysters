@@ -14,9 +14,9 @@ Specific items by file, in no particular order
 
 - ``[*]`` Verify that all the pseudo-schema fields are in `<command-templates/full-command-template.json>`_.
 
-~~~~~~~~~~~~~
-`<commands>`_
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
+`<CmdOysters>`_
+~~~~~~~~~~~~~~~
 
 - ``[*]`` Split `<command-database.json>`_ into individual JSON files.
 
@@ -33,6 +33,8 @@ Specific items by file, in no particular order
 - ``[*]`` Combine debian-paths and debian-packages into single debian tree.
 
 - ``[*]`` Combine `component-command-*` into `component-command-info/*`.
+
+- ``[ ]`` Make related commands a list of objects, not SHA-1 hashes, so that e.g. broken links to similar commands can be found by Nilsima hash.
 
 ~~~~~~~~~~~~~~~~~~~~
 `<find-command.py>`_
