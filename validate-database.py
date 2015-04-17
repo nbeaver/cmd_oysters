@@ -3,6 +3,7 @@ import json
 import hashlib
 import sys
 import os
+import glob
 
 try:
     import nilsimsa
@@ -198,13 +199,13 @@ if len(sys.argv) == 1:
 unique_SHA1s = NoDuplicates()
 num_invocations = 0
 root_directory = sys.argv[1]
-json_filenames = os.listdir(root_directory)
-for i, filename in enumerate(json_filenames):
-    with open(os.path.join(root_directory, filename)) as json_file:
+json_filepaths = glob.glob(root_directory + "/*.json")
+for i, path in enumerate(json_filepaths):
+    with open(path) as json_file:
         try:
             json_data = json.load(json_file)
         except:
-            print "Invalid JSON for file: `"+filename+"'"
+            print "Invalid JSON for file: `"+path+"'"
             raise
         validate_command(json_data)
         check_pseudoschema(json_data, "pseudo-schema/")

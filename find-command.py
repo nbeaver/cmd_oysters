@@ -1,6 +1,7 @@
 #! /usr/bin/env python2
 import json
 import os
+import glob
 import sys
 import argparse
 import string
@@ -29,14 +30,15 @@ if len(sys.argv) < 2:
     parser.print_help()
     sys.exit(1)
 
-json_filenames = os.listdir(args.json)
+json_filenames = glob.glob(args.json + "/*.json")
+print json_filenames
+print json_filenames
 for filename in json_filenames:
     with open(os.path.join(args.json, filename)) as json_file:
         try:
             command = json.load(json_file)
-        except:
-            print "Invalid JSON for file: `"+filename+"'"
-            raise
+        except ValueError:
+            print "Invalid JSON for file: `"+json_file.name+"'"
 
     if args.commands:
         if not set(args.commands).issubset(set(command['component-commands'])):
