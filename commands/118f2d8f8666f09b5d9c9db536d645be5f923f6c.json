@@ -56,11 +56,11 @@
                     "type": "string"
                 }
             },
-            "compatible-shells": [
+            "compatible-with": [
                 "bash",
                 "TODO"
             ],
-            "incompatible-shells": [
+            "incompatible-with": [
                 "TODO"
             ],
             "nilsimsa-hex": "da8f7868256c22fcd1fcec9e9420ff1b662e8c915d8a0749e0f878503658e048",
@@ -80,11 +80,11 @@
                     "type": "string"
                 }
             },
-            "compatible-shells": [
+            "compatible-with": [
                 "bash",
                 "TODO"
             ],
-            "incompatible-shells": [
+            "incompatible-with": [
                 "TODO"
             ],
             "nilsimsa-hex": "f8c2d869056620e65268ac8a1020381b44260413fd882749c0787890365880ec",

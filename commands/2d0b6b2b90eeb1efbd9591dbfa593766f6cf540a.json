@@ -9,14 +9,14 @@
     },
     "invocations": {
         "bash": {
-            "compatible-shells": [
+            "compatible-with": [
                 "bash",
                 "csh",
                 "ksh",
                 "tcsh",
                 "zsh"
             ],
-            "incompatible-shells": [
+            "incompatible-with": [
                 "bsh",
                 "dash",
                 "fish",
@@ -30,14 +30,14 @@
             "string": "ls -d -- .[^.]*"
         },
         "bash-long-flags": {
-            "compatible-shells": [
+            "compatible-with": [
                 "bash",
                 "csh",
                 "ksh",
                 "tcsh",
                 "zsh"
             ],
-            "incompatible-shells": [
+            "incompatible-with": [
                 "bsh",
                 "dash",
                 "fish",

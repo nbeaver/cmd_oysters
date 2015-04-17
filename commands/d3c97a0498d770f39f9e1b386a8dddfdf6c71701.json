@@ -39,10 +39,10 @@
     "invocations": {
         "bash": {
             "changeable-arguments": {},
-            "compatible-shells": [
+            "compatible-with": [
                 "bash"
             ],
-            "incompatible-shells": [
+            "incompatible-with": [
                 "csh",
                 "dash",
                 "fish",

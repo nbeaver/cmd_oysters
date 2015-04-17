@@ -22,7 +22,7 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Include version numbers in "commands this shell works with/doesn't work with".
 
-- ``[ ]`` Change field name from ``compatible-shells`` to ``compatible-with`` so it works
+- ``[*]`` Change field name from ``compatible-shells`` to ``compatible-with`` so it's more generic.
 
 - ``[*]`` Split requirements into ``requirements-in-general`` and ``requirements-as-invoked``.
 

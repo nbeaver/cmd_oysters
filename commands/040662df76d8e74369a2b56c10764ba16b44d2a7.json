@@ -76,7 +76,7 @@
                     "type": "string"
                 }
             },
-            "compatible-shells": [
+            "compatible-with": [
                 "bash",
                 "bsh",
                 "dash",
@@ -85,7 +85,7 @@
                 "posh",
                 "zsh"
             ],
-            "incompatible-shells": [
+            "incompatible-with": [
                 "csh",
                 "fish",
                 "tcsh"

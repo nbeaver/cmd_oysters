@@ -83,13 +83,13 @@
                     "sudo": "no"
                 }
             },
-            "compatible-shells": [
+            "compatible-with": [
                 "bash",
                 "dash",
                 "ksh",
                 "zsh"
             ],
-            "incompatible-shells": [
+            "incompatible-with": [
                 "csh",
                 "fish",
                 "tcsh"
@@ -129,13 +129,13 @@
                     "type": "string"
                 }
             },
-            "compatible-shells": [
+            "compatible-with": [
                 "bash",
                 "dash",
                 "ksh",
                 "zsh"
             ],
-            "incompatible-shells": [
+            "incompatible-with": [
                 "csh",
                 "fish",
                 "tcsh"

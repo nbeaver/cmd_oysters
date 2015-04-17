@@ -52,10 +52,10 @@
             "example-outputs": [
                 "output text"
             ],
-            "compatible-shells": [
+            "compatible-with": [
                 "ash | bash | bsh | csh | dash | fish | ksh | mksh | pdksh | posh | POSIX | rc | scsh | tcsh | zsh | ..."
             ],
-            "incompatible-shells": [
+            "incompatible-with": [
                 "ash | bash | bsh | csh | dash | fish | ksh | mksh | pdksh | posh | POSIX | rc | scsh | tcsh | zsh | ..."
             ],
             "nilsimsa-hex": "2d75aea6d0809620c0a86ea403010392a1b90483493d415481d4922e58c00777",

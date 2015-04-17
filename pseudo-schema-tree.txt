@@ -32,9 +32,9 @@ pseudo-schema/
 │       │       ├── authentication
 │       │       ├── internet-connection
 │       │       └── sudo
-│       ├── compatible-shells
+│       ├── compatible-with
 │       ├── example-outputs
-│       ├── incompatible-shells
+│       ├── incompatible-with
 │       ├── nilsimsa-hex
 │       ├── related-invocations
 │       ├── sha1hex
