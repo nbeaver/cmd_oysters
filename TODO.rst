@@ -28,7 +28,11 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Indicate options for alternatives in Debian packages, e.g. ``mawk`` or ``gawk``, but not both.
 
-- ``[ ]`` Use ``null`` for ``executable-path`` of shell builtins and keywords.
+- ``[*]`` Use ``null`` for ``executable-path`` of shell builtins and keywords.
+
+- ``[*]`` Combine debian-paths and debian-packages into single debian tree.
+
+- ``[*]`` Combine `component-command-*` into `component-command-info/*`.
 
 ~~~~~~~~~~~~~~~~~~~~
 `<find-command.py>`_
@@ -102,6 +106,8 @@ Non-specific notes and observations
 
 - Requirements are vague, e.g. using ``ls`` in an ``sshfs`` does require an internet connection, but only indirectly.
 
+- The "always, sometimes, never" is a useful distinction, but what about "depends on flags" or "depends on the arguments" or "depends on configuration" or "depends on shell"?
+
 - Decide which fields are required and which are optional (JSON schema?).
 
 - Note: don't use Nilsimsa for one-letter or two-letter commands;
@@ -109,4 +115,3 @@ Non-specific notes and observations
   '0000000000000000000000000000000000000000000000000000000000000000'
 
 - ``man xclip``: "I hate man pages without examples!"
-

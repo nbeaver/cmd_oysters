@@ -48,8 +48,4 @@ These are some notes on the structure of the command database.
 ├── `related-commands`: SHA1 hashes of the descriptions of other commands that are related to this one, e.g. a command that accomplishes the same thing with different component commands.  
 └── `relevant-urls`: A list of URLs that discuss the command or an equivalent command with the same component commands.  
 
-DONE: combine debian-paths and debian-packages into single debian tree.  
-TODO: in "component-command-debian-packages", should builtins map to "null" or simply not be included?  
-DONE: combine `component-command-*` into `component-command-info/*`  
-TODO: add fields for how to kill component commands, e.g. Ctrl-C (SIGTERM), Ctrl-D, SIGQUIT, etc.  
 </html>
