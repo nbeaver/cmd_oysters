@@ -4,6 +4,14 @@
 CmdOysters: shell commands with metadata.
 =========================================
 
+:Author: Nathaniel Beaver
+:Date: $Date: 2015-04-17 (Friday, 17 April 2015) $
+:Copyright: This document is licensed under a Creative Commons Attribution 4.0 International license.
+
+See also `<pseudo-schema-notes.markdown>`_ and `<TODO.rst>`_.
+
+.. contents::
+
 ---------------
 Minimal example
 ---------------
@@ -102,26 +110,28 @@ Design goals
 Simple textual format
 ~~~~~~~~~~~~~~~~~~~~~
 
+CmdOysters are text files in the JSON data serialization format.
+
 Of textual data serialization formats,
 JSON and YAML are the simplest and most widespread standardized formats.
 
-Well-maintained JSON libraries are readily available for almost all programming languages,
+Well-maintained JSON libraries are readily available for most programming languages,
 but the same is unfortunately not true for YAML.
 
 A directory of JSON files makes code work cross-platform and cross-language easily.
 
 In addition, JSON permits Unicode and only requires escaping double quotes and backslashes,
-so many commands are very close to the actual string that would be sent to the shell.
+so most commands do not require many changes to store as JSON.
 
 ~~~~~~~~~~~~
 Mergeability
 ~~~~~~~~~~~~
 
-The JSON fields should appear in alphanumeric order.
-This way, diffing and merging becomes much less problematic.
+The JSON fields in a CmdOyster should appear in alphanumeric order.
+This way, diffing and merging becomes easier.
 
-Also, CmdOysters are not assigned arbitrary primary keys,
-since two different databases could have keys that clash.
+CmdOysters are not assigned arbitrary primary keys,
+since two different databases could have clashing primary keys.
 
 Instead, CmdOysters can reference related commands or invocations
 by the SHA-1 hash of the description text or invocation string
@@ -134,20 +144,24 @@ Compatibility metadata
 The metadata about the commands should indicate which shells they are compatible with,
 and what their dependencies are (e.g. a list of Debian package names).
 
-Also, if an invocation only works for a particular shell,
-an alternative invocation using the same commands can be added
-while retaining the context and connection to the other command.
+CmdOysters can have multiple invocations,
+so if one invocation only works in ``bash``,
+an alternative invocation for ``csh`` can be stored in the same CmdOyster,
+provided it uses the same component commands.
 
-This way, if a command fails or does not behave as expected,
-it is easier to debug.
+This encourages non-standard but feature-rich shells
+to coexist with portable and standardized commands,
+since the CmdOyster can provide either option as necessary.
 
 ~~~~~~~~~~~~~
 Extensibility
 ~~~~~~~~~~~~~
 
-New fields can be added to the JSON objects without breaking existing code.
+Frequently, new fields can be added to JSON documents without breaking existing code.
 
-Fields can be omitted and added later
+However, since CmdOysters are still under active development,
+there may be breaking changes in future versions.
+Once the project has matured, this will not be a problem.
 
 ~~~~~~~~~~~~~~~~~
 Cross-referencing
@@ -254,11 +268,13 @@ However, these command can (and should) be `cross-referenced`_.
 Why aren't there many commands yet?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This project is new and under active development.
+Quality over quantity;
+this project is new and under active development,
+and it is helpful to start with some good examples.
 
-Changes to the JSON schema will be necessary,
+Furthermore, changes to the JSON schema will be necessary,
 and if they are breaking changes
-it's easier to fix a smaller number of CmdOysters.
+it is usually easier to fix a smaller number of CmdOysters.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Is it ok for command invocations to span multiple lines?
@@ -267,9 +283,11 @@ Is it ok for command invocations to span multiple lines?
 Yes, but one-liners are the focus for now.
 
 This is meant to aid interactive use of commandline programs,
-such as core building blocks of shell scripts,
-not a library of robust and well-commented shell scripts.
-Those already exist.
+such as core building blocks of shell scripts.
+
+CmdOysters are not intended to be a substitute
+for a library of robust and well-commented shell scripts,
+as there are already many of these available.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Why use Python 2.7 as the implementation language?
@@ -286,16 +304,15 @@ and ``python2`` has a ``nilsimsa`` hash library.
 Why call them CmdOysters?
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This is a metaphor for surrounding a shell command with contextual metadata;
-the shell command is like the pearl inside,
+The oyster is a metaphor for surrounding a compact shell command with contextual metadata;
+the shell command is like the small, compact pearl inside,
 and the metadata like the protective shell and oyster tissue.
 
-The metaphor is particularly appropriate for shell commands since
-JSON's curly bracket pairs look visually similar
+This metaphor is appropriate for shell commands
+because JSON's curly bracket pairs are visually similar
 to a stylized bivalve mollusk shell: ``{}``
 
-The name is also a nod to the reputation of Perl
-for cryptic one-liners,
+The name is also a nod to the reputation of Perl for cryptic one-liners,
 a reputation it shares with the UNIX shells.
 
 -----------------------------------------------
@@ -325,7 +342,9 @@ Edit ``temp.json``, changing the ``description`` and ``invocation`` strings.
 
 Run `<validate-database.py>`_ to supply the SHA-1 and Nilsimsa hashes.
 
-Copy over some of the fields from other entries or from `<command-templates/full-command-template.json>`_.
+Copy over some of the fields from other entries
+or from `<command-templates/full-command-template.json>`_
+and supply the new values as necessary.
 
 Run ``make`` to ensure the JSON is valid.
 
@@ -371,7 +390,8 @@ See `<TODO.rst>`_.
 
 Here are some highlights:
 
-- More robust validation, including a proper JSON schema.
+- More robust validation,
+  including a proper JSON schema.
 
 - Incremental search interface.
 
@@ -379,4 +399,5 @@ Here are some highlights:
 
 - Spawn a shell with the command automatically filled in and ready to edit or press enter.
 
-- Extend CmdOysters to interactive textual commands in general, such as ``gnuplot``, ``ipython``, ``irb``, ``maxima``, and so on.
+- Extend CmdOysters to interactive textual commands in general,
+  such as ``gnuplot``, ``ipython``, ``irb``, ``maxima``, and so on.
