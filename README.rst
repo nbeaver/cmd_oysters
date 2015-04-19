@@ -57,6 +57,8 @@ Quickstart
 More examples:
 
 #. ``python2 find-command.py --commands awk grep``
+
+#. ``python2 find-command.py --tokens '|' '~'``
    
 #. ``python2 find-command.py --description-tokens architecture bit``
 
@@ -99,7 +101,8 @@ Example scenarios this is intended to be useful for:
 More generally, this is intended to be make the use of shell commands
 less surprising, more portable, and more robust.
 
-It's also intended to make sharing the knowledge of how to use a shell command
+It's also intended to make sharing the knowledge
+of how to use a shell command for a particular purpose
 as simple as sending a text file.
 
 ------------
@@ -315,25 +318,17 @@ to a stylized bivalve mollusk shell: ``{}``
 The name is also a nod to the reputation of Perl for cryptic one-liners,
 a reputation it shares with the UNIX shells.
 
------------------------------------------------
-Example of adding a new command to the database
------------------------------------------------
+---------------------------------
+Example of making a new CmdOyster
+---------------------------------
 
-Install `tree`_, `markdown`_, and `docutils`_ for generating documentation.
-
-On Debian, this is accomplished with::
-
-    apt-get install tree markdown python-docutils
-
-and the optional `nilsimsa library`_ can be installed with:: 
+Python has had a built-in JSON library since version 2.6.
+The optional `nilsimsa library`_ can be installed with::
 
     pip install nilsimsa
 
 which appears to currently be Python 2 only.
 
-.. _tree: http://mama.indstate.edu/users/ice/tree/
-.. _markdown: http://daringfireball.net/projects/markdown/
-.. _docutils: http://docutils.sourceforge.net/
 .. _nilsimsa library: https://pypi.python.org/pypi/nilsimsa/0.3.2
 
 Copy `<command-templates/minimal-template.json>`_ to ``command-templates/temp.json``.
@@ -358,6 +353,16 @@ Move the JSON file into `<commands/>`_.
 ------------------------------
 How to add new metadata fields
 ------------------------------
+
+Install `tree`_, `markdown`_, and `docutils`_ for generating documentation.
+
+.. _tree: http://mama.indstate.edu/users/ice/tree/
+.. _markdown: http://daringfireball.net/projects/markdown/
+.. _docutils: http://docutils.sourceforge.net/
+
+On Debian, this is accomplished with::
+
+    apt-get install tree markdown python-docutils
 
 Navigate to the relevant directory in `<pseudo-schema/>`_.
 
