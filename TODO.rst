@@ -38,7 +38,13 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Change ``related-invocations`` to a list of objects, not SHA-1 hashes, so that e.g. broken links to similar invocations can be found by Nilsima hash.
 
-- ``[ ]`` Change ``relevant-urls`` to a list of objects, not SHA-1 hashes, so that e.g. broken links to similar commands can be found by Nilsima hash.
+- ``[ ]`` Change ``relevant-urls`` to a list of objects, not SHA-1 hashes, so that e.g. additional information about the URL can be added.
+
+- ``[ ]`` A "copying" object field.
+
+  - ``[ ]`` A "license" field.
+  - ``[ ]`` An "author" or "acknowledgements" field.
+  - ``[ ]`` A date field.
 
 ~~~~~~~~~~~~~~~~~~~~
 `<find-command.py>`_
@@ -54,7 +60,7 @@ Specific items by file, in no particular order
 
 - ``[*]`` Take ``--commands`` argument and search in component commands.
 
-- ``[ ]`` Take multiple arguments to ``--substring`` so it's effectively a regex search for 'arg1.*arg2.*arg3'
+- ``[ ]`` Take multiple arguments to ``--substring`` so it's effectively a regex search for ``arg1.*arg2.*arg3``.
 
 - ``[ ]`` Add a flags for excluding patterns and commands.
 
