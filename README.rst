@@ -16,7 +16,7 @@ See also `<pseudo-schema-notes.markdown>`_ and `<TODO.rst>`_.
 Minimal example
 ---------------
 
-This is a an example of a minimal but valid CmdOyster JSON file::
+This is an example of a minimal but valid CmdOyster JSON file::
 
     {
         "component-commands": [
@@ -68,21 +68,23 @@ Motivation
 
 Ever filed away a useful shell command and been unable to find it later?
 
-Ever been stymied by a `man page without examples <https://wiki.freebsd.org/ManPagesWithoutExamples>`_?
+Ever been stymied by a `man page without examples`_?
 
 This is intended to provide a repository of shell commands that:
 
 - Have explicit metadata explaining their use, such as:
 
-  - which shells they work with, and `which ones they don't <http://tldp.org/LDP/abs/html/portabilityissues.html>`_;
+  - which shells they work with, and `which ones they don't`_;
 
-  - their dependencies and versions;
+  - dependencies for running the necessary commands on multiple platforms;
+
+  - required version numbers for the command to function as expected;
 
   - which arguments can be modified;
 
-  - which parts require a working internet connection;
+  - which commands require a working internet connection;
 
-  - and which parts require root privileges.
+  - and which parts of the command require root privileges.
 
 - Are straightforward to query because of robust metadata instead of more fragile search methods such as regular expressions.
 
@@ -90,11 +92,11 @@ This is intended to provide a repository of shell commands that:
 
 Example scenarios this is intended to be useful for:
 
-- Debugging a wifi card without a working internet connection.
+- Restarting a wifi card without a working internet connection to look up the required commands.
 
 - Building up a complex ``find`` command by combining simpler examples.
 
-- Leveraging well-known commands without `copying and pasting them from online forums into a terminal`_.
+- Leveraging well-known commands without the hazards `copying and pasting them from online forums into a terminal`_.
 
 - Quick lookup of commands for doing familiar tasks on an unfamiliar system.
 
@@ -105,6 +107,8 @@ It's also intended to make sharing the knowledge
 of how to use a shell command for a particular purpose
 as simple as sending a text file.
 
+.. _man page without examples: https://wiki.freebsd.org/ManPagesWithoutExamples
+.. _which ones they don't: http://tldp.org/LDP/abs/html/portabilityissues.html
 .. _copying and pasting them from online forums into a terminal: http://thejh.net/misc/website-terminal-copy-paste
 
 ------------
@@ -152,11 +156,13 @@ and what their dependencies are (e.g. a list of Debian package names).
 CmdOysters can have multiple invocations,
 so if one invocation only works in ``bash``,
 an alternative invocation for ``csh`` can be stored in the same CmdOyster,
-provided it uses the same component commands.
+provided it uses the same `component commands`_.
 
 This encourages non-standard but feature-rich shells
 to coexist with portable and standardized commands,
 since the CmdOyster can provide either option as necessary.
+
+.. _component commands: `What does the term "component command" refer to?`_
 
 ~~~~~~~~~~~~~
 Extensibility
@@ -220,7 +226,7 @@ so useful commands may disappear if not used often enough.
 Finally, it is inconvenient to synchronize shell histories across multiple machines,
 for both technical and security reasons.
 
-(There was a project called `shellsink`_ that was intended to address many of these problems,
+(There was a project called `shellsink`_ that was intended to `address many of these problems`_,
 but it was only for ``bash`` and ``zsh`` and its development `appears to be inactive`_ `as of mid 2011`_.)
 
 CmdOysters are individual text files,
@@ -228,7 +234,7 @@ so they can be
 copied manually,
 emailed,
 rsynced,
-synced using git,
+kept in version control,
 diffed and merged,
 and so on.
 
@@ -237,7 +243,8 @@ and so on.
 .. _update the history file: http://stackoverflow.com/questions/15075523/how-can-i-make-bash-history-update-more-often
 .. _not be available in a new terminal: http://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows
 .. _length of the history file: http://stackoverflow.com/questions/9457233/unlimited-bash-history/19533853#19533853
-.. _shellsink: https://www.debian-administration.org/article/625/Making_The_Bash_History_More_Useful
+.. _shellsink: http://shell-sink.blogspot.com/
+.. _address many of these problems: https://www.debian-administration.org/article/625/Making_The_Bash_History_More_Useful
 .. _appears to be inactive: https://groups.google.com/forum/#!topic/shell-sink/RxMP6AsT5zw
 .. _as of mid 2011: https://github.com/joshuacronemeyer/shellsink
 
