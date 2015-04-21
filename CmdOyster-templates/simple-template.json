@@ -2,6 +2,14 @@
     "component-commands": [
         "ls"
     ],
+    "copying": {
+        "authors": [
+            "Firstname Lastname"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
     "description": {
         "sha1hex": "62f6a0e19cae58eefb0e39bc09aaf7b9469202e5",
         "string": "List contents of a directory."

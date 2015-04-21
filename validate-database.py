@@ -59,9 +59,17 @@ def validate_command(command, filepath):
         try:
             assert assertion, error_string
         except AssertionError:
-            print "In file:", filepath
+            print "Error in file:", filepath
             traceback.print_exc()
             raise
+
+    def assert_custom_warn_only(assertion, error_string):
+        if assertion:
+            return
+        else:
+            print "Warning in file: ", filepath
+            print error_string
+            pass
 
     def assert_subset(subset, superset):
         assert_custom(subset.issubset(superset), repr(subset)+ "is not a subset of " + repr(superset))
@@ -69,12 +77,27 @@ def validate_command(command, filepath):
     def assert_in(A, B):
         assert_custom(A in B, repr(A)+ "is not in " + repr(B))
 
+
     # Required fields.
     def required_field(field, field_list):
         assert_custom(field in field_list, "Error: required field `"+field+"` not in "+repr(field_list))
 
-    required_field('description', command.keys())
-    required_field('string', command['description'].keys())
+    required_field('description', command)
+    required_field('string', command['description'])
+
+    def recommended_field(field, field_list=None):
+        if field_list:
+            assert_custom_warn_only(field in field_list, "Warning: recommended field `"+field+"` not in "+repr(field_list))
+        else:
+            assert_custom_warn_only(False, "Warning: recommended field `"+field+"` not present.")
+    try:
+        # We don't need .keys(), but it makes the warnings less verbose.
+        recommended_field('authors', command['copying'].keys())
+        recommended_field('license-name', command['copying'].keys())
+        recommended_field('license-url', command['copying'].keys())
+        recommended_field('year', command['copying'].keys())
+    except KeyError:
+        recommended_field('copying')
 
     def check_sha1(string, nominal_sha1):
         calculated_sha1 = hashlib.sha1(string).hexdigest()
@@ -89,14 +112,14 @@ def validate_command(command, filepath):
     if 'nilsimsa' in sys.modules:
         def check_nilsimsa(string, nominal_nilsimsa):
             calculated_nilsimsa = nilsimsa.Nilsimsa(string).hexdigest()
-            assert_custom(nominal_nilsimsa == calculated_nilsimsa, \
-                "in file '%s'\n nilsimsas do not match:\n%s (in database)\n%s (calculated)\n%r (command representation)" \
-                % (filepath, nominal_nilsimsa, calculated_nilsimsa, string))
+            assert_custom_warn_only(nominal_nilsimsa == calculated_nilsimsa, \
+                "nilsimsas do not match:\n%s (in database)\n%s (calculated)\n%r (command representation)" \
+                % (nominal_nilsimsa, calculated_nilsimsa, string))
 
         def supply_nilsimsa(string):
-            sys.stderr.write("Warning: in file '" + filepath + "'\n")
-            sys.stderr.write("No nilsimsa for `" + string + "'\n")
-            sys.stderr.write("Should be: "+nilsimsa.Nilsimsa(string).hexdigest()+"\n")
+            assert_custom_warn_only(False, \
+                "No nilsimsa for `" + string + "'\n"+\
+                "Should be: "+nilsimsa.Nilsimsa(string).hexdigest()+"\n")
 
     if 'component-command-info' in command.keys():
         #TODO: make this less of a horrific mess.
