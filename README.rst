@@ -350,7 +350,7 @@ which appears to currently be Python 2 only.
 
 .. _nilsimsa library: https://pypi.python.org/pypi/nilsimsa/0.3.2
 
-Copy `<command-templates/minimal-template.json>`_ to ``command-templates/temp.json``.
+Copy `<command-templates/simple-template.json>`_ to ``command-templates/temp.json``.
 
 Edit ``temp.json``, changing the ``description`` and ``invocation`` strings.
 
