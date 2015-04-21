@@ -4,6 +4,7 @@ import hashlib
 import sys
 import os
 import glob
+import traceback
 
 try:
     import nilsimsa
@@ -23,28 +24,6 @@ class NoDuplicates:
             raise RuntimeError("Duplicate element: "+repr(elem))
         else:
             self.set.add(elem)
-
-def check_sha1(string, nominal_sha1):
-    calculated_sha1 = hashlib.sha1(string).hexdigest()
-    assert nominal_sha1 == calculated_sha1, \
-        "SHA1s do not match:\n%s (in database)\n%s (calculated)\n%r (command representation)" \
-        % (nominal_sha1, calculated_sha1, string)
-
-def prompt_sha1(string):
-    sys.stderr.write("Warning: No SHA1 for `" + string + "'")
-    sys.stderr.write("Should be: "+hashlib.sha1(string).hexdigest())
-
-if 'nilsimsa' in sys.modules:
-    def check_nilsimsa(string, nominal_nilsimsa, filepath):
-        calculated_nilsimsa = nilsimsa.Nilsimsa(string).hexdigest()
-        assert nominal_nilsimsa == calculated_nilsimsa, \
-            "in file '%s'\n nilsimsas do not match:\n%s (in database)\n%s (calculated)\n%r (command representation)" \
-            % (filepath, nominal_nilsimsa, calculated_nilsimsa, string)
-
-    def prompt_nilsimsa(string, filepath):
-        sys.stderr.write("Warning: in file '" + filepath + "'\n")
-        sys.stderr.write("No nilsimsa for `" + string + "'\n")
-        sys.stderr.write("Should be: "+nilsimsa.Nilsimsa(string).hexdigest()+"\n")
 
 def get_slice(string_to_slice, slice_index_list):
     # We're slicing a string, so the list should only have the start and stop of the slice.
@@ -74,20 +53,50 @@ def find_slice(string, substring):
 def count_invocations(command):
     return len(command['invocations'].keys())
 
-def validate_invocation(invocation):
-    # TODO: flesh this out.
-    pass
-
 def validate_command(command, filepath):
-    #TODO: refactor this, including splitting out to validate_invocation().
+
+    def assert_custom(assertion, error_string):
+        try:
+            assert assertion, error_string
+        except AssertionError:
+            print "In file:", filepath
+            traceback.print_exc()
+            raise
+
     # Required fields.
-    assert 'description' in command.keys(), "Error: no description in file "+filepath
-    assert 'string' in command['description'].keys(), "Error: no description string in file "+filepath
+    def required_field(field, field_list):
+        assert_custom(field in field_list, "Error: required field `"+field+"` not in "+repr(field_list))
+
+    required_field('description', command.keys())
+    required_field('string', command['description'].keys())
+
+    def check_sha1(string, nominal_sha1):
+        calculated_sha1 = hashlib.sha1(string).hexdigest()
+        assert_custom(nominal_sha1 == calculated_sha1, "SHA1s do not match:\n%s (in database)\n%s (calculated)\n%r (command representation)"  % (nominal_sha1, calculated_sha1, string))
+
+    # TODO: rename this so it doesn't sound like the user must enter the SHA1.
+    def prompt_sha1(string):
+        sys.stderr.write("Warning: No SHA1 for `" + string + "'")
+        sys.stderr.write("Should be: "+hashlib.sha1(string).hexdigest())
+
+    if 'nilsimsa' in sys.modules:
+        def check_nilsimsa(string, nominal_nilsimsa):
+            calculated_nilsimsa = nilsimsa.Nilsimsa(string).hexdigest()
+            assert_custom(nominal_nilsimsa == calculated_nilsimsa, \
+                "in file '%s'\n nilsimsas do not match:\n%s (in database)\n%s (calculated)\n%r (command representation)" \
+                % (filepath, nominal_nilsimsa, calculated_nilsimsa, string))
+
+        def prompt_nilsimsa(string):
+            sys.stderr.write("Warning: in file '" + filepath + "'\n")
+            sys.stderr.write("No nilsimsa for `" + string + "'\n")
+            sys.stderr.write("Should be: "+nilsimsa.Nilsimsa(string).hexdigest()+"\n")
+
 
     if 'component-command-info' in command.keys():
         #TODO: make this less of a horrific mess.
         assert set(command['component-command-info'].keys()).issubset(set(command['component-commands'])), \
-            "In file "+filepath+"\n"+repr(command['component-command-info'].keys())+ "is not a subset of "+repr(command['component-commands'])
+            "In file "+filepath+"\n"+ \
+            repr(command['component-command-info'].keys())+ "is not a subset of "+repr(command['component-commands'])
         for command_name, info in command['component-command-info'].iteritems():
             for info_key, info_item in info.iteritems():
                 if info_key == 'bash-type':
@@ -114,31 +123,22 @@ def validate_command(command, filepath):
 
     if 'nilsimsa' in sys.modules:
         try:
-            check_nilsimsa( \
-                command['description']['string'],
-                command['description']['nilsimsa-hex'],
-                filepath)
+            check_nilsimsa( command['description']['string'], command['description']['nilsimsa-hex'])
         except KeyError:
-            prompt_nilsimsa(command['description']['string'], filepath)
+            prompt_nilsimsa(command['description']['string'])
 
-    for invocation, invocation_dict in command['invocations'].iteritems():
-
-        invocation_dict = command['invocations'][invocation]
-
+    def validate_invocation(invocation):
         try:
-            check_sha1(invocation_dict['string'], invocation_dict['sha1hex'])
-            unique_SHA1s.add(invocation_dict['sha1hex'])
+            check_sha1(invocation['string'], invocation['sha1hex'])
+            unique_SHA1s.add(invocation['sha1hex'])
         except KeyError:
-            prompt_sha1(invocation_dict['string'])
+            prompt_sha1(invocation['string'])
 
         if 'nilsimsa' in sys.modules:
             try:
-                check_nilsimsa( \
-                    invocation_dict['string'],
-                    invocation_dict['nilsimsa-hex'],
-                    filepath)
+                check_nilsimsa( invocation['string'], invocation['nilsimsa-hex'])
             except KeyError:
-                prompt_nilsimsa(invocation_dict['string'], filepath)
+                prompt_nilsimsa(invocation['string'])
 
         if 'changeable-arguments' in invocation_dict.keys():
             arg_dict = invocation_dict['changeable-arguments']
@@ -165,6 +165,13 @@ def validate_command(command, filepath):
 
         for component_command in command['component-commands']:
             assert component_command in invocation_dict['string'], "component_command:\n"+component_command+"\nis not in invocation:\n"+invocation_dict['string']
+
+    for invocation_name, invocation_dict in command['invocations'].iteritems():
+
+        validate_invocation(invocation_dict)
+
+        invocation_dict = command['invocations'][invocation_name]
+
 
 def is_wildcard_field(child_name):
     # If the child starts with '$',
