@@ -94,7 +94,7 @@ Example scenarios this is intended to be useful for:
 
 - Building up a complex ``find`` command by combining simpler examples.
 
-- Leveraging well-known commands without copying and pasting them from online forums.
+- Leveraging well-known commands without `copying and pasting them from online forums into a terminal`_.
 
 - Quick lookup of commands for doing familiar tasks on an unfamiliar system.
 
@@ -104,6 +104,8 @@ less surprising, more portable, and more robust.
 It's also intended to make sharing the knowledge
 of how to use a shell command for a particular purpose
 as simple as sending a text file.
+
+.. _copying and pasting them from online forums into a terminal: http://thejh.net/misc/website-terminal-copy-paste
 
 ------------
 Design goals
@@ -197,22 +199,65 @@ Similar invocations or descriptions can be found by comparing their Nilsimsa has
 Questions and answers
 ---------------------
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-How is this different from, say, an offline cache of `commandlinefu`_?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Why not just use the shell history?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Commandlinefu is a remarkable and dedicated online community,
+Shell history searches are useful,
+but they behave differently for each shell
+and lack metadata and sophisticated search capabilities.
+
+There are tricks to try to get around this deficiency,
+such as `using comments as hash tags`_,
+but such schemes have `numerous drawbacks`_.
+
+Shells like ``bash`` do not `update the history file`_ until the terminal closes,
+so a useful command may `not be available in a new terminal`_.
+
+Most shells limit the `length of the history file`_,
+so useful commands may disappear if not used often enough.
+
+Finally, it is inconvenient to synchronize shell histories across multiple machines,
+for both technical and security reasons.
+
+(There was a project called `shellsink`_ that was intended to address many of these problems,
+but it was only for ``bash`` and ``zsh`` and its development `appears to be inactive`_ `as of mid 2011`_.)
+
+CmdOysters are individual text files,
+so they can be
+copied manually,
+emailed,
+rsynced,
+synced using git,
+diffed and merged,
+and so on.
+
+.. _using comments as hash tags: http://vignesh.foamsnet.com/2013/06/using-hash-tags-to-organize-bash-history.html
+.. _numerous drawbacks: http://www.reddit.com/r/commandline/comments/1hcyb0/using_hash_tags_to_organize_bash_history/
+.. _update the history file: http://stackoverflow.com/questions/15075523/how-can-i-make-bash-history-update-more-often
+.. _not be available in a new terminal: http://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows
+.. _length of the history file: http://stackoverflow.com/questions/9457233/unlimited-bash-history/19533853#19533853
+.. _shellsink: https://www.debian-administration.org/article/625/Making_The_Bash_History_More_Useful
+.. _appears to be inactive: https://groups.google.com/forum/#!topic/shell-sink/RxMP6AsT5zw
+.. _as of mid 2011: https://github.com/joshuacronemeyer/shellsink
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+How is this different from, say, an offline cache of commandlinefu?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`Commandlinefu`_ is a remarkable and dedicated online community,
 but there are some things it lacks or was never designed to have, such as:
 
 #. Metadata and search based on metadata.
 #. Cross-referencing.
 #. Unique (SHA-1) and string similarity (Nilsimsa) hashes of command invocations.
+#. Explicit licensing.
 
 In addition, the focus of commandlinefu is in providing a platform for commenting and upvoting,
-which is different from the focus of a customized repository of specialized shell commands,
+which is a different focus than a custom repository of specialized shell commands,
 many of which may only be useful to their creator.
 
-.. _commandlinefu: http://www.commandlinefu.com/
+.. _Commandlinefu: http://www.commandlinefu.com/
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Why not just make an alias or shell function and add it to your ``bashrc``?
@@ -410,13 +455,14 @@ Note that the best metadata to include is information that is:
 License
 -------
 
-The project is licensed under the MIT (a.k.a Expat) license.
+The code for this project is licensed under the `MIT`_ (a.k.a `Expat`_) license.
 
-http://opensource.org/licenses/MIT
+The individual CmdOysters may have different licenses,
+as they are JSON documents containing license information as part of their metadata.
 
-http://directory.fsf.org/wiki/License:Expat
+.. _MIT: http://opensource.org/licenses/MIT
 
-The CmdOysters are JSON documents containing licenses as part of their metadata.
+.. _Expat: http://directory.fsf.org/wiki/License:Expat
 
 -------------------
 Future improvements
@@ -424,7 +470,7 @@ Future improvements
 
 See `<TODO.rst>`_.
 
-Here are some highlights:
+Here are some highlights, in no particular order:
 
 - More robust validation,
   including a proper JSON schema.
