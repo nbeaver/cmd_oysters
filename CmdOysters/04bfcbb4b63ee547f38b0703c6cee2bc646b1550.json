@@ -41,5 +41,9 @@
             "sha1hex": "3a51da01f0394083236dfcbe70153ac89c9c2fa6",
             "string": "curl --proto https ifconfig.me"
         }
-    }
+    },
+    "relevant-urls": [
+        "http://askubuntu.com/questions/95910/command-for-determining-my-public-ip",
+        "http://unix.stackexchange.com/questions/22615/how-can-i-get-my-external-ip-address-in-bash"
+    ]
 }
