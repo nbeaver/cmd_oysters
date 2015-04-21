@@ -10,12 +10,12 @@ command_database : find-command.py CmdOysters/
 	python find-command.py --substring 'ping -i' --commands ping espeak sed --tokens '|' sed localhost ping --description 'audible voice' > /dev/null
 	python find-command.py --description-tokens ping generates seconds > /dev/null
 
-check_json : validate-database.py CmdOysters/ CmdOyster-templates/
+check_json : validate-database.py CmdOysters/ templates/
 	python validate-database.py CmdOysters/
-	python validate-database.py CmdOyster-templates/
+	python validate-database.py templates/
 
-full_command_template : CmdOyster-templates/full-command-template.json check-full-template.py
-	python check-full-template.py CmdOyster-templates/full-command-template.json pseudo-schema/
+full_command_template : templates/full-command-template.json check-full-template.py
+	python check-full-template.py templates/full-command-template.json pseudo-schema/
 
 # The target really should be pseudo-schema-tree.txt,
 # but the timestamp of the directory doesn't change when the files inside are,

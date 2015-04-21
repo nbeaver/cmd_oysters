@@ -42,7 +42,7 @@ Here are some less trivial examples:
 
 - `Extract images from multiple PDFs <CmdOysters/040662df76d8e74369a2b56c10764ba16b44d2a7.json>`_.
 
-- `Exhaustive reference template showing every possible field in a CmdOyster <CmdOyster-templates/full-command-template.json>`_.
+- `Exhaustive reference template showing every possible field in a CmdOyster <templates/full-command-template.json>`_.
 
 ----------
 Quickstart
@@ -350,14 +350,14 @@ which appears to currently be Python 2 only.
 
 .. _nilsimsa library: https://pypi.python.org/pypi/nilsimsa/0.3.2
 
-Copy `<command-templates/simple-template.json>`_ to ``command-templates/temp.json``.
+Copy `<templates/simple-template.json>`_ to ``templates/temp.json``.
 
 Edit ``temp.json``, changing the ``description`` and ``invocation`` strings.
 
 Run `<validate-database.py>`_ to supply the SHA-1 and Nilsimsa hashes.
 
 Copy over some of the fields from other entries
-or from `<command-templates/full-command-template.json>`_
+or from `<templates/full-command-template.json>`_
 and supply the new values as necessary.
 
 Run ``make`` to ensure the JSON is valid.
