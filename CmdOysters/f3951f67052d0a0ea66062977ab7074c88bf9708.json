@@ -33,6 +33,14 @@
         "chsh",
         "which"
     ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
     "description": {
         "nilsimsa-hex": "0738a1fd95d102ce83c06f112af0109595e988b9712b5c86b50d6e31c0d2c488",
         "sha1hex": "f3951f67052d0a0ea66062977ab7074c88bf9708",

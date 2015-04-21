@@ -49,6 +49,14 @@
         "grep",
         "lscpu"
     ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
     "description": {
         "nilsimsa-hex": "d8c42b2efc2ce62d5bb75b81d4962ead3d0311087668ed288778f9f0e56d746d",
         "sha1hex": "9f2fdee93e84817e73dcbe46d01e28af001fbe1e",

@@ -27,6 +27,14 @@
         "sha1hex": "324aa3ea7d1c5fa22bab543daaf98435473c61cb",
         "string": "Turn off the monitor; make the display go dark; blank the screen until the mouse is moved or a key is pressed."
     },
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
     "invocations": {
         "POSIX": {
             "changeable-arguments": null,

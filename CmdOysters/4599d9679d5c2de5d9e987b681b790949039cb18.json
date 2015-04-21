@@ -52,6 +52,14 @@
         "ping",
         "sed"
     ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
     "description": {
         "nilsimsa-hex": "1474fd432b82c522955258d13e861291222d7e96e164755c363a8cd7aa06c8d7",
         "sha1hex": "4599d9679d5c2de5d9e987b681b790949039cb18",

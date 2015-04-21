@@ -58,6 +58,14 @@
         "mkdir",
         "pdfimages"
     ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
     "description": {
         "nilsimsa-hex": "10b965aad81349edd7663a81e2b0979594cb293fd122f840578e2ef1f623ce2a",
         "sha1hex": "040662df76d8e74369a2b56c10764ba16b44d2a7",

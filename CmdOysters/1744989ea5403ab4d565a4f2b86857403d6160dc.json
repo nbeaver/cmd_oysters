@@ -22,6 +22,14 @@
     "component-commands": [
         "stat"
     ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
     "description": {
         "nilsimsa-hex": "baf564ac3e3a812c881331ec28a090f10068e971c9396fd83b028e2243c68d69",
         "sha1hex": "1744989ea5403ab4d565a4f2b86857403d6160dc",

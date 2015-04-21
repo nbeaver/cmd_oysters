@@ -37,6 +37,14 @@
         "du",
         "sort"
     ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
     "description": {
         "nilsimsa-hex": "f37a6eda67d18dedbc3fbe5f5eb0f6b330b9cfb751263d5c27006693f2508b3b",
         "sha1hex": "ebe7fab4a1058e850a7f40e757c310e1f9a59c62",

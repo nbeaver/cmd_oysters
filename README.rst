@@ -318,6 +318,25 @@ to a stylized bivalve mollusk shell: ``{}``
 The name is also a nod to the reputation of Perl for cryptic one-liners,
 a reputation it shares with the UNIX shells.
 
+~~~~~~~~~~~~~~~~~~~~~
+What about licensing?
+~~~~~~~~~~~~~~~~~~~~~
+
+CmdOysters have fields for authors and licenses.
+
+This is intended to protect both those who make their own CmdOysters and those who use them.
+
+It may seem strange to have a license for what amounts to one line of code,
+but the command invocation is just one part of a JSON document that could be construed as a creative work,
+so an explicit grant of copyright is always better than an ambiguous one.
+
+
+The `extent to which metadata is copyrightable`_ varies by country and is still somewhat controversial,
+so while the license field is not strictly required,
+it is strongly encouraged to ensure others may use the CmdOyters freely.
+
+.. _extent to which metadata is copyrightable: http://lj.libraryjournal.com/2013/02/opinion/peer-to-peer-review/metadata-and-copyright-peer-to-peer-review/
+
 ---------------------------------
 Example of making a new CmdOyster
 ---------------------------------
@@ -386,6 +405,18 @@ Note that the best metadata to include is information that is:
 - directly applicable to the specific use of the invocation,
 
 - and easy to verify or falsify.
+
+-------
+License
+-------
+
+The project is licensed under the MIT (a.k.a Expat) license.
+
+http://opensource.org/licenses/MIT
+
+http://directory.fsf.org/wiki/License:Expat
+
+The CmdOysters are JSON documents containing licenses as part of their metadata.
 
 -------------------
 Future improvements

@@ -37,6 +37,14 @@
         "grep",
         "less"
     ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
     "description": {
         "nilsimsa-hex": "3efcd29b3a75e43c4748e7b9e8a87dbd3c5700739963c6a7b7169fd3de9477ef",
         "sha1hex": "118f2d8f8666f09b5d9c9db536d645be5f923f6c",

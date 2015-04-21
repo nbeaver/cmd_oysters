@@ -13,6 +13,11 @@ pseudo-schema/
 │           ├── internet-connection
 │           └── sudo
 ├── component-commands
+├── copying
+│   ├── authors
+│   ├── license-name
+│   ├── license-url
+│   └── year
 ├── description
 │   ├── nilsimsa-hex
 │   ├── sha1hex

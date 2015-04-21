@@ -94,6 +94,14 @@
         "unzip",
         "zip"
     ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
     "description": {
         "nilsimsa-hex": "410d65684b2528882cf698c091a7505f05a49035c8ab31edd10e880df82c0c0c",
         "sha1hex": "f200d2b9c05860539eff503d392be186fa479bb7",
