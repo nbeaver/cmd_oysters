@@ -26,7 +26,7 @@ Specific items by file, in no particular order
 
 - ``[*]`` Split requirements into ``requirements-in-general`` and ``requirements-as-invoked``.
 
-- ``[ ]`` Indicate options for alternatives in Debian packages, e.g. ``mawk`` or ``gawk``, but not both.
+- ``[ ]`` Indicate XORs in dependencies for Debian packages, e.g. ``gawk | mawk``.
 
 - ``[*]`` Use ``null`` for ``executable-path`` of shell builtins and keywords.
 
@@ -93,7 +93,7 @@ Specific items by file, in no particular order
 - ``[*]`` Check all the commands in component commands are substrings of the main command.
 - ``[ ]`` Check that ``bash-type`` is one of ``keyword``, ``builtin``, or ``file``.
 - ``[ ]`` Check that the commands in ``component-command-info`` are a subset of ``component-commands``.
-- ``[ ]`` Check ``debian-path`` is correct using `which`.
+- ``[ ]`` Check ``debian-path`` is correct using ``which``.
 - ``[*]`` Check that no two commands have the same SHA1s of description text.
 - ``[ ]`` Make a JSON schema to do at least part of this more systematically.
 
