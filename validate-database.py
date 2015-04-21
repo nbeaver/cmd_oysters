@@ -63,6 +63,12 @@ def validate_command(command, filepath):
             traceback.print_exc()
             raise
 
+    def assert_subset(subset, superset):
+        assert_custom(subset.issubset(superset), repr(subset)+ "is not a subset of " + repr(superset))
+
+    def assert_in(A, B):
+        assert_custom(A in B, repr(A)+ "is not in " + repr(B))
+
     # Required fields.
     def required_field(field, field_list):
         assert_custom(field in field_list, "Error: required field `"+field+"` not in "+repr(field_list))
@@ -72,10 +78,11 @@ def validate_command(command, filepath):
 
     def check_sha1(string, nominal_sha1):
         calculated_sha1 = hashlib.sha1(string).hexdigest()
-        assert_custom(nominal_sha1 == calculated_sha1, "SHA1s do not match:\n%s (in database)\n%s (calculated)\n%r (command representation)"  % (nominal_sha1, calculated_sha1, string))
+        assert_custom(nominal_sha1 == calculated_sha1, \
+            "SHA1s do not match:\n%s (in database)\n%s (calculated)\n%r (command representation)" \
+            % (nominal_sha1, calculated_sha1, string))
 
-    # TODO: rename this so it doesn't sound like the user must enter the SHA1.
-    def prompt_sha1(string):
+    def supply_sha1(string):
         sys.stderr.write("Warning: No SHA1 for `" + string + "'")
         sys.stderr.write("Should be: "+hashlib.sha1(string).hexdigest())
 
@@ -86,59 +93,62 @@ def validate_command(command, filepath):
                 "in file '%s'\n nilsimsas do not match:\n%s (in database)\n%s (calculated)\n%r (command representation)" \
                 % (filepath, nominal_nilsimsa, calculated_nilsimsa, string))
 
-        def prompt_nilsimsa(string):
+        def supply_nilsimsa(string):
             sys.stderr.write("Warning: in file '" + filepath + "'\n")
             sys.stderr.write("No nilsimsa for `" + string + "'\n")
             sys.stderr.write("Should be: "+nilsimsa.Nilsimsa(string).hexdigest()+"\n")
 
-
     if 'component-command-info' in command.keys():
         #TODO: make this less of a horrific mess.
-        assert set(command['component-command-info'].keys()).issubset(set(command['component-commands'])), \
-            "In file "+filepath+"\n"+ \
-            repr(command['component-command-info'].keys())+ "is not a subset of "+repr(command['component-commands'])
+
+        assert_subset(set(command['component-command-info'].keys()), set(command['component-commands']))
+
         for command_name, info in command['component-command-info'].iteritems():
             for info_key, info_item in info.iteritems():
                 if info_key == 'bash-type':
-                    bash_types = set(['alias', 'builtin', 'file', 'function', 'keyword'])
-                    assert info_item in bash_types or info_item == "builtin | keyword | file", \
-                        "In file "+filepath+"\n"+"`"+info_item+"' not in "+repr(bash_types)
+                    bash_types = set(['alias', 'builtin', 'file', 'function', 'keyword',"builtin | keyword | file"])
+                    assert_in(info_item, bash_types)
 
                 elif info_key == 'debian':
                     if 'executable-path' in info_item.keys() and info_item['executable-path']:
                         # e.g. `ls` is in `/bin/ls`
-                        assert command_name in info_item['executable-path']
+                        assert_in(command_name, info_item['executable-path'])
                 elif info_key == 'requirements-in-general':
                     for requirement, incidence in info_item.iteritems():
-                        frequencies = set(['always', 'sometimes' , 'never'])
-                        assert incidence in frequencies or incidence == "always | sometimes | never", \
-                            "`"+incidence+"' not in "+repr(frequencies)
+                        frequencies = set(['always', 'sometimes', 'never', "always | sometimes | never"])
+                        assert_in(incidence, frequencies)
+
+    if 'can-modify' in command.keys():
+        # Make sure these are all booleans.
+        for key in command['can-modify']:
+            true_false = command['can-modify'][key]
+            assert_custom(type(true_false) == bool, "`"+str(true_false)+"` is not a boolean.")
 
     try:
         check_sha1(command['description']['string'],
                    command['description']['sha1hex'])
         unique_SHA1s.add(command['description']['sha1hex'])
     except KeyError:
-        prompt_sha1(command['description']['string'])
+        supply_sha1(command['description']['string'])
 
     if 'nilsimsa' in sys.modules:
         try:
             check_nilsimsa( command['description']['string'], command['description']['nilsimsa-hex'])
         except KeyError:
-            prompt_nilsimsa(command['description']['string'])
+            supply_nilsimsa(command['description']['string'])
 
     def validate_invocation(invocation):
         try:
             check_sha1(invocation['string'], invocation['sha1hex'])
             unique_SHA1s.add(invocation['sha1hex'])
         except KeyError:
-            prompt_sha1(invocation['string'])
+            supply_sha1(invocation['string'])
 
         if 'nilsimsa' in sys.modules:
             try:
                 check_nilsimsa( invocation['string'], invocation['nilsimsa-hex'])
             except KeyError:
-                prompt_nilsimsa(invocation['string'])
+                supply_nilsimsa(invocation['string'])
 
         if 'changeable-arguments' in invocation_dict.keys():
             arg_dict = invocation_dict['changeable-arguments']
@@ -147,7 +157,7 @@ def validate_command(command, filepath):
                     # Check that the argument actually matches the sliced command.
                     arg_slice = get_slice(invocation_dict['string'], arginfo['invocation-slice'])
                     try:
-                        assert arg == arg_slice, "arg is:\n'"+arg+"'\nbut slice is:\n'"+arg_slice+"'"
+                        assert_custom(arg == arg_slice, "arg is:\n'"+arg+"'\nbut slice is:\n'"+arg_slice+"'")
                     except AssertionError:
                         pretty_print_slice(invocation_dict['string'], arginfo['invocation-slice'])
                         slice_candidate = find_slice(invocation_dict['string'], arg)
@@ -156,22 +166,14 @@ def validate_command(command, filepath):
                             pretty_print_slice(invocation_dict['string'], slice_candidate)
                         raise
                     if 'component-command' in arginfo.keys():
-                        assert arginfo['component-command'] in command['component-commands'], arginfo['component-command']+" is not one of "+repr(command['component-commands'])
-
-        if 'can-modify' in invocation_dict.keys():
-            for key in invocation_dict['can-modify']:
-                true_false = invocation_dict['can-modify'][key]
-                assert type(true_false) == bool, true_false+" is not a boolean."
+                        assert_in(arginfo['component-command'], command['component-commands'])
 
         for component_command in command['component-commands']:
-            assert component_command in invocation_dict['string'], "component_command:\n"+component_command+"\nis not in invocation:\n"+invocation_dict['string']
+            assert_in(component_command, invocation_dict['string'])
 
     for invocation_name, invocation_dict in command['invocations'].iteritems():
 
         validate_invocation(invocation_dict)
-
-        invocation_dict = command['invocations'][invocation_name]
-
 
 def is_wildcard_field(child_name):
     # If the child starts with '$',
