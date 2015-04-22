@@ -16,7 +16,7 @@ See also `<pseudo-schema-notes.markdown>`_ and `<TODO.rst>`_.
 Minimal example
 ---------------
 
-This is an example of a minimal but valid CmdOyster JSON file::
+This is an example of the contents of a minimal but valid CmdOyster JSON file::
 
     {
         "component-commands": [
@@ -92,7 +92,7 @@ This is intended to provide a repository of shell commands that:
 
 Example scenarios this is intended to be useful for:
 
-- Restarting a wifi card without a working internet connection to look up the required commands.
+- Restarting a WiFi card without a working internet connection to look up the required commands.
 
 - Building up a complex ``find`` command by combining simpler examples.
 
@@ -151,16 +151,14 @@ Compatibility metadata
 ~~~~~~~~~~~~~~~~~~~~~~
 
 The metadata about the commands should indicate which shells they are compatible with,
-and what their dependencies are (e.g. a list of Debian package names).
+and what their dependencies are (e.g. a list of required Debian packages, or at least URLs).
 
-CmdOysters can have multiple invocations,
-so if one invocation only works in ``bash``,
-an alternative invocation for ``csh`` can be stored in the same CmdOyster,
-provided it uses the same `component commands`_.
-
-This encourages non-standard but feature-rich shells
-to coexist with portable and standardized commands,
-since the CmdOyster can provide either option as necessary.
+CmdOysters permit multiple invocations,
+so if one version of a command only works in ``bash``,
+another only works with ``zsh``,
+and another works with any POSIX-conformant shell,
+all three versions can be stored in the same CmdOyster,
+provided each invocation uses the same `component commands`_.
 
 .. _component commands: `What does the term "component command" refer to?`_
 
@@ -187,7 +185,7 @@ but a SHA-1 hash is a unique alphanumeric identifier.
 This has a cost;
 it means that two different CmdOysters must not have the same description text,
 and that updating one CmdOyster's description requires updating all the CmdOysters that point to it,
-but it evades some of the problems that URLs and file paths have,
+but it evades some of the problems that URIs and file paths have,
 such as maintaining hierarchies and using arbitrary identifiers.
 
 ~~~~~~~~~~~~~~~~~~~~
@@ -248,9 +246,9 @@ and so on.
 .. _appears to be inactive: https://groups.google.com/forum/#!topic/shell-sink/RxMP6AsT5zw
 .. _as of mid 2011: https://github.com/joshuacronemeyer/shellsink
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-How is this different from, say, an offline cache of commandlinefu?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+How is this different from, say, an offline cache of commandlinefu.com?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 `Commandlinefu`_ is a remarkable and dedicated online community,
 but there are some things it lacks or was never designed to have, such as:
@@ -260,7 +258,7 @@ but there are some things it lacks or was never designed to have, such as:
 #. Unique (SHA-1) and string similarity (Nilsimsa) hashes of command invocations.
 #. Explicit licensing.
 
-In addition, the focus of commandlinefu is in providing a platform for commenting and upvoting,
+In addition, the focus of Commandlinefu is in providing a platform for commenting and upvoting,
 which is a different focus than a custom repository of specialized shell commands,
 many of which may only be useful to their creator.
 
@@ -346,13 +344,16 @@ and if they are breaking changes
 it is usually easier to fix a smaller number of CmdOysters.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Is it ok for command invocations to span multiple lines?
+Is it OK for command invocations to span multiple lines?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Yes, but one-liners are the focus for now.
 
-This is meant to aid interactive use of commandline programs,
-such as core building blocks of shell scripts.
+CmdOysters are intended to aid interactive use of command-line programs,
+such as quick calculations,
+interacting with processes,
+debugging,
+and providing core building blocks of shell scripts.
 
 CmdOysters are not intended to be a substitute
 for a library of robust and well-commented shell scripts,
@@ -368,6 +369,11 @@ not the search application or validation programs as such.
 
 However, Python is widespread and cross-platform,
 and ``python2`` has a ``nilsimsa`` hash library.
+Once the ``nilsimsa`` library is migrated to Python 3,
+the scripts can also be migrated.
+
+Please do feel free to write code for working with CmdOysters in your favorite language;
+that's why they are JSON data!
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 Why call them CmdOysters?
@@ -398,8 +404,8 @@ so an explicit grant of copyright is always better than an ambiguous one.
 
 
 The `extent to which metadata is copyrightable`_ varies by country and is still somewhat controversial,
-so while the license field is not strictly required,
-it is strongly encouraged to ensure others may use the CmdOyters freely.
+so while the license field is not strictly required for a valid CmdOyster,
+it is strongly encouraged to ensure others may copy and modify the CmdOysters without fear of infringement or litigation.
 
 .. _extent to which metadata is copyrightable: http://lj.libraryjournal.com/2013/02/opinion/peer-to-peer-review/metadata-and-copyright-peer-to-peer-review/
 
