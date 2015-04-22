@@ -34,9 +34,9 @@ Specific items by file, in no particular order
 
 - ``[*]`` Combine ``component-command-*`` into ``component-command-info/*``.
 
-- ``[ ]`` Change ``related-commands`` to a list of objects, not SHA-1 hashes, so that e.g. broken links to similar commands can be found by Nilsima hash.
+- ``[*]`` Change ``related-commands`` to a list of objects, not SHA-1 hashes, so that e.g. broken links to similar commands can be found by Nilsima hash.
 
-- ``[ ]`` Change ``related-invocations`` to a list of objects, not SHA-1 hashes, so that e.g. broken links to similar invocations can be found by Nilsima hash.
+- ``[*]`` Change ``related-invocations`` to a list of objects, not SHA-1 hashes, so that e.g. broken links to similar invocations can be found by Nilsima hash.
 
 - ``[ ]`` Change ``relevant-urls`` to a list of objects, not SHA-1 hashes, so that e.g. additional information about the URL can be added.
 

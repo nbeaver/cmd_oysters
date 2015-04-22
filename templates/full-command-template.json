@@ -31,9 +31,9 @@
         "year": 2015
     },
     "description": {
-        "nilsimsa-hex": "0000000000000000000000000000000000000000000000000000000000000000",
-        "sha1-hex": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
-        "string": ""
+        "nilsimsa-hex": "8cd3686fa3bb3692c9defdaa183e9d28d56e82ddb3ed7d68fe8b2ae3fbcf4a2e",
+        "sha1-hex": "ec85ca7e10b5c541308ce6f7c79393438f973f5d",
+        "string": "Exhaustive CmdOyster template."
     },
     "invocations": {
         "$INVOCATION" : {
@@ -78,7 +78,10 @@
         }
     },
     "related-commands": [
-        "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+        {
+            "nilsimsa-hex": "0000000000000000000000000000000000000000000000000000000000000000",
+            "sha1-hex": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+        }
     ],
     "relevant-urls": [
         "http://unix.stackexchange.com/",

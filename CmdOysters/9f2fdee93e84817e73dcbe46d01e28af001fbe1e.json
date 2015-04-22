@@ -70,9 +70,18 @@
             ],
             "nilsimsa-hex": "115a331849b2cf082ac652d44c61b0042c59891b564b970d43e1b4fb7478650d",
             "related-invocations": [
-                "c7a75171158ee220514b48bf7b7065fccaa6b37b",
-                "0f86bfd2af49de656a8a318ea310727e6052525a",
-                "95480eceb7facbd35f4363138b7ef9d5b98fc02a"
+                {
+                    "nilsimsa-hex": "040020244000221010000000082002b000020a00881000000000685122400422",
+                    "sha1-hex": "c7a75171158ee220514b48bf7b7065fccaa6b37b"
+                },
+                {
+                    "nilsimsa-hex": "548222a578302a1113002404f8a112b94cb3091080928c4020016a582248a427",
+                    "sha1-hex": "0f86bfd2af49de656a8a318ea310727e6052525a"
+                },
+                {
+                    "nilsimsa-hex": "b5845f34cb2450221727442019db4822404111600930104230a10426cee2180a",
+                    "sha1-hex": "95480eceb7facbd35f4363138b7ef9d5b98fc02a"
+                }
             ],
             "sha1-hex": "8c7c73684c9524cfb00d5eed10b428164d48b7c9",
             "string": "lscpu | grep '^Architecture:' | awk '{print $2}'"

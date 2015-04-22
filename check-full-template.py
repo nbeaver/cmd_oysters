@@ -18,7 +18,14 @@ if not os.path.isdir(pseudoschema_root):
 def validate(path, json_object):
     for child in os.listdir(path):
         child_path = os.path.join(path, child)
-        assert child in json_object.keys(), child_path+" not in "+json_file+"\nkeys: "+str(json_object.keys())
+        try:
+            # An object.
+            assert child in json_object, child_path+" not in "+json_file+"\nkeys: "+repr(json_object.keys())
+        except AttributeError:
+            # A list of objects.
+            for item in json_object:
+                assert child in item, child_path+" not in "+json_file+"\nlist item: "+repr(item)
+
         if os.path.isdir(child_path):
             validate(child_path, json_object[child])
 

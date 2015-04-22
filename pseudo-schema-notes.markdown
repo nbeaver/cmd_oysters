@@ -42,10 +42,14 @@ These are some notes on the structure of the command database.
 │       ├── `example-outputs`: If the output is short and provides insight into what the command does, it is useful to know.  
 │       ├── `incompatible-shells`: Disjoint set of compatible-shells. Options are not explicitly enumerated because there are many, many shells.  
 │       ├── `nilsimsa-hex`: A locality-sensitive hash, helping to detect similar commands.  
-│       ├── `related-invocations`: SHA1 hashes of invocations for different commands that are related to this invocation. A kind of hyper-linking.  
-│       ├── `sha1-hex`: The SHA1 cryptographic hash of the command string; useful for linking to related commands. Required field.  
+│       ├── `related-invocations`: Hashes of invocations for different commands that are related to this invocation. A kind of hyper-linking.  
+│       │   ├── `nilsimsa-hex`: Nilsimsa hash of invocation; useful if link is broken due to small change in invocation.  
+│       │   └── `sha1-hex`: Unique hash of invocation.  
+│       ├── `sha1-hex`: The SHA-1 cryptographic hash of the command string; useful for linking to related commands. Required field.  
 │       └── `string`: Actual string that could be passed to the shell and executed. Required field.  
-├── `related-commands`: SHA1 hashes of the descriptions of other commands that are related to this one, e.g. a command that accomplishes the same thing with different component commands.  
+├── `related-commands`: Hashes of the descriptions of other commands that are related to this one, e.g. a command that accomplishes the same thing with different component commands.  
+│   ├── `nilsimsa-hex`: String similarity hash of description of related command; useful if link is broken and description is only slightly different.  
+│   └── `sha1-hex`: Unique hash of description of related command.  
 └── `relevant-urls`: A list of URLs that discuss the command or an equivalent command with the same component commands.  
 
 </html>

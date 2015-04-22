@@ -46,8 +46,14 @@
         }
     },
     "related-commands": [
-        "c061264c95aede5a5e512500e5069e2c5f3a71f5",
-        "9f2fdee93e84817e73dcbe46d01e28af001fbe1e"
+        {
+            "nilsimsa-hex": "57f47eaab6d8e80e9b3a5b89fb94b873cd0f20355b2cac0e271c0f82748db14c",
+            "sha1-hex": "c061264c95aede5a5e512500e5069e2c5f3a71f5"
+        },
+        {
+            "nilsimsa-hex": "d8c42b2efc2ce62d5bb75b81d4962ead3d0311087668ed288778f9f0e56d746d",
+            "sha1-hex": "9f2fdee93e84817e73dcbe46d01e28af001fbe1e"
+        }
     ],
     "relevant-urls": [
         "http://www.cyberciti.biz/faq/linux-how-to-find-if-processor-is-64-bit-or-not/",
