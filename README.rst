@@ -226,8 +226,8 @@ so useful commands may disappear if not used often enough.
 Finally, it is inconvenient to synchronize shell histories across multiple machines,
 for both technical and security reasons.
 
-(There was a project called `shellsink`_ that was intended to `address many of these problems`_,
-but it was only for ``bash`` and ``zsh`` and its development `appears to be inactive`_ `as of mid 2011`_.)
+(There is a project called `shellsink`_ that `addresses many of these problems`_,
+but it is only for ``bash`` and ``zsh`` and its development `appears to be inactive`_ `as of mid 2011`_.)
 
 CmdOysters are individual text files,
 so they can be
@@ -244,7 +244,7 @@ and so on.
 .. _not be available in a new terminal: http://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows
 .. _length of the history file: http://stackoverflow.com/questions/9457233/unlimited-bash-history/19533853#19533853
 .. _shellsink: http://shell-sink.blogspot.com/
-.. _address many of these problems: https://www.debian-administration.org/article/625/Making_The_Bash_History_More_Useful
+.. _addresses many of these problems: https://www.debian-administration.org/article/625/Making_The_Bash_History_More_Useful
 .. _appears to be inactive: https://groups.google.com/forum/#!topic/shell-sink/RxMP6AsT5zw
 .. _as of mid 2011: https://github.com/joshuacronemeyer/shellsink
 
@@ -285,28 +285,38 @@ One of the greatest strengths of UNIX shell commands
 is that they can be composed in many ways.
 
 They can be
-used in sequence (e.g. ``./configure && make``),
+used in conditional sequence (e.g. ``./configure && make``),
 piped together (e.g. ``du | sort -nr``),
-evaluated to supply arguments to other commands (e.g. ``find | grep bash``),
+evaluated to supply arguments to other commands (e.g. ``mkdir $(date -I)``),
 or even taken directly as arguments to other commands (e.g. ``find . -exec file '{}' +``).
 
-These composite commands consist of more than one component command,
-which may be executable in the filesystem or shell builtins.
+These composite commands consist of more than one component command.
+
+Component commands may be
+executables in ``$PATH``,
+absolute paths to executables,
+shell builtins (``cd``),
+or shell keywords (``for``, ``do``).
+
+They could in principle be custom shell functions or aliases,
+but those are best kept in your favorite ``.shellrc``,
+not in a CmdOyster.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 What's the difference between commands and invocations?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Often times, there are multiple ways to write the same command,
+There is almost always more than one way to write the same command,
 such as long flag/short flag versions,
 a different order of arguments,
 or just a different method,
 e.g. removing a file in the current directory named ``-``
 using either ``rm ./-`` or ``rm -- -``.
 
-Since these use the same component commands,
-it makes sense to group them together
-than list them redundantly as separate commands.
+Since these cosmetically different commands use the same component commands,
+it makes more sense to group them together
+rather than list them redundantly as separate commands.
+
 These are said to be equivalent invocations of the same command.
 
 If there is a similar command that uses different component commands,
@@ -315,7 +325,11 @@ not an equivalent invocation:
 e.g. ``unlink -`` will accomplish the same thing as ``rm ./-``,
 but it must be listed as a different command.
 
-However, these command can (and should) be `cross-referenced`_.
+However, these related CmdOysters can (and should) be `cross-referenced`_.
+
+The rationale for this is partly the simplicity of implementation
+and to prevent a single CmdOyster from storing too much,
+but also because different component commands have different behaviors and semantics.
 
 .. _cross-referenced: `Cross-referencing`_
 
