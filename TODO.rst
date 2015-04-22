@@ -98,6 +98,7 @@ Specific items by file, in no particular order
 - ``[ ]`` Check that the commands in ``component-command-info`` are a subset of ``component-commands``.
 - ``[ ]`` Check ``debian-path`` is correct using ``which``.
 - ``[*]`` Check that no two commands have the same SHA1s of description text.
+- ``[ ]`` Check for likely duplicates based on Nilsimsa hashes of both commands and descriptions.
 - ``[ ]`` Make a JSON schema to do at least part of this more systematically.
 
 -----------------------------------
