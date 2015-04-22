@@ -20,7 +20,7 @@ pseudo-schema/
 │   └── year
 ├── description
 │   ├── nilsimsa-hex
-│   ├── sha1hex
+│   ├── sha1-hex
 │   └── string
 ├── invocations
 │   └── $INVOCATION
@@ -42,7 +42,7 @@ pseudo-schema/
 │       ├── incompatible-with
 │       ├── nilsimsa-hex
 │       ├── related-invocations
-│       ├── sha1hex
+│       ├── sha1-hex
 │       └── string
 ├── related-commands
 └── relevant-urls

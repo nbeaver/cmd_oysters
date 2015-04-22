@@ -149,8 +149,8 @@ def validate_command(command, filepath):
 
     try:
         check_sha1(command['description']['string'],
-                   command['description']['sha1hex'])
-        unique_SHA1s.add(command['description']['sha1hex'])
+                   command['description']['sha1-hex'])
+        unique_SHA1s.add(command['description']['sha1-hex'])
     except KeyError:
         supply_sha1(command['description']['string'])
 
@@ -162,8 +162,8 @@ def validate_command(command, filepath):
 
     def validate_invocation(invocation):
         try:
-            check_sha1(invocation['string'], invocation['sha1hex'])
-            unique_SHA1s.add(invocation['sha1hex'])
+            check_sha1(invocation['string'], invocation['sha1-hex'])
+            unique_SHA1s.add(invocation['sha1-hex'])
         except KeyError:
             supply_sha1(invocation['string'])
 

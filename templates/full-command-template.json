@@ -32,7 +32,7 @@
     },
     "description": {
         "nilsimsa-hex": "0000000000000000000000000000000000000000000000000000000000000000",
-        "sha1hex": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+        "sha1-hex": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
         "string": ""
     },
     "invocations": {
@@ -68,9 +68,12 @@
             ],
             "nilsimsa-hex": "2d75aea6d0809620c0a86ea403010392a1b90483493d415481d4922e58c00777",
             "related-invocations": [
-                "0000000000000000000000000000000000000000"
+                {
+                    "nilsimsa-hex": "0000000000000000000000000000000000000000000000000000000000000000",
+                    "sha1-hex": "0000000000000000000000000000000000000000"
+                }
             ],
-            "sha1hex": "6da5385cfec34278b7df38f78685aaaba7ebc9c8",
+            "sha1-hex": "6da5385cfec34278b7df38f78685aaaba7ebc9c8",
             "string": "$COMMAND $FLAG $ARG"
         }
     },

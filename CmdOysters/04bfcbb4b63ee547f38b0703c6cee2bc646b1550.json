@@ -32,13 +32,13 @@
     },
     "description": {
         "nilsimsa-hex": "7ea1ba07adf0da3c5926f4e1c19220cbf2a566698cd550e8eddb491b4f0c163a",
-        "sha1hex": "04bfcbb4b63ee547f38b0703c6cee2bc646b1550",
+        "sha1-hex": "04bfcbb4b63ee547f38b0703c6cee2bc646b1550",
         "string": "Show external IP address using http://ifconfig.me website."
     },
     "invocations": {
         "POSIX": {
             "nilsimsa-hex": "dab271b95ffb7b8a99d7b7fa5ea84cdd4b2673d9b2d588f4ba77003bdd0e012a",
-            "sha1hex": "3a51da01f0394083236dfcbe70153ac89c9c2fa6",
+            "sha1-hex": "3a51da01f0394083236dfcbe70153ac89c9c2fa6",
             "string": "curl --proto https ifconfig.me"
         }
     },

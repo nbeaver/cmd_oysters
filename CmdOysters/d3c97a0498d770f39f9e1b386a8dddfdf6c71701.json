@@ -33,7 +33,7 @@
     ],
     "description": {
         "nilsimsa-hex": "92205548180110a4f04214bf9400a6f7228a14c9b8170c060306d02559146d41",
-        "sha1hex": "d3c97a0498d770f39f9e1b386a8dddfdf6c71701",
+        "sha1-hex": "d3c97a0498d770f39f9e1b386a8dddfdf6c71701",
         "string": "Kill stopped jobs."
     },
     "copying": {
@@ -59,7 +59,7 @@
                 "zsh"
             ],
             "nilsimsa-hex": "95560a8904819572142344708a24984448a08285a030d214009f48041ab27909",
-            "sha1hex": "b130d1235cd093ef0d6dc5217f89e793192abd83",
+            "sha1-hex": "b130d1235cd093ef0d6dc5217f89e793192abd83",
             "string": "kill $(jobs -ps)"
         }
     },

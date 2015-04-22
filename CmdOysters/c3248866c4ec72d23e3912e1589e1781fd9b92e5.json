@@ -32,7 +32,7 @@
     },
     "description": {
         "nilsimsa-hex": "9e74cd22f0d68ce48ff7128166a01fa9139bbe845907d36c76472ae5a91229b1",
-        "sha1hex": "c3248866c4ec72d23e3912e1589e1781fd9b92e5",
+        "sha1-hex": "c3248866c4ec72d23e3912e1589e1781fd9b92e5",
         "string": "Find files in your home directory that you don't own."
     },
     "invocations": {
@@ -61,7 +61,7 @@
                 }
             },
             "nilsimsa-hex": "a5274945a6b08943c1c52b882d9121e005b9185cbb325c3fbbc39e54e63f3788",
-            "sha1hex": "1648be79c2a5b366c37d0ec72d20736fcbf5566d",
+            "sha1-hex": "1648be79c2a5b366c37d0ec72d20736fcbf5566d",
             "string": "find $HOME ! -user $USER"
         }
     }

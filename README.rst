@@ -23,12 +23,12 @@ This is an example of the contents of a minimal but valid CmdOyster JSON file::
             "ls"
         ],
         "description": {
-            "sha1hex": "62f6a0e19cae58eefb0e39bc09aaf7b9469202e5",
+            "sha1-hex": "62f6a0e19cae58eefb0e39bc09aaf7b9469202e5",
             "string": "List contents of a directory."
         },
         "invocations": {
             "POSIX" : {
-                "sha1hex": "ebfdec641529d4b59a54e18f8b0e9730f85939fb",
+                "sha1-hex": "ebfdec641529d4b59a54e18f8b0e9730f85939fb",
                 "string": "ls"
             }
         }
@@ -457,7 +457,8 @@ On Debian, this is accomplished with::
 
 Navigate to the relevant directory in `<pseudo-schema/>`_.
 
-If the new field is an object, make a new directory.
+If the new field is an object or contains objects,
+make a new directory.
 Otherwise, make an empty file.
 
 If the field is a wildcard and permits any name,

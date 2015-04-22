@@ -59,7 +59,7 @@
     },
     "description": {
         "nilsimsa-hex": "d8c42b2efc2ce62d5bb75b81d4962ead3d0311087668ed288778f9f0e56d746d",
-        "sha1hex": "9f2fdee93e84817e73dcbe46d01e28af001fbe1e",
+        "sha1-hex": "9f2fdee93e84817e73dcbe46d01e28af001fbe1e",
         "string": "Display name of hardware's CPU architecture, e.g. x86_64 for 64-bit Intel processors and i686 for 32-bit Intel processors."
     },
     "invocations": {
@@ -74,7 +74,7 @@
                 "0f86bfd2af49de656a8a318ea310727e6052525a",
                 "95480eceb7facbd35f4363138b7ef9d5b98fc02a"
             ],
-            "sha1hex": "8c7c73684c9524cfb00d5eed10b428164d48b7c9",
+            "sha1-hex": "8c7c73684c9524cfb00d5eed10b428164d48b7c9",
             "string": "lscpu | grep '^Architecture:' | awk '{print $2}'"
         }
     },

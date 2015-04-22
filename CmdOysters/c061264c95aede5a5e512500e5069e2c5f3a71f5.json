@@ -23,7 +23,7 @@
     ],
     "description": {
         "nilsimsa-hex": "57f47eaab6d8e80e9b3a5b89fb94b873cd0f20355b2cac0e271c0f82748db14c",
-        "sha1hex": "c061264c95aede5a5e512500e5069e2c5f3a71f5",
+        "sha1-hex": "c061264c95aede5a5e512500e5069e2c5f3a71f5",
         "string": "Determine which architecture the Linux kernel is configured for; may not be the same as the actual CPU architecture. For example, an Intel i686 kernel can run on an Intel x86_64 processor, but its RAM will be limited unless the kernel has PAE is enabled."
     },
     "copying": {
@@ -41,7 +41,7 @@
                 "x86_64"
             ],
             "nilsimsa-hex": "040020244000221010000000082002b000020a00881000000000685122400422",
-            "sha1hex": "c7a75171158ee220514b48bf7b7065fccaa6b37b",
+            "sha1-hex": "c7a75171158ee220514b48bf7b7065fccaa6b37b",
             "string": "uname -m"
         },
         "Linux (long flags)": {
@@ -50,7 +50,7 @@
                 "x86_64"
             ],
             "nilsimsa-hex": "548222a578302a1113002404f8a112b94cb3091080928c4020016a582248a427",
-            "sha1hex": "0f86bfd2af49de656a8a318ea310727e6052525a",
+            "sha1-hex": "0f86bfd2af49de656a8a318ea310727e6052525a",
             "string": "uname --machine"
         }
     },

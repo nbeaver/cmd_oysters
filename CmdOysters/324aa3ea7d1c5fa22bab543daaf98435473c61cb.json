@@ -24,7 +24,7 @@
     ],
     "description": {
         "nilsimsa-hex": "37b401c9104ca8a5cb98b0f898a4a4f10d093fe951ac046c280d861c731824e8",
-        "sha1hex": "324aa3ea7d1c5fa22bab543daaf98435473c61cb",
+        "sha1-hex": "324aa3ea7d1c5fa22bab543daaf98435473c61cb",
         "string": "Turn off the monitor; make the display go dark; blank the screen until the mouse is moved or a key is pressed."
     },
     "copying": {
@@ -50,7 +50,7 @@
             ],
             "incompatible-with": [],
             "nilsimsa-hex": "8374e121c48c68c95f74590404c5446692e20d19f5fa514977662ab1aca71809",
-            "sha1hex": "cc1938fb35ff47f16a237a9c6cd68add2aa6f4fd",
+            "sha1-hex": "cc1938fb35ff47f16a237a9c6cd68add2aa6f4fd",
             "string": "xset dpms force standby"
         }
     },

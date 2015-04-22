@@ -47,7 +47,7 @@
     },
     "description": {
         "nilsimsa-hex": "3efcd29b3a75e43c4748e7b9e8a87dbd3c5700739963c6a7b7169fd3de9477ef",
-        "sha1hex": "118f2d8f8666f09b5d9c9db536d645be5f923f6c",
+        "sha1-hex": "118f2d8f8666f09b5d9c9db536d645be5f923f6c",
         "string": "Highlight non-ASCII characters (e.g. Unicode) in a text file and give the line number they are on."
     },
     "invocations": {
@@ -72,7 +72,7 @@
                 "TODO"
             ],
             "nilsimsa-hex": "da8f7868256c22fcd1fcec9e9420ff1b662e8c915d8a0749e0f878503658e048",
-            "sha1hex": "8f78d31acfe82ec49214053d40ad2c338a9b51aa",
+            "sha1-hex": "8f78d31acfe82ec49214053d40ad2c338a9b51aa",
             "string": "grep -nP '[^[:ascii:]]' --color=always myfile.txt | less -R"
         },
         "POSIX-long-flags": {
@@ -96,7 +96,7 @@
                 "TODO"
             ],
             "nilsimsa-hex": "f8c2d869056620e65268ac8a1020381b44260413fd882749c0787890365880ec",
-            "sha1hex": "c2fe383b7f8e87e5baa638b3f4f074ad2f057614",
+            "sha1-hex": "c2fe383b7f8e87e5baa638b3f4f074ad2f057614",
             "string": "grep --line-number --perl-regexp '[^[:ascii:]]' --color=always myfile.txt | less --RAW-CONTROL-CHARS"
         }
     },

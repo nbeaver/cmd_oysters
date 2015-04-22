@@ -31,7 +31,7 @@
     },
     "description": {
         "nilsimsa-hex": "98d007e8f9da8416a238193443bcbd850cb9f82bf338fd10ef3bdd5975ef209f",
-        "sha1hex": "0bf4d29f2f25021251414c41f8eac14e440c016f",
+        "sha1-hex": "0bf4d29f2f25021251414c41f8eac14e440c016f",
         "string": "Display the word size of the kernel, e.g. 32-bit or 64-bit."
     },
     "invocations": {
@@ -41,7 +41,7 @@
                 "64"
             ],
             "nilsimsa-hex": "b5845f34cb2450221727442019db4822404111600930104230a10426cee2180a",
-            "sha1hex": "95480eceb7facbd35f4363138b7ef9d5b98fc02a",
+            "sha1-hex": "95480eceb7facbd35f4363138b7ef9d5b98fc02a",
             "string": "getconf LONG_BIT"
         }
     },
