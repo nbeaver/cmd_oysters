@@ -46,6 +46,9 @@ Specific items by file, in no particular order
   - ``[ ]`` An "author" or "acknowledgements" field.
   - ``[ ]`` A date field.
 
+- ``[ ]`` Field that indicates if the invocation is a pipeline, since the presence of a pipe character is not a reliable indication.
+
+
 ~~~~~~~~~~~~~~~~~~~~
 `<find-command.py>`_
 ~~~~~~~~~~~~~~~~~~~~
@@ -136,3 +139,8 @@ Non-specific notes and observations
   '0000000000000000000000000000000000000000000000000000000000000000'
 
 - ``man xclip``: "I hate man pages without examples!"
+
+- It's kind of a hassle to have to change all the SHA-1 links and filename every time the description changes,
+  but the Nilsimsa hash helps.
+
+- What is the best way to handle commands that are the same but have different executable names due to forking, e.g. ``avconv`` and ``ffmpeg``?
