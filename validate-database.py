@@ -102,7 +102,7 @@ def validate_command(command, filepath):
     def check_sha1(string, nominal_sha1):
         calculated_sha1 = hashlib.sha1(string).hexdigest()
         assert_custom(nominal_sha1 == calculated_sha1, \
-            "SHA1s do not match:\n%s (in database)\n%s (calculated)\n%r (command representation)" \
+            "SHA1s do not match:\n%s (in file)\n%s (calculated)\n%r (command representation)" \
             % (nominal_sha1, calculated_sha1, string))
 
     def supply_sha1(string):
@@ -113,7 +113,7 @@ def validate_command(command, filepath):
         def check_nilsimsa(string, nominal_nilsimsa):
             calculated_nilsimsa = nilsimsa.Nilsimsa(string).hexdigest()
             assert_custom_warn_only(nominal_nilsimsa == calculated_nilsimsa, \
-                "nilsimsas do not match:\n%s (in database)\n%s (calculated)\n%r (command representation)" \
+                "nilsimsas do not match:\n%s (in file)\n%s (calculated)\n%r (command representation)" \
                 % (nominal_nilsimsa, calculated_nilsimsa, string))
 
         def supply_nilsimsa(string):
