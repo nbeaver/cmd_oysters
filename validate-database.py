@@ -11,6 +11,7 @@ try:
 except ImportError:
     pass
 
+
 class NoDuplicates:
     def __init__(self, iterable=[]):
         self.set = set()
@@ -53,13 +54,13 @@ def find_slice(string, substring):
 def count_invocations(command):
     return len(command['invocations'].keys())
 
-def validate_command(command, filepath):
+def validate_command(command):
 
     def assert_custom(assertion, error_string):
         try:
             assert assertion, error_string
         except AssertionError:
-            print "Error in file:", filepath
+            print "Error in file:", json_filepath
             traceback.print_exc()
             raise
 
@@ -67,7 +68,7 @@ def validate_command(command, filepath):
         if assertion:
             return
         else:
-            print "Warning in file: ", filepath
+            print "Warning in file: ", json_filepath
             print error_string
             pass
 
@@ -198,38 +199,50 @@ def validate_command(command, filepath):
 
         validate_invocation(invocation_dict)
 
-def is_wildcard_field(child_name):
-    # If the child starts with '$',
-    # e.g. "$COMMAND",
-    # it is a wildcard.
-    if child_name[0] == '$':
-        return True
-    else:
-        return False
 
-def check_pseudoschema(parent_json, parent_pseudoschema, trace_path=""):
-    try:
-        children_json = parent_json.keys()
-    except AttributeError:
-        # Stop recursing, since the JSON object doesn't have child objects.
-        return
+def match_pseudoschema(json_value, directory, json_trace=""):
 
-    children_pseudoschema = os.listdir(parent_pseudoschema)
-    if len(children_pseudoschema) == 1 and is_wildcard_field(children_pseudoschema[0]):
-        # This is a wildcard in the schema, so just continue recursing.
-        for child_json in children_json:
-            next_path = os.path.join(parent_pseudoschema, children_pseudoschema[0])
-            check_pseudoschema(parent_json[child_json], next_path, trace_path+":"+child_json)
-    else:
-        for child_json in children_json:
+    def is_wildcard_field(child_name):
+        # If the child starts with '$',
+        # e.g. "$COMMAND",
+        # it is a wildcard.
+        if child_name[0] == '$':
+            return True
+        else:
+            return False
+
+    def check_pair(key, value):
+        directory_contents = os.listdir(directory)
+        if len(directory_contents) == 1 and is_wildcard_field(directory_contents[0]):
+            # This is a wildcard directory, so just continue recursing.
+            next_path = os.path.join(directory, directory_contents[0])
+            match_pseudoschema(value, next_path, json_trace+str(key)+'/')
+        else:
             # We're only checking that the JSON child objects are in the pseudoschema;
             # if the JSON doesn't have all of the pseudoschema, that's ok.
-            if child_json in children_pseudoschema:
-                next_path = os.path.join(parent_pseudoschema, child_json)
-                check_pseudoschema(parent_json[child_json], next_path, trace_path+":"+child_json)
+            if key in directory_contents:
+                next_path = os.path.join(directory, key)
+                match_pseudoschema(value, next_path, json_trace+str(key)+'/')
             else:
-                raise ValueError, "Input does not match pseudoschema: `"+trace_path+":"+child_json+"' not one of "+str(children_pseudoschema)+" in "+parent_pseudoschema
-                # TODO: Figure out a way to trace back to the line of the original JSON file. Will be hard, since we've already parsed the JSON.
+                raise ValueError, "Not in pseudoschema: "+repr(key)+" not one of "+repr(directory_contents)+"\n"+\
+                    "pseudoschema directory: "+directory+"\n"+\
+                    "JSON trace: "+json_trace+"\n"+\
+                    "Error in file: "+ json_filepath
+                # TODO: Figure out a way to trace back to the line of the original JSON file.
+                # This will be hard, since we've already parsed the JSON.
+
+    def check_JSONObject(json_object):
+        for key, value in json_object.iteritems():
+            check_pair(key, value)
+
+    if isinstance(json_value, dict):
+        check_JSONObject(json_value)
+    elif isinstance(json_value, list):
+        for value in json_value:
+            match_pseudoschema(value, directory, json_trace)
+    else:
+        # Stop recursing, since the JSON object doesn't have children.
+        return
 
 if len(sys.argv) == 1:
     print "Usage: python "+sys.argv[0]+" path-to-json-files/"
@@ -239,15 +252,15 @@ unique_SHA1s = NoDuplicates()
 num_invocations = 0
 root_directory = sys.argv[1]
 json_filepaths = glob.glob(root_directory + "/*.json")
-for i, path in enumerate(json_filepaths):
-    with open(path) as json_file:
+for i, json_filepath in enumerate(json_filepaths):
+    with open(json_filepath) as json_file:
         try:
             json_data = json.load(json_file)
         except:
             print "Invalid JSON in file: `"+json_file.name+"'"
             raise
-        validate_command(json_data, path)
-        check_pseudoschema(json_file.name, "pseudo-schema/")
+        validate_command(json_data)
+        match_pseudoschema(json_data, "pseudo-schema/")
         num_invocations += count_invocations(json_data)
 
 num_commands = i + 1 # enumerate starts from 0.
