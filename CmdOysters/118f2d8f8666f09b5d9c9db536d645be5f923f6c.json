@@ -64,15 +64,70 @@
                     "type": "string"
                 }
             },
-            "compatible-with": [
-                "bash",
-                "TODO"
-            ],
-            "incompatible-with": [
-                "TODO"
-            ],
             "nilsimsa-hex": "da8f7868256c22fcd1fcec9e9420ff1b662e8c915d8a0749e0f878503658e048",
             "sha1-hex": "8f78d31acfe82ec49214053d40ad2c338a9b51aa",
+            "shell-compatibility": {
+                "bash": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "4.2.37"
+                    ]
+                },
+                "bsh": {
+                    "compatible": false,
+                    "versions-tested": [
+                        "2.0b4"
+                    ]
+                },
+                "csh": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "20110502-2"
+                    ]
+                },
+                "dash": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "0.5.7-3"
+                    ]
+                },
+                "fish": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "1.23.1"
+                    ]
+                },
+                "ksh": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "93u+-1.2"
+                    ]
+                },
+                "mksh": {
+                    "compatible": true,
+                    "versions-tested": [
+                       "40.9.20120630-7"
+                    ]
+                },
+                "posh": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "0.10.2"
+                    ]
+                },
+                "tcsh": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "6.18.01 (Astron) 2012-02-14"
+                    ]
+                },
+                "zsh": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "4.3.17"
+                    ]
+                }
+            },
             "string": "grep -nP '[^[:ascii:]]' --color=always myfile.txt | less -R"
         },
         "POSIX-long-flags": {
@@ -88,15 +143,70 @@
                     "type": "string"
                 }
             },
-            "compatible-with": [
-                "bash",
-                "TODO"
-            ],
-            "incompatible-with": [
-                "TODO"
-            ],
             "nilsimsa-hex": "f8c2d869056620e65268ac8a1020381b44260413fd882749c0787890365880ec",
             "sha1-hex": "c2fe383b7f8e87e5baa638b3f4f074ad2f057614",
+            "shell-compatibility": {
+                "bash": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "4.2.37"
+                    ]
+                },
+                "bsh": {
+                    "compatible": false,
+                    "versions-tested": [
+                        "2.0b4"
+                    ]
+                },
+                "csh": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "20110502-2"
+                    ]
+                },
+                "dash": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "0.5.7-3"
+                    ]
+                },
+                "fish": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "1.23.1"
+                    ]
+                },
+                "ksh": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "93u+-1.2"
+                    ]
+                },
+                "mksh": {
+                    "compatible": true,
+                    "versions-tested": [
+                       "40.9.20120630-7"
+                    ]
+                },
+                "posh": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "0.10.2"
+                    ]
+                },
+                "tcsh": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "6.18.01 (Astron) 2012-02-14"
+                    ]
+                },
+                "zsh": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "4.3.17"
+                    ]
+                }
+            },
             "string": "grep --line-number --perl-regexp '[^[:ascii:]]' --color=always myfile.txt | less --RAW-CONTROL-CHARS"
         }
     },

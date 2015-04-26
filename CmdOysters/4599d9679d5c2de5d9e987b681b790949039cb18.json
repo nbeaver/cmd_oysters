@@ -106,17 +106,6 @@
                     "sudo": "no"
                 }
             },
-            "compatible-with": [
-                "bash",
-                "csh",
-                "dash",
-                "fish",
-                "ksh",
-                "POSIX",
-                "tcsh",
-                "zsh"
-            ],
-            "incompatible-with": [],
             "nilsimsa-hex": "208fe2086713b058dc0435631528fca291cd63f02942391141c1b4a52439f0ca",
             "sha1-hex": "20f8aae762b461782e9adea7e49db01046fb0c3f",
             "string": "ping -i 2 localhost | sed -u 's/.*/ping/' | espeak"
@@ -160,17 +149,6 @@
                     "sudo": "no"
                 }
             },
-            "compatible-with": [
-                "bash",
-                "csh",
-                "dash",
-                "fish",
-                "ksh",
-                "POSIX",
-                "tcsh",
-                "zsh"
-            ],
-            "incompatible-with": [],
             "nilsimsa-hex": "7bcfe299e6d5985adc0435e31f7b7ee295c973e0a942791247c135ad2439f0da",
             "sha1-hex": "320ba9096161c69d6513e0d906155ff7e346d325",
             "string": "ping -i 2 localhost | sed --unbuffered 's/.*/ping/' | espeak"

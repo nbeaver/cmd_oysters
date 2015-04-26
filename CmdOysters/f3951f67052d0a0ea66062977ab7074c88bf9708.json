@@ -91,16 +91,56 @@
                     "sudo": "no"
                 }
             },
-            "compatible-with": [
-                "bash",
-                "dash",
-                "ksh",
-                "zsh"
-            ],
-            "incompatible-with": [
-                "csh",
-                "fish",
-                "tcsh"
+            "shell-compatibility": [
+                {
+                    "compatible": true,
+                    "name": "bash",
+                    "versions-tested": [
+                        "4.2.37"
+                    ]
+                },
+                {
+                    "compatible": false,
+                    "name": "csh",
+                    "versions-tested": [
+                        "20110502-2"
+                    ]
+                },
+                {
+                    "compatible": true,
+                    "name": "dash",
+                    "versions-tested": [
+                        "0.5.7-3"
+                    ]
+                },
+                {
+                    "compatible": false,
+                    "name": "fish",
+                    "versions-tested": [
+                        "1.23.1"
+                    ]
+                },
+                {
+                    "compatible": true,
+                    "name": "ksh93",
+                    "versions-tested": [
+                        "93u+-1.2"
+                    ]
+                },
+                {
+                    "compatible": false,
+                    "name": "tcsh",
+                    "versions-tested": [
+                        "6.18.01 (Astron) 2012-02-14"
+                    ]
+                },
+                {
+                    "compatible": true,
+                    "name": "zsh",
+                    "versions-tested": [
+                        "4.3.17"
+                    ]
+                }
             ],
             "nilsimsa-hex": "8b06778d52b4dbeb952fc39d1f9103e02f53ad81d371fe4247ae891751332d07",
             "sha1-hex": "afcf173a92b8a8b580cfbf6616ba1ce2482cf501",
@@ -137,17 +177,6 @@
                     "type": "string"
                 }
             },
-            "compatible-with": [
-                "bash",
-                "dash",
-                "ksh",
-                "zsh"
-            ],
-            "incompatible-with": [
-                "csh",
-                "fish",
-                "tcsh"
-            ],
             "nilsimsa-hex": "c31ef75d52b5d9ffbd7d53dd3f9393ec0f33afb5f37bfc332f2ec917c1333d83",
             "sha1-hex": "a5e12f16ddb255f9b7a115364803c7f6eeb05534",
             "string": "chsh --shell $(which zsh) $USER"

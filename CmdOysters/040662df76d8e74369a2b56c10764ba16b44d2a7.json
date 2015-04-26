@@ -84,20 +84,68 @@
                     "type": "string"
                 }
             },
-            "compatible-with": [
-                "bash",
-                "bsh",
-                "dash",
-                "ksh",
-                "pdksh",
-                "posh",
-                "zsh"
-            ],
-            "incompatible-with": [
-                "csh",
-                "fish",
-                "tcsh"
-            ],
+            "shell-compatibility": {
+                "bash": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "4.2.37"
+                    ]
+                },
+                "bsh": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "2.0b4"
+                    ]
+                },
+                "csh": {
+                    "compatible": false,
+                    "versions-tested": [
+                        "20110502-2"
+                    ]
+                },
+                "dash": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "0.5.7-3"
+                    ]
+                },
+                "fish": {
+                    "compatible": false,
+                    "versions-tested": [
+                        "1.23.1"
+                    ]
+                },
+                "ksh": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "93u+-1.2"
+                    ]
+                },
+                "mksh": {
+                    "compatible": true,
+                    "versions-tested": [
+                       "40.9.20120630-7"
+                    ]
+                },
+                "posh": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "0.10.2"
+                    ]
+                },
+                "tcsh": {
+                    "compatible": false,
+                    "versions-tested": [
+                        "6.18.01 (Astron) 2012-02-14"
+                    ]
+                },
+                "zsh": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "4.3.17"
+                    ]
+                }
+            },
             "nilsimsa-hex": "b287705fc40a710595646eda32e76b609dd82a885a74afe40f82d0c46a75f23e",
             "sha1-hex": "69eb231e93a2ec3f9ad6fdbcfede4fba0cbe6b15",
             "string": "for f in *.pdf; do dir=\"${f%.*}\"; mkdir -p \"$dir\" && pdfimages -j \"$f\" \"$dir/$dir\"; done"
