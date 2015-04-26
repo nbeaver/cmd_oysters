@@ -107,9 +107,11 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Check for likely duplicates based on Nilsimsa hashes of both commands and descriptions.
 
-- ``[ ]`` Make a JSON schema to do at least part of this more systematically. For example, the pseudo-schema does not distinguish between lists and objects; they are both represented as directories.
+- ``[ ]`` Make a JSON schema to do at least part of this more systematically.
+  For example, the pseudo-schema does not distinguish between lists and objects;
+  they are both represented as directories.
 
-- ``[ ]`` Check that the filename is the same as the SHA1 of the description, plus ``.json``.
+- ``[*]`` Check that the filename is the same as the SHA1 of the description, plus ``.json``.
 
 - ``[ ]`` Check that the fields are in alphanumeric order.
 

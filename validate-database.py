@@ -54,7 +54,7 @@ def find_slice(string, substring):
 def count_invocations(command):
     return len(command['invocations'].keys())
 
-def validate_command(command):
+def validate_command(command, expected_description_SHA1):
 
     def assert_custom(assertion, error_string):
         try:
@@ -154,6 +154,10 @@ def validate_command(command):
         unique_SHA1s.add(command['description']['sha1-hex'])
     except KeyError:
         supply_sha1(command['description']['string'])
+
+    assert_custom_warn_only(expected_description_SHA1 == hashlib.sha1(command['description']['string']).hexdigest(),
+        "Filename does not match SHA1 of description.\n" + \
+        "Should be: " + hashlib.sha1(command['description']['string']).hexdigest())
 
     if 'nilsimsa' in sys.modules:
         try:
@@ -259,7 +263,8 @@ for i, json_filepath in enumerate(json_filepaths):
         except:
             print "Invalid JSON in file: `"+json_file.name+"'"
             raise
-        validate_command(json_data)
+        basename_no_extension = os.path.splitext(os.path.basename(json_file.name))[0]
+        validate_command(json_data, basename_no_extension)
         match_pseudoschema(json_data, "pseudo-schema/")
         num_invocations += count_invocations(json_data)
 
