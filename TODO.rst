@@ -20,7 +20,7 @@ Specific items by file, in no particular order
 
 - ``[*]`` Split `<command-database.json>`_ into individual JSON files.
 
-- ``[ ]`` Include version numbers in "commands this shell works with/doesn't work with".
+- ``[*]`` Include version numbers in "commands this shell works with/doesn't work with".
 
 - ``[*]`` Change field name from ``compatible-shells`` to ``compatible-with`` so it's more generic.
 
@@ -38,15 +38,17 @@ Specific items by file, in no particular order
 
 - ``[*]`` Change ``related-invocations`` to a list of objects, not SHA-1 hashes, so that e.g. broken links to similar invocations can be found by Nilsima hash.
 
-- ``[ ]`` Change ``relevant-urls`` to a list of objects, not SHA-1 hashes, so that e.g. additional information about the URL can be added.
+- ``[ ]`` Change ``relevant-urls`` to a list of objects, not strings, so that e.g. additional information about the URL can be added.
 
-- ``[ ]`` A "copying" object field.
+- ``[*]`` A "copying" object field.
 
-  - ``[ ]`` A "license" field.
-  - ``[ ]`` An "author" or "acknowledgements" field.
-  - ``[ ]`` A date field.
+  - ``[*]`` A "license" field.
+  - ``[*]`` An "author" or "acknowledgements" field.
+  - ``[*]`` A year field.
 
 - ``[ ]`` Field that indicates if the invocation is a pipeline, since the presence of a pipe character is not a reliable indication.
+
+- ``[*]`` Field for example output of command (only some of them, obviously).
 
 
 ~~~~~~~~~~~~~~~~~~~~
@@ -94,12 +96,22 @@ Specific items by file, in no particular order
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - ``[*]`` Check all the commands in component commands are substrings of the main command.
+
 - ``[ ]`` Check that ``bash-type`` is one of ``keyword``, ``builtin``, or ``file``.
+
 - ``[ ]`` Check that the commands in ``component-command-info`` are a subset of ``component-commands``.
+
 - ``[ ]`` Check ``debian-path`` is correct using ``which``.
+
 - ``[*]`` Check that no two commands have the same SHA1s of description text.
+
 - ``[ ]`` Check for likely duplicates based on Nilsimsa hashes of both commands and descriptions.
-- ``[ ]`` Make a JSON schema to do at least part of this more systematically.
+
+- ``[ ]`` Make a JSON schema to do at least part of this more systematically. For example, the pseudo-schema does not distinguish between lists and objects; they are both represented as directories.
+
+- ``[ ]`` Check that the filename is the same as the SHA1 of the description, plus ``.json``.
+
+- ``[ ]`` Check that the fields are in alphanumeric order.
 
 -----------------------------------
 Non-specific notes and observations
