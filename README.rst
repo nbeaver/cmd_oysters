@@ -38,6 +38,8 @@ Here are some less trivial examples:
 
 - `Highlight the non-ASCII characters in a text file <CmdOysters/118f2d8f8666f09b5d9c9db536d645be5f923f6c.json>`_.
 
+- `Safely list hidden files <CmdOysters/2d0b6b2b90eeb1efbd9591dbfa593766f6cf540a.json>`_.
+
 - `Change the current user's default shell <CmdOysters/f3951f67052d0a0ea66062977ab7074c88bf9708.json>`_.
 
 - `Extract images from multiple PDFs <CmdOysters/040662df76d8e74369a2b56c10764ba16b44d2a7.json>`_.
