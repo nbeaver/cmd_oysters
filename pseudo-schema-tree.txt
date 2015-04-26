@@ -8,13 +8,16 @@ pseudo-schema/
 │       ├── debian
 │       │   ├── executable-path
 │       │   └── required-packages
+│       │       └── $REQUIRED_PACKAGES
 │       └── requirements-in-general
 │           ├── authentication
 │           ├── internet-connection
 │           └── sudo
 ├── component-commands
+│   └── $COMPONENT_COMMANDS
 ├── copying
 │   ├── authors
+│   │   └── $AUTHORS
 │   ├── license-name
 │   ├── license-url
 │   └── year
@@ -30,23 +33,33 @@ pseudo-schema/
 │       │       ├── component-command-flag
 │       │       ├── description-string
 │       │       ├── invocation-slice
+│       │       │   └── $SLICE_INDICES
 │       │       ├── subtype
 │       │       └── type
 │       ├── command-requirements-as-invoked
 │       │   └── $COMMAND
 │       │       ├── authentication
 │       │       ├── internet-connection
-│       │       └── sudo
-│       ├── compatible-with
+│       │       ├── sudo
+│       │       ├── version-specifier
+│       │       └── versions-tested
+│       │           └── $VERSIONS
 │       ├── example-outputs
-│       ├── incompatible-with
+│       │   └── $EXAMPLE_OUTPUTS
 │       ├── nilsimsa-hex
 │       ├── related-invocations
 │       │   ├── nilsimsa-hex
 │       │   └── sha1-hex
 │       ├── sha1-hex
+│       ├── shell-compatibility
+│       │   └── $SHELL
+│       │       ├── compatible
+│       │       ├── version-specifier
+│       │       └── versions-tested
+│       │           └── $VERSIONS
 │       └── string
 ├── related-commands
 │   ├── nilsimsa-hex
 │   └── sha1-hex
 └── relevant-urls
+    └── $RELEVANT_URLS

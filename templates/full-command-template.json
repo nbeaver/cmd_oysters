@@ -54,17 +54,15 @@
                 "$COMMAND": {
                     "authentication": "yes | no | maybe",
                     "internet-connection": "yes | no | maybe",
-                    "sudo": "yes | no | maybe"
+                    "sudo": "yes | no | maybe",
+                    "versions-tested": [
+                        "1.2.3 version name"
+                    ],
+                    "version-specifier": "greater than 0.8"
                 }
             },
             "example-outputs": [
                 "output text"
-            ],
-            "compatible-with": [
-                "ash | bash | bsh | csh | dash | fish | ksh | mksh | pdksh | posh | POSIX | rc | scsh | tcsh | zsh | ..."
-            ],
-            "incompatible-with": [
-                "ash | bash | bsh | csh | dash | fish | ksh | mksh | pdksh | posh | POSIX | rc | scsh | tcsh | zsh | ..."
             ],
             "nilsimsa-hex": "2d75aea6d0809620c0a86ea403010392a1b90483493d415481d4922e58c00777",
             "related-invocations": [
@@ -74,6 +72,15 @@
                 }
             ],
             "sha1-hex": "6da5385cfec34278b7df38f78685aaaba7ebc9c8",
+            "shell-compatibility": {
+                "$SHELL": {
+                    "compatible": true,
+                    "versions-tested": [
+                        "1.2.3 version name"
+                    ],
+                    "version-specifier": "greater than 0.8"
+                }
+            },
             "string": "$COMMAND $FLAG $ARG"
         }
     },
