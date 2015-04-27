@@ -74,11 +74,14 @@
             "sha1-hex": "6da5385cfec34278b7df38f78685aaaba7ebc9c8",
             "shell-compatibility": {
                 "$SHELL": {
-                    "compatible": true,
-                    "versions-tested": [
+                    "compatible-version-specifier": "version 0.8 or later",
+                    "compatible-versions-tested": [
                         "1.2.3 version name"
                     ],
-                    "version-specifier": "greater than 0.8"
+                    "incompatible-version-specifier": "older than version 0.8",
+                    "incompatible-versions-tested": [
+                        "0.1.2 version name"
+                    ]
                 }
             },
             "string": "$COMMAND $FLAG $ARG"

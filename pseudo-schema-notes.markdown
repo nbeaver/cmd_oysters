@@ -59,9 +59,11 @@ These are some notes on the structure of the command database.
 │       ├── `sha1-hex`: The SHA-1 cryptographic hash of the command string; useful for linking to related commands. Required field.  
 │       ├── `shell-compatibility`: Explains which shells are/aren't compatible with this invocation.  
 │       │   └── `$SHELL`: Name of the shell.  
-│       │       ├── `compatible`: Is it compatible?  
-│       │       ├── `version-specifier`: Specify the version(s) that the shell is/isn't compatible with for this invocation.  
-│       │       └── `versions-tested`: List of versions of this shell that have been tested and found to be compatible/incompatible with the invocation.  
+│       │       ├── `compatible-version-specifier`: Specify the version(s) that the shell is compatible with for this invocation.  
+│       │       ├── `compatible-versions-tested`: List of versions for the shell that are known to work with this invocation.  
+│       │       │   └── `$VERSIONS`: Placeholder, since `git` can't track empty directories.   
+│       │       ├── `incompatible-version-specifier`: Specify the version(s) that the shell is not compatible with for this invocation.  
+│       │       └── `incompatible-versions-tested`: List of versions for the shell that are known to fail or not work as expected for this invocation.  
 │       │           └── `$VERSIONS`: Placeholder, since `git` can't track empty directories.  
 │       └── `string`: Actual string that could be passed to the shell and executed. Required field.  
 ├── `related-commands`: Hashes of the descriptions of other commands that are related to this one, e.g. a command that accomplishes the same thing with different component commands.  

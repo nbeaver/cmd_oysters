@@ -86,62 +86,52 @@
             },
             "shell-compatibility": {
                 "bash": {
-                    "compatible": true,
-                    "versions-tested": [
+                    "compatible-versions-tested": [
                         "4.2.37"
                     ]
                 },
                 "bsh": {
-                    "compatible": true,
-                    "versions-tested": [
+                    "compatible-versions-tested": [
                         "2.0b4"
                     ]
                 },
                 "csh": {
-                    "compatible": false,
-                    "versions-tested": [
+                    "incompatible-versions-tested": [
                         "20110502-2"
                     ]
                 },
                 "dash": {
-                    "compatible": true,
-                    "versions-tested": [
+                    "compatible-versions-tested": [
                         "0.5.7-3"
                     ]
                 },
                 "fish": {
-                    "compatible": false,
-                    "versions-tested": [
+                    "incompatible-versions-tested": [
                         "1.23.1"
                     ]
                 },
                 "ksh": {
-                    "compatible": true,
-                    "versions-tested": [
+                    "compatible-versions-tested": [
                         "93u+-1.2"
                     ]
                 },
                 "mksh": {
-                    "compatible": true,
-                    "versions-tested": [
+                    "compatible-versions-tested": [
                        "40.9.20120630-7"
                     ]
                 },
                 "posh": {
-                    "compatible": true,
-                    "versions-tested": [
+                    "compatible-versions-tested": [
                         "0.10.2"
                     ]
                 },
                 "tcsh": {
-                    "compatible": false,
-                    "versions-tested": [
+                    "incompatible-versions-tested": [
                         "6.18.01 (Astron) 2012-02-14"
                     ]
                 },
                 "zsh": {
-                    "compatible": true,
-                    "versions-tested": [
+                    "compatible-versions-tested": [
                         "4.3.17"
                     ]
                 }

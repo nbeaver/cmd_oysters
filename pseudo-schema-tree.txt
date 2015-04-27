@@ -53,9 +53,11 @@ pseudo-schema/
 │       ├── sha1-hex
 │       ├── shell-compatibility
 │       │   └── $SHELL
-│       │       ├── compatible
-│       │       ├── version-specifier
-│       │       └── versions-tested
+│       │       ├── compatible-version-specifier
+│       │       ├── compatible-versions-tested
+│       │       │   └── $VERSIONS
+│       │       ├── incompatible-version-specifier
+│       │       └── incompatible-versions-tested
 │       │           └── $VERSIONS
 │       └── string
 ├── related-commands

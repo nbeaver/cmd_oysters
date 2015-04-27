@@ -50,6 +50,8 @@ Specific items by file, in no particular order
 
 - ``[*]`` Field for example output of command (only some of them, obviously).
 
+- ``[*]`` Change ``shell`` compatibility to a list of objects.
+
 
 ~~~~~~~~~~~~~~~~~~~~
 `<find-command.py>`_
@@ -67,7 +69,9 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Take multiple arguments to ``--substring`` so it's effectively a regex search for ``arg1.*arg2.*arg3``.
 
-- ``[ ]`` Add a flags for excluding patterns and commands.
+- ``[ ]`` Add a flag for excluding patterns.
+
+- ``[ ]`` Add a flag for excluding commands.
 
 - ``[*]`` Add a ``--description`` search.
 
