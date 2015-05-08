@@ -94,10 +94,35 @@
         }
     ],
     "relevant-urls": [
-        "http://unix.stackexchange.com/",
-        "http://tldp.org/",
-        "http://www.linuxjournal.com/",
-        "http://www.gnu.org/software/bash/manual/bash.html",
-        "https://www.kernel.org/"
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://unix.stackexchange.com/",
+            "date-known-good": "2015-04-30"
+        },
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://tldp.org/",
+            "date-known-good": "2015-04-30"
+        },
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://www.linuxjournal.com/",
+            "date-known-good": "2015-04-30"
+        },
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://www.gnu.org/software/bash/manual/bash.html",
+            "date-known-good": "2015-04-30"
+        },
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "https://www.kernel.org/",
+            "date-known-good": "2015-04-30"
+        }
     ]
 }
