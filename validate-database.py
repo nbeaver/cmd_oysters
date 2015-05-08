@@ -204,7 +204,9 @@ def validate_command(command, expected_description_SHA1):
         validate_invocation(invocation_dict)
 
 
-def match_pseudoschema(json_value, directory, json_trace=""):
+def match_pseudoschema(json_value, directory, json_trace="", debug=False):
+    print "jsontrace: pseudo-schema/"+json_trace
+    print "directory: "+directory
 
     def is_wildcard_field(child_name):
         # If the child starts with '$',
@@ -217,16 +219,21 @@ def match_pseudoschema(json_value, directory, json_trace=""):
 
     def check_pair(key, value):
         directory_contents = os.listdir(directory)
+        if debug:
+            print directory_contents
+        if key not in directory_contents and debug:
+            print "Error! key="+repr(key)+" not in",directory_contents
+            print "value=",value
         if len(directory_contents) == 1 and is_wildcard_field(directory_contents[0]):
             # This is a wildcard directory, so just continue recursing.
             next_path = os.path.join(directory, directory_contents[0])
-            match_pseudoschema(value, next_path, json_trace+str(key)+'/')
+            match_pseudoschema(value, next_path, json_trace+str(key)+'/', debug)
         else:
             # We're only checking that the JSON child objects are in the pseudoschema;
             # if the JSON doesn't have all of the pseudoschema, that's ok.
             if key in directory_contents:
                 next_path = os.path.join(directory, key)
-                match_pseudoschema(value, next_path, json_trace+str(key)+'/')
+                match_pseudoschema(value, next_path, json_trace+str(key)+'/', debug)
             else:
                 raise ValueError, "Not in pseudoschema: "+repr(key)+" not one of "+repr(directory_contents)+"\n"+\
                     "pseudoschema directory: "+directory+"\n"+\
@@ -239,13 +246,22 @@ def match_pseudoschema(json_value, directory, json_trace=""):
         for key, value in json_object.iteritems():
             check_pair(key, value)
 
+    def check_JSONList(json_list):
+        for item in json_list:
+            directory_contents = os.listdir(directory)
+            next_path = os.path.join(directory, directory_contents[0])
+            match_pseudoschema(item, next_path, json_trace, debug)
+
     if isinstance(json_value, dict):
         check_JSONObject(json_value)
     elif isinstance(json_value, list):
-        for value in json_value:
-            match_pseudoschema(value, directory, json_trace)
+        check_JSONList(json_value)
     else:
         # Stop recursing, since the JSON object doesn't have children.
+        if debug:
+            print "in file: "+ json_filepath
+            print "Terminating recursion on",json_trace,"in",directory
+            print json_value
         return
 
 if len(sys.argv) == 1:
