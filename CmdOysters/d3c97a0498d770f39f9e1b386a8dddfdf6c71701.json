@@ -110,8 +110,23 @@
         }
     },
     "relevant-urls": [
-        "http://serverfault.com/questions/240155/how-can-i-kill-all-stopped-jobs",
-        "http://superuser.com/a/228926/219809",
-        "http://ubuntuforums.org/showthread.php?t=1954090&s=c408c62db23afe753dfcfd40f1a86e32&p=11825162#post11825162"
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://serverfault.com/questions/240155/how-can-i-kill-all-stopped-jobs",
+            "date-known-good": "2015-04-30"
+        },
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://superuser.com/a/228926/219809",
+            "date-known-good": "2015-04-30"
+        },
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://ubuntuforums.org/showthread.php?t=1954090&s=c408c62db23afe753dfcfd40f1a86e32&p=11825162#post11825162",
+            "date-known-good": "2015-04-30"
+        }
     ]
 }

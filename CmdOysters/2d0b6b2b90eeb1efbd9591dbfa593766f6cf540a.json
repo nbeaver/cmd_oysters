@@ -142,8 +142,23 @@
         }
     },
     "relevant-urls": [
-        "http://www.gnu.org/software/coreutils/faq/coreutils-faq.html#ls-_002da-_002a-does-not-list-dot-files",
-        "http://stackoverflow.com/a/699071/1608986",
-        "http://stackoverflow.com/a/2550243/1608986"
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://www.gnu.org/software/coreutils/faq/coreutils-faq.html#ls-_002da-_002a-does-not-list-dot-files",
+            "date-known-good": "2015-04-30"
+        },
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://stackoverflow.com/a/699071/1608986",
+            "date-known-good": "2015-04-30"
+        },
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://stackoverflow.com/a/2550243/1608986",
+            "date-known-good": "2015-04-30"
+        }
     ]
 }

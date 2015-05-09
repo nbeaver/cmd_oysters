@@ -88,7 +88,17 @@
         }
     },
     "relevant-urls": [
-        "http://stackoverflow.com/a/22100700",
-        "http://www.cyberciti.biz/faq/lscpu-command-find-out-cpu-architecture-information/"
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://stackoverflow.com/a/22100700",
+            "date-known-good": "2015-04-30"
+        },
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://www.cyberciti.biz/faq/lscpu-command-find-out-cpu-architecture-information/",
+            "date-known-good": "2015-04-30"
+        }
     ]
 }

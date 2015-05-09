@@ -72,7 +72,17 @@
         }
     },
     "relevant-urls": [
-        "http://unix.stackexchange.com/questions/145131/copy-image-from-clipboard-to-file",
-        "http://ubuntuforums.org/showthread.php?t=1335075"
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://unix.stackexchange.com/questions/145131/copy-image-from-clipboard-to-file",
+            "date-known-good": "2015-04-30"
+        },
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://ubuntuforums.org/showthread.php?t=1335075",
+            "date-known-good": "2015-04-30"
+        }
     ]
 }

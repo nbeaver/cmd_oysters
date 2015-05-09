@@ -44,9 +44,35 @@
         }
     },
     "relevant-urls": [
-        "http://magnatecha.com/turn-off-display-from-linux-command-line/",
-        "http://superuser.com/a/66923/219809",
-        "http://tldp.org/HOWTO/Battery-Powered/methods.html#XF86",
-        "https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling#Modifying_DPMS_and_screensaver_settings_using_xset"
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://magnatecha.com/turn-off-display-from-linux-command-line/",
+            "date-known-good": "2015-04-30"
+        },
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://superuser.com/a/66923/219809",
+            "date-known-good": "2015-04-30"
+        },
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://www.cyberciti.biz/faq/linux-how-to-find-if-processor-is-64-bit-or-not/",
+            "date-known-good": "2015-04-30"
+        },
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://tldp.org/HOWTO/Battery-Powered/methods.html#XF86",
+            "date-known-good": "2015-04-30"
+        },
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling#Modifying_DPMS_and_screensaver_settings_using_xset",
+            "date-known-good": "2015-04-30"
+        }
     ]
 }

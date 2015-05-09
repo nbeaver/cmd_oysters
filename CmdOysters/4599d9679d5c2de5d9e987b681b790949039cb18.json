@@ -155,6 +155,11 @@
         }
     },
     "relevant-urls": [
-        "http://ftp.arl.mil/mike/ping.html"
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://ftp.arl.mil/mike/ping.html",
+            "date-known-good": "2015-04-30"
+        }
     ]
 }

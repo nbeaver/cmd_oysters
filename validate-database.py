@@ -107,8 +107,8 @@ def validate_command(command, expected_description_SHA1):
             % (nominal_sha1, calculated_sha1, string))
 
     def supply_sha1(string):
-        sys.stderr.write("Warning: No SHA1 for `" + string + "'")
-        sys.stderr.write("Should be: "+hashlib.sha1(string).hexdigest())
+        sys.stderr.write("Warning: No SHA1 for `" + string + "'\n")
+        sys.stderr.write("Should be: "+hashlib.sha1(string).hexdigest()+"\n")
 
     if 'nilsimsa' in sys.modules:
         def check_nilsimsa(string, nominal_nilsimsa):
@@ -147,6 +147,22 @@ def validate_command(command, expected_description_SHA1):
         for key in command['can-modify']:
             true_false = command['can-modify'][key]
             assert_custom(type(true_false) == bool, "`"+str(true_false)+"` is not a boolean.")
+
+    if 'relevant-urls' in command.keys():
+        for url in command['relevant-urls']:
+            try:
+                check_sha1(url['url-string'], url['sha1-hex'])
+                unique_SHA1s.add(url['sha1-hex'])
+            except KeyError:
+                supply_sha1(url['url-string'])
+            except TypeError:
+                print json_filepath
+                raise
+            if 'nilsimsa' in sys.modules:
+                try:
+                    check_nilsimsa(url['url-string'], url['nilsimsa-hex'])
+                except KeyError:
+                    supply_nilsimsa(url['url-string'])
 
     try:
         check_sha1(command['description']['string'],
@@ -205,8 +221,9 @@ def validate_command(command, expected_description_SHA1):
 
 
 def match_pseudoschema(json_value, directory, json_trace="", debug=False):
-    print "jsontrace: pseudo-schema/"+json_trace
-    print "directory: "+directory
+    if debug:
+        print "jsontrace: pseudo-schema/"+json_trace
+        print "directory: "+directory
 
     def is_wildcard_field(child_name):
         # If the child starts with '$',
@@ -227,12 +244,14 @@ def match_pseudoschema(json_value, directory, json_trace="", debug=False):
         if len(directory_contents) == 1 and is_wildcard_field(directory_contents[0]):
             # This is a wildcard directory, so just continue recursing.
             next_path = os.path.join(directory, directory_contents[0])
+            print "next_path = "+next_path
             match_pseudoschema(value, next_path, json_trace+str(key)+'/', debug)
         else:
             # We're only checking that the JSON child objects are in the pseudoschema;
             # if the JSON doesn't have all of the pseudoschema, that's ok.
             if key in directory_contents:
                 next_path = os.path.join(directory, key)
+                print "next_path = "+next_path
                 match_pseudoschema(value, next_path, json_trace+str(key)+'/', debug)
             else:
                 raise ValueError, "Not in pseudoschema: "+repr(key)+" not one of "+repr(directory_contents)+"\n"+\
@@ -243,18 +262,25 @@ def match_pseudoschema(json_value, directory, json_trace="", debug=False):
                 # This will be hard, since we've already parsed the JSON.
 
     def check_JSONObject(json_object):
+        print directory
+        print type(json_object)
         for key, value in json_object.iteritems():
             check_pair(key, value)
 
     def check_JSONList(json_list):
         for item in json_list:
             directory_contents = os.listdir(directory)
+            print directory
+            print directory_contents
             next_path = os.path.join(directory, directory_contents[0])
+            print "next_path = "+next_path
+            print json_filepath
             match_pseudoschema(item, next_path, json_trace, debug)
 
     if isinstance(json_value, dict):
         check_JSONObject(json_value)
     elif isinstance(json_value, list):
+        print type(json_value)
         check_JSONList(json_value)
     else:
         # Stop recursing, since the JSON object doesn't have children.

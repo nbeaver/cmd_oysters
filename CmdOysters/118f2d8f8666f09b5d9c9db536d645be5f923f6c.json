@@ -191,9 +191,29 @@
         }
     },
     "relevant-urls": [
-        "http://lists.gnu.org/archive/html/bug-gnu-utils/2006-03/msg00000.html",
-        "https://groups.google.com/forum/#!topic/comp.unix.programmer/Auge3Bz4iCA",
-        "https://stackoverflow.com/questions/3001177/how-do-i-grep-for-all-non-ascii-characters-in-unix",
-        "http://superuser.com/questions/417305/how-can-i-identify-non-ascii-characters-from-the-shell"
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://lists.gnu.org/archive/html/bug-gnu-utils/2006-03/msg00000.html",
+            "date-known-good": "2015-04-30"
+        },
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "https://groups.google.com/forum/#!topic/comp.unix.programmer/Auge3Bz4iCA",
+            "date-known-good": "2015-04-30"
+        },
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "https://stackoverflow.com/questions/3001177/how-do-i-grep-for-all-non-ascii-characters-in-unix",
+            "date-known-good": "2015-04-30"
+        },
+        {
+            "url-nilsimsa-hex": "",
+            "url-sha1-hex": "",
+            "url-string": "http://superuser.com/questions/417305/how-can-i-identify-non-ascii-characters-from-the-shell",
+            "date-known-good": "2015-04-30"
+        }
     ]
 }

@@ -43,7 +43,13 @@
         }
     },
     "relevant-urls": [
-        "http://askubuntu.com/questions/95910/command-for-determining-my-public-ip",
-        "http://unix.stackexchange.com/questions/22615/how-can-i-get-my-external-ip-address-in-bash"
+        {
+            "url-string": "http://askubuntu.com/questions/95910/command-for-determining-my-public-ip",
+            "date-known-good": "2015-05-06"
+        },
+        {
+            "url-string": "http://unix.stackexchange.com/questions/22615/how-can-i-get-my-external-ip-address-in-bash",
+            "date-known-good": "2015-05-06"
+        }
     ]
 }
