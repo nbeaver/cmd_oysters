@@ -6,9 +6,6 @@
     "component-command-info": {
         "cd": {
             "bash-type": "builtin",
-            "debian": {
-                "executable-path": null
-            },
             "requirements-in-general": {
                 "authentication": "never",
                 "internet-connection": "never",

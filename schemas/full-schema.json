@@ -31,7 +31,7 @@
             "type": "object",
             "properties": {
               "executable-path": {
-                "type": ["string", null]
+                "type": "string"
               },
               "required-packages": {
                 "type": "array",

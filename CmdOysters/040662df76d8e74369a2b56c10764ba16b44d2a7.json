@@ -5,22 +5,13 @@
     },
     "component-command-info": {
         "do": {
-            "bash-type": "keyword",
-            "debian": {
-                "executable-path": null
-            }
+            "bash-type": "keyword"
         },
         "done": {
-            "bash-type": "keyword",
-            "debian": {
-                "executable-path": null
-            }
+            "bash-type": "keyword"
         },
         "for": {
-            "bash-type": "keyword",
-            "debian": {
-                "executable-path": null
-            }
+            "bash-type": "keyword"
         },
         "mkdir": {
             "bash-type": "file",
