@@ -6,21 +6,19 @@ TODO
 Specific items by file, in no particular order
 ----------------------------------------------
 
-- ``[*]`` Make a minimal template with only required fields (`<command-templates/minimal-template.json>`_).
+- ``[*]`` Make a minimal template with only required fields (`<templates/minimal-template.json>`_).
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-`<check-full-template.py>`_
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+`<schemas/full-schema.json>`_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- ``[*]`` Verify that all the pseudo-schema fields are in `<command-templates/full-command-template.json>`_.
+- ``[*]`` Specify required commands.
 
-~~~~~~~~~~~~~~~
-`<CmdOysters>`_
-~~~~~~~~~~~~~~~
+- ``[x]`` Make sha1-hash of related urls a required field. (Abandoned because these are not intended to be unique.)
 
-- ``[ ]`` Make sha1-hash of related urls a required field.
+- ``[*]`` Check that ``bash-type`` is one of ``keyword``, ``builtin``, or ``file``.
 
-- ``[*]`` Split `<command-database.json>`_ into individual JSON files.
+- ``[*]`` Split command database into individual JSON files.
 
 - ``[*]`` Include version numbers in "commands this shell works with/doesn't work with".
 
@@ -30,7 +28,7 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Indicate XORs in dependencies for Debian packages, e.g. ``gawk | mawk``.
 
-- ``[*]`` Use ``null`` for ``executable-path`` of shell builtins and keywords.
+- ``[x]`` Use ``null`` for ``executable-path`` of shell builtins and keywords. (Abandoned since nulls tend to cause problems.)
 
 - ``[*]`` Combine debian-paths and debian-packages into single debian tree.
 
@@ -40,7 +38,7 @@ Specific items by file, in no particular order
 
 - ``[*]`` Change ``related-invocations`` to a list of objects, not SHA-1 hashes, so that e.g. broken links to similar invocations can be found by Nilsima hash.
 
-- ``[ ]`` Change ``relevant-urls`` to a list of objects, not strings, so that e.g. additional information about the URL can be added.
+- ``[*]`` Change ``relevant-urls`` to a list of objects, not strings, so that e.g. additional information about the URL can be added.
 
 - ``[*]`` A "copying" object field.
 
@@ -53,6 +51,20 @@ Specific items by file, in no particular order
 - ``[*]`` Field for example output of command (only some of them, obviously).
 
 - ``[*]`` Change ``shell`` compatibility to a list of objects.
+
+- ``[*]`` Enumerate fields with ``yes|no|maybe`` and ``never|sometimes|always`` options.
+
+- ``[ ]`` Split it into smaller sub-schemas to avoid duplication.
+
+- ``[*]`` Take descriptions from old pseudo-schema.
+
+- ``[ ]`` Be more specific about required OS.
+
+- ``[ ]`` Be more specific about which commands require an X server.
+
+- ``[ ]`` Change ``string`` to ``invocation-string`` and ``description-string``. (Or just leave it?)
+
+- ``[ ]`` Change structure of invocations to a list of objects, so that they do not require a shell name. (Or just leave it?)
 
 
 ~~~~~~~~~~~~~~~~~~~~
@@ -91,19 +103,11 @@ Specific items by file, in no particular order
 .. _stemming: https://pythonhosted.org/Whoosh/stemming.html
 .. _lemmatising: http://marcobonzanini.com/2015/01/26/stemming-lemmatisation-and-pos-tagging-with-python-and-nltk/
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-`<pseudo-schema-notes.markdown>`_
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-- ``[*]`` Specify which fields are required.
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 `<validate-database.py>`_
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - ``[*]`` Check all the commands in component commands are substrings of the main command.
-
-- ``[ ]`` Check that ``bash-type`` is one of ``keyword``, ``builtin``, or ``file``.
 
 - ``[ ]`` Check that the commands in ``component-command-info`` are a subset of ``component-commands``.
 
@@ -113,9 +117,7 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Check for likely duplicates based on Nilsimsa hashes of both commands and descriptions.
 
-- ``[ ]`` Make a JSON schema to do at least part of this more systematically.
-  For example, the pseudo-schema does not distinguish between lists and objects;
-  they are both represented as directories.
+- ``[*]`` Make a JSON schema to do at least part of this more systematically.
 
 - ``[*]`` Check that the filename is the same as the SHA1 of the description, plus ``.json``.
 
