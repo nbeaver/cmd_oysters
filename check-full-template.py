@@ -37,6 +37,9 @@ def validate(path, json_object):
                     assert child in item, child_path+" not in "+json_file+"\nlist item: "+repr(item)
 
         if os.path.isdir(child_path):
+            print "child_path=",child_path
+            print "child=",child
+            print type(json_object)
             validate(child_path, json_object[child])
 
 validate(pseudoschema_root, command)

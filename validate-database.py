@@ -236,6 +236,7 @@ def match_pseudoschema(json_value, directory, json_trace="", debug=False):
 
     def check_pair(key, value):
         directory_contents = os.listdir(directory)
+
         if debug:
             print directory_contents
         if key not in directory_contents and debug:
