@@ -5,10 +5,10 @@ CmdOysters: shell commands with metadata.
 =========================================
 
 :Author: Nathaniel Beaver
-:Date: $Date: 2015-04-17 (Friday, 17 April 2015) $
+:Date: $Date: 2015-05-12 (Tuesday, 12 May 2015) $
 :Copyright: This document is licensed under a Creative Commons Attribution 4.0 International license.
 
-See also `<pseudo-schema-notes.markdown>`_ and `<TODO.rst>`_.
+See also `<TODO.rst>`_.
 
 .. contents::
 
@@ -443,37 +443,18 @@ appended with ``.json``.
 
 Move the JSON file into `<commands/>`_.
 
-------------------------------
-How to add new metadata fields
-------------------------------
+--------------------------------------------
+How to add new metadata fields to the schema
+--------------------------------------------
 
-Install `tree`_, `markdown`_, and `docutils`_ for generating documentation.
+Add the field to `<schemas/full-schema.json>`_.
 
-.. _tree: http://mama.indstate.edu/users/ice/tree/
-.. _markdown: http://daringfireball.net/projects/markdown/
-.. _docutils: http://docutils.sourceforge.net/
+See http://json-schema.org/documentation.html
+or
+https://spacetelescope.github.io/understanding-json-schema/
+for help on JSON schemas.
 
-On Debian, this is accomplished with::
-
-    apt-get install tree markdown python-docutils
-
-Navigate to the relevant directory in `<pseudo-schema/>`_.
-
-If the new field is an object or contains objects,
-make a new directory.
-Otherwise, make an empty file.
-
-If the field is a wildcard and permits any name,
-start it with a ``$`` (dollar sign) and use all caps,
-e.g ``$COMMAND`` or ``$ARG``.
-(The dollar sign is required, but the caps are optional).
-
-Run ``make`` to update `<pseudo-schema-tree.txt>`_.
-
-Copy over the new field to `<pseudo-schema-notes.markdown>`_
-and add a description.
-
-Note that the best metadata to include is information that is:
+Note that the best command metadata to include in a CmdOyster is information that is:
 
 - not readily available in man pages,
 
@@ -502,12 +483,9 @@ See `<TODO.rst>`_.
 
 Here are some highlights, in no particular order:
 
-- More robust validation,
-  including a proper JSON schema.
-
 - Incremental search interface.
 
-- Generate list of required packages for a given command, depending on OS.
+- Generate list of uninstalled packages for a given command, depending on OS.
 
 - Spawn a shell with the command automatically filled in and ready to edit or press enter.
 
