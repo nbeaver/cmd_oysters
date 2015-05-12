@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "can-modify": {
+      "type": "object",
+      "properties": {
+        "filesystem": {
+          "type": "boolean"
+        },
+        "other-processes": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "component-command-info": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "component-commands": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "copying": {
+      "type": "object",
+      "properties": {
+        "authors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "license-name": {
+          "type": "string"
+        },
+        "license-url": {
+          "type": "string"
+        },
+        "year": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "description": {
+      "type": "object",
+      "properties": {
+        "nilsimsa-hex": {
+          "type": "string"
+        },
+        "sha1-hex": {
+          "type": "string"
+        },
+        "string": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "invocations": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "related-commands": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "nilsimsa-hex": {
+            "type": "string"
+          },
+          "sha1-hex": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "relevant-urls": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url-nilsimsa-hex": {
+            "type": "string"
+          },
+          "url-sha1-hex": {
+            "type": "string"
+          },
+          "url-string": {
+            "type": "string"
+          },
+          "date-known-good": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "component-commands",
+    "description",
+    "invocations"
+  ]
+}
