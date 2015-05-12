@@ -61,7 +61,7 @@ def validate_command(command, expected_description_SHA1):
         try:
             assert assertion, error_string
         except AssertionError:
-            print "Error in file:", json_filepath
+            sys.stderr.write("Error in file: "+ json_filepath+'\n')
             traceback.print_exc()
             raise
 
@@ -69,8 +69,8 @@ def validate_command(command, expected_description_SHA1):
         if assertion:
             return
         else:
-            print "Warning in file: ", json_filepath
-            print error_string
+            sys.stderr.write("Warning in file: "+ json_filepath+'\n')
+            sys.stderr.write(error_string+'\n')
             pass
 
     def assert_subset(subset, superset):
@@ -86,8 +86,9 @@ def validate_command(command, expected_description_SHA1):
             % (nominal_sha1, calculated_sha1, string))
 
     def supply_sha1(string):
-        sys.stderr.write("Warning: No SHA1 for `" + string + "'\n")
-        sys.stderr.write("Should be: "+hashlib.sha1(string).hexdigest()+"\n")
+        assert_custom_warn_only(False, \
+            "Warning: No SHA1 for `" + string + "'\n"+\
+            "Should be: "+hashlib.sha1(string).hexdigest()+"\n")
 
     if 'nilsimsa' in sys.modules:
         def check_nilsimsa(string, nominal_nilsimsa):
@@ -115,18 +116,18 @@ def validate_command(command, expected_description_SHA1):
 
     if 'relevant-urls' in command.keys():
         for url in command['relevant-urls']:
-            try:
-                check_sha1(url['url-string'], url['sha1-hex'])
-                unique_SHA1s.add(url['sha1-hex'])
-            except KeyError:
+            if 'url-sha1-hex' in url.keys():
+                check_sha1(url['url-string'], url['url-sha1-hex'])
+                # We don't add check these SHA-1 hashe for uniqueness
+                # because two different commands might link to the same URI,
+                # and that's ok.
+            else:
                 supply_sha1(url['url-string'])
-            except TypeError:
-                print json_filepath
-                raise
+
             if 'nilsimsa' in sys.modules:
-                try:
-                    check_nilsimsa(url['url-string'], url['nilsimsa-hex'])
-                except KeyError:
+                if 'url-nilsimsa-hex' in url.keys():
+                    check_nilsimsa(url['url-string'], url['url-nilsimsa-hex'])
+                else:
                     supply_nilsimsa(url['url-string'])
 
     try:
@@ -138,7 +139,7 @@ def validate_command(command, expected_description_SHA1):
 
     assert_custom_warn_only(expected_description_SHA1 == hashlib.sha1(command['description']['string']).hexdigest(),
         "Filename does not match SHA1 of description.\n" + \
-        "Should be: " + hashlib.sha1(command['description']['string']).hexdigest())
+        "Should be: " + str(hashlib.sha1(command['description']['string']).hexdigest()) + ".json")
 
     if 'nilsimsa' in sys.modules:
         try:
@@ -185,7 +186,7 @@ def validate_command(command, expected_description_SHA1):
         validate_invocation(invocation_dict)
 
 if len(sys.argv) == 1:
-    print "Usage: python "+sys.argv[0]+" path-to-json-files/"
+    sys.stderr.write("Usage: python "+sys.argv[0]+" path-to-json-files/"+'\n')
     sys.exit(1)
 
 unique_SHA1s = NoDuplicates()
@@ -201,13 +202,13 @@ for i, json_filepath in enumerate(json_filepaths):
         try:
             json_data = json.load(json_file)
         except:
-            print "Invalid JSON in file: `"+json_file.name+"'"
+            sys.stderr.write("Invalid JSON in file: `"+json_file.name+"'"+'\n')
             raise
         basename_no_extension = os.path.splitext(os.path.basename(json_file.name))[0]
         try:
             jsonschema.validate(json_data, full_schema)
         except jsonschema.exceptions.ValidationError:
-            print filepath
+            sys.stderr.write(json_file.name+'\n')
             raise
         validate_command(json_data, basename_no_extension)
         num_invocations += count_invocations(json_data)
