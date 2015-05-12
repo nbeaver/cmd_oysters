@@ -1,5 +1,6 @@
-all : command_database check_json README.html TODO.html
-.PHONY : command_database check_json
+all : all_json README.html TODO.html
+all_json: cmd_oyster_templates cmd_oysters
+.PHONY : all_json cmd_oyster_templates cmd_oysters
 
 command_database : find-command.py CmdOysters/
 	python find-command.py --substring 'ping -i' > /dev/null
@@ -9,8 +10,10 @@ command_database : find-command.py CmdOysters/
 	python find-command.py --substring 'ping -i' --commands ping espeak sed --tokens '|' sed localhost ping --description 'audible voice' > /dev/null
 	python find-command.py --description-tokens ping generates seconds > /dev/null
 
-check_json : validate-database.py CmdOysters/ templates/ schemas/full-schema.json
+cmd_oysters : validate-database.py CmdOysters/ schemas/full-schema.json
 	python validate-database.py CmdOysters/
+
+cmd_oyster_templates : validate-database.py CmdOysters/ schemas/full-schema.json
 	python validate-database.py templates/
 
 README.html : README.rst
