@@ -6,9 +6,6 @@
     "component-command-info": {
         "jobs": {
             "bash-type": "builtin",
-            "debian": {
-                "executable-path": null
-            },
             "requirements-in-general": {
                 "authentication": "never",
                 "internet-connection": "never",
@@ -17,9 +14,6 @@
         },
         "kill": {
             "bash-type": "builtin",
-            "debian": {
-                "executable-path": null
-            },
             "requirements-in-general": {
                 "authentication": "sometimes",
                 "internet-connection": "never",

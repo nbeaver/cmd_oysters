@@ -80,7 +80,6 @@
                 },
                 "localhost": {
                     "component-command": "ping",
-                    "component-command-flag": null,
                     "description-string": "IPv4 address or fully qualified domain name.",
                     "invocation-slice": [
                         10,

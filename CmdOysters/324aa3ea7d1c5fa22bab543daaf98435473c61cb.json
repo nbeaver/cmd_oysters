@@ -37,7 +37,6 @@
     },
     "invocations": {
         "POSIX": {
-            "changeable-arguments": null,
             "nilsimsa-hex": "8374e121c48c68c95f74590404c5446692e20d19f5fa514977662ab1aca71809",
             "sha1-hex": "cc1938fb35ff47f16a237a9c6cd68add2aa6f4fd",
             "string": "xset dpms force standby"
