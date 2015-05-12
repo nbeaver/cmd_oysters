@@ -44,32 +44,32 @@
     },
     "relevant-urls": [
         {
-            "url-nilsimsa-hex": "",
-            "url-sha1-hex": "",
+            "url-nilsimsa-hex": "cca60bb3e68ce4fc2ff236ab4feebca8678565efadf82343aeddc27e269b2c32",
+            "url-sha1-hex": "15d213217a71ca0b74987214297ffc96e0af5acb",
             "url-string": "http://magnatecha.com/turn-off-display-from-linux-command-line/",
             "date-known-good": "2015-04-30"
         },
         {
-            "url-nilsimsa-hex": "",
-            "url-sha1-hex": "",
+            "url-nilsimsa-hex": "bddeffea8ddbb1b59453eda6db0aecc2fd9bc7d51cf61fbeb77fcefaef77afb0",
+            "url-sha1-hex": "e9b86330e870109f0ef0fb11dca4d18d68f55f89",
             "url-string": "http://superuser.com/a/66923/219809",
             "date-known-good": "2015-04-30"
         },
         {
-            "url-nilsimsa-hex": "",
-            "url-sha1-hex": "",
+            "url-nilsimsa-hex": "59aae1319110c40fd613a6a61d732fa929c623baa8d0ab4008f9284f228505ca",
+            "url-sha1-hex": "11a35de5b6c3367fb96afdffb3e2aa5de9a777ff",
             "url-string": "http://www.cyberciti.biz/faq/linux-how-to-find-if-processor-is-64-bit-or-not/",
             "date-known-good": "2015-04-30"
         },
         {
-            "url-nilsimsa-hex": "",
-            "url-sha1-hex": "",
+            "url-nilsimsa-hex": "bfe8bfe9f0769bfb7c6772622f679050ef4b660c4c8c511f6000d87f4a419211",
+            "url-sha1-hex": "01581fa9e93b91f5b8a7c1391e949b7deb777ae2",
             "url-string": "http://tldp.org/HOWTO/Battery-Powered/methods.html#XF86",
             "date-known-good": "2015-04-30"
         },
         {
-            "url-nilsimsa-hex": "",
-            "url-sha1-hex": "",
+            "url-nilsimsa-hex": "f15355b0acdab1b9bee5bb94066670806b0b4f845f1322a25f7a86d4fd3fb23f",
+            "url-sha1-hex": "65279d37ecefc250d0ec50d609b6ae711062eb61",
             "url-string": "https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling#Modifying_DPMS_and_screensaver_settings_using_xset",
             "date-known-good": "2015-04-30"
         }

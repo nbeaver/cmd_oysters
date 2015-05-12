@@ -192,26 +192,26 @@
     },
     "relevant-urls": [
         {
-            "url-nilsimsa-hex": "",
-            "url-sha1-hex": "",
+            "url-nilsimsa-hex": "4080bb110211f908a31e0270f1001604e0d061483414a9aa4c41e07d0309082f",
+            "url-sha1-hex": "fd24214c7a8d4188f9201cb5366da312b98cd918",
             "url-string": "http://lists.gnu.org/archive/html/bug-gnu-utils/2006-03/msg00000.html",
             "date-known-good": "2015-04-30"
         },
         {
-            "url-nilsimsa-hex": "",
-            "url-sha1-hex": "",
+            "url-nilsimsa-hex": "5a000d0a34b4645c5280a1b96340686a47d17aed39170266102ca28a4c208002",
+            "url-sha1-hex": "378313cfb8ae9abe444d304d4d7b4904641719a4",
             "url-string": "https://groups.google.com/forum/#!topic/comp.unix.programmer/Auge3Bz4iCA",
             "date-known-good": "2015-04-30"
         },
         {
-            "url-nilsimsa-hex": "",
-            "url-sha1-hex": "",
+            "url-nilsimsa-hex": "b8f9b409479163d62fe8edf2d19c32838db97db51da61cc7630fbbef2cff11eb",
+            "url-sha1-hex": "af012f8aeffe8b95af828877e98196ec60e04a8a",
             "url-string": "https://stackoverflow.com/questions/3001177/how-do-i-grep-for-all-non-ascii-characters-in-unix",
             "date-known-good": "2015-04-30"
         },
         {
-            "url-nilsimsa-hex": "",
-            "url-sha1-hex": "",
+            "url-nilsimsa-hex": "b9d8bf9d0503671608f9b9bec39828832818ded5d8ea9787620fc3a22f0638e7",
+            "url-sha1-hex": "0cc81af19f9953b0b808bd42b001419602609394",
             "url-string": "http://superuser.com/questions/417305/how-can-i-identify-non-ascii-characters-from-the-shell",
             "date-known-good": "2015-04-30"
         }

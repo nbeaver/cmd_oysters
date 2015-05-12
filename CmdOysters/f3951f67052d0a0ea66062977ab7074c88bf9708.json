@@ -207,8 +207,8 @@
     },
     "relevant-urls": [
         {
-            "url-nilsimsa-hex": "",
-            "url-sha1-hex": "",
+            "url-nilsimsa-hex": "90483b4430983108a141a6348062408143aecc381f313082356a3042408a1c06",
+            "url-sha1-hex": "6dbc0a43bb7066dfc8d8b3b82c8b7176168fa299",
             "url-string": "https://wiki.archlinux.org/index.php/Zsh#Making_Zsh_your_default_shell",
             "date-known-good": "2015-04-30"
         }
