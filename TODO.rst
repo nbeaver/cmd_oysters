@@ -66,6 +66,7 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Change structure of invocations to a list of objects, so that they do not require a shell name. (Or just leave it?)
 
+- ``[ ]`` Add a ``comment`` field to each invocation.
 
 ~~~~~~~~~~~~~~~~~~~~
 `<find-command.py>`_
@@ -123,6 +124,14 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Check that the fields are in alphanumeric order.
 
+- ``[ ]`` Correct the SHA1 and Nilsimsa values automatically, prompting before writing them out to file.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+`<templates/full-command-template.json>`_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- ``[ ]`` Ensure that every field in the schema is in this template.
+
 -----------------------------------
 Non-specific notes and observations
 -----------------------------------
@@ -167,3 +176,5 @@ Non-specific notes and observations
   but the Nilsimsa hash helps.
 
 - What is the best way to handle commands that are the same but have different executable names due to forking, e.g. ``avconv`` and ``ffmpeg``?
+
+- Would be good to differentiate commands that can be run as-is, and commands that need different arguments.
