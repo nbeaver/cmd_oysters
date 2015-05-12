@@ -16,14 +16,74 @@
     },
     "component-command-info": {
       "type": "object",
-      "properties": {},
-      "additionalProperties": false
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "bash-type": {
+            "type": "string",
+            "enum": [
+              "builtin",
+              "file",
+              "keyword"
+            ]
+          },
+          "debian": {
+            "type": "object",
+            "properties": {
+              "executable-path": {
+                "type": ["string", null]
+              },
+              "required-packages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "additionalItems": false
+              }
+            },
+            "additionalProperties": false
+          },
+          "requirements-in-general": {
+            "type": "object",
+            "properties": {
+              "authentication": {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never",
+                  "sometimes"
+                ]
+              },
+              "internet-connection": {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never",
+                  "sometimes"
+                ]
+              },
+              "sudo": {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never",
+                  "sometimes"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
     },
     "component-commands": {
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "minItems": 1,
+      "uniqueItems": true
     },
     "copying": {
       "type": "object",
@@ -63,8 +123,160 @@
     },
     "invocations": {
       "type": "object",
-      "properties": {},
-      "additionalProperties": false
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "changeable-arguments": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "component-command": {
+                  "type": "string"
+                },
+                "component-command-flag": {
+                  "type": "string"
+                },
+                "description-string": {
+                  "type": "string"
+                },
+                "invocation-slice": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ],
+                  "additionalItems": false
+                },
+                "subtype": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "boolean",
+                    "float",
+                    "integer",
+                    "string"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "command-requirements-as-invoked": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "authentication": {
+                  "type": "string",
+                  "enum": [
+                    "yes",
+                    "no",
+                    "maybe"
+                  ]
+                },
+                "internet-connection": {
+                  "type": "string",
+                  "enum": [
+                    "yes",
+                    "no",
+                    "maybe"
+                  ]
+                },
+                "sudo": {
+                  "type": "string",
+                  "enum": [
+                    "yes",
+                    "no",
+                    "maybe"
+                  ]
+                },
+                "versions-tested": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "additionalItems": false
+                },
+                "version-specifier": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "example-outputs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "additionalItems": false
+          },
+          "nilsimsa-hex": {
+            "type": "string"
+          },
+          "related-invocations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "nilsimsa-hex": {
+                  "type": "string"
+                },
+                "sha1-hex": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "additionalItems": false
+          },
+          "sha1-hex": {
+            "type": "string"
+          },
+          "shell-compatibility": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "compatible-version-specifier": {
+                  "type": "string"
+                },
+                "compatible-versions-tested": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "additionalItems": false
+                },
+                "incompatible-version-specifier": {
+                  "type": "string"
+                },
+                "incompatible-versions-tested": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "additionalItems": false
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "string": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
     },
     "related-commands": {
       "type": "array",
