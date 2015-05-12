@@ -18,6 +18,8 @@ Specific items by file, in no particular order
 `<CmdOysters>`_
 ~~~~~~~~~~~~~~~
 
+- ``[ ]`` Make sha1-hash of related urls a required field.
+
 - ``[*]`` Split `<command-database.json>`_ into individual JSON files.
 
 - ``[*]`` Include version numbers in "commands this shell works with/doesn't work with".
