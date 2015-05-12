@@ -1,6 +1,5 @@
-all : command_database check_json docs
-.PHONY : command_database check_json docs
-docs: README.html TODO.html
+all : command_database check_json README.html TODO.html
+.PHONY : command_database check_json
 
 command_database : find-command.py CmdOysters/
 	python find-command.py --substring 'ping -i' > /dev/null
