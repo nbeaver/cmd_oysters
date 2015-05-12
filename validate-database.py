@@ -1,5 +1,6 @@
 #! /usr/bin/env python2
 import json
+import jsonschema
 import hashlib
 import sys
 import os
@@ -78,28 +79,6 @@ def validate_command(command, expected_description_SHA1):
     def assert_in(A, B):
         assert_custom(A in B, repr(A)+ "is not in " + repr(B))
 
-
-    # Required fields.
-    def required_field(field, field_list):
-        assert_custom(field in field_list, "Error: required field `"+field+"` not in "+repr(field_list))
-
-    required_field('description', command)
-    required_field('string', command['description'])
-
-    def recommended_field(field, field_list=None):
-        if field_list:
-            assert_custom_warn_only(field in field_list, "Warning: recommended field `"+field+"` not in "+repr(field_list))
-        else:
-            assert_custom_warn_only(False, "Warning: recommended field `"+field+"` not present.")
-    try:
-        # We don't need .keys(), but it makes the warnings less verbose.
-        recommended_field('authors', command['copying'].keys())
-        recommended_field('license-name', command['copying'].keys())
-        recommended_field('license-url', command['copying'].keys())
-        recommended_field('year', command['copying'].keys())
-    except KeyError:
-        recommended_field('copying')
-
     def check_sha1(string, nominal_sha1):
         calculated_sha1 = hashlib.sha1(string).hexdigest()
         assert_custom(nominal_sha1 == calculated_sha1, \
@@ -123,30 +102,16 @@ def validate_command(command, expected_description_SHA1):
                 "Should be: "+nilsimsa.Nilsimsa(string).hexdigest()+"\n")
 
     if 'component-command-info' in command.keys():
-        #TODO: make this less of a horrific mess.
 
         assert_subset(set(command['component-command-info'].keys()), set(command['component-commands']))
 
         for command_name, info in command['component-command-info'].iteritems():
             for info_key, info_item in info.iteritems():
-                if info_key == 'bash-type':
-                    bash_types = set(['alias', 'builtin', 'file', 'function', 'keyword',"builtin | keyword | file"])
-                    assert_in(info_item, bash_types)
 
-                elif info_key == 'debian':
+                if info_key == 'debian':
                     if 'executable-path' in info_item.keys() and info_item['executable-path']:
                         # e.g. `ls` is in `/bin/ls`
                         assert_in(command_name, info_item['executable-path'])
-                elif info_key == 'requirements-in-general':
-                    for requirement, incidence in info_item.iteritems():
-                        frequencies = set(['always', 'sometimes', 'never', "always | sometimes | never"])
-                        assert_in(incidence, frequencies)
-
-    if 'can-modify' in command.keys():
-        # Make sure these are all booleans.
-        for key in command['can-modify']:
-            true_false = command['can-modify'][key]
-            assert_custom(type(true_false) == bool, "`"+str(true_false)+"` is not a boolean.")
 
     if 'relevant-urls' in command.keys():
         for url in command['relevant-urls']:
@@ -219,78 +184,6 @@ def validate_command(command, expected_description_SHA1):
 
         validate_invocation(invocation_dict)
 
-
-def match_pseudoschema(json_value, directory, json_trace="", debug=False):
-    if debug:
-        print "jsontrace: pseudo-schema/"+json_trace
-        print "directory: "+directory
-
-    def is_wildcard_field(child_name):
-        # If the child starts with '$',
-        # e.g. "$COMMAND",
-        # it is a wildcard.
-        if child_name[0] == '$':
-            return True
-        else:
-            return False
-
-    def check_pair(key, value):
-        directory_contents = os.listdir(directory)
-
-        if debug:
-            print directory_contents
-        if key not in directory_contents and debug:
-            print "Error! key="+repr(key)+" not in",directory_contents
-            print "value=",value
-        if len(directory_contents) == 1 and is_wildcard_field(directory_contents[0]):
-            # This is a wildcard directory, so just continue recursing.
-            next_path = os.path.join(directory, directory_contents[0])
-            print "next_path = "+next_path
-            match_pseudoschema(value, next_path, json_trace+str(key)+'/', debug)
-        else:
-            # We're only checking that the JSON child objects are in the pseudoschema;
-            # if the JSON doesn't have all of the pseudoschema, that's ok.
-            if key in directory_contents:
-                next_path = os.path.join(directory, key)
-                print "next_path = "+next_path
-                match_pseudoschema(value, next_path, json_trace+str(key)+'/', debug)
-            else:
-                raise ValueError, "Not in pseudoschema: "+repr(key)+" not one of "+repr(directory_contents)+"\n"+\
-                    "pseudoschema directory: "+directory+"\n"+\
-                    "JSON trace: "+json_trace+"\n"+\
-                    "Error in file: "+ json_filepath
-                # TODO: Figure out a way to trace back to the line of the original JSON file.
-                # This will be hard, since we've already parsed the JSON.
-
-    def check_JSONObject(json_object):
-        print directory
-        print type(json_object)
-        for key, value in json_object.iteritems():
-            check_pair(key, value)
-
-    def check_JSONList(json_list):
-        for item in json_list:
-            directory_contents = os.listdir(directory)
-            print directory
-            print directory_contents
-            next_path = os.path.join(directory, directory_contents[0])
-            print "next_path = "+next_path
-            print json_filepath
-            match_pseudoschema(item, next_path, json_trace, debug)
-
-    if isinstance(json_value, dict):
-        check_JSONObject(json_value)
-    elif isinstance(json_value, list):
-        print type(json_value)
-        check_JSONList(json_value)
-    else:
-        # Stop recursing, since the JSON object doesn't have children.
-        if debug:
-            print "in file: "+ json_filepath
-            print "Terminating recursion on",json_trace,"in",directory
-            print json_value
-        return
-
 if len(sys.argv) == 1:
     print "Usage: python "+sys.argv[0]+" path-to-json-files/"
     sys.exit(1)
@@ -299,6 +192,10 @@ unique_SHA1s = NoDuplicates()
 num_invocations = 0
 root_directory = sys.argv[1]
 json_filepaths = glob.glob(root_directory + "/*.json")
+
+#TODO: pass this as a parameter with `--schema` instead of hard-coding it.
+full_schema = json.load(open("schemas/full-schema.json"))
+
 for i, json_filepath in enumerate(json_filepaths):
     with open(json_filepath) as json_file:
         try:
@@ -307,8 +204,12 @@ for i, json_filepath in enumerate(json_filepaths):
             print "Invalid JSON in file: `"+json_file.name+"'"
             raise
         basename_no_extension = os.path.splitext(os.path.basename(json_file.name))[0]
+        try:
+            jsonschema.validate(json_data, full_schema)
+        except jsonschema.exceptions.ValidationError:
+            print filepath
+            raise
         validate_command(json_data, basename_no_extension)
-        match_pseudoschema(json_data, "pseudo-schema/")
         num_invocations += count_invocations(json_data)
 
 num_commands = i + 1 # enumerate starts from 0.
