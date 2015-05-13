@@ -60,9 +60,9 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Be more specific about required OS.
 
-- ``[ ]`` Be more specific about non-OS dependencies, e.g. which commands require an X server.
+- ``[ ]`` Be more specific about other non-command dependencies, e.g. which commands require an X server.
 
-- ``[x]`` Change ``string`` to ``invocation-string`` and ``description-string``. (Abandoned because it makes validation harder.)
+- ``[x]`` Change ``string`` to ``invocation-string`` and ``description-string``. This makes ad-hoc grepping easier. (Abandoned because it makes validation code messier.)
 
 - ``[*]`` Change structure of invocations to a list of objects, so that they do not require a shell name.
 

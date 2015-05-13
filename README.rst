@@ -27,7 +27,7 @@ This is an example of the contents of a minimal but valid CmdOyster JSON file::
             "string": "List contents of a directory."
         },
         "invocations": {
-            "POSIX" : {
+            {
                 "sha1-hex": "ebfdec641529d4b59a54e18f8b0e9730f85939fb",
                 "string": "ls"
             }
@@ -153,13 +153,13 @@ Compatibility metadata
 ~~~~~~~~~~~~~~~~~~~~~~
 
 The metadata about the commands should indicate which shells they are compatible with,
-and what their dependencies are (e.g. a list of required Debian packages, or at least URLs).
+and what their dependencies are (e.g. a list of required Debian packages).
 
-CmdOysters permit multiple invocations,
-so if one version of a command only works in ``bash``,
-another only works with ``zsh``,
+CmdOysters permit multiple invocations.
+If one version of a command uses ``bash``-only extensions,
+another version only works with ``zsh``,
 and another works with any POSIX-conformant shell,
-all three versions can be stored in the same CmdOyster,
+all three versions can still be stored in the same CmdOyster,
 provided each invocation uses the same `component commands`_.
 
 .. _component commands: `What does the term "component command" refer to?`_
@@ -258,7 +258,7 @@ but there are some things it lacks or was never designed to have, such as:
 #. Metadata and search based on metadata.
 #. Cross-referencing.
 #. Unique (SHA-1) and string similarity (Nilsimsa) hashes of command invocations.
-#. Explicit licensing.
+#. Explicit open-source licensing.
 
 In addition, the focus of Commandlinefu is in providing a platform for commenting and upvoting,
 which is a different focus than a custom repository of specialized shell commands,
@@ -321,7 +321,7 @@ These are said to be equivalent invocations of the same command.
 
 If there is a similar command that uses different component commands,
 it must be listed as a different command,
-not an equivalent invocation:
+not an equivalent invocation;
 e.g. ``unlink -`` will accomplish the same thing as ``rm ./-``,
 but it must be listed as a different command.
 
@@ -404,7 +404,6 @@ It may seem strange to have a license for what amounts to one line of code,
 but the command invocation is just one part of a JSON document that could be construed as a creative work,
 so an explicit grant of copyright is always better than an ambiguous one.
 
-
 The `extent to which metadata is copyrightable`_ varies by country and is still somewhat controversial,
 so while the license field is not strictly required for a valid CmdOyster,
 it is strongly encouraged to ensure others may copy and modify the CmdOysters without fear of infringement or litigation.
@@ -485,7 +484,7 @@ Here are some highlights, in no particular order:
 
 - Incremental search interface.
 
-- Generate list of uninstalled packages for a given command, depending on OS.
+- Generate list of required packages that need to be installed to use a given command, depending on OS.
 
 - Spawn a shell with the command automatically filled in and ready to edit or press enter.
 
