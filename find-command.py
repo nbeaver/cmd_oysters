@@ -52,21 +52,32 @@ for filename in json_filenames:
         if not lowercase_subset(args.description_tokens, tokens(command['description']['string'])):
             continue
 
-    for invocation in command['invocations'].keys():
-        command_string = command['invocations'][invocation]['string']
+    matching_invocations = []
+    for invocation in command['invocations']:
+        invocation_string = invocation['string']
         if args.substring:
-            if not args.substring in command_string:
+            if not args.substring in invocation_string :
                 # This doesn't match, so try the next invocation.
                 continue
         if args.tokens:
-            invocation_tokens = command_string.split()
+            invocation_tokens = invocation_string.split()
             if not set(args.tokens).issubset(set(invocation_tokens)):
                 # At least one of the query tokens doesn't match,
                 # so try the next invocation.
                 continue
         # At this point, the command must be a match.
-        # TODO: break the description on 80 lines,
-        # and add a comment character at each point.
+        if 'comment' in invocation.keys():
+            matching_invocations.append((invocation_string, invocation['comment']))
+        else:
+            matching_invocations.append((invocation_string, None))
+
+
+    if len(matching_invocations) > 0:
         print '# ' + filename
-        print '# ' + invocation + ': ' + command['description']['string']
-        print command_string
+        # TODO: break the description on 80 lines (without splitting words),
+        # and add a comment character at each point.
+        print '# ' + command['description']['string']
+        for invocation_string, comment in matching_invocations:
+            if comment:
+                print '# ' + comment
+            print invocation_string
