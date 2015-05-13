@@ -35,8 +35,8 @@
         "sha1-hex": "c3248866c4ec72d23e3912e1589e1781fd9b92e5",
         "string": "Find files in your home directory that you don't own."
     },
-    "invocations": {
-        "POSIX": {
+    "invocations": [
+        {
             "changeable-arguments": {
                 "$HOME": {
                     "component-command": "find",
@@ -64,5 +64,5 @@
             "sha1-hex": "1648be79c2a5b366c37d0ec72d20736fcbf5566d",
             "string": "find $HOME ! -user $USER"
         }
-    }
+    ]
 }

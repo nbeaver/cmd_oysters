@@ -19,8 +19,8 @@
         "sha1-hex": "10fb1d782f10eb50f61349f4a2973362319ebb87",
         "string": "Compress a file using gzip without removing the original file."
     },
-    "invocations": {
-        "POSIX": {
+    "invocations": [
+        {
             "changeable-arguments": {
                 "file": {
                     "description-string": "Path to file to be compressed.",
@@ -45,7 +45,7 @@
             "sha1-hex": "f5b9d9dd13a9e49a65f0f455be0666a96229a049",
             "string": "gzip < file > file.gz"
         },
-        "POSIX-recent-version": {
+        {
             "command-requirements-as-invoked": {
                 "gzip": {
                     "version-specifier": "1.6 or later"
@@ -55,7 +55,7 @@
             "sha1-hex": "d0ae2509d0086c92567e0183864d95be97f50f17",
             "string": "gzip -k file"
         },
-        "POSIX-recent-version-long-flags": {
+        {
             "command-requirements-as-invoked": {
                 "gzip": {
                     "version-specifier": "1.6 or later"
@@ -65,7 +65,7 @@
             "sha1-hex": "f521f470f90f4811c2d0ca70741d3254ce4eee6f",
             "string": "gzip --keep file"
         }
-    },
+    ],
     "relevant-urls": [
         {
             "date-known-good": "2015-05-12",

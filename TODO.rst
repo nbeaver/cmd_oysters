@@ -64,9 +64,9 @@ Specific items by file, in no particular order
 
 - ``[x]`` Change ``string`` to ``invocation-string`` and ``description-string``. (Abandoned because it makes validation harder.)
 
-- ``[ ]`` Change structure of invocations to a list of objects, so that they do not require a shell name.
+- ``[*]`` Change structure of invocations to a list of objects, so that they do not require a shell name.
 
-- ``[ ]`` Add a ``comment`` field to each invocation.
+- ``[*]`` Add a ``comment`` field to each invocation.
 
 - ``[*]`` Change ``url-string`` to just ``string`` for consistency.
 
@@ -131,6 +131,8 @@ Specific items by file, in no particular order
 - ``[ ]`` Check that the fields are in alphanumeric order.
 
 - ``[ ]`` Correct the SHA1 and Nilsimsa values automatically, prompting before writing them out to file.
+
+- ``[ ]`` Figure out some way to do fine-grained validation, so once a CmdOyster has been checked, it won't be checked again until it changes.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 `<templates/full-command-template.json>`_

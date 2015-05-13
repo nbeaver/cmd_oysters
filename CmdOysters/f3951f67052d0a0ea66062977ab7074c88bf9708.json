@@ -46,8 +46,9 @@
         "sha1-hex": "f3951f67052d0a0ea66062977ab7074c88bf9708",
         "string": "Change the default shell of the current user to zsh."
     },
-    "invocations": {
-        "bash": {
+    "invocations": [
+        {
+            "comment": "Short flag.",
             "changeable-arguments": {
                 "$(which zsh)": {
                     "component-command": "chsh",
@@ -132,7 +133,8 @@
             "sha1-hex": "afcf173a92b8a8b580cfbf6616ba1ce2482cf501",
             "string": "chsh -s $(which zsh) $USER"
         },
-        "bash-long-flags": {
+        {
+            "comment": "Long flag.",
             "changeable-arguments": {
                 "$(which zsh)": {
                     "component-command": "chsh",
@@ -204,7 +206,7 @@
             },
             "string": "chsh --shell $(which zsh) $USER"
         }
-    },
+    ],
     "relevant-urls": [
         {
             "nilsimsa-hex": "90483b4430983108a141a6348062408143aecc381f313082356a3042408a1c06",

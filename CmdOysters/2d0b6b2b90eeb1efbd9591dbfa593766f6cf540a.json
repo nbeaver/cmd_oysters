@@ -15,8 +15,9 @@
         "sha1-hex": "2d0b6b2b90eeb1efbd9591dbfa593766f6cf540a",
         "string": "List hidden files and folders (dotfiles)."
     },
-    "invocations": {
-        "bash": {
+    "invocations": [
+        {
+            "comment": "Uses bash globbing with short flags.",
             "nilsimsa-hex": "5a1d404958840221c5c0020011053b3049d024094940003e025b6403b8005230",
             "sha1-hex": "41c50a75714eafa9176f7133ce46be179a2df4b3",
             "shell-compatibility": {
@@ -78,7 +79,8 @@
             },
             "string": "ls -d -- .[^.]*"
         },
-        "bash-long-flags": {
+        {
+            "comment": "Bash globbing with long flags.",
             "nilsimsa-hex": "1edddb03d98c0f6d6fb41a991f0517943bf32e8d7902249e2778f6b3a01844b0",
             "sha1-hex": "11a8677bbc4b7dc77c04e95436d6f36ae64c587f",
             "shell-compatibility": {
@@ -140,7 +142,7 @@
             },
             "string": "ls --directory -- .[^.]*"
         }
-    },
+    ],
     "relevant-urls": [
         {
             "nilsimsa-hex": "e5156270c10619d1e5820210e03a8181028260885ce2718508d10c6d12202ca1",

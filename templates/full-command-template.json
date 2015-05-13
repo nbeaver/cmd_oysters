@@ -35,8 +35,9 @@
         "sha1-hex": "ec85ca7e10b5c541308ce6f7c79393438f973f5d",
         "string": "Exhaustive CmdOyster template."
     },
-    "invocations": {
-        "$INVOCATION" : {
+    "invocations": [
+        {
+            "comment": "This is the only invocation, but it works just fine.",
             "changeable-arguments": {
                 "$ARG": {
                     "component-command": "$COMMAND",
@@ -86,7 +87,7 @@
             },
             "string": "$COMMAND $FLAG $ARG"
         }
-    },
+    ],
     "related-commands": [
         {
             "nilsimsa-hex": "0000000000000000000000000000000000000000000000000000000000000000",

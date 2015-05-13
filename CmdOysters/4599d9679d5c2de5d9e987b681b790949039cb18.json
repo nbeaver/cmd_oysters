@@ -65,8 +65,9 @@
         "sha1-hex": "4599d9679d5c2de5d9e987b681b790949039cb18",
         "string": "Generates audible voice that says 'ping' every time it gets an an ICMP ECHO_RESPONSE, sent in intervals of 2 seconds."
     },
-    "invocations": {
-        "POSIX": {
+    "invocations": [
+        {
+            "comment": "Invocation with short flags.",
             "changeable-arguments": {
                 "2": {
                     "component-command": "ping",
@@ -109,7 +110,8 @@
             "sha1-hex": "20f8aae762b461782e9adea7e49db01046fb0c3f",
             "string": "ping -i 2 localhost | sed -u 's/.*/ping/' | espeak"
         },
-        "POSIX-long-flags": {
+        {
+            "comment": "Invocation with long flags.",
             "changeable-arguments": {
                 "2": {
                     "component-command": "ping",
@@ -152,7 +154,7 @@
             "sha1-hex": "320ba9096161c69d6513e0d906155ff7e346d325",
             "string": "ping -i 2 localhost | sed --unbuffered 's/.*/ping/' | espeak"
         }
-    },
+    ],
     "relevant-urls": [
         {
             "nilsimsa-hex": "ad7efb60a4ff795e37f7b9b2bfec08bff51266cfebda1b2eef035af74794f3b7",

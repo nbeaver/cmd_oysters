@@ -35,8 +35,9 @@
         "sha1-hex": "2e1ca763ebea072b02b583a7a91af95abfacf31f",
         "string": "Save copied image to file."
     },
-    "invocations": {
-        "POSIX": {
+    "invocations": [
+        {
+            "comment": "Works with any POSIX shell.",
             "changeable-arguments": {
                 "out.png": {
                     "component-command": "xclip",
@@ -53,7 +54,8 @@
             "sha1-hex": "e44dd9a6721b775889264363cbfa49d7c3dd6fda",
             "string": "xclip -selection clipboard -t image/png -o > out.png"
         },
-        "POSIX-long-flags": {
+        {
+            "comment": "Works with any POSIX shell; long flags version.",
             "changeable-arguments": {
                 "out.png": {
                     "component-command": "xclip",
@@ -70,7 +72,7 @@
             "sha1-hex": "331cbf7a000cea9d941670504c916d1bf7f197b3",
             "string": "xclip -selection clipboard -target image/png -out > out.png"
         }
-    },
+    ],
     "relevant-urls": [
         {
             "nilsimsa-hex": "aed6bb4080116930862d0d6ae71402e1ed8d94cda8e46364045993c68281917b",

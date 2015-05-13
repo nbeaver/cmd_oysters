@@ -42,22 +42,20 @@
       "additionalProperties": false
     },
     "invocations": {
-      "type": "object",
-      "properties": {
-        "POSIX": {
-          "type": "object",
-          "properties": {
-            "sha1-hex": {
-              "type": "string"
-            },
-            "string": {
-              "type": "string"
-            }
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "sha1-hex": {
+            "type": "string"
           },
-          "additionalProperties": false
-        }
-      },
-      "additionalProperties": false
+          "string": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
     }
   },
   "additionalProperties": false,

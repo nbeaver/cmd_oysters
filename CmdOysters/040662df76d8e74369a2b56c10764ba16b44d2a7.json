@@ -62,8 +62,8 @@
         "sha1-hex": "040662df76d8e74369a2b56c10764ba16b44d2a7",
         "string": "For each file ending with '.pdf' in the current directory, extract the images from the pdf file into a new directory with the name of the file stripped of '.pdf'."
     },
-    "invocations": {
-        "bash": {
+    "invocations": [
+        {
             "changeable-arguments": {
                 "\"${f%.*}\"": {
                     "description-string": "Filename of PDF with '.pdf' stripped off. Used as the directory to store the images and image-root for image filenames.",
@@ -131,5 +131,5 @@
             "sha1-hex": "69eb231e93a2ec3f9ad6fdbcfede4fba0cbe6b15",
             "string": "for f in *.pdf; do dir=\"${f%.*}\"; mkdir -p \"$dir\" && pdfimages -j \"$f\" \"$dir/$dir\"; done"
         }
-    }
+    ]
 }

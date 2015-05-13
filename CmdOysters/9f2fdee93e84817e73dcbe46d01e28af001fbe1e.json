@@ -62,8 +62,9 @@
         "sha1-hex": "9f2fdee93e84817e73dcbe46d01e28af001fbe1e",
         "string": "Display name of hardware's CPU architecture, e.g. x86_64 for 64-bit Intel processors and i686 for 32-bit Intel processors."
     },
-    "invocations": {
-        "Linux": {
+    "invocations": [
+        {
+            "comment": "Uses the Linux-specific `lscpu' command.",
             "example-outputs": [
                 "i686",
                 "x86_64"
@@ -86,7 +87,7 @@
             "sha1-hex": "8c7c73684c9524cfb00d5eed10b428164d48b7c9",
             "string": "lscpu | grep '^Architecture:' | awk '{print $2}'"
         }
-    },
+    ],
     "relevant-urls": [
         {
             "nilsimsa-hex": "d864ef59ce7ff7d60e5aa7e47feec592fe97e5778df7ddd23e5b4fee7efab5bb",

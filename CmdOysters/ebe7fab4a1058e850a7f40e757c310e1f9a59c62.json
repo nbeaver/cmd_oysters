@@ -50,8 +50,9 @@
         "sha1-hex": "ebe7fab4a1058e850a7f40e757c310e1f9a59c62",
         "string": "See directories taking up the most space in user's home directory."
     },
-    "invocations": {
-        "POSIX": {
+    "invocations": [
+        {
+            "comment": "Short flags.",
             "changeable-arguments": {
                 "~": {
                     "component-command": "du",
@@ -68,7 +69,8 @@
             "sha1-hex": "ebc98b1a6546368543d6843e8ea37d2270ad67d0",
             "string": "du -d 1 ~ | sort -nr | less"
         },
-        "POSIX-long-flags": {
+        {
+            "comment": "Long flags.",
             "changeable-arguments": {
                 "$HOME": {
                     "component-command": "du",
@@ -85,7 +87,8 @@
             "sha1-hex": "70398c34e3a8165a16d99592f0d82546d785c9fc",
             "string": "du --max-depth=1 $HOME | sort --reverse --human-numeric-sort | less"
         },
-        "human-readable": {
+        {
+            "comment": "Human-readable size (e.g. 8M for 8 megabytes). Short flags.",
             "changeable-arguments": {
                 "~": {
                     "component-command": "du",
@@ -102,7 +105,8 @@
             "sha1-hex": "35be890202cbe36a45fcf97ce11fb79731faf195",
             "string": "du -hd 1 ~ | sort -hr | less"
         },
-        "human-readable-long-flags": {
+        {
+            "comment": "Human-readable size (e.g. 8M for 8 megabytes). Long flags.",
             "changeable-arguments": {
                 "$HOME": {
                     "component-command": "du",
@@ -119,5 +123,5 @@
             "sha1-hex": "309eaa0ac219c76a2166e0680da62f8275ed6f56",
             "string": "du --human --max-depth=1 $HOME | sort --reverse --human-numeric-sort | less"
         }
-    }
+    ]
 }

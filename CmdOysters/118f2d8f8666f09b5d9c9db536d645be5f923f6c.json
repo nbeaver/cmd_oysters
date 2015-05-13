@@ -50,8 +50,9 @@
         "sha1-hex": "118f2d8f8666f09b5d9c9db536d645be5f923f6c",
         "string": "Highlight non-ASCII characters (e.g. Unicode) in a text file and give the line number they are on."
     },
-    "invocations": {
-        "POSIX": {
+    "invocations": [
+        {
+            "comment": "Short flags version.",
             "changeable-arguments": {
                 "myfile.txt": {
                     "component-command": "grep",
@@ -120,7 +121,8 @@
             },
             "string": "grep -nP '[^[:ascii:]]' --color=always myfile.txt | less -R"
         },
-        "POSIX-long-flags": {
+        {
+            "comment": "Long flags version.",
             "changeable-arguments": {
                 "myfile.txt": {
                     "component-command": "grep",
@@ -189,7 +191,7 @@
             },
             "string": "grep --line-number --perl-regexp '[^[:ascii:]]' --color=always myfile.txt | less --RAW-CONTROL-CHARS"
         }
-    },
+    ],
     "relevant-urls": [
         {
             "nilsimsa-hex": "4080bb110211f908a31e0270f1001604e0d061483414a9aa4c41e07d0309082f",

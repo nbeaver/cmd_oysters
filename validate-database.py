@@ -53,9 +53,6 @@ def find_slice(string, substring):
         stop = start + len(substring)
         return [start, stop]
 
-def count_invocations(command):
-    return len(command['invocations'].keys())
-
 def validate_command(command, description_SHA1_from_filename):
     global modify_file
 
@@ -202,7 +199,7 @@ def validate_command(command, description_SHA1_from_filename):
         for component_command in command['component-commands']:
             assert_in(component_command, invocation_dict['string'])
 
-    for invocation_name, invocation_dict in command['invocations'].iteritems():
+    for invocation_dict in command['invocations']:
         validate_invocation(invocation_dict)
 
 default_schema_path = os.path.join(sys.path[0],"schemas", "full-schema.json") # need to do it this way for symlinks to work.
@@ -243,7 +240,7 @@ for i, json_filepath in enumerate(json_filepaths):
             sys.stderr.write(json_file.name+'\n')
             raise
         validate_command(json_data, basename_no_extension)
-        num_invocations += count_invocations(json_data)
+        num_invocations += len(json_data['invocations'])
     if modify_file:
         sys.stderr.write("Warning: overwriting "+json_filepath+"\n")
         new_file = open(json_filepath, 'w')

@@ -34,8 +34,9 @@
         "sha1-hex": "c061264c95aede5a5e512500e5069e2c5f3a71f5",
         "string": "Determine which architecture the Linux kernel is configured for; may not be the same as the actual CPU architecture. For example, an Intel i686 kernel can run on an Intel x86_64 processor, but its RAM will be limited unless the kernel has PAE is enabled."
     },
-    "invocations": {
-        "Linux": {
+    "invocations": [
+        {
+            "comment": "Short flag.",
             "example-outputs": [
                 "i686",
                 "x86_64"
@@ -44,7 +45,8 @@
             "sha1-hex": "c7a75171158ee220514b48bf7b7065fccaa6b37b",
             "string": "uname -m"
         },
-        "Linux (long flags)": {
+        {
+            "comment": "Long flag.",
             "example-outputs": [
                 "i686",
                 "x86_64"
@@ -53,7 +55,7 @@
             "sha1-hex": "0f86bfd2af49de656a8a318ea310727e6052525a",
             "string": "uname --machine"
         }
-    },
+    ],
     "relevant-urls": [
         {
             "date-known-good": "2015-04-30",

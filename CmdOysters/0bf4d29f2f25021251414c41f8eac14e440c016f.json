@@ -34,8 +34,8 @@
         "sha1-hex": "0bf4d29f2f25021251414c41f8eac14e440c016f",
         "string": "Display the word size of the kernel, e.g. 32-bit or 64-bit."
     },
-    "invocations": {
-        "Linux": {
+    "invocations": [
+        {
             "example-outputs": [
                 "32",
                 "64"
@@ -44,7 +44,7 @@
             "sha1-hex": "95480eceb7facbd35f4363138b7ef9d5b98fc02a",
             "string": "getconf LONG_BIT"
         }
-    },
+    ],
     "related-commands": [
         {
             "nilsimsa-hex": "57f47eaab6d8e80e9b3a5b89fb94b873cd0f20355b2cac0e271c0f82748db14c",

@@ -38,9 +38,9 @@
         "license-url": "http://opensource.org/licenses/MIT",
         "year": 2015
     },
-    "invocations": {
-        "bash": {
-            "changeable-arguments": {},
+    "invocations": [
+        {
+            "comment": "Bash-specific because of `jobs -p` to list process IDs.",
             "nilsimsa-hex": "95560a8904819572142344708a24984448a08285a030d214009f48041ab27909",
             "sha1-hex": "b130d1235cd093ef0d6dc5217f89e793192abd83",
             "shell-compatibility": {
@@ -102,7 +102,7 @@
             },
             "string": "kill $(jobs -ps)"
         }
-    },
+    ],
     "relevant-urls": [
         {
             "nilsimsa-hex": "82d61f0010e16c921442adb24258149f65881c1988cc1006a3812a062c9e8b63",
