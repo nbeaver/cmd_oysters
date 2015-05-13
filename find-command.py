@@ -14,7 +14,7 @@ def lowercase_subset(A, B):
     set_b = set([b.lower() for b in B])
     return set_a.issubset(set_b)
 
-parser = argparse.ArgumentParser(description='search for shell commands')
+parser = argparse.ArgumentParser(description='search CmdOysters')
 parser.add_argument('-c', '--commands', help='component command search', required=False, nargs='+')
 parser.add_argument('-s', '--substring', help='simple command substring search', required=False)
 parser.add_argument('-t', '--tokens', help='unordered token subset command search',required=False, nargs='+')
