@@ -90,10 +90,9 @@ def validate_command(command, description_SHA1_from_filename):
                 return False
 
     def match_sha1(string, nominal_sha1):
-        global modify_file
         calculated_sha1 = hashlib.sha1(string).hexdigest()
         if nominal_sha1 != calculated_sha1:
-            assert_custom_warn_only(nominal_sha1 == calculated_sha1, \
+            assert_custom_warn_only(False, \
                 "SHA1s do not match:\n%s (in file)\n%s (calculated)\n%r (command representation)" \
                 % (nominal_sha1, calculated_sha1, string))
             return False
@@ -118,21 +117,46 @@ def validate_command(command, description_SHA1_from_filename):
         except KeyError:
             supply_sha1(dict_to_check['string'])
             if not modify_file:
-                modify_file = prompt_yes_no("SHA1 hashes not present. Allow modification of "+json_filepath+"?")
+                modify_file = prompt_yes_no("SHA1 hash not present. Allow modification of "+json_filepath+"?")
             if modify_file:
                 dict_to_check['sha1-hex'] = hashlib.sha1(dict_to_check['string']).hexdigest()
 
     if 'nilsimsa' in sys.modules:
-        def check_nilsimsa(string, nominal_nilsimsa):
+        def match_nilsimsa(string, nominal_nilsimsa):
             calculated_nilsimsa = nilsimsa.Nilsimsa(string).hexdigest()
-            assert_custom_warn_only(nominal_nilsimsa == calculated_nilsimsa, \
-                "nilsimsas do not match:\n%s (in file)\n%s (calculated)\n%r (command representation)" \
-                % (nominal_nilsimsa, calculated_nilsimsa, string))
+            if nominal_nilsimsa != calculated_nilsimsa:
+                assert_custom_warn_only(False, \
+                    "nilsimsas do not match:\n%s (in file)\n%s (calculated)\n%r (command representation)" \
+                    % (nominal_nilsimsa, calculated_nilsimsa, string))
+                return False
+            else:
+                return True
 
         def supply_nilsimsa(string):
             assert_custom_warn_only(False, \
                 "No nilsimsa for `" + string + "'\n"+\
                 "Should be: "+nilsimsa.Nilsimsa(string).hexdigest()+"\n")
+
+        def check_nilsimsa_dict(dict_to_check):
+            # TODO: combine with check_sha1_dict().
+            # This will require passing the hash function,
+            # the name of the hash,
+            # and possibly the keys as well.
+            global modify_file
+            try:
+                if match_nilsimsa(dict_to_check['string'], dict_to_check['nilsimsa-hex']):
+                    pass
+                else:
+                    if not modify_file:
+                        modify_file = prompt_yes_no("Nilsimsa hashes do not match. Allow modification of "+json_filepath+"?")
+                    if modify_file:
+                        dict_to_check['nilsimsa-hex'] = nilsimsa.Nilsimsa(dict_to_check['string']).hexdigest()
+            except KeyError:
+                supply_sha1(dict_to_check['string'])
+                if not modify_file:
+                    modify_file = prompt_yes_no("Nilsimsa hash not present. Allow modification of "+json_filepath+"?")
+                if modify_file:
+                    dict_to_check['nilsimsa-hex'] = nilsimsa.Nilsimsa(dict_to_check['string']).hexdigest()
 
     if 'component-command-info' in command.keys():
 
@@ -150,6 +174,9 @@ def validate_command(command, description_SHA1_from_filename):
         for url in command['relevant-urls']:
             if 'url-sha1-hex' in url.keys():
                 if match_sha1(url['url-string'], url['url-sha1-hex']):
+                    # We don't add check these SHA-1 hashe for uniqueness
+                    # because two different commands might link to the same URI,
+                    # and that's ok.
                     pass
                 else:
                     if not modify_file:
@@ -157,15 +184,18 @@ def validate_command(command, description_SHA1_from_filename):
                     if modify_file:
                         url['url-sha1-hex'] = hashlib.sha1(url['url-string']).hexdigest()
 
-                # We don't add check these SHA-1 hashe for uniqueness
-                # because two different commands might link to the same URI,
-                # and that's ok.
             else:
                 supply_sha1(url['url-string'])
 
             if 'nilsimsa' in sys.modules:
                 if 'url-nilsimsa-hex' in url.keys():
-                    check_nilsimsa(url['url-string'], url['url-nilsimsa-hex'])
+                    if match_nilsimsa(url['url-string'], url['url-nilsimsa-hex']):
+                        pass
+                    else:
+                        if not modify_file:
+                            modify_file = prompt_yes_no("Nilsimsa hashes do not match. Allow modification of "+json_filepath+"?")
+                        if modify_file:
+                            url['url-nilsimsa-hex'] = nilsimsa.Nilsimsa(url['url-string']).hexdigest()
                 else:
                     supply_nilsimsa(url['url-string'])
 
@@ -176,19 +206,13 @@ def validate_command(command, description_SHA1_from_filename):
         "Should be: " + str(hashlib.sha1(command['description']['string']).hexdigest()) + ".json")
 
     if 'nilsimsa' in sys.modules:
-        try:
-            check_nilsimsa( command['description']['string'], command['description']['nilsimsa-hex'])
-        except KeyError:
-            supply_nilsimsa(command['description']['string'])
+        check_nilsimsa_dict(command['description'])
 
     def validate_invocation(invocation):
         check_sha1_dict(invocation)
 
         if 'nilsimsa' in sys.modules:
-            try:
-                check_nilsimsa( invocation['string'], invocation['nilsimsa-hex'])
-            except KeyError:
-                supply_nilsimsa(invocation['string'])
+            check_nilsimsa_dict(invocation)
 
         if 'changeable-arguments' in invocation_dict.keys():
             arg_dict = invocation_dict['changeable-arguments']

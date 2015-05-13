@@ -68,6 +68,12 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Add a ``comment`` field to each invocation.
 
+- ``[ ]`` Change ``url-string`` to just ``string`` for consistency.
+
+- ``[ ]`` Change ``url-sha1-hash`` to just ``sha1-hash`` for consistency.
+
+- ``[ ]`` Change ``url-nilsimsa-hash`` to just ``nilsimsa-hash`` for consistency.
+
 ~~~~~~~~~~~~~~~~~~~~
 `<find-command.py>`_
 ~~~~~~~~~~~~~~~~~~~~
