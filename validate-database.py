@@ -6,6 +6,7 @@ import sys
 import os
 import glob
 import traceback
+import argparse
 
 try:
     import nilsimsa
@@ -80,15 +81,6 @@ def validate_command(command, description_SHA1_from_filename):
     def assert_in(A, B):
         assert_custom(A in B, repr(A)+ "is not in " + repr(B))
 
-    def prompt_yes_no(message):
-        print message
-        while True:
-            reply = raw_input("Enter yes/no: ").lower()
-            if reply in ['yes', 'y']:
-                return True
-            elif reply in ['no', 'n']:
-                return False
-
     def match_sha1(string, nominal_sha1):
         calculated_sha1 = hashlib.sha1(string).hexdigest()
         if nominal_sha1 != calculated_sha1:
@@ -110,14 +102,10 @@ def validate_command(command, description_SHA1_from_filename):
             if match_sha1(dict_to_check['string'], dict_to_check['sha1-hex']):
                 unique_SHA1s.add(dict_to_check['sha1-hex'])
             else:
-                if not modify_file:
-                    modify_file = prompt_yes_no("SHA1 hashes do not match. Allow modification of "+json_filepath+"?")
                 if modify_file:
                     dict_to_check['sha1-hex'] = hashlib.sha1(dict_to_check['string']).hexdigest()
         except KeyError:
             supply_sha1(dict_to_check['string'])
-            if not modify_file:
-                modify_file = prompt_yes_no("SHA1 hash not present. Allow modification of "+json_filepath+"?")
             if modify_file:
                 dict_to_check['sha1-hex'] = hashlib.sha1(dict_to_check['string']).hexdigest()
 
@@ -147,14 +135,10 @@ def validate_command(command, description_SHA1_from_filename):
                 if match_nilsimsa(dict_to_check['string'], dict_to_check['nilsimsa-hex']):
                     pass
                 else:
-                    if not modify_file:
-                        modify_file = prompt_yes_no("Nilsimsa hashes do not match. Allow modification of "+json_filepath+"?")
                     if modify_file:
                         dict_to_check['nilsimsa-hex'] = nilsimsa.Nilsimsa(dict_to_check['string']).hexdigest()
             except KeyError:
                 supply_sha1(dict_to_check['string'])
-                if not modify_file:
-                    modify_file = prompt_yes_no("Nilsimsa hash not present. Allow modification of "+json_filepath+"?")
                 if modify_file:
                     dict_to_check['nilsimsa-hex'] = nilsimsa.Nilsimsa(dict_to_check['string']).hexdigest()
 
@@ -179,8 +163,6 @@ def validate_command(command, description_SHA1_from_filename):
                     # and that's ok.
                     pass
                 else:
-                    if not modify_file:
-                        modify_file = prompt_yes_no("SHA1 hashes do not match. Allow modification of "+json_filepath+"?")
                     if modify_file:
                         url['url-sha1-hex'] = hashlib.sha1(url['url-string']).hexdigest()
 
@@ -192,8 +174,6 @@ def validate_command(command, description_SHA1_from_filename):
                     if match_nilsimsa(url['url-string'], url['url-nilsimsa-hex']):
                         pass
                     else:
-                        if not modify_file:
-                            modify_file = prompt_yes_no("Nilsimsa hashes do not match. Allow modification of "+json_filepath+"?")
                         if modify_file:
                             url['url-nilsimsa-hex'] = nilsimsa.Nilsimsa(url['url-string']).hexdigest()
                 else:
@@ -239,18 +219,29 @@ def validate_command(command, description_SHA1_from_filename):
     for invocation_name, invocation_dict in command['invocations'].iteritems():
         validate_invocation(invocation_dict)
 
+default_schema_path = os.path.join(sys.path[0],"schemas", "full-schema.json") # need to do it this way for symlinks to work.
+parser = argparse.ArgumentParser(description='validate CmdOysters')
+parser.add_argument('-i', '--input', help='path to root directory of JSON input files', required=True)
+parser.add_argument('-s', '--schema', help='path to schema file', required=False, default=default_schema_path)
+parser.add_argument('-f', '--fix', help='automatically fix missing or mismatched fields', required=False, action='store_true')
+args = parser.parse_args()
+root_directory = args.input
+
 if len(sys.argv) == 1:
     sys.stderr.write("Usage: python "+sys.argv[0]+" path-to-json-files/"+'\n')
     sys.exit(1)
 
 unique_SHA1s = NoDuplicates()
 num_invocations = 0
-modify_file = False
-root_directory = sys.argv[1]
+
+if args.fix:
+    modify_file = True
+else:
+    modify_file = False
+
 json_filepaths = glob.glob(root_directory + "/*.json")
 
-#TODO: pass this as a parameter with `--schema` instead of hard-coding it.
-full_schema = json.load(open("schemas/full-schema.json"))
+full_schema = json.load(open(args.schema))
 
 for i, json_filepath in enumerate(json_filepaths):
     with open(json_filepath) as json_file:

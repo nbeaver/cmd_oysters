@@ -11,10 +11,10 @@ command_database : find-command.py CmdOysters/
 	python find-command.py --description-tokens ping generates seconds > /dev/null
 
 cmd_oysters : validate-database.py CmdOysters/ schemas/full-schema.json
-	python validate-database.py CmdOysters/
+	python validate-database.py --fix --input CmdOysters/
 
 cmd_oyster_templates : validate-database.py CmdOysters/ schemas/full-schema.json
-	python validate-database.py templates/
+	python validate-database.py --input templates/
 
 README.html : README.rst
 	rst2html README.rst README.html
