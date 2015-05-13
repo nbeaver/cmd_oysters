@@ -21,6 +21,7 @@
     },
     "invocations": [
         {
+            "comment": "Use gzip as a filter.",
             "changeable-arguments": {
                 "file": {
                     "description-string": "Path to file to be compressed.",
@@ -46,6 +47,7 @@
             "string": "gzip < file > file.gz"
         },
         {
+            "comment": "Built-in feature of recent versions of gzip (short flag).",
             "command-requirements-as-invoked": {
                 "gzip": {
                     "version-specifier": "1.6 or later"
@@ -56,6 +58,7 @@
             "string": "gzip -k file"
         },
         {
+            "comment": "Built-in feature of recent versions of gzip (long flag).",
             "command-requirements-as-invoked": {
                 "gzip": {
                     "version-specifier": "1.6 or later"
