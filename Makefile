@@ -1,8 +1,8 @@
-all : all_json README.html TODO.html
+all : all_json test_find_command README.html TODO.html
 all_json: cmd_oyster_templates cmd_oysters
-.PHONY : all_json cmd_oyster_templates cmd_oysters
+.PHONY : all_json cmd_oyster_templates cmd_oysters test_find_command
 
-command_database : find-command.py CmdOysters/
+test_find_command : find-command.py CmdOysters/
 	python find-command.py --substring 'ping -i' > /dev/null
 	python find-command.py --commands ping espeak sed > /dev/null
 	python find-command.py --tokens '|' sed localhost ping > /dev/null
