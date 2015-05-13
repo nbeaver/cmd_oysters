@@ -84,7 +84,7 @@ Specific items by file, in no particular order
   - ``[ ]`` Add a config file for e.g. preferred shell.
   - ``[ ]`` Check if dependencies are installed, and generate OS-specific command (e.g. ``apt-get``) to install the necessary packages.
 
-- ``[ ]`` Syntax highlighting of output.
+- ``[ ]`` Syntax highlighting of output. (This will complicate things because terminal might have a light or dark background.)
 
 - ``[*]`` Take ``--commands`` argument and search in component commands.
 
