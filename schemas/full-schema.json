@@ -121,6 +121,11 @@
           "type": "integer"
         }
       },
+      "required": [
+        "authors",
+        "license-name",
+        "year"
+      ],
       "additionalProperties": false
     },
     "description": {
