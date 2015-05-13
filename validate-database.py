@@ -55,7 +55,8 @@ def find_slice(string, substring):
 def count_invocations(command):
     return len(command['invocations'].keys())
 
-def validate_command(command, expected_description_SHA1):
+def validate_command(command, description_SHA1_from_filename):
+    global modify_file
 
     def assert_custom(assertion, error_string):
         try:
@@ -79,16 +80,47 @@ def validate_command(command, expected_description_SHA1):
     def assert_in(A, B):
         assert_custom(A in B, repr(A)+ "is not in " + repr(B))
 
-    def check_sha1(string, nominal_sha1):
+    def prompt_yes_no(message):
+        print message
+        while True:
+            reply = raw_input("Enter yes/no: ").lower()
+            if reply in ['yes', 'y']:
+                return True
+            elif reply in ['no', 'n']:
+                return False
+
+    def match_sha1(string, nominal_sha1):
+        global modify_file
         calculated_sha1 = hashlib.sha1(string).hexdigest()
-        assert_custom(nominal_sha1 == calculated_sha1, \
-            "SHA1s do not match:\n%s (in file)\n%s (calculated)\n%r (command representation)" \
-            % (nominal_sha1, calculated_sha1, string))
+        if nominal_sha1 != calculated_sha1:
+            assert_custom_warn_only(nominal_sha1 == calculated_sha1, \
+                "SHA1s do not match:\n%s (in file)\n%s (calculated)\n%r (command representation)" \
+                % (nominal_sha1, calculated_sha1, string))
+            return False
+        else:
+            return True
 
     def supply_sha1(string):
         assert_custom_warn_only(False, \
             "Warning: No SHA1 for `" + string + "'\n"+\
             "Should be: "+hashlib.sha1(string).hexdigest()+"\n")
+
+    def check_sha1_dict(dict_to_check):
+        global modify_file
+        try:
+            if match_sha1(dict_to_check['string'], dict_to_check['sha1-hex']):
+                unique_SHA1s.add(dict_to_check['sha1-hex'])
+            else:
+                if not modify_file:
+                    modify_file = prompt_yes_no("SHA1 hashes do not match. Allow modification of "+json_filepath+"?")
+                if modify_file:
+                    dict_to_check['sha1-hex'] = hashlib.sha1(dict_to_check['string']).hexdigest()
+        except KeyError:
+            supply_sha1(dict_to_check['string'])
+            if not modify_file:
+                modify_file = prompt_yes_no("SHA1 hashes not present. Allow modification of "+json_filepath+"?")
+            if modify_file:
+                dict_to_check['sha1-hex'] = hashlib.sha1(dict_to_check['string']).hexdigest()
 
     if 'nilsimsa' in sys.modules:
         def check_nilsimsa(string, nominal_nilsimsa):
@@ -117,7 +149,14 @@ def validate_command(command, expected_description_SHA1):
     if 'relevant-urls' in command.keys():
         for url in command['relevant-urls']:
             if 'url-sha1-hex' in url.keys():
-                check_sha1(url['url-string'], url['url-sha1-hex'])
+                if match_sha1(url['url-string'], url['url-sha1-hex']):
+                    pass
+                else:
+                    if not modify_file:
+                        modify_file = prompt_yes_no("SHA1 hashes do not match. Allow modification of "+json_filepath+"?")
+                    if modify_file:
+                        url['url-sha1-hex'] = hashlib.sha1(url['url-string']).hexdigest()
+
                 # We don't add check these SHA-1 hashe for uniqueness
                 # because two different commands might link to the same URI,
                 # and that's ok.
@@ -130,14 +169,9 @@ def validate_command(command, expected_description_SHA1):
                 else:
                     supply_nilsimsa(url['url-string'])
 
-    try:
-        check_sha1(command['description']['string'],
-                   command['description']['sha1-hex'])
-        unique_SHA1s.add(command['description']['sha1-hex'])
-    except KeyError:
-        supply_sha1(command['description']['string'])
+    check_sha1_dict(command['description'])
 
-    assert_custom_warn_only(expected_description_SHA1 == hashlib.sha1(command['description']['string']).hexdigest(),
+    assert_custom_warn_only(description_SHA1_from_filename == hashlib.sha1(command['description']['string']).hexdigest(),
         "Filename does not match SHA1 of description.\n" + \
         "Should be: " + str(hashlib.sha1(command['description']['string']).hexdigest()) + ".json")
 
@@ -148,11 +182,7 @@ def validate_command(command, expected_description_SHA1):
             supply_nilsimsa(command['description']['string'])
 
     def validate_invocation(invocation):
-        try:
-            check_sha1(invocation['string'], invocation['sha1-hex'])
-            unique_SHA1s.add(invocation['sha1-hex'])
-        except KeyError:
-            supply_sha1(invocation['string'])
+        check_sha1_dict(invocation)
 
         if 'nilsimsa' in sys.modules:
             try:
@@ -172,6 +202,7 @@ def validate_command(command, expected_description_SHA1):
                         pretty_print_slice(invocation_dict['string'], arginfo['invocation-slice'])
                         slice_candidate = find_slice(invocation_dict['string'], arg)
                         if slice_candidate:
+                            print "Slice in file:", str(arginfo['invocation-slice'])
                             print "Suggested slice:", str(slice_candidate)
                             pretty_print_slice(invocation_dict['string'], slice_candidate)
                         raise
@@ -182,7 +213,6 @@ def validate_command(command, expected_description_SHA1):
             assert_in(component_command, invocation_dict['string'])
 
     for invocation_name, invocation_dict in command['invocations'].iteritems():
-
         validate_invocation(invocation_dict)
 
 if len(sys.argv) == 1:
@@ -191,6 +221,7 @@ if len(sys.argv) == 1:
 
 unique_SHA1s = NoDuplicates()
 num_invocations = 0
+modify_file = False
 root_directory = sys.argv[1]
 json_filepaths = glob.glob(root_directory + "/*.json")
 
@@ -212,6 +243,11 @@ for i, json_filepath in enumerate(json_filepaths):
             raise
         validate_command(json_data, basename_no_extension)
         num_invocations += count_invocations(json_data)
+    if modify_file:
+        sys.stderr.write("Warning: overwriting "+json_filepath+"\n")
+        new_file = open(json_filepath, 'w')
+        json.dump(json_data, new_file, indent=4, sort_keys=True)
+        modify_file = False # very important!
 
 num_commands = i + 1 # enumerate starts from 0.
 print "Validated", num_commands ,"files(s) and", num_invocations, "invocation(s)."
