@@ -44,15 +44,15 @@
     },
     "relevant-urls": [
         {
-            "url-string": "http://askubuntu.com/questions/95910/command-for-determining-my-public-ip",
-            "url-nilsimsa-hex": "9c9d0e6a4f05c412205220e8888020e48c00d5e00e80af056741306a2e160352",
-            "url-sha1-hex": "76d8a456e402a6de6c3427b95ab195e75bedc41c",
+            "string": "http://askubuntu.com/questions/95910/command-for-determining-my-public-ip",
+            "nilsimsa-hex": "9c9d0e6a4f05c412205220e8888020e48c00d5e00e80af056741306a2e160352",
+            "sha1-hex": "76d8a456e402a6de6c3427b95ab195e75bedc41c",
             "date-known-good": "2015-05-06"
         },
         {
-            "url-string": "http://unix.stackexchange.com/questions/22615/how-can-i-get-my-external-ip-address-in-bash",
-            "url-nilsimsa-hex": "98c4b89a841378721ec3ede6c11c7cdbef09b46d09f0bfa6270972c2aa95534e",
-            "url-sha1-hex": "1f2605509f951470aa10d60d2ce1b58eb76b2c07",
+            "string": "http://unix.stackexchange.com/questions/22615/how-can-i-get-my-external-ip-address-in-bash",
+            "nilsimsa-hex": "98c4b89a841378721ec3ede6c11c7cdbef09b46d09f0bfa6270972c2aa95534e",
+            "sha1-hex": "1f2605509f951470aa10d60d2ce1b58eb76b2c07",
             "date-known-good": "2015-05-06"
         }
     ]

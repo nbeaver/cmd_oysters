@@ -363,13 +363,13 @@
       "items": {
         "type": "object",
         "properties": {
-          "url-nilsimsa-hex": {
+          "nilsimsa-hex": {
             "type": "string"
           },
-          "url-sha1-hex": {
+          "sha1-hex": {
             "type": "string"
           },
-          "url-string": {
+          "string": {
             "type": "string"
           },
           "date-known-good": {
@@ -378,7 +378,7 @@
           }
         },
         "required": [
-          "url-string"
+          "string"
         ],
         "additionalProperties": false
       }

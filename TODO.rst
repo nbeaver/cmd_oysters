@@ -60,19 +60,19 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Be more specific about required OS.
 
-- ``[ ]`` Be more specific about which commands require an X server.
+- ``[ ]`` Be more specific about non-OS dependencies, e.g. which commands require an X server.
 
-- ``[ ]`` Change ``string`` to ``invocation-string`` and ``description-string``. (Or just leave it?)
+- ``[x]`` Change ``string`` to ``invocation-string`` and ``description-string``. (Abandoned because it makes validation harder.)
 
-- ``[ ]`` Change structure of invocations to a list of objects, so that they do not require a shell name. (Or just leave it?)
+- ``[ ]`` Change structure of invocations to a list of objects, so that they do not require a shell name.
 
 - ``[ ]`` Add a ``comment`` field to each invocation.
 
-- ``[ ]`` Change ``url-string`` to just ``string`` for consistency.
+- ``[*]`` Change ``url-string`` to just ``string`` for consistency.
 
-- ``[ ]`` Change ``url-sha1-hash`` to just ``sha1-hash`` for consistency.
+- ``[*]`` Change ``url-sha1-hash`` to just ``sha1-hash`` for consistency.
 
-- ``[ ]`` Change ``url-nilsimsa-hash`` to just ``nilsimsa-hash`` for consistency.
+- ``[*]`` Change ``url-nilsimsa-hash`` to just ``nilsimsa-hash`` for consistency.
 
 ~~~~~~~~~~~~~~~~~~~~
 `<find-command.py>`_

@@ -105,21 +105,21 @@
     },
     "relevant-urls": [
         {
-            "url-nilsimsa-hex": "82d61f0010e16c921442adb24258149f65881c1988cc1006a3812a062c9e8b63",
-            "url-sha1-hex": "e9fc3f7db3bea02412024738bad748d5f856637e",
-            "url-string": "http://serverfault.com/questions/240155/how-can-i-kill-all-stopped-jobs",
+            "nilsimsa-hex": "82d61f0010e16c921442adb24258149f65881c1988cc1006a3812a062c9e8b63",
+            "sha1-hex": "e9fc3f7db3bea02412024738bad748d5f856637e",
+            "string": "http://serverfault.com/questions/240155/how-can-i-kill-all-stopped-jobs",
             "date-known-good": "2015-04-30"
         },
         {
-            "url-nilsimsa-hex": "a5409520401390918451a104520a20002c90c08108871032a21642202542a430",
-            "url-sha1-hex": "935ed67702a2cbf4dae89c05a282674a460f2bc7",
-            "url-string": "http://superuser.com/a/228926/219809",
+            "nilsimsa-hex": "a5409520401390918451a104520a20002c90c08108871032a21642202542a430",
+            "sha1-hex": "935ed67702a2cbf4dae89c05a282674a460f2bc7",
+            "string": "http://superuser.com/a/228926/219809",
             "date-known-good": "2015-04-30"
         },
         {
-            "url-nilsimsa-hex": "209afe14dd3785086d20630d85009093e6ba6e24e351000469896a5736e44de5",
-            "url-sha1-hex": "6ef6e5555709b3b8fdb0df8cb9c1a9cd62daa708",
-            "url-string": "http://ubuntuforums.org/showthread.php?t=1954090&s=c408c62db23afe753dfcfd40f1a86e32&p=11825162#post11825162",
+            "nilsimsa-hex": "209afe14dd3785086d20630d85009093e6ba6e24e351000469896a5736e44de5",
+            "sha1-hex": "6ef6e5555709b3b8fdb0df8cb9c1a9cd62daa708",
+            "string": "http://ubuntuforums.org/showthread.php?t=1954090&s=c408c62db23afe753dfcfd40f1a86e32&p=11825162#post11825162",
             "date-known-good": "2015-04-30"
         }
     ]

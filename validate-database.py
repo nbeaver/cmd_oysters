@@ -96,11 +96,12 @@ def validate_command(command, description_SHA1_from_filename):
             "Warning: No SHA1 for `" + string + "'\n"+\
             "Should be: "+hashlib.sha1(string).hexdigest()+"\n")
 
-    def check_sha1_dict(dict_to_check):
+    def check_sha1_dict(dict_to_check, require_unique=True):
         global modify_file
         try:
             if match_sha1(dict_to_check['string'], dict_to_check['sha1-hex']):
-                unique_SHA1s.add(dict_to_check['sha1-hex'])
+                if require_unique:
+                    unique_SHA1s.add(dict_to_check['sha1-hex'])
             else:
                 if modify_file:
                     dict_to_check['sha1-hex'] = hashlib.sha1(dict_to_check['string']).hexdigest()
@@ -156,28 +157,13 @@ def validate_command(command, description_SHA1_from_filename):
 
     if 'relevant-urls' in command.keys():
         for url in command['relevant-urls']:
-            if 'url-sha1-hex' in url.keys():
-                if match_sha1(url['url-string'], url['url-sha1-hex']):
-                    # We don't add check these SHA-1 hashe for uniqueness
-                    # because two different commands might link to the same URI,
-                    # and that's ok.
-                    pass
-                else:
-                    if modify_file:
-                        url['url-sha1-hex'] = hashlib.sha1(url['url-string']).hexdigest()
-
-            else:
-                supply_sha1(url['url-string'])
+            # We don't add check these SHA-1 hashe for uniqueness
+            # because two different commands might link to the same URI,
+            # and that's ok.
+            check_sha1_dict(url, require_unique=False)
 
             if 'nilsimsa' in sys.modules:
-                if 'url-nilsimsa-hex' in url.keys():
-                    if match_nilsimsa(url['url-string'], url['url-nilsimsa-hex']):
-                        pass
-                    else:
-                        if modify_file:
-                            url['url-nilsimsa-hex'] = nilsimsa.Nilsimsa(url['url-string']).hexdigest()
-                else:
-                    supply_nilsimsa(url['url-string'])
+                check_nilsimsa_dict(url)
 
     check_sha1_dict(command['description'])
 

@@ -73,15 +73,15 @@
     },
     "relevant-urls": [
         {
-            "url-nilsimsa-hex": "aed6bb4080116930862d0d6ae71402e1ed8d94cda8e46364045993c68281917b",
-            "url-sha1-hex": "5b28184293f987ecc625b9e17671779ef186519f",
-            "url-string": "http://unix.stackexchange.com/questions/145131/copy-image-from-clipboard-to-file",
+            "nilsimsa-hex": "aed6bb4080116930862d0d6ae71402e1ed8d94cda8e46364045993c68281917b",
+            "sha1-hex": "5b28184293f987ecc625b9e17671779ef186519f",
+            "string": "http://unix.stackexchange.com/questions/145131/copy-image-from-clipboard-to-file",
             "date-known-good": "2015-04-30"
         },
         {
-            "url-nilsimsa-hex": "219eb2874474e4188d00e23bd95800906eb9caa446c0070470016257334041cf",
-            "url-sha1-hex": "259697d8802a4cc81082aa80d4adafdb83bbd579",
-            "url-string": "http://ubuntuforums.org/showthread.php?t=1335075",
+            "nilsimsa-hex": "219eb2874474e4188d00e23bd95800906eb9caa446c0070470016257334041cf",
+            "sha1-hex": "259697d8802a4cc81082aa80d4adafdb83bbd579",
+            "string": "http://ubuntuforums.org/showthread.php?t=1335075",
             "date-known-good": "2015-04-30"
         }
     ]

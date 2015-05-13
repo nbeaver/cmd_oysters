@@ -69,21 +69,21 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-05-12",
-            "url-nilsimsa-hex": "60d8f3ab3231fbdaa3de37f1f0105eb5f990f96a9f16b1fa4f95f77f59a1d9af",
-            "url-sha1-hex": "c8b54a257cdc941e26c282136042b33c277d996d",
-            "url-string": "https://lists.gnu.org/archive/html/info-gnu/2013-06/msg00003.html"
+            "nilsimsa-hex": "60d8f3ab3231fbdaa3de37f1f0105eb5f990f96a9f16b1fa4f95f77f59a1d9af",
+            "sha1-hex": "c8b54a257cdc941e26c282136042b33c277d996d",
+            "string": "https://lists.gnu.org/archive/html/info-gnu/2013-06/msg00003.html"
         },
         {
             "date-known-good": "2015-05-12",
-            "url-nilsimsa-hex": "bdd7a9a382a17b906ac0bf2651bc22f12789f84d396c32e6cc68d803e4ba594a",
-            "url-sha1-hex": "b1bd2ff86405b81ffc9f21a877fe14c8fbfd659b",
-            "url-string": "https://unix.stackexchange.com/questions/46786/how-to-tell-gzip-to-keep-original-file"
+            "nilsimsa-hex": "bdd7a9a382a17b906ac0bf2651bc22f12789f84d396c32e6cc68d803e4ba594a",
+            "sha1-hex": "b1bd2ff86405b81ffc9f21a877fe14c8fbfd659b",
+            "string": "https://unix.stackexchange.com/questions/46786/how-to-tell-gzip-to-keep-original-file"
         },
         {
             "date-known-good": "2015-05-12",
-            "url-nilsimsa-hex": "bac6aae2b78f324dbf30c1a3e4791f086760da587c8024b63195302324cf4aa3",
-            "url-sha1-hex": "f9a888df7613ab538ce16e51ad8659aca3793b61",
-            "url-string": "https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=240539"
+            "nilsimsa-hex": "bac6aae2b78f324dbf30c1a3e4791f086760da587c8024b63195302324cf4aa3",
+            "sha1-hex": "f9a888df7613ab538ce16e51ad8659aca3793b61",
+            "string": "https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=240539"
         }
     ]
 }

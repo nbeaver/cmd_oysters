@@ -155,9 +155,9 @@
     },
     "relevant-urls": [
         {
-            "url-nilsimsa-hex": "ad7efb60a4ff795e37f7b9b2bfec08bff51266cfebda1b2eef035af74794f3b7",
-            "url-sha1-hex": "193c082357a69581d8ab881dde81c60105e77ebf",
-            "url-string": "http://ftp.arl.mil/mike/ping.html",
+            "nilsimsa-hex": "ad7efb60a4ff795e37f7b9b2bfec08bff51266cfebda1b2eef035af74794f3b7",
+            "sha1-hex": "193c082357a69581d8ab881dde81c60105e77ebf",
+            "string": "http://ftp.arl.mil/mike/ping.html",
             "date-known-good": "2015-04-30"
         }
     ]

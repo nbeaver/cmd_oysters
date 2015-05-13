@@ -89,15 +89,15 @@
     },
     "relevant-urls": [
         {
-            "url-nilsimsa-hex": "d864ef59ce7ff7d60e5aa7e47feec592fe97e5778df7ddd23e5b4fee7efab5bb",
-            "url-sha1-hex": "a04fe1f3e62d04b5508fa2e1de9b4a4e9233de35",
-            "url-string": "http://stackoverflow.com/a/22100700",
+            "nilsimsa-hex": "d864ef59ce7ff7d60e5aa7e47feec592fe97e5778df7ddd23e5b4fee7efab5bb",
+            "sha1-hex": "a04fe1f3e62d04b5508fa2e1de9b4a4e9233de35",
+            "string": "http://stackoverflow.com/a/22100700",
             "date-known-good": "2015-04-30"
         },
         {
-            "url-nilsimsa-hex": "55c2fa630654cd2a868732bef13564482cf509b01c1387b3083904cb0b8301db",
-            "url-sha1-hex": "e1154bf0c185674f58d3c342d6b186cd98322c67",
-            "url-string": "http://www.cyberciti.biz/faq/lscpu-command-find-out-cpu-architecture-information/",
+            "nilsimsa-hex": "55c2fa630654cd2a868732bef13564482cf509b01c1387b3083904cb0b8301db",
+            "sha1-hex": "e1154bf0c185674f58d3c342d6b186cd98322c67",
+            "string": "http://www.cyberciti.biz/faq/lscpu-command-find-out-cpu-architecture-information/",
             "date-known-good": "2015-04-30"
         }
     ]
