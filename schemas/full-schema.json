@@ -114,6 +114,7 @@
         },
         "license-url": {
           "description": "Link to the text of the license, usually HTTP.",
+          "format": "uri",
           "type": "string"
         },
         "year": {
@@ -383,6 +384,7 @@
             "type": "string"
           },
           "string": {
+            "format": "uri",
             "type": "string"
           }
         },
