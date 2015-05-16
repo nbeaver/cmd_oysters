@@ -122,7 +122,7 @@ Specific items by file, in no particular order
 
 - ``[*]`` Check that no two commands have the same SHA1s of description text.
 
-- ``[ ]`` Check for likely duplicates based on Nilsimsa hashes of both commands and descriptions.
+- ``[ ]`` Check for likely duplicates based on Nilsimsa hashes of both commands and descriptions (use nilsimsa.compare_digests).
 
 - ``[*]`` Make a JSON schema to do at least part of this more systematically.
 
@@ -130,7 +130,7 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Check that the fields are in alphanumeric order.
 
-- ``[ ]`` Correct the SHA1 and Nilsimsa values automatically, prompting before writing them out to file.
+- ``[*]`` Correct the SHA1 and Nilsimsa values automatically, prompting before writing them out to file.
 
 - ``[ ]`` Figure out some way to do fine-grained validation, so once a CmdOyster has been checked, it won't be checked again until it changes.
 
