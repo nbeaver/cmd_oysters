@@ -44,15 +44,15 @@ Here are some less trivial examples:
 
 - `Extract images from multiple PDFs <CmdOysters/040662df76d8e74369a2b56c10764ba16b44d2a7.json>`_.
 
-- `Exhaustive reference template showing every possible field in a CmdOyster <templates/full-command-template.json>`_.
+- `Display the machine's CPU architecture <CmdOysters/9f2fdee93e84817e73dcbe46d01e28af001fbe1e.json>`_.
 
 ----------
 Quickstart
 ----------
 
-#. ``git clone https://github.com/nbeaver/command-oysters``
+#. ``git clone https://github.com/nbeaver/cmd-oysters``
 
-#. ``cd command-oysters/``
+#. ``cd cmd-oysters/``
 
 #. ``python2 find-command.py --substring "ping -i"``
 
@@ -62,13 +62,13 @@ More examples:
 
 #. ``python2 find-command.py --tokens '|' '~'``
    
-#. ``python2 find-command.py --description-tokens architecture bit``
+#. ``python2 find-command.py --description-tokens architecture CPU``
 
 ----------
 Motivation
 ----------
 
-Ever filed away a useful shell command and been unable to find it later?
+Ever bookmarked a useful shell one-liner and had trouble finding it later?
 
 Ever been stymied by a `man page without examples`_?
 
