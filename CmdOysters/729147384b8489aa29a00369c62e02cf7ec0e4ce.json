@@ -1,7 +1,7 @@
 {
     "can-modify": {
         "filesystem": false,
-        "other-processes" : false
+        "other-processes": false
     },
     "component-commands": [
         "grep"
@@ -15,6 +15,7 @@
         "year": 2015
     },
     "description": {
+        "nilsimsa-hex": "3cb3a43c20dc8bd4be6e6ba2f0681b99c6895b3592c2f9789e656c4cef2644dc",
         "sha1-hex": "729147384b8489aa29a00369c62e02cf7ec0e4ce",
         "string": "Recursively find text files ending in '.txt' that contain the DOS carriage return (octal 015, hexadecimal x0D). Uses ANSI-C single quotes instead of a literal carriage return character."
     },
@@ -31,16 +32,17 @@
                 }
             },
             "comment": "Short flags and octal value for carriage return.",
+            "nilsimsa-hex": "fdcf69bdee7f8dded930dfeeb98f6febde6ad8bd994e1f5e588b1d35d2fa947d",
             "sha1-hex": "a188e8630249ba381c063d1fda2c2c8ef3d108d4",
             "shell-compatibility": {
-                "bsh": {
-                    "incompatible-versions-tested": [
-                        "BeanShell 2.0b4"
-                    ]
-                },
                 "bash": {
                     "compatible-versions-tested": [
                         "GNU bash, version 4.3.30"
+                    ]
+                },
+                "bsh": {
+                    "incompatible-versions-tested": [
+                        "BeanShell 2.0b4"
                     ]
                 },
                 "csh": {
@@ -65,7 +67,7 @@
                 },
                 "mksh": {
                     "compatible-versions-tested": [
-                       "MIRBSD KSH R50 2014/10/19 Debian-5"
+                        "MIRBSD KSH R50 2014/10/19 Debian-5"
                     ]
                 },
                 "posh": {
@@ -93,16 +95,19 @@
         },
         {
             "comment": "Short flags and hexadecimal value for carriage return.",
+            "nilsimsa-hex": "fdc64d17ee7fcddefd21dfee91df67ebde6ac8edb96f0f1e198b1d35e2fef4fd",
             "sha1-hex": "d7b03a16f5f93f42827fc87e48864babc0486173",
             "string": "grep -Url $'\\x0d' --include='*.txt'"
         },
         {
             "comment": "Short flags and C-style notation for carriage return.",
+            "nilsimsa-hex": "fdc6491def7f8fded920fffe938f67ebdf6ec88db94e4f1e188b1fbdd2fa947d",
             "sha1-hex": "9f4d54e8477611bdf58376f9508b5670fd73814d",
             "string": "grep -Url $'\\r' --include='*.txt'"
         },
         {
             "comment": "Long flags and C-style notation for carriage return.",
+            "nilsimsa-hex": "f6c084a82ad10b1a5860bae01a4943a92a06008b3912d9789a09d4c8d290c408",
             "sha1-hex": "835a75e7ccc5daced8f82bfe3a5200442c5a57ec",
             "string": "grep --binary --recursive --files-with-matches $'\\r' --include='*.txt'"
         }
