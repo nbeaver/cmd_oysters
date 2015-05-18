@@ -1,0 +1,110 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes" : false
+    },
+    "component-commands": [
+        "grep"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
+    "description": {
+        "sha1-hex": "729147384b8489aa29a00369c62e02cf7ec0e4ce",
+        "string": "Recursively find text files ending in '.txt' that contain the DOS carriage return (octal 015, hexadecimal x0D). Uses ANSI-C single quotes instead of a literal carriage return character."
+    },
+    "invocations": [
+        {
+            "command-requirements-as-invoked": {
+                "grep": {
+                    "authentication": "no",
+                    "internet-connection": "no",
+                    "sudo": "no",
+                    "versions-tested": [
+                        "GNU grep 2.20"
+                    ]
+                }
+            },
+            "comment": "Short flags and octal value for carriage return.",
+            "sha1-hex": "a188e8630249ba381c063d1fda2c2c8ef3d108d4",
+            "shell-compatibility": {
+                "bsh": {
+                    "incompatible-versions-tested": [
+                        "BeanShell 2.0b4"
+                    ]
+                },
+                "bash": {
+                    "compatible-versions-tested": [
+                        "GNU bash, version 4.3.30"
+                    ]
+                },
+                "csh": {
+                    "incompatible-versions-tested": [
+                        "20110502-2.1"
+                    ]
+                },
+                "dash": {
+                    "incompatible-versions-tested": [
+                        "0.5.7-4+b1"
+                    ]
+                },
+                "fish": {
+                    "incompatible-versions-tested": [
+                        "fish, version 1.23.1"
+                    ]
+                },
+                "ksh": {
+                    "compatible-versions-tested": [
+                        "sh (AT&T Research) 93u+ 2012-08-01"
+                    ]
+                },
+                "mksh": {
+                    "compatible-versions-tested": [
+                       "MIRBSD KSH R50 2014/10/19 Debian-5"
+                    ]
+                },
+                "posh": {
+                    "incompatible-versions-tested": [
+                        "0.12.3"
+                    ]
+                },
+                "rc": {
+                    "incompatible-versions-tested": [
+                        "1.7.2 $Release: @(#)rc 1.7.2 2014-09-27 $"
+                    ]
+                },
+                "tcsh": {
+                    "incompatible-versions-tested": [
+                        "6.18.01 (Astron) 2012-02-14"
+                    ]
+                },
+                "zsh": {
+                    "compatible-versions-tested": [
+                        "zsh 5.0.7"
+                    ]
+                }
+            },
+            "string": "grep -Url $'\\015' --include='*.txt'"
+        },
+        {
+            "comment": "Short flags and hexadecimal value for carriage return.",
+            "sha1-hex": "d7b03a16f5f93f42827fc87e48864babc0486173",
+            "string": "grep -Url $'\\x0d' --include='*.txt'"
+        },
+        {
+            "comment": "Short flags and C-style notation for carriage return.",
+            "sha1-hex": "9f4d54e8477611bdf58376f9508b5670fd73814d",
+            "string": "grep -Url $'\\r' --include='*.txt'"
+        },
+        {
+            "comment": "Long flags and C-style notation for carriage return.",
+            "sha1-hex": "835a75e7ccc5daced8f82bfe3a5200442c5a57ec",
+            "string": "grep --binary --recursive --files-with-matches $'\\r' --include='*.txt'"
+        }
+    ]
+}
