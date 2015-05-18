@@ -11,7 +11,7 @@ test_find_command : find-command.py CmdOysters/
 	python2 find-command.py --description-tokens ping generates seconds > /dev/null
 
 cmd_oysters : validate-database.py CmdOysters/ schemas/full-schema.json
-	python2 validate-database.py --fix --input CmdOysters/
+	python2 validate-database.py --fix-all --input CmdOysters/
 
 cmd_oyster_templates : validate-database.py CmdOysters/ schemas/full-schema.json
 	python2 validate-database.py --input templates/

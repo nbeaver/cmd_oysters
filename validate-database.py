@@ -207,7 +207,7 @@ default_schema_path = os.path.join(sys.path[0],"schemas", "full-schema.json") # 
 parser = argparse.ArgumentParser(description='validate CmdOysters')
 parser.add_argument('-i', '--input', help='path to root directory of JSON input files', required=True)
 parser.add_argument('-s', '--schema', help='path to schema file', required=False, default=default_schema_path)
-parser.add_argument('-f', '--fix', help='automatically fix missing or mismatched fields', required=False, action='store_true')
+parser.add_argument('-f', '--fix-all', help='automatically fix missing or mismatched fields', required=False, action='store_true')
 args = parser.parse_args()
 root_directory = args.input
 
@@ -243,7 +243,6 @@ for i, json_filepath in enumerate(json_filepaths):
         validate_command(json_data, basename_no_extension)
         num_invocations += len(json_data['invocations'])
     if modify_file:
-        sys.stderr.write("Warning: overwriting "+json_filepath+"\n")
         new_file = open(json_filepath, 'w')
         json.dump(json_data, new_file, indent=4, separators=(',', ': '), sort_keys=True)
 
