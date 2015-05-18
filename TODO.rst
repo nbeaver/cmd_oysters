@@ -186,3 +186,25 @@ Non-specific notes and observations
 - What is the best way to handle commands that are the same but have different executable names due to forking, e.g. ``avconv`` and ``ffmpeg``?
 
 - Would be good to differentiate commands that can be run as-is, and commands that need different arguments.
+
+----------------------
+Getting shell versions
+----------------------
+
+bsh: echo 'printBanner();' | bsh
+bash: bash --version
+csh:  dpkg -s csh | grep Version | cut -d ' ' -f 2 # https://stackoverflow.com/questions/14259723/how-can-i-determine-my-csh-version
+dash: dpkg -s dash | grep Version | cut -d ' ' -f 2 # https://askubuntu.com/questions/283134/how-to-find-the-version-of-the-dash-shell-on-ubuntu-bin
+fish: fish --version
+ksh: ksh --version
+lshell: lshell --version
+lush: dpkg -s lush | grep Version | cut -d ' ' -f 2
+mksh: mksh -c 'echo $KSH_VERSION'
+posh: posh -c 'echo $POSH_VERSION'
+rc: rc -c 'echo $version'
+sash: dpkg -s sash | grep Version: | cut -d ' ' -f 2
+tcsh: tcsh --version
+yash: yash --version
+zsh: zsh --version
+
+"bsh", "bash", "csh", "dash", "fish", "ksh", "mksh", "posh", "tcsh", "zsh",
