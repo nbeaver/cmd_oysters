@@ -21,7 +21,6 @@
     },
     "invocations": [
         {
-            "comment": "Use gzip as a filter.",
             "changeable-arguments": {
                 "file": {
                     "description-string": "Path to file to be compressed.",
@@ -42,28 +41,29 @@
                     "type": "string"
                 }
             },
+            "comment": "Use gzip as a filter.",
             "nilsimsa-hex": "5a152601aa9184185074c3c020603b2228c568030b2a10083276aa09b6367b4e",
             "sha1-hex": "f5b9d9dd13a9e49a65f0f455be0666a96229a049",
             "string": "gzip < file > file.gz"
         },
         {
-            "comment": "Built-in feature of recent versions of gzip (short flag).",
             "command-requirements-as-invoked": {
                 "gzip": {
                     "version-specifier": "1.6 or later"
                 }
             },
+            "comment": "Built-in feature of recent versions of gzip (short flag).",
             "nilsimsa-hex": "1b000a105900100011148190a26212200006c20010d242052112002126105b2c",
             "sha1-hex": "d0ae2509d0086c92567e0183864d95be97f50f17",
             "string": "gzip -k file"
         },
         {
-            "comment": "Built-in feature of recent versions of gzip (long flag).",
             "command-requirements-as-invoked": {
                 "gzip": {
                     "version-specifier": "1.6 or later"
                 }
             },
+            "comment": "Built-in feature of recent versions of gzip (long flag).",
             "nilsimsa-hex": "3b002ab822202f105d10298cb0a113250004c34981e20280603a1003a611782c",
             "sha1-hex": "f521f470f90f4811c2d0ca70741d3254ce4eee6f",
             "string": "gzip --keep file"

@@ -57,28 +57,28 @@
     ],
     "relevant-urls": [
         {
+            "date-known-good": "2015-04-30",
             "nilsimsa-hex": "59aae1319110c40fd613a6a61d732fa929c623baa8d0ab4008f9284f228505ca",
             "sha1-hex": "11a35de5b6c3367fb96afdffb3e2aa5de9a777ff",
-            "string": "http://www.cyberciti.biz/faq/linux-how-to-find-if-processor-is-64-bit-or-not/",
-            "date-known-good": "2015-04-30"
+            "string": "http://www.cyberciti.biz/faq/linux-how-to-find-if-processor-is-64-bit-or-not/"
         },
         {
+            "date-known-good": "2015-04-30",
             "nilsimsa-hex": "f8e62d1c9208c498685aa5204b64e592e400f5bf89820e913fdb3642bcdb31bf",
             "sha1-hex": "06dce69a7648825ff717fec84c45921ff4dcce0e",
-            "string": "http://stackoverflow.com/questions/10137880/need-help-32-bit-64-bit-check-for-linux",
-            "date-known-good": "2015-04-30"
+            "string": "http://stackoverflow.com/questions/10137880/need-help-32-bit-64-bit-check-for-linux"
         },
         {
+            "date-known-good": "2015-04-30",
             "nilsimsa-hex": "b9d7fd3a808b8096a453bb34438ab7d27d90de5549222a0636578660acd3dfe7",
             "sha1-hex": "6cc77fddfa01daddb7c735e2d2259300ad782196",
-            "string": "http://superuser.com/questions/412024/is-my-system-64-bit",
-            "date-known-good": "2015-04-30"
+            "string": "http://superuser.com/questions/412024/is-my-system-64-bit"
         },
         {
+            "date-known-good": "2015-04-30",
             "nilsimsa-hex": "78e0ab808004889c49066d24e04b00395412f9fd815900ec4c2d486400009d92",
             "sha1-hex": "fa72062f8a3e63824b12a2c6796c3fe2b7c0dd14",
-            "string": "http://lists.us.dell.com/pipermail/linux-poweredge/2011-February/044344.html",
-            "date-known-good": "2015-04-30"
+            "string": "http://lists.us.dell.com/pipermail/linux-poweredge/2011-February/044344.html"
         }
     ]
 }

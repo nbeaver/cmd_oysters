@@ -37,7 +37,6 @@
     },
     "invocations": [
         {
-            "comment": "Works with any POSIX shell.",
             "changeable-arguments": {
                 "out.png": {
                     "component-command": "xclip",
@@ -50,12 +49,12 @@
                     "type": "string"
                 }
             },
+            "comment": "Works with any POSIX shell.",
             "nilsimsa-hex": "a5cfff9ac40b8024850c784b85eb24090a820dd5aad0c72228f18eed6b1ad1e7",
             "sha1-hex": "e44dd9a6721b775889264363cbfa49d7c3dd6fda",
             "string": "xclip -selection clipboard -t image/png -o > out.png"
         },
         {
-            "comment": "Works with any POSIX shell; long flags version.",
             "changeable-arguments": {
                 "out.png": {
                     "component-command": "xclip",
@@ -68,6 +67,7 @@
                     "type": "string"
                 }
             },
+            "comment": "Works with any POSIX shell; long flags version.",
             "nilsimsa-hex": "a7cf7f9af70bab24879c6c4985ef744d0ae23acd8ad2c76768188aed5b1ed1e7",
             "sha1-hex": "331cbf7a000cea9d941670504c916d1bf7f197b3",
             "string": "xclip -selection clipboard -target image/png -out > out.png"
@@ -75,16 +75,16 @@
     ],
     "relevant-urls": [
         {
+            "date-known-good": "2015-04-30",
             "nilsimsa-hex": "aed6bb4080116930862d0d6ae71402e1ed8d94cda8e46364045993c68281917b",
             "sha1-hex": "5b28184293f987ecc625b9e17671779ef186519f",
-            "string": "http://unix.stackexchange.com/questions/145131/copy-image-from-clipboard-to-file",
-            "date-known-good": "2015-04-30"
+            "string": "http://unix.stackexchange.com/questions/145131/copy-image-from-clipboard-to-file"
         },
         {
+            "date-known-good": "2015-04-30",
             "nilsimsa-hex": "219eb2874474e4188d00e23bd95800906eb9caa446c0070470016257334041cf",
             "sha1-hex": "259697d8802a4cc81082aa80d4adafdb83bbd579",
-            "string": "http://ubuntuforums.org/showthread.php?t=1335075",
-            "date-known-good": "2015-04-30"
+            "string": "http://ubuntuforums.org/showthread.php?t=1335075"
         }
     ]
 }

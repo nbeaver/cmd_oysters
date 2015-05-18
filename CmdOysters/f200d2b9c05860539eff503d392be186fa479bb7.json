@@ -106,7 +106,6 @@
     },
     "invocations": [
         {
-            "comment": "Stores location of tempfile in $dir shell variable, which is not entirely safe.",
             "changeable-arguments": {
                 "\"$(mktemp -d --tmpdir=.)\"": {
                     "description-string": "Temporary directory to hold the images; removed as command completes.",
@@ -136,6 +135,7 @@
                     "type": "string"
                 }
             },
+            "comment": "Stores location of tempfile in $dir shell variable, which is not entirely safe.",
             "nilsimsa-hex": "30c4304ac12b50059198af4a12e432043982060ad8e05b842713100c4451822b",
             "sha1-hex": "451c4d67106c8189e61cc28c341b631620e76702",
             "string": "dir=\"$(mktemp -d --tmpdir=.)\" && unzip -q file.odt -d \"$dir\" && cd \"$dir\" && mogrify -resize 10x10% Pictures/* && zip -qrm ../resized.odt * && cd .. && rmdir \"$dir\""

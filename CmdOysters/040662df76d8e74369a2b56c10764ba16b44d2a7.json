@@ -75,6 +75,8 @@
                     "type": "string"
                 }
             },
+            "nilsimsa-hex": "b287705fc40a710595646eda32e76b609dd82a885a74afe40f82d0c46a75f23e",
+            "sha1-hex": "69eb231e93a2ec3f9ad6fdbcfede4fba0cbe6b15",
             "shell-compatibility": {
                 "bash": {
                     "compatible-versions-tested": [
@@ -108,7 +110,7 @@
                 },
                 "mksh": {
                     "compatible-versions-tested": [
-                       "40.9.20120630-7"
+                        "40.9.20120630-7"
                     ]
                 },
                 "posh": {
@@ -127,8 +129,6 @@
                     ]
                 }
             },
-            "nilsimsa-hex": "b287705fc40a710595646eda32e76b609dd82a885a74afe40f82d0c46a75f23e",
-            "sha1-hex": "69eb231e93a2ec3f9ad6fdbcfede4fba0cbe6b15",
             "string": "for f in *.pdf; do dir=\"${f%.*}\"; mkdir -p \"$dir\" && pdfimages -j \"$f\" \"$dir/$dir\"; done"
         }
     ]
