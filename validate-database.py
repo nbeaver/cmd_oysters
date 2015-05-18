@@ -136,9 +136,10 @@ def validate_command(command, description_SHA1_from_filename):
                     if modify_file:
                         dict_to_check['nilsimsa-hex'] = nilsimsa.Nilsimsa(dict_to_check['string']).hexdigest()
             except KeyError:
-                supply_sha1(dict_to_check['string'])
                 if modify_file:
                     dict_to_check['nilsimsa-hex'] = nilsimsa.Nilsimsa(dict_to_check['string']).hexdigest()
+                else:
+                    supply_nilsimsa(dict_to_check['string'])
 
     if 'component-command-info' in command.keys():
 
@@ -245,7 +246,6 @@ for i, json_filepath in enumerate(json_filepaths):
         sys.stderr.write("Warning: overwriting "+json_filepath+"\n")
         new_file = open(json_filepath, 'w')
         json.dump(json_data, new_file, indent=4, separators=(',', ': '), sort_keys=True)
-        modify_file = False # very important!
 
 num_commands = i + 1 # enumerate starts from 0.
 print "Validated", num_commands ,"files(s) and", num_invocations, "invocation(s)."
