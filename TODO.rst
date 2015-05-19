@@ -134,6 +134,8 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Figure out some way to do fine-grained validation, so once a CmdOyster has been checked, it won't be checked again until it changes.
 
+- ``[ ]`` Check that all the SHA1s of related commands are actually in the database (will require a dict associating the link to the file, so we know later which one the link was in).
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 `<templates/full-command-template.json>`_
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
