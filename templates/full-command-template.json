@@ -1,7 +1,7 @@
 {
     "can-modify": {
         "filesystem": false,
-        "other-processes" : false
+        "other-processes": false
     },
     "component-command-info": {
         "$COMMAND": {
@@ -37,7 +37,6 @@
     },
     "invocations": [
         {
-            "comment": "This is the only invocation, but it works just fine.",
             "changeable-arguments": {
                 "$ARG": {
                     "component-command": "$COMMAND",
@@ -47,7 +46,7 @@
                         15,
                         19
                     ],
-                    "subtype":"<replace with more specific type, e.g. path>",
+                    "subtype": "<replace with more specific type, e.g. path>",
                     "type": "string"
                 }
             },
@@ -56,12 +55,13 @@
                     "authentication": "maybe",
                     "internet-connection": "maybe",
                     "sudo": "maybe",
+                    "version-specifier": "greater than 0.8",
                     "versions-tested": [
                         "1.2.3 version name"
-                    ],
-                    "version-specifier": "greater than 0.8"
+                    ]
                 }
             },
+            "comment": "This is the only invocation, but it works just fine.",
             "example-outputs": [
                 "output text"
             ],
@@ -96,34 +96,34 @@
     ],
     "relevant-urls": [
         {
+            "date-known-good": "2015-04-30",
             "nilsimsa-hex": "8ec4ff82ac397b90febbedee6f5e2fd17749404df8f4bbe284497ac3a2b4d97e",
             "sha1-hex": "3dcf61ee29cdbbc832a392be1a03193ca3c6291e",
-            "string": "http://unix.stackexchange.com/",
-            "date-known-good": "2015-04-30"
+            "string": "http://unix.stackexchange.com/"
         },
         {
+            "date-known-good": "2015-04-30",
             "nilsimsa-hex": "8608ab61b414309224072222370111c06608420444d6410b2011404753441413",
             "sha1-hex": "193b08cbaa23796f384afdde0fdfd47386b174f2",
-            "string": "http://tldp.org/",
-            "date-known-good": "2015-04-30"
+            "string": "http://tldp.org/"
         },
         {
+            "date-known-good": "2015-04-30",
             "nilsimsa-hex": "ddd4ef25e5040dd99472ef3ef33287c9ef045dbd99d6698148fd60cfaaf1e99a",
             "sha1-hex": "a05503744e3fb1ee420dd91c79b57c170f25f546",
-            "string": "http://www.linuxjournal.com/",
-            "date-known-good": "2015-04-30"
+            "string": "http://www.linuxjournal.com/"
         },
         {
+            "date-known-good": "2015-04-30",
             "nilsimsa-hex": "6122ab35ec052d94e782126ce2362ad0cb827d298cd201020011445722800dbb",
             "sha1-hex": "8662ec54e7c4a1f2174fbb7abd8c67c8860332b2",
-            "string": "http://www.gnu.org/software/bash/manual/bash.html",
-            "date-known-good": "2015-04-30"
+            "string": "http://www.gnu.org/software/bash/manual/bash.html"
         },
         {
+            "date-known-good": "2015-04-30",
             "nilsimsa-hex": "71512b13b010bd592760a9b0ae38c0e3675a48fa5717214f2a90004f610ea502",
             "sha1-hex": "594a17a784b25710841f92266f4a9c837f2ca52f",
-            "string": "https://www.kernel.org/",
-            "date-known-good": "2015-04-30"
+            "string": "https://www.kernel.org/"
         }
     ]
 }
