@@ -218,7 +218,7 @@ if len(sys.argv) == 1:
 unique_SHA1s = NoDuplicates()
 num_invocations = 0
 
-if args.fix:
+if args.fix_all:
     modify_file = True
 else:
     modify_file = False
