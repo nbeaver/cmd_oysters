@@ -142,6 +142,12 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Ensure that every field in the schema is in this template.
 
+~~~~~~~~~~~~~
+`<Makefile>`_
+~~~~~~~~~~~~~
+
+- ``[*]`` Don't check all CmdOysters by default (make it a separate target).
+
 -----------------------------------
 Non-specific notes and observations
 -----------------------------------
