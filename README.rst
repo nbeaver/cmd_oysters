@@ -126,7 +126,7 @@ CmdOysters are text files in the JSON data serialization format.
 Of textual data serialization formats,
 JSON and YAML are the simplest and most widespread standardized formats.
 
-Well-maintained JSON libraries are readily available for most programming languages,
+Well-maintained JSON parsing and schema libraries are readily available for most programming languages,
 but the same is unfortunately not true for YAML.
 
 A directory of JSON files makes code work cross-platform and cross-language easily.
