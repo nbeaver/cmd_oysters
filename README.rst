@@ -423,11 +423,13 @@ which appears to currently be Python 2 only.
 
 .. _nilsimsa library: https://pypi.python.org/pypi/nilsimsa/0.3.2
 
-Copy `<templates/simple-template.json>`_ to ``templates/temp.json``.
+Copy `<testing/62f6a0e19cae58eefb0e39bc09aaf7b9469202e5.json>`_ to ``testing/temp.json``.
 
-Edit ``temp.json``, changing the ``description`` and ``invocation`` strings.
+Edit ``temp.json``, changing at least the ``description`` and ``invocation`` strings.
 
-Run `<validate-database.py>`_ to supply the SHA-1 and Nilsimsa hashes.
+Run ``python2 validate-database.py --fix --input testing/``
+to supply the SHA-1 and Nilsimsa hashes
+(``make cmd_oyster_testing`` does the same thing).
 
 Copy over some of the fields from other entries
 or from `<templates/full-command-template.json>`_
@@ -440,7 +442,7 @@ Continue adding metadata and invocations until satisfied.
 Rename file to the SHA-1 hash of its description,
 appended with ``.json``.
 
-Move the JSON file into `<commands/>`_.
+Move the JSON file into `<CmdOysters/>`_.
 
 --------------------------------------------
 How to add new metadata fields to the schema
