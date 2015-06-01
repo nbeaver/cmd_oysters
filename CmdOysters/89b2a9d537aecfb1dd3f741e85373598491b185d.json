@@ -21,7 +21,7 @@
         {
             "nilsimsa-hex": "d7a627d15f36aad148e10de807cb2a89d75952c4da719d6bc9db2410023c1670",
             "sha1-hex": "a1fae25ae9d24ff5c3b0ba8ee1ed75fe6c847b2d",
-            "string": "pwd | tr -d '\n' | xsel -b"
+            "string": "pwd | tr -d '\\n' | xsel -b"
         }
     ],
     "relevant-urls": [
