@@ -1,0 +1,112 @@
+{
+    "component-commands": [
+        "date"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
+    "description": {
+        "nilsimsa-hex": "71b084ad0e03a205d492f698bafd57a1c40d49e2e76041a4af064fc1c29fe53d",
+        "sha1-hex": "b9c376c554cf6c559e6c7931a44371b42d70732a",
+        "string": "Show the date and time in a different timezone without changing the system time zone."
+    },
+    "invocations": [
+        {
+            "changeable-arguments": {
+                "America/Argentina/Buenos_Aires": {
+                    "description-string": "Any timezone in the tz database.",
+                    "invocation-slice": [
+                        3,
+                        33
+                    ],
+                    "subtype": "Timezone code.",
+                    "type": "string"
+                }
+            },
+            "comment": "Date and time in Buenos Aires, Argentina.",
+            "example-outputs": [
+                "Thu Jan  1 00:00:00 ART 1970"
+            ],
+            "nilsimsa-hex": "25100414e00553400c2002047171c406a2040801140128c7c32521023c0761a6",
+            "sha1-hex": "83c623fb5878ffa24422860a6b73aeb68a92cca3",
+            "shell-compatibility": {
+                "bash": {
+                    "compatible-versions-tested": [
+                        "GNU bash, version 4.3.30(1)-release (x86_64-pc-linux-gnu)"
+                    ]
+                },
+                "csh": {
+                    "incompatible-versions-tested": [
+                        "20110502-2.1"
+                    ]
+                },
+                "dash": {
+                    "compatible-versions-tested": [
+                        "0.5.7-4+b1"
+                    ]
+                },
+                "fish": {
+                    "incompatible-versions-tested": [
+                        "1.23.1"
+                    ]
+                },
+                "ksh": {
+                    "compatible-versions-tested": [
+                        "93u+ 2012-08-01"
+                    ]
+                },
+                "mksh": {
+                    "compatible-versions-tested": [
+                        "@(#)MIRBSD KSH R50 2014/10/19 Debian-5"
+                    ]
+                },
+                "posh": {
+                    "compatible-versions-tested": [
+                        "0.12.3"
+                    ]
+                },
+                "rc": {
+                    "compatible-versions-tested": [
+                        "1.7.2 $Release: @(#)rc 1.7.2 2014-09-27 $"
+                    ]
+                },
+                "yash": {
+                    "compatible-versions-tested": [
+                        "2.36"
+                    ]
+                },
+                "zsh": {
+                    "compatible-versions-tested": [
+                        "zsh 5.0.7 (x86_64-pc-linux-gnu)"
+                    ]
+                }
+            },
+            "string": "TZ=America/Argentina/Buenos_Aires date"
+        }
+    ],
+    "relevant-urls": [
+        {
+            "date-known-good": "2015-06-01",
+            "nilsimsa-hex": "98c6cb8280947990caa8e5c463fc0c816c491c837cf071630709ea93a2214467",
+            "sha1-hex": "7c9acfd22ca01d2585ef76421521797216a96fdd",
+            "string": "https://unix.stackexchange.com/questions/48101/how-can-i-have-date-output-the-time-from-a-different-timezone"
+        },
+        {
+            "date-known-good": "2015-06-01",
+            "nilsimsa-hex": "5020fa70c210880b94402607205c944cadc37bf44022bf162c354acf43a205a1",
+            "sha1-hex": "ec6d54ad18ce4b09645dab54445d0d1d1b634668",
+            "string": "http://www.cyberciti.biz/tips/date-command-set-tz-environment-variable.html"
+        },
+        {
+            "date-known-good": "2015-06-01",
+            "nilsimsa-hex": "fadce8733a17f148ffccbe6896edd551576144ceddbaa57b3d386327e4570915",
+            "sha1-hex": "0e5e30bde983e4573f43117d21b358a3f4d5e8b0",
+            "string": "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"
+        }
+    ]
+}
