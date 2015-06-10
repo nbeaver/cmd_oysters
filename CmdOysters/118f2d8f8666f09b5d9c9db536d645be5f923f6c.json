@@ -53,20 +53,20 @@
     "invocations": [
         {
             "changeable-arguments": {
-                "myfile.txt": {
+                "/usr/share/dict/words": {
                     "component-command": "grep",
                     "description-string": "File or file path of text file.",
                     "invocation-slice": [
                         39,
-                        49
+                        60
                     ],
                     "subtype": "path",
                     "type": "string"
                 }
             },
             "comment": "Short flags version.",
-            "nilsimsa-hex": "da8f7868256c22fcd1fcec9e9420ff1b662e8c915d8a0749e0f878503658e048",
-            "sha1-hex": "8f78d31acfe82ec49214053d40ad2c338a9b51aa",
+            "nilsimsa-hex": "98edc868200402f4442c6096222845134422878114080649e8e83c1c3450e068",
+            "sha1-hex": "81c28c4486c7d24238ab12dae72e334bf7cabea0",
             "shell-compatibility": {
                 "bash": {
                     "compatible-versions-tested": [
@@ -119,24 +119,24 @@
                     ]
                 }
             },
-            "string": "grep -nP '[^[:ascii:]]' --color=always myfile.txt | less -R"
+            "string": "grep -nP '[^[:ascii:]]' --color=always /usr/share/dict/words | less -R"
         },
         {
             "changeable-arguments": {
-                "myfile.txt": {
+                "/usr/share/dict/words": {
                     "component-command": "grep",
                     "description-string": "File or file path of text file.",
                     "invocation-slice": [
                         63,
-                        73
+                        84
                     ],
                     "subtype": "path",
                     "type": "string"
                 }
             },
             "comment": "Long flags version.",
-            "nilsimsa-hex": "f8c2d869056620e65268ac8a1020381b44260413fd882749c0787890365880ec",
-            "sha1-hex": "c2fe383b7f8e87e5baa638b3f4f074ad2f057614",
+            "nilsimsa-hex": "f8e2d879084630e656682cff3a28791345e707b395083649c8f87c9c365990fc",
+            "sha1-hex": "12877e3980387bcc72c792171c46b139e3f0a151",
             "shell-compatibility": {
                 "bash": {
                     "compatible-versions-tested": [
@@ -189,7 +189,7 @@
                     ]
                 }
             },
-            "string": "grep --line-number --perl-regexp '[^[:ascii:]]' --color=always myfile.txt | less --RAW-CONTROL-CHARS"
+            "string": "grep --line-number --perl-regexp '[^[:ascii:]]' --color=always /usr/share/dict/words | less --RAW-CONTROL-CHARS"
         }
     ],
     "relevant-urls": [
