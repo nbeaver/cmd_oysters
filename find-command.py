@@ -45,7 +45,7 @@ for filename in json_filenames:
             continue
 
     if args.description:
-        if not args.description in command['description']['string']:
+        if not args.description.lower() in command['description']['string'].lower():
             continue
 
     if args.description_tokens:
