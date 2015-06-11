@@ -98,7 +98,7 @@ Example scenarios this is intended to be useful for:
 
 - Building up a complex ``find`` command by combining simpler examples.
 
-- Leveraging well-known commands without the hazards `copying and pasting them from online forums into a terminal`_.
+- Leveraging well-known commands without the hazards of `copying and pasting them from online forums into a terminal`_.
 
 - Quick lookup of commands for doing familiar tasks on an unfamiliar system.
 
