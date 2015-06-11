@@ -107,6 +107,11 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Incremental search for all search modes, possibly using ``ncurses``.
 
+- ``[ ]`` Add an ``--edit`` command to open the json file in the user's ``$EDITOR``.
+
+- ``[ ]`` Add a ``--case-sensitive`` flag for searching, since case-insensitive is a convenient default,
+  but sometimes case-sensitivity can make a big difference in matching results.
+
 .. _stemming: https://pythonhosted.org/Whoosh/stemming.html
 .. _lemmatising: http://marcobonzanini.com/2015/01/26/stemming-lemmatisation-and-pos-tagging-with-python-and-nltk/
 
