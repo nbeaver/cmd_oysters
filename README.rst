@@ -117,6 +117,45 @@ as simple as sending a text file.
 Design goals
 ------------
 
+~~~~~~~~~~~~~~~~~~~~~~~
+Avoidance of metasyntax
+~~~~~~~~~~~~~~~~~~~~~~~
+
+A good example of a command should resemble real usage as much as possible,
+and ideally should be runnable on an actual system.
+
+For example::
+
+    grep -nP '[^[:ascii:]]' --color=always /usr/share/dict/words | less -R
+
+is a better example than::
+
+    grep -nP '[^[:ascii:]]' --color=always /path/to/file.txt | less -R
+
+which is better than::
+
+    grep -nP '[^[:ascii:]]' --color=always foo | less -R
+
+which is better than::
+
+    grep -nP '[^[:ascii:]]' foo
+
+which is better than::
+
+    grep -nP '[^[:ascii:]]' [FILE...]
+
+For the purposed of the CmdOysters,
+the "best" example is not the most general,
+it is the one that is closest to an example that can be run without modification.
+
+Thus, metasyntax designed to show all the possible uses of a command,
+or make the example more abstract,
+such as the man-page convention ``[FILE...]``,
+or `metasyntactic variables`_ like ``foo`` and ``bar``,
+are not good examples for a CmdOyster.
+
+.. _metasyntactic variables: https://en.wikipedia.org/wiki/Metasyntactic_variable
+
 ~~~~~~~~~~~~~~~~~~~~~
 Simple textual format
 ~~~~~~~~~~~~~~~~~~~~~
