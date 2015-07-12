@@ -12,6 +12,8 @@ Specific items by file, in no particular order
 `<schemas/full-schema.json>`_
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+- ``[ ]`` Add a field for SHA-1 hashes of the binaries of the command, which is a more strict requirement than version number.
+
 - ``[*]`` Specify required commands.
 
 - ``[x]`` Make sha1-hash of related urls a required field. (Abandoned because these are not intended to be unique.)
