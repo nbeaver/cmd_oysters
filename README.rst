@@ -121,8 +121,9 @@ Design goals
 Avoidance of metasyntax
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-A good example of a command should resemble real usage as much as possible,
-and ideally should be runnable on an actual system.
+An example command invocation in a CmdOyster
+should resemble real usage as much as possible,
+and ideally should be runnable as-is on an actual system.
 
 For example::
 
@@ -143,6 +144,8 @@ which is better than::
 which is better than::
 
     grep -nP '[^[:ascii:]]' [FILE...]
+
+even though the last example is the most abstract, general case.
 
 For the purposed of the CmdOysters,
 the "best" example is not the most general,
