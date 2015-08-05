@@ -315,6 +315,14 @@
                   },
                   "type": "array"
                 },
+                "compatible-sha1s-tested": {
+                  "additionalItems": false,
+                  "description": "List of SHA1 hashes for the binary executable of the shell that are known to work with this invocation.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
                 "incompatible-version-specifier": {
                   "description": "Specify the version(s) that the shell is not compatible with for this invocation.",
                   "type": "string"
@@ -322,6 +330,14 @@
                 "incompatible-versions-tested": {
                   "additionalItems": false,
                   "description": "List of versions for the shell that are known to fail or not work as expected for this invocation.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "incompatible-sha1s-tested": {
+                  "additionalItems": false,
+                  "description": "List of SHA1 hashes for the binary executable of the shell that are known to work with this invocation.",
                   "items": {
                     "type": "string"
                   },

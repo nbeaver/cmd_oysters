@@ -74,6 +74,10 @@ Specific items by file, in no particular order
 
 - ``[*]`` Change ``url-nilsimsa-hash`` to just ``nilsimsa-hash`` for consistency.
 
+- ``[ ]`` Add a ``compatible-sha1-hashes`` field for shells.
+
+- ``[ ]`` Add a ``compatible-sha1-hashes`` field for component commands.
+
 ~~~~~~~~~~~~~~~~~~~~
 `<find-command.py>`_
 ~~~~~~~~~~~~~~~~~~~~
