@@ -152,10 +152,8 @@ by the SHA-1 hash of the description text or invocation string
 Compatibility metadata
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The metadata about the commands should indicate which shells they are compatible with,
-and what their dependencies are (e.g. a list of required Debian packages).
-
 CmdOysters permit multiple invocations.
+
 If one version of a command uses ``bash``-only extensions,
 another version only works with ``zsh``,
 and another works with any POSIX-conformant shell,
@@ -163,6 +161,33 @@ all three versions can still be stored in the same CmdOyster,
 provided each invocation uses the same `component commands`_.
 
 .. _component commands: `What does the term "component command" refer to?`_
+
+The metadata about the commands indicate which shells they are compatible with,
+and what their dependencies are (i.e. a list of component commands).
+
+Currently there is also an optional field for a list of required Debian packages.
+In the future, this should be expanded to other package managers.
+
+Per-shell and per-invocation compatibility metadata is provided in several ways:
+
+- A human-readable version specifier string, e.g. ``version 1.3 or higher``
+- A list of versions known to be compatible.
+- A list of versions known to be incompatible.
+- A list of SHA1s known to be compatible.
+- A list of SHA1s known to be incompatible.
+
+This may seem excessive,
+but version number is not always a reliable indication of command compatibility.
+
+For example, the maximum integer that the ``factor`` command will accept
+depends on whether it was compiled with ``bignum`` support.
+This does not change the version information,
+but it does change the SHA-1 checksum of the binary.
+
+While having the same SHA-1 checksum for the binary does not guarantee the same result,
+because of e.g. differing config files,
+it still aids in reproducing the expected result,
+and is better than relying on version number alone.
 
 ~~~~~~~~~~~~~
 Extensibility
@@ -178,7 +203,8 @@ Once the project has matured, this will not be a problem.
 Cross-referencing
 ~~~~~~~~~~~~~~~~~
 
-CmdOysters can "link" to related descriptions or invocations via their SHA-1 hash hex digests.
+CmdOysters can "link" to related descriptions or invocations
+via their SHA-1 hash hex digests.
 
 This also makes finding CmdOysters indexed by search engines much easier,
 since most search engines do not match special characters,
