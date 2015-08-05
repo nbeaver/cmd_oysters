@@ -21,7 +21,7 @@ parser.add_argument('-t', '--tokens', help='unordered token subset command searc
 parser.add_argument('-d', '--description', help='command description', required=False)
 parser.add_argument('-D', '--description-tokens', help='description token search (case-insensitive)', required=False, nargs='+')
 
-default_json_path = os.path.join(sys.path[0],"CmdOysters") # need to do it this way for symlinks to work.
+default_json_path = os.path.join(sys.path[0],"cmdoysters") # need to do it this way for symlinks to work.
 parser.add_argument('-j', '--json', help='path to root directory of JSON input files', required=False, default=default_json_path)
 
 args = parser.parse_args()
