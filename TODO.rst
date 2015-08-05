@@ -74,9 +74,11 @@ Specific items by file, in no particular order
 
 - ``[*]`` Change ``url-nilsimsa-hash`` to just ``nilsimsa-hash`` for consistency.
 
-- ``[ ]`` Add a ``compatible-sha1-hashes`` field for shells.
+- ``[*]`` Add a ``compatible-sha1-hashes`` field for shells.
 
-- ``[ ]`` Add a ``compatible-sha1-hashes`` field for component commands.
+- ``[*]`` Add a ``compatible-sha1-hashes`` field for component commands.
+
+- ``[ ]`` Use a UUID instead of SHA1/nilsimsa of description string. (Rationale: would prevent forced updates whenever the description changes, while still keeping the option for finding similar descriptions via Nilsimsa.)
 
 ~~~~~~~~~~~~~~~~~~~~
 `<find-command.py>`_
