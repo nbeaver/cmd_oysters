@@ -284,11 +284,12 @@ What does the term "component command" refer to?
 One of the greatest strengths of UNIX shell commands
 is that they can be composed in many ways.
 
-They can be
-used in conditional sequence (e.g. ``./configure && make``),
-piped together (e.g. ``du | sort -nr``),
-evaluated to supply arguments to other commands (e.g. ``mkdir $(date -I)``),
-or even taken directly as arguments to other commands (e.g. ``find . -exec file '{}' +``).
+They can be:
+
+- used in conditional sequence (e.g. ``./configure && make``),
+- piped together (e.g. ``du | sort -nr``),
+- evaluated to supply arguments to other commands (e.g. ``mkdir $(date -I)``),
+- or even taken directly as arguments to other commands (e.g. ``find . -exec file '{}' +``).
 
 These composite commands consist of more than one component command.
 
