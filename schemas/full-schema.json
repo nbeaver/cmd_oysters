@@ -232,6 +232,14 @@
                   ],
                   "type": "string"
                 },
+                "sha1s-tested": {
+                  "additionalItems": false,
+                  "description": "For this invocation, what are some sha1sums of the binaries for the component command that are known to work?",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
                 "sudo": {
                   "description": "As used in this invocation, does the command require superuser priveleges?",
                   "enum": [
@@ -256,7 +264,7 @@
               },
               "type": "object"
             },
-            "description": "Requirements for a command as its used in the invocation.",
+            "description": "Requirements for a component command as its used in the invocation.",
             "type": "object"
           },
           "comment": {
@@ -304,7 +312,7 @@
               "description": "Name of the shell.",
               "properties": {
                 "compatible-version-specifier": {
-                  "description": "Specify the version(s) that the shell is compatible with for this invocation.",
+                  "description": "Specify the version(s) that the shell is compatible with for this invocation. Expected to be human-readable, not machine-readable.",
                   "type": "string"
                 },
                 "compatible-versions-tested": {
@@ -324,7 +332,7 @@
                   "type": "array"
                 },
                 "incompatible-version-specifier": {
-                  "description": "Specify the version(s) that the shell is not compatible with for this invocation.",
+                  "description": "Specify the version(s) that the shell is not compatible with for this invocation. Expected to be human-readable, not machine-readable.",
                   "type": "string"
                 },
                 "incompatible-versions-tested": {
@@ -337,7 +345,7 @@
                 },
                 "incompatible-sha1s-tested": {
                   "additionalItems": false,
-                  "description": "List of SHA1 hashes for the binary executable of the shell that are known to work with this invocation.",
+                  "description": "List of SHA1 hashes for the binary executable of the shell that are known to fail or not work as expected with this invocation.",
                   "items": {
                     "type": "string"
                   },
