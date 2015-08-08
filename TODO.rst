@@ -78,7 +78,13 @@ Specific items by file, in no particular order
 
 - ``[*]`` Add a ``compatible-sha1-hashes`` field for component commands.
 
-- ``[ ]`` Use a UUID instead of SHA1/nilsimsa of description string. (Rationale: would prevent forced updates whenever the description changes, while still keeping the option for finding similar descriptions via Nilsimsa.)
+- ``[ ]`` Use a UUID instead of SHA1/nilsimsa of description string.
+  Rationale: would prevent forced updates whenever the description changes,
+  while still keeping the option for finding similar descriptions via Nilsimsa.
+
+- ``[ ]`` Add a ``depends-on-working-directory`` field to invocations.
+
+- ``[ ]`` Add an ``idempotent?`` field to invocations.
 
 ~~~~~~~~~~~~~~~~~~~~
 `<find-command.py>`_
