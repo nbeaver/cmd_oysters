@@ -62,7 +62,13 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Be more specific about other non-command dependencies, e.g. which commands require an X server.
 
-- ``[x]`` Change ``string`` to ``invocation-string`` and ``description-string``. This makes ad-hoc grepping easier. (Abandoned because it makes validation code messier.)
+- ``[x]`` Change ``string`` to ``invocation-string`` and ``description-string``. This makes ad-hoc grepping easier.
+  - Disadvantage: Makes validation code messier.
+
+- ``[x]`` Key invocations by invocation string instead of using a separate "string" field.
+  - Disadvantage: Would be a breaking change.
+  - Disadvantage: Would not prevent duplicate invocations: https://stackoverflow.com/questions/17063257/necessity-for-duplicate-keys-in-json-object
+  - Disadvantage: Would make ad-hoc grepping even harder.
 
 - ``[*]`` Change structure of invocations to a list of objects, so that they do not require a shell name.
 
@@ -78,13 +84,15 @@ Specific items by file, in no particular order
 
 - ``[*]`` Add a ``compatible-sha1-hashes`` field for component commands.
 
+  - Also check BuildID?
+
 - ``[ ]`` Use a UUID instead of SHA1/nilsimsa of description string.
-  Rationale: would prevent forced updates whenever the description changes,
-  while still keeping the option for finding similar descriptions via Nilsimsa.
+  - Advantage: would prevent forced updates whenever the description changes,
+    while still keeping the option for finding similar descriptions via Nilsimsa.
 
 - ``[ ]`` Add a ``depends-on-working-directory`` field to invocations.
 
-- ``[ ]`` Add an ``idempotent?`` field to invocations.
+- ``[ ]`` Add an ``idempotent`` field to invocations.
 
 ~~~~~~~~~~~~~~~~~~~~
 `<find-command.py>`_
