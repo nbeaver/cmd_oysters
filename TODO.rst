@@ -94,6 +94,10 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Add an ``idempotent`` field to invocations.
 
+- ``[ ]`` Add a ``shibboleth-command`` field to invocations,
+  e.g. ``ls --version`` will return 0 for the GNU version of ``ls``
+  but 1 for the BSD version of ``ls``.
+
 ~~~~~~~~~~~~~~~~~~~~
 `<find-command.py>`_
 ~~~~~~~~~~~~~~~~~~~~
