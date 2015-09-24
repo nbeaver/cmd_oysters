@@ -49,6 +49,7 @@ Specific items by file, in no particular order
 - ``[ ]`` Field that indicates if the invocation is a pipeline, since the presence of a pipe character is not a reliable indication.
 
 - ``[*]`` Field for example output of command (only some of them, obviously).
+  - ``[ ]`` Include output of ``locale`` command for these.
 
 - ``[*]`` Change ``shell`` compatibility to a list of objects.
 
@@ -93,10 +94,19 @@ Specific items by file, in no particular order
 - ``[ ]`` Add a ``depends-on-working-directory`` field to invocations.
 
 - ``[ ]`` Add an ``idempotent`` field to invocations.
+  - This is helpful in case it unclear if the command has already been run before.
+
+- ``[x]`` Add a ``depends-on-locale`` field to invocations.
+  - Decided this was too general, but local information should be part of example outputs.
 
 - ``[ ]`` Add a ``shibboleth-command`` field to invocations,
   e.g. ``ls --version`` will return 0 for the GNU version of ``ls``
   but 1 for the BSD version of ``ls``.
+
+- ``[ ]`` Add a ``warning`` or ``caution`` field.
+
+- ``[ ]`` Indicate if the command is POSIX-standard,
+  and if so, which version of POSIX.
 
 ~~~~~~~~~~~~~~~~~~~~
 `<find-command.py>`_
