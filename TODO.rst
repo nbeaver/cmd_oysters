@@ -12,6 +12,8 @@ Specific items by file, in no particular order
 `<schemas/full-schema.json>`_
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+- ``[ ]`` Use a copyright fields like Debian's: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+
 - ``[*]`` Specify required commands.
 
 - ``[x]`` Make sha1-hash of related urls a required field. (Abandoned because these are not intended to be unique.)
