@@ -110,6 +110,8 @@ Specific items by file, in no particular order
 - ``[ ]`` Indicate if the command is POSIX-standard,
   and if so, which version of POSIX.
 
+- ``[ ]`` Link to commands to try if it fails based on error number.
+
 ~~~~~~~~~~~~~~~~~~~~
 `<find-command.py>`_
 ~~~~~~~~~~~~~~~~~~~~
