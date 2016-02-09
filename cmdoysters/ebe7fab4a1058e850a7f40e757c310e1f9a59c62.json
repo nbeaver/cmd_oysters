@@ -46,7 +46,6 @@
         "year": 2015
     },
     "description": {
-        "nilsimsa-hex": "f37a6eda67d18dedbc3fbe5f5eb0f6b330b9cfb751263d5c27006693f2508b3b",
         "sha1-hex": "ebe7fab4a1058e850a7f40e757c310e1f9a59c62",
         "string": "See directories taking up the most space in user's home directory."
     },
@@ -65,7 +64,6 @@
                 }
             },
             "comment": "Short flags.",
-            "nilsimsa-hex": "be805ae0fb51279746386fa1ca15ddc9e13dfb17673a0ae1d0cb5508740be2e9",
             "sha1-hex": "ebc98b1a6546368543d6843e8ea37d2270ad67d0",
             "string": "du -d 1 ~ | sort -nr | less"
         },
@@ -83,7 +81,6 @@
                 }
             },
             "comment": "Long flags.",
-            "nilsimsa-hex": "b2bd272cf48799c964f3ede5d924fad0ec37f035f9eaa3b6d1d87762a6497df7",
             "sha1-hex": "70398c34e3a8165a16d99592f0d82546d785c9fc",
             "string": "du --max-depth=1 $HOME | sort --reverse --human-numeric-sort | less"
         },
@@ -101,7 +98,6 @@
                 }
             },
             "comment": "Human-readable size (e.g. 8M for 8 megabytes). Short flags.",
-            "nilsimsa-hex": "9c004bb2be5537af54382ff3cb14d8c9e935f297c53b08e7f0c8d7c07c0bf2ad",
             "sha1-hex": "35be890202cbe36a45fcf97ce11fb79731faf195",
             "string": "du -hd 1 ~ | sort -hr | less"
         },
@@ -119,7 +115,6 @@
                 }
             },
             "comment": "Human-readable size (e.g. 8M for 8 megabytes). Long flags.",
-            "nilsimsa-hex": "92042f20508199c94401ece5d92018d0e0215035f9eaa382c1507522820960f4",
             "sha1-hex": "309eaa0ac219c76a2166e0680da62f8275ed6f56",
             "string": "du --human --max-depth=1 $HOME | sort --reverse --human-numeric-sort | less"
         }

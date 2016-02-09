@@ -42,7 +42,6 @@
         "year": 2015
     },
     "description": {
-        "nilsimsa-hex": "0738a1fd95d102ce83c06f112af0109595e988b9712b5c86b50d6e31c0d2c488",
         "sha1-hex": "f3951f67052d0a0ea66062977ab7074c88bf9708",
         "string": "Change the default shell of the current user to zsh."
     },
@@ -92,7 +91,6 @@
                 }
             },
             "comment": "Short flag.",
-            "nilsimsa-hex": "8b06778d52b4dbeb952fc39d1f9103e02f53ad81d371fe4247ae891751332d07",
             "sha1-hex": "afcf173a92b8a8b580cfbf6616ba1ce2482cf501",
             "shell-compatibility": {
                 "bash": {
@@ -165,7 +163,6 @@
                 }
             },
             "comment": "Long flag.",
-            "nilsimsa-hex": "c31ef75d52b5d9ffbd7d53dd3f9393ec0f33afb5f37bfc332f2ec917c1333d83",
             "sha1-hex": "a5e12f16ddb255f9b7a115364803c7f6eeb05534",
             "shell-compatibility": {
                 "bash": {
@@ -210,7 +207,6 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-04-30",
-            "nilsimsa-hex": "90483b4430983108a141a6348062408143aecc381f313082356a3042408a1c06",
             "sha1-hex": "6dbc0a43bb7066dfc8d8b3b82c8b7176168fa299",
             "string": "https://wiki.archlinux.org/index.php/Zsh#Making_Zsh_your_default_shell"
         }

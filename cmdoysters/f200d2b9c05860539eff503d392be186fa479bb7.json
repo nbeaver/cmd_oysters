@@ -100,7 +100,6 @@
         "year": 2015
     },
     "description": {
-        "nilsimsa-hex": "410d65684b2528882cf698c091a7505f05a49035c8ab31edd10e880df82c0c0c",
         "sha1-hex": "f200d2b9c05860539eff503d392be186fa479bb7",
         "string": "Resize all the images in an OpenDocument (ODT) file to 10% of their former size."
     },
@@ -136,7 +135,6 @@
                 }
             },
             "comment": "Stores location of tempfile in $dir shell variable, which is not entirely safe.",
-            "nilsimsa-hex": "30c4304ac12b50059198af4a12e432043982060ad8e05b842713100c4451822b",
             "sha1-hex": "451c4d67106c8189e61cc28c341b631620e76702",
             "string": "dir=\"$(mktemp -d --tmpdir=.)\" && unzip -q file.odt -d \"$dir\" && cd \"$dir\" && mogrify -resize 10x10% Pictures/* && zip -qrm ../resized.odt * && cd .. && rmdir \"$dir\""
         }

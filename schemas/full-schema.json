@@ -133,10 +133,6 @@
       "additionalProperties": false,
       "description": "Textual description of what the command does. Must be unique, since its SHA1 hash is effectively the primary key. Required field.",
       "properties": {
-        "nilsimsa-hex": {
-          "description": "A locality-sensitive hash, helping to detect similar descriptions.",
-          "type": "string"
-        },
         "sha1-hex": {
           "description": "The SHA1 cryptographic hash of the description string; useful instead of a primary key for linking to related commands. Required field.",
           "type": "string"
@@ -279,20 +275,12 @@
             },
             "type": "array"
           },
-          "nilsimsa-hex": {
-            "description": "A locality-sensitive hash, useful for finding similar invocations.",
-            "type": "string"
-          },
           "related-invocations": {
             "additionalItems": false,
             "items": {
               "additionalProperties": false,
               "description": "Hashes of invocations for different commands that are related to this invocation. A kind of hyper-linking.",
               "properties": {
-                "nilsimsa-hex": {
-                  "description": "Nilsimsa hash of related invocation; useful if link is broken due to small change in invocation.",
-                  "type": "string"
-                },
                 "sha1-hex": {
                   "description": "Unique hash of related invocation.",
                   "type": "string"
@@ -376,10 +364,6 @@
       "items": {
         "additionalProperties": false,
         "properties": {
-          "nilsimsa-hex": {
-            "description": "String similarity hash of description of related command; useful if link is broken and description is only slightly different.",
-            "type": "string"
-          },
           "sha1-hex": {
             "description": "Unique hash of description of related command.",
             "type": "string"
@@ -399,9 +383,6 @@
         "properties": {
           "date-known-good": {
             "format": "date",
-            "type": "string"
-          },
-          "nilsimsa-hex": {
             "type": "string"
           },
           "sha1-hex": {

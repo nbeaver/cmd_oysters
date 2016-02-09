@@ -58,7 +58,6 @@
         "year": 2015
     },
     "description": {
-        "nilsimsa-hex": "10b965aad81349edd7663a81e2b0979594cb293fd122f840578e2ef1f623ce2a",
         "sha1-hex": "040662df76d8e74369a2b56c10764ba16b44d2a7",
         "string": "For each file ending with '.pdf' in the current directory, extract the images from the pdf file into a new directory with the name of the file stripped of '.pdf'."
     },
@@ -75,7 +74,6 @@
                     "type": "string"
                 }
             },
-            "nilsimsa-hex": "b287705fc40a710595646eda32e76b609dd82a885a74afe40f82d0c46a75f23e",
             "sha1-hex": "69eb231e93a2ec3f9ad6fdbcfede4fba0cbe6b15",
             "shell-compatibility": {
                 "bash": {

@@ -13,13 +13,11 @@
         "year": 2015
     },
     "description": {
-        "nilsimsa-hex": "45931100d10849693c3452009238141010b10084d0866440862842c89000a101",
         "sha1-hex": "89b2a9d537aecfb1dd3f741e85373598491b185d",
         "string": "Copy working directory to clipboard."
     },
     "invocations": [
         {
-            "nilsimsa-hex": "c7a227517f138ad109e5258907d32a9b955822ccfa799d4bc9db2dbf223c1678",
             "sha1-hex": "b11b076cd7854cd2686fa27f46ea6695483adbdc",
             "string": "pwd | tr -d '\\n' | xsel -b"
         }
@@ -27,7 +25,6 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-05-31",
-            "nilsimsa-hex": "5d0689618d0c4c7127277eaeeea484f475a94f9f7ba27fa7c41816efa691a315",
             "sha1-hex": "84b5da55f42d0f349fae1f2466917fb89c2e7076",
             "string": "http://www.commandlinefu.com/commands/view/9766/copy-currentworking-directory-to-clipboard"
         }

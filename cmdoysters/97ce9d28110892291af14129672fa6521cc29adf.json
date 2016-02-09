@@ -15,13 +15,11 @@
         "year": 2015
     },
     "description": {
-        "nilsimsa-hex": "58c486858800a2497003042350004901342136826940d4a183d802148002040b",
         "sha1-hex": "97ce9d28110892291af14129672fa6521cc29adf",
         "string": "Show information about parent process."
     },
     "invocations": [
         {
-            "nilsimsa-hex": "080401204c02da0000d820090105020040061040860003a402090c9048090001",
             "sha1-hex": "e5d624cb1f2dd39f7f92c9aa1e93d52dd3e00dd0",
             "shell-compatibility": {
                 "bash": {
