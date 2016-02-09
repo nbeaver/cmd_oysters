@@ -116,6 +116,8 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Link to commands to try if it fails based on error number.
 
+- ``[ ]`` Two different descriptions, one terse (80 characters or less), and one verbose.
+
 ~~~~~~~~~~~~~~~~~~~~
 `<find-command.py>`_
 ~~~~~~~~~~~~~~~~~~~~
