@@ -52,8 +52,8 @@
         {
             "changeable-arguments": {
                 "~": {
+                    "argument-description": "Directory that is examined for disk usage.",
                     "component-command": "du",
-                    "description-string": "Directory that is examined for disk usage.",
                     "invocation-slice": [
                         8,
                         9
@@ -68,8 +68,8 @@
         {
             "changeable-arguments": {
                 "$HOME": {
+                    "argument-description": "Directory that is examined for disk usage.",
                     "component-command": "du",
-                    "description-string": "Directory that is examined for disk usage.",
                     "invocation-slice": [
                         17,
                         22
@@ -84,8 +84,8 @@
         {
             "changeable-arguments": {
                 "~": {
+                    "argument-description": "Directory that is examined for disk usage.",
                     "component-command": "du",
-                    "description-string": "Directory that is examined for disk usage.",
                     "invocation-slice": [
                         9,
                         10
@@ -100,8 +100,8 @@
         {
             "changeable-arguments": {
                 "$HOME": {
+                    "argument-description": "Directory that is examined for disk usage.",
                     "component-command": "du",
-                    "description-string": "Directory that is examined for disk usage.",
                     "invocation-slice": [
                         25,
                         30

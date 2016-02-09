@@ -21,7 +21,7 @@
         {
             "changeable-arguments": {
                 "file": {
-                    "description-string": "Path to file to be compressed.",
+                    "argument-description": "Path to file to be compressed.",
                     "invocation-slice": [
                         7,
                         11
@@ -30,7 +30,7 @@
                     "type": "string"
                 },
                 "file.gz": {
-                    "description-string": "Path to output compressed file.",
+                    "argument-description": "Path to output compressed file.",
                     "invocation-slice": [
                         14,
                         21

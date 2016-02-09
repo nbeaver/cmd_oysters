@@ -37,8 +37,8 @@
         {
             "changeable-arguments": {
                 "out.png": {
+                    "argument-description": "Filename of image.",
                     "component-command": "xclip",
-                    "description-string": "Filename of image.",
                     "invocation-slice": [
                         45,
                         52
@@ -53,8 +53,8 @@
         {
             "changeable-arguments": {
                 "out.png": {
+                    "argument-description": "Filename of image.",
                     "component-command": "xclip",
-                    "description-string": "Filename of image.",
                     "invocation-slice": [
                         52,
                         59

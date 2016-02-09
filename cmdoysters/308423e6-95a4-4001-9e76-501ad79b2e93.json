@@ -37,8 +37,8 @@
         {
             "changeable-arguments": {
                 "/var/lib/mlocate/mlocate.db": {
+                    "argument-description": "Path to the `locate' database.",
                     "component-command": "stat",
-                    "description-string": "Path to the `locate' database.",
                     "invocation-slice": [
                         11,
                         38
@@ -53,8 +53,8 @@
         {
             "changeable-arguments": {
                 "/var/lib/mlocate/mlocate.db": {
+                    "argument-description": "Path to the `locate' database.",
                     "component-command": "stat",
-                    "description-string": "Path to the `locate' database.",
                     "invocation-slice": [
                         17,
                         44

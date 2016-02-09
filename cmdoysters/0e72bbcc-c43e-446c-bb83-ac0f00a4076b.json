@@ -21,9 +21,9 @@
         {
             "changeable-arguments": {
                 "*doc*": {
+                    "argument-description": "Pattern to match the path to.",
                     "component-command": "find",
                     "component-command-flag": "-name",
-                    "description-string": "Pattern to match the path to.",
                     "invocation-slice": [
                         67,
                         72
@@ -32,8 +32,8 @@
                     "type": "string"
                 },
                 "/usr/share/": {
+                    "argument-description": "Path to search under.",
                     "component-command": "find",
-                    "description-string": "Path to search under.",
                     "invocation-slice": [
                         6,
                         17
@@ -42,9 +42,9 @@
                     "type": "string"
                 },
                 "/usr/share/doc": {
+                    "argument-description": "Path to exclude (prune) from search.",
                     "component-command": "find",
                     "component-command-flag": "-path",
-                    "description-string": "Path to exclude (prune) from search.",
                     "invocation-slice": [
                         26,
                         40

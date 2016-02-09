@@ -37,8 +37,8 @@
         {
             "changeable-arguments": {
                 "$HOME": {
+                    "argument-description": "Path to search.",
                     "component-command": "find",
-                    "description-string": "Path to search.",
                     "invocation-slice": [
                         5,
                         10
@@ -47,9 +47,9 @@
                     "type": "string"
                 },
                 "$USER": {
+                    "argument-description": "User login the file is not owned by.",
                     "component-command": "find",
                     "component-command-flag": "-user",
-                    "description-string": "User login the file is not owned by.",
                     "invocation-slice": [
                         19,
                         24

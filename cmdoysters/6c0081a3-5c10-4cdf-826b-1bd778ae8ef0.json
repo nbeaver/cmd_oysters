@@ -64,7 +64,7 @@
         {
             "changeable-arguments": {
                 "\"${f%.*}\"": {
-                    "description-string": "Filename of PDF with '.pdf' stripped off. Used as the directory to store the images and image-root for image filenames.",
+                    "argument-description": "Filename of PDF with '.pdf' stripped off. Used as the directory to store the images and image-root for image filenames.",
                     "invocation-slice": [
                         23,
                         32

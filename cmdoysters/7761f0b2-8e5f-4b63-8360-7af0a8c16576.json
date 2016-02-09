@@ -37,8 +37,8 @@
         {
             "changeable-arguments": {
                 "/dev/dvd": {
+                    "argument-description": "Path to device file.",
                     "component-command": "safecopy",
-                    "description-string": "Path to device file.",
                     "invocation-slice": [
                         9,
                         17
@@ -47,8 +47,8 @@
                     "type": "string"
                 },
                 "disc.iso": {
+                    "argument-description": "Path to output ISO file.",
                     "component-command": "safecopy",
-                    "description-string": "Path to output ISO file.",
                     "invocation-slice": [
                         18,
                         26

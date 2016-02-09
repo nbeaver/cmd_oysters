@@ -52,8 +52,8 @@
         {
             "changeable-arguments": {
                 "/usr/share/dict/words": {
+                    "argument-description": "File or file path of text file.",
                     "component-command": "grep",
-                    "description-string": "File or file path of text file.",
                     "invocation-slice": [
                         39,
                         60
@@ -120,8 +120,8 @@
         {
             "changeable-arguments": {
                 "/usr/share/dict/words": {
+                    "argument-description": "File or file path of text file.",
                     "component-command": "grep",
-                    "description-string": "File or file path of text file.",
                     "invocation-slice": [
                         63,
                         84

@@ -39,7 +39,7 @@
                 "$ARG": {
                     "component-command": "$COMMAND",
                     "component-command-flag": "$FLAG",
-                    "description-string": "",
+                    "argument-description": "",
                     "invocation-slice": [
                         15,
                         19

@@ -106,7 +106,7 @@
         {
             "changeable-arguments": {
                 "\"$(mktemp -d --tmpdir=.)\"": {
-                    "description-string": "Temporary directory to hold the images; removed as command completes.",
+                    "argument-description": "Temporary directory to hold the images; removed as command completes.",
                     "invocation-slice": [
                         4,
                         29
@@ -115,7 +115,7 @@
                     "type": "string"
                 },
                 "../resized.odt": {
-                    "description-string": "Output OpenDocument (.odt) file.",
+                    "argument-description": "Output OpenDocument (.odt) file.",
                     "invocation-slice": [
                         123,
                         137
@@ -124,7 +124,7 @@
                     "type": "string"
                 },
                 "file.odt": {
-                    "description-string": "Input OpenDocument (.odt) file containing images.",
+                    "argument-description": "Input OpenDocument (.odt) file containing images.",
                     "invocation-slice": [
                         42,
                         50

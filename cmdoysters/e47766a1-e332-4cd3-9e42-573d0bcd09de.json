@@ -17,7 +17,7 @@
         {
             "changeable-arguments": {
                 "America/Argentina/Buenos_Aires": {
-                    "description-string": "Any timezone in the tz database.",
+                    "argument-description": "Any timezone in the tz database.",
                     "invocation-slice": [
                         3,
                         33

@@ -162,7 +162,7 @@
                   "description": "The argument is passed via this flag.",
                   "type": "string"
                 },
-                "description-string": {
+                "argument-description": {
                   "description": "Description of the argument.",
                   "type": "string"
                 },

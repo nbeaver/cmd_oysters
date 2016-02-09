@@ -67,9 +67,9 @@
         {
             "changeable-arguments": {
                 "2": {
+                    "argument-description": "Time interval in seconds.",
                     "component-command": "ping",
                     "component-command-flag": "-i",
-                    "description-string": "Time interval in seconds.",
                     "invocation-slice": [
                         8,
                         9
@@ -77,8 +77,8 @@
                     "type": "integer"
                 },
                 "localhost": {
+                    "argument-description": "IPv4 address or fully qualified domain name.",
                     "component-command": "ping",
-                    "description-string": "IPv4 address or fully qualified domain name.",
                     "invocation-slice": [
                         10,
                         19
@@ -109,9 +109,9 @@
         {
             "changeable-arguments": {
                 "2": {
+                    "argument-description": "Time interval in seconds.",
                     "component-command": "ping",
                     "component-command-flag": "-i",
-                    "description-string": "Time interval in seconds.",
                     "invocation-slice": [
                         8,
                         9
@@ -119,8 +119,8 @@
                     "type": "integer"
                 },
                 "localhost": {
+                    "argument-description": "IPv4 address or fully qualified domain name.",
                     "component-command": "ping",
-                    "description-string": "IPv4 address or fully qualified domain name.",
                     "invocation-slice": [
                         10,
                         19

@@ -48,9 +48,9 @@
         {
             "changeable-arguments": {
                 "$(which zsh)": {
+                    "argument-description": "Path to desired shell.",
                     "component-command": "chsh",
                     "component-command-flag": "-s",
-                    "description-string": "Path to desired shell.",
                     "invocation-slice": [
                         8,
                         20
@@ -59,8 +59,8 @@
                     "type": "string"
                 },
                 "$USER": {
+                    "argument-description": "Username. Requires sudo if different than current user.",
                     "component-command": "chsh",
-                    "description-string": "Username. Requires sudo if different than current user.",
                     "invocation-slice": [
                         21,
                         26
@@ -68,8 +68,8 @@
                     "type": "string"
                 },
                 "zsh": {
+                    "argument-description": "Name of desired shell.",
                     "component-command": "which",
-                    "description-string": "Name of desired shell.",
                     "invocation-slice": [
                         16,
                         19
@@ -132,9 +132,9 @@
         {
             "changeable-arguments": {
                 "$(which zsh)": {
+                    "argument-description": "Path to desired shell.",
                     "component-command": "chsh",
                     "component-command-flag": "--shell",
-                    "description-string": "Path to desired shell.",
                     "invocation-slice": [
                         13,
                         25
@@ -142,8 +142,8 @@
                     "type": "string"
                 },
                 "$USER": {
+                    "argument-description": "Username. Requires sudo if different than current user.",
                     "component-command": "chsh",
-                    "description-string": "Username. Requires sudo if different than current user.",
                     "invocation-slice": [
                         26,
                         31
@@ -151,8 +151,8 @@
                     "type": "string"
                 },
                 "zsh": {
+                    "argument-description": "Name of desired shell.",
                     "component-command": "which",
-                    "description-string": "Name of desired shell.",
                     "invocation-slice": [
                         21,
                         24
