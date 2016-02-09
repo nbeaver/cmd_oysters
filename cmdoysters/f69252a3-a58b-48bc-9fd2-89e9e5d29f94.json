@@ -39,7 +39,7 @@
                 "i686",
                 "x86_64"
             ],
-            "string": "uname -m"
+            "invocation-string": "uname -m"
         },
         {
             "comment": "Long flag.",
@@ -47,7 +47,7 @@
                 "i686",
                 "x86_64"
             ],
-            "string": "uname --machine"
+            "invocation-string": "uname --machine"
         }
     ],
     "related-commands": [

@@ -58,7 +58,7 @@
                     "type": "string"
                 }
             },
-            "string": "find $HOME ! -user $USER"
+            "invocation-string": "find $HOME ! -user $USER"
         }
     ],
     "uuid": "2b0656bc-9ea5-466b-8734-dcc1570be067"

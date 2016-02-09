@@ -30,6 +30,7 @@
                 }
             },
             "comment": "Short flags and octal value for carriage return.",
+            "invocation-string": "grep -Url $'\\015' --include='*.txt'",
             "shell-compatibility": {
                 "bash": {
                     "compatible-versions-tested": [
@@ -86,20 +87,19 @@
                         "zsh 5.0.7"
                     ]
                 }
-            },
-            "string": "grep -Url $'\\015' --include='*.txt'"
+            }
         },
         {
             "comment": "Short flags and hexadecimal value for carriage return.",
-            "string": "grep -Url $'\\x0d' --include='*.txt'"
+            "invocation-string": "grep -Url $'\\x0d' --include='*.txt'"
         },
         {
             "comment": "Short flags and C-style notation for carriage return.",
-            "string": "grep -Url $'\\r' --include='*.txt'"
+            "invocation-string": "grep -Url $'\\r' --include='*.txt'"
         },
         {
             "comment": "Long flags and C-style notation for carriage return.",
-            "string": "grep --binary --recursive --files-with-matches $'\\r' --include='*.txt'"
+            "invocation-string": "grep --binary --recursive --files-with-matches $'\\r' --include='*.txt'"
         }
     ],
     "relevant-urls": [

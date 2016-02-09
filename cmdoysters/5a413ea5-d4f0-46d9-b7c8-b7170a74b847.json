@@ -48,7 +48,7 @@
                 }
             },
             "comment": "Works with any POSIX shell.",
-            "string": "xclip -selection clipboard -t image/png -o > out.png"
+            "invocation-string": "xclip -selection clipboard -t image/png -o > out.png"
         },
         {
             "changeable-arguments": {
@@ -64,7 +64,7 @@
                 }
             },
             "comment": "Works with any POSIX shell; long flags version.",
-            "string": "xclip -selection clipboard -target image/png -out > out.png"
+            "invocation-string": "xclip -selection clipboard -target image/png -out > out.png"
         }
     ],
     "relevant-urls": [

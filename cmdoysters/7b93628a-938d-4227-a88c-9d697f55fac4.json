@@ -63,6 +63,7 @@
                 }
             },
             "comment": "Short flags version.",
+            "invocation-string": "grep -nP '[^[:ascii:]]' --color=always /usr/share/dict/words | less -R",
             "shell-compatibility": {
                 "bash": {
                     "compatible-versions-tested": [
@@ -114,8 +115,7 @@
                         "4.3.17"
                     ]
                 }
-            },
-            "string": "grep -nP '[^[:ascii:]]' --color=always /usr/share/dict/words | less -R"
+            }
         },
         {
             "changeable-arguments": {
@@ -131,6 +131,7 @@
                 }
             },
             "comment": "Long flags version.",
+            "invocation-string": "grep --line-number --perl-regexp '[^[:ascii:]]' --color=always /usr/share/dict/words | less --RAW-CONTROL-CHARS",
             "shell-compatibility": {
                 "bash": {
                     "compatible-versions-tested": [
@@ -182,8 +183,7 @@
                         "4.3.17"
                     ]
                 }
-            },
-            "string": "grep --line-number --perl-regexp '[^[:ascii:]]' --color=always /usr/share/dict/words | less --RAW-CONTROL-CHARS"
+            }
         }
     ],
     "relevant-urls": [

@@ -19,6 +19,7 @@
     },
     "invocations": [
         {
+            "invocation-string": "ps -p $PPID",
             "shell-compatibility": {
                 "bash": {
                     "compatible-versions-tested": [
@@ -75,8 +76,7 @@
                         "zsh 5.0.7 (x86_64-pc-linux-gnu)"
                     ]
                 }
-            },
-            "string": "ps -p $PPID"
+            }
         }
     ],
     "uuid": "fdcc1f87-af46-4834-9ce2-b1ac27a3f070"

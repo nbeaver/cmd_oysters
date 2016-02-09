@@ -90,6 +90,7 @@
                 }
             },
             "comment": "Short flag.",
+            "invocation-string": "chsh -s $(which zsh) $USER",
             "shell-compatibility": {
                 "bash": {
                     "compatible-versions-tested": [
@@ -126,8 +127,7 @@
                         "4.3.17"
                     ]
                 }
-            },
-            "string": "chsh -s $(which zsh) $USER"
+            }
         },
         {
             "changeable-arguments": {
@@ -161,6 +161,7 @@
                 }
             },
             "comment": "Long flag.",
+            "invocation-string": "chsh --shell $(which zsh) $USER",
             "shell-compatibility": {
                 "bash": {
                     "compatible-versions-tested": [
@@ -197,8 +198,7 @@
                         "4.3.17"
                     ]
                 }
-            },
-            "string": "chsh --shell $(which zsh) $USER"
+            }
         }
     ],
     "relevant-urls": [

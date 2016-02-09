@@ -68,7 +68,7 @@
                 }
             },
             "comment": "This makes an iso from the /dev/dvd device file.",
-            "string": "safecopy /dev/dvd disc.iso"
+            "invocation-string": "safecopy /dev/dvd disc.iso"
         }
     ],
     "relevant-urls": [

@@ -134,7 +134,7 @@
                 }
             },
             "comment": "Stores location of tempfile in $dir shell variable, which is not entirely safe.",
-            "string": "dir=\"$(mktemp -d --tmpdir=.)\" && unzip -q file.odt -d \"$dir\" && cd \"$dir\" && mogrify -resize 10x10% Pictures/* && zip -qrm ../resized.odt * && cd .. && rmdir \"$dir\""
+            "invocation-string": "dir=\"$(mktemp -d --tmpdir=.)\" && unzip -q file.odt -d \"$dir\" && cd \"$dir\" && mogrify -resize 10x10% Pictures/* && zip -qrm ../resized.odt * && cd .. && rmdir \"$dir\""
         }
     ],
     "uuid": "361f2d3b-beeb-4a29-bcf6-070edaec63a9"

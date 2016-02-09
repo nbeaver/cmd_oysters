@@ -75,7 +75,7 @@
                     ]
                 }
             },
-            "string": "$COMMAND $FLAG $ARG"
+            "invocation-string": "$COMMAND $FLAG $ARG"
         }
     ],
     "related-commands": [

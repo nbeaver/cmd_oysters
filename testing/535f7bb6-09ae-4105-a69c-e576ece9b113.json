@@ -15,7 +15,7 @@
     },
     "invocations": [
         {
-            "string": "ls"
+            "invocation-string": "ls"
         }
     ],
     "uuid": "535f7bb6-09ae-4105-a69c-e576ece9b113"

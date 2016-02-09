@@ -42,7 +42,7 @@
                     "sudo": "no"
                 }
             },
-            "string": "curl --proto https ifconfig.me"
+            "invocation-string": "curl --proto https ifconfig.me"
         }
     ],
     "relevant-urls": [

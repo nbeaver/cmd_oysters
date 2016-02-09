@@ -35,7 +35,7 @@
     },
     "invocations": [
         {
-            "string": "xset dpms force standby"
+            "invocation-string": "xset dpms force standby"
         }
     ],
     "relevant-urls": [

@@ -50,13 +50,16 @@
           "sha1-hex": {
             "type": "string"
           },
-          "string": {
+          "invocation-string": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "invocation-string"
+        ]
       }
-    }
+    },
     "uuid": {
       "description": "Universally Unique Identifier for this CmdOyster.",
       "type": "string"

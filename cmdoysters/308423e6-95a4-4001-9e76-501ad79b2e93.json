@@ -48,7 +48,7 @@
                 }
             },
             "comment": "Short flag version.",
-            "string": "stat -c %y /var/lib/mlocate/mlocate.db"
+            "invocation-string": "stat -c %y /var/lib/mlocate/mlocate.db"
         },
         {
             "changeable-arguments": {
@@ -64,7 +64,7 @@
                 }
             },
             "comment": "Long flag version.",
-            "string": "stat --format %y /var/lib/mlocate/mlocate.db"
+            "invocation-string": "stat --format %y /var/lib/mlocate/mlocate.db"
         }
     ],
     "uuid": "308423e6-95a4-4001-9e76-501ad79b2e93"

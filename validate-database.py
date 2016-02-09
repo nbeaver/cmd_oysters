@@ -88,22 +88,22 @@ def validate_command(command, uuid_from_filename):
             if arg_dict:
                 for arg, arginfo in arg_dict.iteritems():
                     # Check that the argument actually matches the sliced command.
-                    arg_slice = get_slice(invocation_dict['string'], arginfo['invocation-slice'])
+                    arg_slice = get_slice(invocation_dict['invocation-string'], arginfo['invocation-slice'])
                     try:
                         assert_custom(arg == arg_slice, "arg is:\n'"+arg+"'\nbut slice is:\n'"+arg_slice+"'")
                     except AssertionError:
-                        pretty_print_slice(invocation_dict['string'], arginfo['invocation-slice'])
-                        slice_candidate = find_slice(invocation_dict['string'], arg)
+                        pretty_print_slice(invocation_dict['invocation-string'], arginfo['invocation-slice'])
+                        slice_candidate = find_slice(invocation_dict['invocation-string'], arg)
                         if slice_candidate:
                             print "Slice in file:", str(arginfo['invocation-slice'])
                             print "Suggested slice:", str(slice_candidate)
-                            pretty_print_slice(invocation_dict['string'], slice_candidate)
+                            pretty_print_slice(invocation_dict['invocation-string'], slice_candidate)
                         raise
                     if 'component-command' in arginfo.keys():
                         assert_in(arginfo['component-command'], command['component-commands'])
 
         for component_command in command['component-commands']:
-            assert_in(component_command, invocation_dict['string'])
+            assert_in(component_command, invocation_dict['invocation-string'])
 
     for invocation_dict in command['invocations']:
         validate_invocation(invocation_dict)

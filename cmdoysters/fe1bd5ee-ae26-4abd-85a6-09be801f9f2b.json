@@ -38,7 +38,7 @@
                 "32",
                 "64"
             ],
-            "string": "getconf LONG_BIT"
+            "invocation-string": "getconf LONG_BIT"
         }
     ],
     "related-commands": [

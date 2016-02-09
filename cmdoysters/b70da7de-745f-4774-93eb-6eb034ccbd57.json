@@ -40,7 +40,7 @@
                 }
             },
             "comment": "Use gzip as a filter.",
-            "string": "gzip < file > file.gz"
+            "invocation-string": "gzip < file > file.gz"
         },
         {
             "command-requirements-as-invoked": {
@@ -49,7 +49,7 @@
                 }
             },
             "comment": "Built-in feature of recent versions of gzip (short flag).",
-            "string": "gzip -k file"
+            "invocation-string": "gzip -k file"
         },
         {
             "command-requirements-as-invoked": {
@@ -58,7 +58,7 @@
                 }
             },
             "comment": "Built-in feature of recent versions of gzip (long flag).",
-            "string": "gzip --keep file"
+            "invocation-string": "gzip --keep file"
         }
     ],
     "relevant-urls": [

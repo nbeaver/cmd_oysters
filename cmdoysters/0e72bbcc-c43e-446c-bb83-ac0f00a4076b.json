@@ -53,7 +53,7 @@
                     "type": "string"
                 }
             },
-            "string": "find '/usr/share/' -path '/usr/share/doc' -prune -o -type d -name '*doc*'"
+            "invocation-string": "find '/usr/share/' -path '/usr/share/doc' -prune -o -type d -name '*doc*'"
         }
     ],
     "relevant-urls": [

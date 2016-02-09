@@ -321,13 +321,13 @@
             "description": "Explains which shells are/aren't compatible with this invocation.",
             "type": "object"
           },
-          "string": {
+          "invocation-string": {
             "description": "Actual string that could be passed to the shell and executed. Required field.",
             "type": "string"
           }
         },
         "required": [
-          "string"
+          "invocation-string"
         ],
         "type": "object"
       },

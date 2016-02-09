@@ -16,6 +16,7 @@
     "invocations": [
         {
             "comment": "Uses bash globbing with short flags.",
+            "invocation-string": "ls -d -- .[^.]*",
             "shell-compatibility": {
                 "bash": {
                     "compatible-versions-tested": [
@@ -72,11 +73,11 @@
                         "4.3.17"
                     ]
                 }
-            },
-            "string": "ls -d -- .[^.]*"
+            }
         },
         {
             "comment": "Bash globbing with long flags.",
+            "invocation-string": "ls --directory -- .[^.]*",
             "shell-compatibility": {
                 "bash": {
                     "compatible-versions-tested": [
@@ -133,8 +134,7 @@
                         "4.3.17"
                     ]
                 }
-            },
-            "string": "ls --directory -- .[^.]*"
+            }
         }
     ],
     "relevant-urls": [

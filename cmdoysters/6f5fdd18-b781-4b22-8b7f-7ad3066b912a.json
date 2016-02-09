@@ -17,7 +17,7 @@
     },
     "invocations": [
         {
-            "string": "pwd | tr -d '\\n' | xsel -b"
+            "invocation-string": "pwd | tr -d '\\n' | xsel -b"
         }
     ],
     "relevant-urls": [

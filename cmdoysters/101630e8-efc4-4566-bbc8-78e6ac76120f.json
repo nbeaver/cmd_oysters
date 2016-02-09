@@ -67,7 +67,7 @@
                 "i686",
                 "x86_64"
             ],
-            "string": "lscpu | grep '^Architecture:' | awk '{print $2}'"
+            "invocation-string": "lscpu | grep '^Architecture:' | awk '{print $2}'"
         }
     ],
     "related-commands": [

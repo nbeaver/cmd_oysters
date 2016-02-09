@@ -30,6 +30,7 @@
             "example-outputs": [
                 "Thu Jan  1 00:00:00 ART 1970"
             ],
+            "invocation-string": "TZ=America/Argentina/Buenos_Aires date",
             "shell-compatibility": {
                 "bash": {
                     "compatible-versions-tested": [
@@ -81,8 +82,7 @@
                         "zsh 5.0.7 (x86_64-pc-linux-gnu)"
                     ]
                 }
-            },
-            "string": "TZ=America/Argentina/Buenos_Aires date"
+            }
         }
     ],
     "relevant-urls": [

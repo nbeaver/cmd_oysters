@@ -73,6 +73,7 @@
                     "type": "string"
                 }
             },
+            "invocation-string": "for f in *.pdf; do dir=\"${f%.*}\"; mkdir -p \"$dir\" && pdfimages -png -j \"$f\" \"$dir/$dir\"; done",
             "shell-compatibility": {
                 "bash": {
                     "compatible-versions-tested": [
@@ -124,8 +125,7 @@
                         "4.3.17"
                     ]
                 }
-            },
-            "string": "for f in *.pdf; do dir=\"${f%.*}\"; mkdir -p \"$dir\" && pdfimages -png -j \"$f\" \"$dir/$dir\"; done"
+            }
         }
     ],
     "uuid": "6c0081a3-5c10-4cdf-826b-1bd778ae8ef0"

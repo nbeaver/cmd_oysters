@@ -54,7 +54,7 @@ for filename in json_filenames:
 
     matching_invocations = []
     for invocation in command['invocations']:
-        invocation_string = invocation['string']
+        invocation_string = invocation['invocation-string']
         if args.substring:
             if not args.substring in invocation_string :
                 # This doesn't match, so try the next invocation.

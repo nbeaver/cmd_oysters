@@ -39,6 +39,7 @@
     "invocations": [
         {
             "comment": "Bash-specific because of `jobs -p` to list process IDs.",
+            "invocation-string": "kill $(jobs -ps)",
             "shell-compatibility": {
                 "bash": {
                     "compatible-versions-tested": [
@@ -95,8 +96,7 @@
                         "4.3.17"
                     ]
                 }
-            },
-            "string": "kill $(jobs -ps)"
+            }
         }
     ],
     "relevant-urls": [
