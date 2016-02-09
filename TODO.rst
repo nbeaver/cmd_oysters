@@ -69,6 +69,8 @@ Specific items by file, in no particular order
 - ``[*]`` Change ``string`` to ``invocation-string`` and ``description-string``. This makes ad-hoc grepping easier.
 
 - ``[x]`` Key invocations by invocation string instead of using a separate "string" field.
+
+  - Advantage: more elegant structure.
   - Disadvantage: Would be a breaking change.
   - Disadvantage: Would not prevent duplicate invocations: https://stackoverflow.com/questions/17063257/necessity-for-duplicate-keys-in-json-object
   - Disadvantage: Would make ad-hoc grepping even harder.
@@ -93,9 +95,11 @@ Specific items by file, in no particular order
 - ``[ ]`` Add a ``depends-on-working-directory`` field to invocations.
 
 - ``[ ]`` Add an ``idempotent`` field to invocations.
+
   - This is helpful in case it unclear if the command has already been run before.
 
 - ``[x]`` Add a ``depends-on-locale`` field to invocations.
+
   - Decided this was too general, but local information should be part of example outputs.
 
 - ``[ ]`` Add a ``shibboleth-command`` field to invocations,
