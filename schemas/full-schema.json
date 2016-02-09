@@ -360,9 +360,6 @@
             "format": "date",
             "type": "string"
           },
-          "sha1-hex": {
-            "type": "string"
-          },
           "string": {
             "format": "uri",
             "type": "string"
