@@ -15,7 +15,7 @@
         "year": 2015
     },
     "description": {
-        "string": "Recursively find text files ending in '.txt' that contain the DOS carriage return (octal 015, hexadecimal x0D). Uses ANSI-C single quotes instead of a literal carriage return character."
+        "verbose-description": "Recursively find text files ending in '.txt' that contain the DOS carriage return (octal 015, hexadecimal x0D). Uses ANSI-C single quotes instead of a literal carriage return character."
     },
     "invocations": [
         {

@@ -46,7 +46,7 @@
         "year": 2015
     },
     "description": {
-        "string": "See directories taking up the most space in user's home directory."
+        "verbose-description": "See directories taking up the most space in user's home directory."
     },
     "invocations": [
         {

@@ -15,7 +15,7 @@
         "year": 2015
     },
     "description": {
-        "string": "Show information about parent process."
+        "verbose-description": "Show information about parent process."
     },
     "invocations": [
         {

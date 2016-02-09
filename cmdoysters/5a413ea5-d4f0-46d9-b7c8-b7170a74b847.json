@@ -31,7 +31,7 @@
         "year": 2015
     },
     "description": {
-        "string": "Save copied image to file."
+        "verbose-description": "Save copied image to file."
     },
     "invocations": [
         {

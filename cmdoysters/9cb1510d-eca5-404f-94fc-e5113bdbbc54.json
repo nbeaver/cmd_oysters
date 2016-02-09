@@ -31,7 +31,7 @@
         "year": 2015
     },
     "description": {
-        "string": "Show external IP address using http://ifconfig.me website."
+        "verbose-description": "Show external IP address using http://ifconfig.me website."
     },
     "invocations": [
         {

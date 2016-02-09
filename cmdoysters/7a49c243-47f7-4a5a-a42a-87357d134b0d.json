@@ -42,7 +42,7 @@
         "year": 2015
     },
     "description": {
-        "string": "Change the default shell of the current user to zsh."
+        "verbose-description": "Change the default shell of the current user to zsh."
     },
     "invocations": [
         {

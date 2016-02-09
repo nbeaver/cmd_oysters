@@ -58,7 +58,7 @@
         "year": 2015
     },
     "description": {
-        "string": "For each file ending with '.pdf' in the current directory, extract the images from the pdf file into a new directory with the name of the file stripped of '.pdf'."
+        "verbose-description": "For each file ending with '.pdf' in the current directory, extract the images from the pdf file into a new directory with the name of the file stripped of '.pdf'."
     },
     "invocations": [
         {

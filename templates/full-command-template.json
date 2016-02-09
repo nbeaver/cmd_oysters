@@ -31,7 +31,8 @@
         "year": 2015
     },
     "description": {
-        "string": "Exhaustive CmdOyster template."
+        "terse-description": "An exhaustive CmdOyster template.",
+        "verbose-description": "An exhaustive CmdOyster template, covering every possible field in the schema, regardless of whether the field is required."
     },
     "invocations": [
         {

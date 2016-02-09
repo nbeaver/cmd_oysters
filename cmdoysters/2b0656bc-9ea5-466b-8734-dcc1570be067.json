@@ -31,7 +31,7 @@
         "year": 2015
     },
     "description": {
-        "string": "Find files in your home directory that you don't own."
+        "verbose-description": "Find files in your home directory that you don't own."
     },
     "invocations": [
         {

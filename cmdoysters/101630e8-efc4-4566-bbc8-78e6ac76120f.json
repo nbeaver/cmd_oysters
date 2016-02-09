@@ -58,7 +58,7 @@
         "year": 2015
     },
     "description": {
-        "string": "Display name of hardware's CPU architecture, e.g. x86_64 for 64-bit Intel processors and i686 for 32-bit Intel processors."
+        "verbose-description": "Display name of hardware's CPU architecture, e.g. x86_64 for 64-bit Intel processors and i686 for 32-bit Intel processors."
     },
     "invocations": [
         {

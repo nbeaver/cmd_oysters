@@ -34,7 +34,7 @@
         "year": 2015
     },
     "description": {
-        "string": "Kill stopped jobs."
+        "verbose-description": "Kill stopped jobs."
     },
     "invocations": [
         {

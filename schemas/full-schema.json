@@ -131,15 +131,20 @@
     },
     "description": {
       "additionalProperties": false,
-      "description": "Textual description of what the command does. Must be unique, since its SHA1 hash is effectively the primary key. Required field.",
+      "description": "Textual description of what the command does. Required field.",
       "properties": {
-        "string": {
-          "description": "The actual text of the description. Don't add hard linebreaks; let the output formatter decide how to do that. Required field.",
+        "terse-description": {
+          "description": "Description text that is 80 characters or less.",
+          "maxLength": 80,
+          "type": "string"
+        },
+        "verbose-description": {
+          "description": "The full text of the description. Don't add hard linebreaks; let the output formatter decide how to do that. Required field.",
           "type": "string"
         }
       },
       "required": [
-        "string"
+        "verbose-description"
       ],
       "type": "object"
     },

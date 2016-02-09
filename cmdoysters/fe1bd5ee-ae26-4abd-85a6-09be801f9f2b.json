@@ -30,7 +30,7 @@
         "year": 2015
     },
     "description": {
-        "string": "Display the word size of the kernel, e.g. 32-bit or 64-bit."
+        "verbose-description": "Display the word size of the kernel, e.g. 32-bit or 64-bit."
     },
     "invocations": [
         {

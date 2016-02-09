@@ -100,7 +100,7 @@
         "year": 2015
     },
     "description": {
-        "string": "Resize all the images in an OpenDocument (ODT) file to 10% of their former size."
+        "verbose-description": "Resize all the images in an OpenDocument (ODT) file to 10% of their former size."
     },
     "invocations": [
         {

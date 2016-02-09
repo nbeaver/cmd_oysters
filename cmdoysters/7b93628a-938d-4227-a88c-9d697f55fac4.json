@@ -46,7 +46,7 @@
         "year": 2015
     },
     "description": {
-        "string": "Highlight non-ASCII characters (e.g. Unicode) in a text file and give the line number they are on."
+        "verbose-description": "Highlight non-ASCII characters (e.g. Unicode) in a text file and give the line number they are on."
     },
     "invocations": [
         {

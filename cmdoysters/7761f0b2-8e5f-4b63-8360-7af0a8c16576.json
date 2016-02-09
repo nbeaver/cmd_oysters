@@ -31,7 +31,7 @@
         "year": 2015
     },
     "description": {
-        "string": "Copy a disc (such as a CD or DVD) to a disk image (ISO), re-reading or skipping bad sectors instead of failing when an input/output error is encountered."
+        "verbose-description": "Copy a disc (such as a CD or DVD) to a disk image (ISO), re-reading or skipping bad sectors instead of failing when an input/output error is encountered."
     },
     "invocations": [
         {

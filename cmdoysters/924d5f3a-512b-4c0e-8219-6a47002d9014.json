@@ -11,7 +11,7 @@
         "year": 2015
     },
     "description": {
-        "string": "List hidden files and folders (dotfiles)."
+        "verbose-description": "List hidden files and folders (dotfiles)."
     },
     "invocations": [
         {

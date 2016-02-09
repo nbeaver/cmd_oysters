@@ -45,11 +45,11 @@ for filename in json_filenames:
             continue
 
     if args.description:
-        if not args.description.lower() in command['description']['string'].lower():
+        if not args.description.lower() in command['description']['verbose-description'].lower():
             continue
 
     if args.description_tokens:
-        if not lowercase_subset(args.description_tokens, tokens(command['description']['string'])):
+        if not lowercase_subset(args.description_tokens, tokens(command['description']['verbose-description'])):
             continue
 
     matching_invocations = []
@@ -76,7 +76,7 @@ for filename in json_filenames:
         print '# ' + filename
         # TODO: break the description on 80 lines (without splitting words),
         # and add a comment character at each point.
-        print '# ' + command['description']['string']
+        print '# ' + command['description']['verbose-description']
         for invocation_string, comment in matching_invocations:
             if comment:
                 print '# ' + comment

@@ -31,7 +31,7 @@
         "year": 2015
     },
     "description": {
-        "string": "Turn off the monitor; make the display go dark; blank the screen until the mouse is moved or a key is pressed."
+        "verbose-description": "Turn off the monitor; make the display go dark; blank the screen until the mouse is moved or a key is pressed."
     },
     "invocations": [
         {

@@ -15,7 +15,7 @@
         "year": 2015
     },
     "description": {
-        "string": "Find all directory paths matching '*doc*' in `/usr/share`, except the paths under `/usr/share/doc`. This can help find documentation that is in an unusual place."
+        "verbose-description": "Find all directory paths matching '*doc*' in `/usr/share`, except the paths under `/usr/share/doc`. This can help find documentation that is in an unusual place."
     },
     "invocations": [
         {

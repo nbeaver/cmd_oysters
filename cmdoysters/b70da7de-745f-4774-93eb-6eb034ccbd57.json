@@ -15,7 +15,7 @@
         "year": 2015
     },
     "description": {
-        "string": "Compress a file using gzip without removing the original file."
+        "verbose-description": "Compress a file using gzip without removing the original file."
     },
     "invocations": [
         {
