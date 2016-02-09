@@ -1,4 +1,4 @@
-default : cmd_oyster_testing cmd_oyster_templates find_command_tests README.html TODO.html
+default : cmd_oysters cmd_oyster_testing cmd_oyster_templates find_command_tests README.html TODO.html
 all_json: cmd_oyster_templates cmd_oyster_testing cmd_oysters
 .PHONY : default all_json cmd_oyster_templates cmd_oysters test_find_command
 
