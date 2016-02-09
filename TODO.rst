@@ -16,8 +16,6 @@ Specific items by file, in no particular order
 
 - ``[*]`` Specify required commands.
 
-- ``[x]`` Make sha1-hash of related urls a required field. (Abandoned because these are not intended to be unique.)
-
 - ``[*]`` Check that ``bash-type`` is one of ``keyword``, ``builtin``, or ``file``.
 
 - ``[*]`` Split command database into individual JSON files.
@@ -68,8 +66,7 @@ Specific items by file, in no particular order
 
   - For example, ``xev`` requires an X server, and ``ssh -X`` doesn't make much sense without an X server.
 
-- ``[x]`` Change ``string`` to ``invocation-string`` and ``description-string``. This makes ad-hoc grepping easier.
-  - Disadvantage: Makes validation code messier.
+- ``[*]`` Change ``string`` to ``invocation-string`` and ``description-string``. This makes ad-hoc grepping easier.
 
 - ``[x]`` Key invocations by invocation string instead of using a separate "string" field.
   - Disadvantage: Would be a breaking change.
@@ -82,17 +79,13 @@ Specific items by file, in no particular order
 
 - ``[*]`` Change ``url-string`` to just ``string`` for consistency.
 
-- ``[*]`` Change ``url-sha1-hash`` to just ``sha1-hash`` for consistency.
-
-- ``[*]`` Change ``url-nilsimsa-hash`` to just ``nilsimsa-hash`` for consistency.
-
 - ``[*]`` Add a ``compatible-sha1-hashes`` field for shells.
 
 - ``[*]`` Add a ``compatible-sha1-hashes`` field for component commands.
 
   - Also check BuildID?
 
-- ``[ ]`` Use a UUID instead of SHA1/nilsimsa of description string.
+- ``[*]`` Use a UUID instead of SHA1/nilsimsa.
 
   - Advantage: would prevent forced updates whenever the description changes,
     while still keeping the option for finding similar descriptions via Nilsimsa.
@@ -169,21 +162,17 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Check ``debian-path`` is correct using ``which``.
 
-- ``[*]`` Check that no two commands have the same SHA1s of description text.
+- ``[*]`` Check that no two commands have the same UUIDs.
 
 - ``[ ]`` Check for likely duplicates based on Nilsimsa hashes of both commands and descriptions (use nilsimsa.compare_digests).
 
 - ``[*]`` Make a JSON schema to do at least part of this more systematically.
 
-- ``[*]`` Check that the filename is the same as the SHA1 of the description, plus ``.json``.
+- ``[*]`` Check that the filename is the same as the UUID, plus ``.json``.
 
 - ``[ ]`` Check that the fields are in alphanumeric order.
 
-- ``[*]`` Correct the SHA1 and Nilsimsa values automatically, prompting before writing them out to file.
-
 - ``[ ]`` Figure out some way to do fine-grained validation, so once a CmdOyster has been checked, it won't be checked again until it changes.
-
-- ``[ ]`` Check that all the SHA1s of related commands are actually in the database (will require a dict associating the link to the file, so we know later which one the link was in).
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 `<templates/full-command-template.json>`_
