@@ -16,8 +16,9 @@
     },
     "invocations": [
         {
-            "sha1-hex": "ebfdec641529d4b59a54e18f8b0e9730f85939fb",
+            "sha1-hex": "",
             "string": "ls"
         }
-    ]
+    ],
+    "uuid" : "27885a94-c25f-4fb6-b6ac-c381869c87ce"
 }

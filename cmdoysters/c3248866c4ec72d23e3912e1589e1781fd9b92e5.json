@@ -62,5 +62,6 @@
             "sha1-hex": "1648be79c2a5b366c37d0ec72d20736fcbf5566d",
             "string": "find $HOME ! -user $USER"
         }
-    ]
+    ],
+    "uuid": "2b0656bc-9ea5-466b-8734-dcc1570be067"
 }

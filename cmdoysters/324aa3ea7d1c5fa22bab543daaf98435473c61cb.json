@@ -66,5 +66,6 @@
             "sha1-hex": "65279d37ecefc250d0ec50d609b6ae711062eb61",
             "string": "https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling#Modifying_DPMS_and_screensaver_settings_using_xset"
         }
-    ]
+    ],
+    "uuid": "5b791952-7792-4ca5-bb38-cf622f3cdc8a"
 }

@@ -118,5 +118,6 @@
             "sha1-hex": "309eaa0ac219c76a2166e0680da62f8275ed6f56",
             "string": "du --human --max-depth=1 $HOME | sort --reverse --human-numeric-sort | less"
         }
-    ]
+    ],
+    "uuid": "64c52fa6-cdde-4e8b-9671-1b74978cdc2c"
 }

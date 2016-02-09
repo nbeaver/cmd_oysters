@@ -57,11 +57,16 @@
         "additionalProperties": false
       }
     }
+    "uuid": {
+      "description": "Universally Unique Identifier for this CmdOyster.",
+      "type": "string"
+    }
   },
   "additionalProperties": false,
   "required": [
     "component-commands",
     "description",
-    "invocations"
+    "invocations",
+    "uuid"
   ]
 }

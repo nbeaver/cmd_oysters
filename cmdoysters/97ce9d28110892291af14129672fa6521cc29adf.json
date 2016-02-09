@@ -80,5 +80,6 @@
             },
             "string": "ps -p $PPID"
         }
-    ]
+    ],
+    "uuid": "fdcc1f87-af46-4834-9ce2-b1ac27a3f070"
 }

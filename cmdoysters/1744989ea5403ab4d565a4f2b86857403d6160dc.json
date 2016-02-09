@@ -69,5 +69,6 @@
             "sha1-hex": "2d15ff6529c90e0048ec370eaf4d3c03995fa4b6",
             "string": "stat --format %y /var/lib/mlocate/mlocate.db"
         }
-    ]
+    ],
+    "uuid": "308423e6-95a4-4001-9e76-501ad79b2e93"
 }

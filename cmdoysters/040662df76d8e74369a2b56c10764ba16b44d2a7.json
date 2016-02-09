@@ -129,5 +129,6 @@
             },
             "string": "for f in *.pdf; do dir=\"${f%.*}\"; mkdir -p \"$dir\" && pdfimages -png -j \"$f\" \"$dir/$dir\"; done"
         }
-    ]
+    ],
+    "uuid": "6c0081a3-5c10-4cdf-826b-1bd778ae8ef0"
 }

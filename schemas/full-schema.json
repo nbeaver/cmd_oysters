@@ -399,12 +399,18 @@
         "type": "object"
       },
       "type": "array"
+    },
+    "uuid": {
+      "additionalItems": false,
+      "description": "Universally Unique Identifier for this CmdOyster.",
+      "type": "string"
     }
   },
   "required": [
     "component-commands",
     "description",
-    "invocations"
+    "invocations",
+    "uuid"
   ],
   "type": "object"
 }

@@ -122,6 +122,8 @@ def validate_command(command, description_SHA1_from_filename):
 
     check_sha1_dict(command['description'])
 
+    uuids.add(command['uuid'])
+
     assert_custom_warn_only(description_SHA1_from_filename == hashlib.sha1(command['description']['string']).hexdigest(),
         "Filename does not match SHA1 of description.\n" + \
         "Should be: " + str(hashlib.sha1(command['description']['string']).hexdigest()) + ".json")
@@ -167,6 +169,7 @@ if len(sys.argv) == 1:
     sys.exit(1)
 
 unique_SHA1s = NoDuplicates()
+uuids = NoDuplicates()
 num_invocations = 0
 
 if args.fix_all:
