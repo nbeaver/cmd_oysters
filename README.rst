@@ -216,17 +216,6 @@ and that updating one CmdOyster's description requires updating all the CmdOyste
 but it evades some of the problems that URIs and file paths have,
 such as maintaining hierarchies and using arbitrary identifiers.
 
-~~~~~~~~~~~~~~~~~~~~
-Similarity detection
-~~~~~~~~~~~~~~~~~~~~
-
-Similar invocations or descriptions can be found by comparing their Nilsimsa hash hex digests.
-
-`Nilsimsa`_ is a `locality-sensitive`_ hashing algorithm originally developed for spam detection.
-
-.. _Nilsimsa: http://en.wikipedia.org/wiki/Nilsimsa_Hash
-.. _locality-sensitive: http://en.wikipedia.org/wiki/Locality-sensitive_hashing
-
 ---------------------
 Questions and answers
 ---------------------
@@ -283,7 +272,7 @@ but there are some things it lacks or was never designed to have, such as:
 
 #. Metadata and search based on metadata.
 #. Cross-referencing.
-#. Unique (SHA-1) and string similarity (Nilsimsa) hashes of command invocations.
+#. Unique (SHA-1) hashes of command invocations.
 #. Explicit open-source licensing.
 
 In addition, the focus of Commandlinefu is in providing a platform for commenting and upvoting,
