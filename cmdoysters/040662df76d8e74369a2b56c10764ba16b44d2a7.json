@@ -58,7 +58,6 @@
         "year": 2015
     },
     "description": {
-        "sha1-hex": "040662df76d8e74369a2b56c10764ba16b44d2a7",
         "string": "For each file ending with '.pdf' in the current directory, extract the images from the pdf file into a new directory with the name of the file stripped of '.pdf'."
     },
     "invocations": [
@@ -74,7 +73,6 @@
                     "type": "string"
                 }
             },
-            "sha1-hex": "69eb231e93a2ec3f9ad6fdbcfede4fba0cbe6b15",
             "shell-compatibility": {
                 "bash": {
                     "compatible-versions-tested": [

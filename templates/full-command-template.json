@@ -31,7 +31,6 @@
         "year": 2015
     },
     "description": {
-        "sha1-hex": "ec85ca7e10b5c541308ce6f7c79393438f973f5d",
         "string": "Exhaustive CmdOyster template."
     },
     "invocations": [
@@ -64,12 +63,6 @@
             "example-outputs": [
                 "output text"
             ],
-            "related-invocations": [
-                {
-                    "sha1-hex": "0000000000000000000000000000000000000000"
-                }
-            ],
-            "sha1-hex": "6da5385cfec34278b7df38f78685aaaba7ebc9c8",
             "shell-compatibility": {
                 "$SHELL": {
                     "compatible-version-specifier": "version 0.8 or later",
@@ -87,13 +80,12 @@
     ],
     "related-commands": [
         {
-            "sha1-hex": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+            "uuid": "00000000-0000-0000-0000-000000000000"
         }
     ],
     "relevant-urls": [
         {
             "date-known-good": "2015-04-30",
-            "sha1-hex": "193b08cbaa23796f384afdde0fdfd47386b174f2",
             "string": "http://tldp.org/"
         }
     ],

@@ -133,17 +133,12 @@
       "additionalProperties": false,
       "description": "Textual description of what the command does. Must be unique, since its SHA1 hash is effectively the primary key. Required field.",
       "properties": {
-        "sha1-hex": {
-          "description": "The SHA1 cryptographic hash of the description string; useful instead of a primary key for linking to related commands. Required field.",
-          "type": "string"
-        },
         "string": {
           "description": "The actual text of the description. Don't add hard linebreaks; let the output formatter decide how to do that. Required field.",
           "type": "string"
         }
       },
       "required": [
-        "sha1-hex",
         "string"
       ],
       "type": "object"
@@ -275,25 +270,6 @@
             },
             "type": "array"
           },
-          "related-invocations": {
-            "additionalItems": false,
-            "items": {
-              "additionalProperties": false,
-              "description": "Hashes of invocations for different commands that are related to this invocation. A kind of hyper-linking.",
-              "properties": {
-                "sha1-hex": {
-                  "description": "Unique hash of related invocation.",
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            },
-            "type": "array"
-          },
-          "sha1-hex": {
-            "description": "The SHA-1 cryptographic hash of the command string; useful for linking to related commands. Required field.",
-            "type": "string"
-          },
           "shell-compatibility": {
             "additionalProperties": {
               "additionalProperties": false,
@@ -351,7 +327,6 @@
           }
         },
         "required": [
-          "sha1-hex",
           "string"
         ],
         "type": "object"
@@ -360,17 +335,17 @@
       "type": "array"
     },
     "related-commands": {
-      "description": "Hashes of the descriptions of other commands that are related to this one, e.g. a command that accomplishes the same thing with different component commands.",
+      "description": "UUIDs of other commands that are related to this one. For example, a command that accomplishes the same thing with different component commands.",
       "items": {
         "additionalProperties": false,
         "properties": {
-          "sha1-hex": {
-            "description": "Unique hash of description of related command.",
+          "uuid": {
+            "description": "Universally unique identifier of related command.",
             "type": "string"
           }
         },
         "required": [
-          "sha1-hex"
+          "uuid"
         ],
         "type": "object"
       },

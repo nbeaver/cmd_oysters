@@ -15,12 +15,10 @@
         "year": 2015
     },
     "description": {
-        "sha1-hex": "97ce9d28110892291af14129672fa6521cc29adf",
         "string": "Show information about parent process."
     },
     "invocations": [
         {
-            "sha1-hex": "e5d624cb1f2dd39f7f92c9aa1e93d52dd3e00dd0",
             "shell-compatibility": {
                 "bash": {
                     "compatible-versions-tested": [

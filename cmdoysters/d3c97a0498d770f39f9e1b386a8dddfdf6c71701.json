@@ -34,13 +34,11 @@
         "year": 2015
     },
     "description": {
-        "sha1-hex": "d3c97a0498d770f39f9e1b386a8dddfdf6c71701",
         "string": "Kill stopped jobs."
     },
     "invocations": [
         {
             "comment": "Bash-specific because of `jobs -p` to list process IDs.",
-            "sha1-hex": "b130d1235cd093ef0d6dc5217f89e793192abd83",
             "shell-compatibility": {
                 "bash": {
                     "compatible-versions-tested": [
@@ -104,17 +102,14 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-04-30",
-            "sha1-hex": "e9fc3f7db3bea02412024738bad748d5f856637e",
             "string": "http://serverfault.com/questions/240155/how-can-i-kill-all-stopped-jobs"
         },
         {
             "date-known-good": "2015-04-30",
-            "sha1-hex": "935ed67702a2cbf4dae89c05a282674a460f2bc7",
             "string": "http://superuser.com/a/228926/219809"
         },
         {
             "date-known-good": "2015-04-30",
-            "sha1-hex": "6ef6e5555709b3b8fdb0df8cb9c1a9cd62daa708",
             "string": "http://ubuntuforums.org/showthread.php?t=1954090&s=c408c62db23afe753dfcfd40f1a86e32&p=11825162#post11825162"
         }
     ],

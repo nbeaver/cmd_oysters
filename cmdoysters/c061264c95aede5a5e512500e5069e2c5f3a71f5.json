@@ -30,7 +30,6 @@
         "year": 2015
     },
     "description": {
-        "sha1-hex": "c061264c95aede5a5e512500e5069e2c5f3a71f5",
         "string": "Determine which architecture the Linux kernel is configured for; may not be the same as the actual CPU architecture. For example, an Intel i686 kernel can run on an Intel x86_64 processor, but its RAM will be limited unless the kernel has PAE is enabled."
     },
     "invocations": [
@@ -40,7 +39,6 @@
                 "i686",
                 "x86_64"
             ],
-            "sha1-hex": "c7a75171158ee220514b48bf7b7065fccaa6b37b",
             "string": "uname -m"
         },
         {
@@ -49,24 +47,28 @@
                 "i686",
                 "x86_64"
             ],
-            "sha1-hex": "0f86bfd2af49de656a8a318ea310727e6052525a",
             "string": "uname --machine"
+        }
+    ],
+    "related-commands": [
+        {
+            "uuid": "fe1bd5ee-ae26-4abd-85a6-09be801f9f2b"
+        },
+        {
+            "uuid": "101630e8-efc4-4566-bbc8-78e6ac76120f"
         }
     ],
     "relevant-urls": [
         {
             "date-known-good": "2015-04-30",
-            "sha1-hex": "11a35de5b6c3367fb96afdffb3e2aa5de9a777ff",
             "string": "http://www.cyberciti.biz/faq/linux-how-to-find-if-processor-is-64-bit-or-not/"
         },
         {
             "date-known-good": "2015-04-30",
-            "sha1-hex": "62810944b6f713fd8c7798b7a83ca7f79ca24053",
             "string": "http://stackoverflow.com/questions/2565282/difference-between-machine-hardware-and-hardware-platform"
         },
         {
             "date-known-good": "2015-04-30",
-            "sha1-hex": "66f166e50f7831264b0ad923d8218823ca630e85",
             "string": "https://www.ibm.com/developerworks/community/blogs/58e72888-6340-46ac-b488-d31aa4058e9c/entry/know_about_your_linux_system_using_uname_command77?lang=en"
         }
     ],

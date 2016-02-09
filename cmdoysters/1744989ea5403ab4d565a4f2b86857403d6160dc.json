@@ -31,7 +31,6 @@
         "year": 2015
     },
     "description": {
-        "sha1-hex": "1744989ea5403ab4d565a4f2b86857403d6160dc",
         "string": "Show the time when `updatedb' was run to update the database for the `locate' command."
     },
     "invocations": [
@@ -49,7 +48,6 @@
                 }
             },
             "comment": "Short flag version.",
-            "sha1-hex": "5c399609864502df606983e7ff57a8cf37814b3f",
             "string": "stat -c %y /var/lib/mlocate/mlocate.db"
         },
         {
@@ -66,7 +64,6 @@
                 }
             },
             "comment": "Long flag version.",
-            "sha1-hex": "2d15ff6529c90e0048ec370eaf4d3c03995fa4b6",
             "string": "stat --format %y /var/lib/mlocate/mlocate.db"
         }
     ],

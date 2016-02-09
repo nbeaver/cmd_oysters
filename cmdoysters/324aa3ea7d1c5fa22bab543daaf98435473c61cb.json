@@ -31,39 +31,32 @@
         "year": 2015
     },
     "description": {
-        "sha1-hex": "324aa3ea7d1c5fa22bab543daaf98435473c61cb",
         "string": "Turn off the monitor; make the display go dark; blank the screen until the mouse is moved or a key is pressed."
     },
     "invocations": [
         {
-            "sha1-hex": "cc1938fb35ff47f16a237a9c6cd68add2aa6f4fd",
             "string": "xset dpms force standby"
         }
     ],
     "relevant-urls": [
         {
             "date-known-good": "2015-04-30",
-            "sha1-hex": "15d213217a71ca0b74987214297ffc96e0af5acb",
             "string": "http://magnatecha.com/turn-off-display-from-linux-command-line/"
         },
         {
             "date-known-good": "2015-04-30",
-            "sha1-hex": "e9b86330e870109f0ef0fb11dca4d18d68f55f89",
             "string": "http://superuser.com/a/66923/219809"
         },
         {
             "date-known-good": "2015-04-30",
-            "sha1-hex": "11a35de5b6c3367fb96afdffb3e2aa5de9a777ff",
             "string": "http://www.cyberciti.biz/faq/linux-how-to-find-if-processor-is-64-bit-or-not/"
         },
         {
             "date-known-good": "2015-04-30",
-            "sha1-hex": "01581fa9e93b91f5b8a7c1391e949b7deb777ae2",
             "string": "http://tldp.org/HOWTO/Battery-Powered/methods.html#XF86"
         },
         {
             "date-known-good": "2015-04-30",
-            "sha1-hex": "65279d37ecefc250d0ec50d609b6ae711062eb61",
             "string": "https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling#Modifying_DPMS_and_screensaver_settings_using_xset"
         }
     ],

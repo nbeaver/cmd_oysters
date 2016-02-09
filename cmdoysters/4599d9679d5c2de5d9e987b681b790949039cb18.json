@@ -61,7 +61,6 @@
         "year": 2015
     },
     "description": {
-        "sha1-hex": "4599d9679d5c2de5d9e987b681b790949039cb18",
         "string": "Generates audible voice that says 'ping' every time it gets an an ICMP ECHO_RESPONSE, sent in intervals of 2 seconds."
     },
     "invocations": [
@@ -105,7 +104,6 @@
                 }
             },
             "comment": "Invocation with short flags.",
-            "sha1-hex": "20f8aae762b461782e9adea7e49db01046fb0c3f",
             "string": "ping -i 2 localhost | sed -u 's/.*/ping/' | espeak"
         },
         {
@@ -148,14 +146,12 @@
                 }
             },
             "comment": "Invocation with long flags.",
-            "sha1-hex": "320ba9096161c69d6513e0d906155ff7e346d325",
             "string": "ping -i 2 localhost | sed --unbuffered 's/.*/ping/' | espeak"
         }
     ],
     "relevant-urls": [
         {
             "date-known-good": "2015-04-30",
-            "sha1-hex": "193c082357a69581d8ab881dde81c60105e77ebf",
             "string": "http://ftp.arl.mil/mike/ping.html"
         }
     ],

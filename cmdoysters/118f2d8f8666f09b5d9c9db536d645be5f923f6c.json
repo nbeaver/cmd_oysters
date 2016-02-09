@@ -46,7 +46,6 @@
         "year": 2015
     },
     "description": {
-        "sha1-hex": "118f2d8f8666f09b5d9c9db536d645be5f923f6c",
         "string": "Highlight non-ASCII characters (e.g. Unicode) in a text file and give the line number they are on."
     },
     "invocations": [
@@ -64,7 +63,6 @@
                 }
             },
             "comment": "Short flags version.",
-            "sha1-hex": "81c28c4486c7d24238ab12dae72e334bf7cabea0",
             "shell-compatibility": {
                 "bash": {
                     "compatible-versions-tested": [
@@ -133,7 +131,6 @@
                 }
             },
             "comment": "Long flags version.",
-            "sha1-hex": "12877e3980387bcc72c792171c46b139e3f0a151",
             "shell-compatibility": {
                 "bash": {
                     "compatible-versions-tested": [
@@ -192,22 +189,18 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-04-30",
-            "sha1-hex": "fd24214c7a8d4188f9201cb5366da312b98cd918",
             "string": "http://lists.gnu.org/archive/html/bug-gnu-utils/2006-03/msg00000.html"
         },
         {
             "date-known-good": "2015-04-30",
-            "sha1-hex": "378313cfb8ae9abe444d304d4d7b4904641719a4",
             "string": "https://groups.google.com/forum/#!topic/comp.unix.programmer/Auge3Bz4iCA"
         },
         {
             "date-known-good": "2015-04-30",
-            "sha1-hex": "af012f8aeffe8b95af828877e98196ec60e04a8a",
             "string": "https://stackoverflow.com/questions/3001177/how-do-i-grep-for-all-non-ascii-characters-in-unix"
         },
         {
             "date-known-good": "2015-04-30",
-            "sha1-hex": "0cc81af19f9953b0b808bd42b001419602609394",
             "string": "http://superuser.com/questions/417305/how-can-i-identify-non-ascii-characters-from-the-shell"
         }
     ],

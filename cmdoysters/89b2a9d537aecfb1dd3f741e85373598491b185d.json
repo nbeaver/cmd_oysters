@@ -13,19 +13,16 @@
         "year": 2015
     },
     "description": {
-        "sha1-hex": "89b2a9d537aecfb1dd3f741e85373598491b185d",
         "string": "Copy working directory to clipboard."
     },
     "invocations": [
         {
-            "sha1-hex": "b11b076cd7854cd2686fa27f46ea6695483adbdc",
             "string": "pwd | tr -d '\\n' | xsel -b"
         }
     ],
     "relevant-urls": [
         {
             "date-known-good": "2015-05-31",
-            "sha1-hex": "84b5da55f42d0f349fae1f2466917fb89c2e7076",
             "string": "http://www.commandlinefu.com/commands/view/9766/copy-currentworking-directory-to-clipboard"
         }
     ],

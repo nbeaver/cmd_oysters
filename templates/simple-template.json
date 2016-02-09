@@ -11,12 +11,10 @@
         "year": 2015
     },
     "description": {
-        "sha1-hex": "62f6a0e19cae58eefb0e39bc09aaf7b9469202e5",
         "string": "List contents of a directory."
     },
     "invocations": [
         {
-            "sha1-hex": "",
             "string": "ls"
         }
     ],

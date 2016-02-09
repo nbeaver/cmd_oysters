@@ -15,7 +15,6 @@
         "year": 2015
     },
     "description": {
-        "sha1-hex": "10fb1d782f10eb50f61349f4a2973362319ebb87",
         "string": "Compress a file using gzip without removing the original file."
     },
     "invocations": [
@@ -41,7 +40,6 @@
                 }
             },
             "comment": "Use gzip as a filter.",
-            "sha1-hex": "f5b9d9dd13a9e49a65f0f455be0666a96229a049",
             "string": "gzip < file > file.gz"
         },
         {
@@ -51,7 +49,6 @@
                 }
             },
             "comment": "Built-in feature of recent versions of gzip (short flag).",
-            "sha1-hex": "d0ae2509d0086c92567e0183864d95be97f50f17",
             "string": "gzip -k file"
         },
         {
@@ -61,24 +58,20 @@
                 }
             },
             "comment": "Built-in feature of recent versions of gzip (long flag).",
-            "sha1-hex": "f521f470f90f4811c2d0ca70741d3254ce4eee6f",
             "string": "gzip --keep file"
         }
     ],
     "relevant-urls": [
         {
             "date-known-good": "2015-05-12",
-            "sha1-hex": "c8b54a257cdc941e26c282136042b33c277d996d",
             "string": "https://lists.gnu.org/archive/html/info-gnu/2013-06/msg00003.html"
         },
         {
             "date-known-good": "2015-05-12",
-            "sha1-hex": "b1bd2ff86405b81ffc9f21a877fe14c8fbfd659b",
             "string": "https://unix.stackexchange.com/questions/46786/how-to-tell-gzip-to-keep-original-file"
         },
         {
             "date-known-good": "2015-05-12",
-            "sha1-hex": "f9a888df7613ab538ce16e51ad8659aca3793b61",
             "string": "https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=240539"
         }
     ],

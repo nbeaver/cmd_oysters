@@ -58,7 +58,6 @@
         "year": 2015
     },
     "description": {
-        "sha1-hex": "9f2fdee93e84817e73dcbe46d01e28af001fbe1e",
         "string": "Display name of hardware's CPU architecture, e.g. x86_64 for 64-bit Intel processors and i686 for 32-bit Intel processors."
     },
     "invocations": [
@@ -68,30 +67,24 @@
                 "i686",
                 "x86_64"
             ],
-            "related-invocations": [
-                {
-                    "sha1-hex": "c7a75171158ee220514b48bf7b7065fccaa6b37b"
-                },
-                {
-                    "sha1-hex": "0f86bfd2af49de656a8a318ea310727e6052525a"
-                },
-                {
-                    "sha1-hex": "95480eceb7facbd35f4363138b7ef9d5b98fc02a"
-                }
-            ],
-            "sha1-hex": "8c7c73684c9524cfb00d5eed10b428164d48b7c9",
             "string": "lscpu | grep '^Architecture:' | awk '{print $2}'"
+        }
+    ],
+    "related-commands": [
+        {
+            "uuid": "f69252a3-a58b-48bc-9fd2-89e9e5d29f94"
+        },
+        {
+            "uuid": "fe1bd5ee-ae26-4abd-85a6-09be801f9f2b"
         }
     ],
     "relevant-urls": [
         {
             "date-known-good": "2015-04-30",
-            "sha1-hex": "a04fe1f3e62d04b5508fa2e1de9b4a4e9233de35",
             "string": "http://stackoverflow.com/a/22100700"
         },
         {
             "date-known-good": "2015-04-30",
-            "sha1-hex": "e1154bf0c185674f58d3c342d6b186cd98322c67",
             "string": "http://www.cyberciti.biz/faq/lscpu-command-find-out-cpu-architecture-information/"
         }
     ],
