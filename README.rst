@@ -88,17 +88,20 @@ This is intended to provide a repository of shell commands that:
 
   - and which parts of the command require root privileges.
 
-- Are straightforward to query because of robust metadata instead of more fragile search methods such as regular expressions.
+- Are straightforward to query because of robust metadata
+  instead of more fragile search methods such as regular expressions.
 
 - Link to URIs of sources and relevant documentation.
 
 Example scenarios this is intended to be useful for:
 
-- Restarting a WiFi card without a working internet connection to look up the required commands.
+- Restarting a WiFi card without a working internet connection
+  to look up the required commands.
 
 - Building up a complex ``find`` command by combining simpler examples.
 
-- Leveraging well-known commands without the hazards of `copying and pasting them from online forums into a terminal`_.
+- Leveraging well-known commands without the hazards of
+  `copying and pasting them from online forums into a terminal`_.
 
 - Quick lookup of commands for doing familiar tasks on an unfamiliar system.
 
@@ -126,12 +129,15 @@ CmdOysters are text files in the JSON data serialization format.
 Of textual data serialization formats,
 JSON and YAML are the simplest and most widespread standardized formats.
 
-Well-maintained JSON parsing and schema libraries are readily available for most programming languages,
+Well-maintained JSON parsing and schema libraries
+are readily available for most programming languages,
 but the same is unfortunately not true for YAML.
 
-A directory of JSON files makes code work cross-platform and cross-language easily.
+A directory of JSON files
+makes code work cross-platform and cross-language easily.
 
-In addition, JSON permits Unicode and only requires escaping double quotes and backslashes,
+In addition, JSON permits Unicode
+and only requires escaping double quotes and backslashes,
 so most commands do not require many changes to store as JSON.
 
 ~~~~~~~~~~~~
@@ -177,23 +183,26 @@ Per-shell and per-invocation compatibility metadata is provided in several ways:
 - A list of SHA1s known to be incompatible.
 
 This may seem excessive,
-but version number is not always a reliable indication of command compatibility.
+but version number is not always a reliable indication
+of command compatibility.
 
 For example, the maximum integer that the ``factor`` command will accept
 depends on whether it was compiled with ``bignum`` support.
 This does not change the version information,
 but it does change the SHA-1 checksum of the binary.
 
-While having the same SHA-1 checksum for the binary does not guarantee the same result,
-because of e.g. differing config files,
-it still aids in reproducing the expected result,
-and is better than relying on version number alone.
+To be sure, posessing the same SHA-1 checksum for the binary
+does not guarantee the same result
+because of e.g. differing config files.
+However, if the SHA-1 is identical,
+it is easier to eliminate cause of the misbehavior.
 
 ~~~~~~~~~~~~~
 Extensibility
 ~~~~~~~~~~~~~
 
-Frequently, new fields can be added to JSON documents without breaking existing code.
+Frequently, new fields can be added to JSON documents
+without breaking existing code.
 
 However, since CmdOysters are still under active development,
 there may be breaking changes in future versions.
@@ -212,7 +221,8 @@ but a SHA-1 hash is a unique alphanumeric identifier.
 
 This has a cost;
 it means that two different CmdOysters must not have the same description text,
-and that updating one CmdOyster's description requires updating all the CmdOysters that point to it,
+and that updating one CmdOyster's description
+requires updating all the CmdOysters that point to it,
 but it evades some of the problems that URIs and file paths have,
 such as maintaining hierarchies and using arbitrary identifiers.
 

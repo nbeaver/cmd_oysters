@@ -51,6 +51,7 @@ Specific items by file, in no particular order
 - ``[ ]`` Field that indicates if the invocation is a pipeline, since the presence of a pipe character is not a reliable indication.
 
 - ``[*]`` Field for example output of command (only some of them, obviously).
+
   - ``[ ]`` Include output of ``locale`` command for these.
 
 - ``[*]`` Change ``shell`` compatibility to a list of objects.
@@ -63,7 +64,9 @@ Specific items by file, in no particular order
 
 - ``[ ]`` Be more specific about required OS.
 
-- ``[ ]`` Be more specific about other non-command dependencies, e.g. which commands require an X server.
+- ``[ ]`` Be more specific about other non-command dependencies.
+
+  - For example, ``xev`` requires an X server, and ``ssh -X`` doesn't make much sense without an X server.
 
 - ``[x]`` Change ``string`` to ``invocation-string`` and ``description-string``. This makes ad-hoc grepping easier.
   - Disadvantage: Makes validation code messier.
@@ -90,6 +93,7 @@ Specific items by file, in no particular order
   - Also check BuildID?
 
 - ``[ ]`` Use a UUID instead of SHA1/nilsimsa of description string.
+
   - Advantage: would prevent forced updates whenever the description changes,
     while still keeping the option for finding similar descriptions via Nilsimsa.
 
