@@ -152,7 +152,7 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-04-30",
-            "string": "http://ftp.arl.mil/mike/ping.html"
+            "url": "http://ftp.arl.mil/mike/ping.html"
         }
     ],
     "uuid": "07248c2f-4809-4b19-9ff0-6fa8e554b8f6"

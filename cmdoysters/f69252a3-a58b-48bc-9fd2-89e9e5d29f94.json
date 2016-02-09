@@ -61,15 +61,15 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-04-30",
-            "string": "http://www.cyberciti.biz/faq/linux-how-to-find-if-processor-is-64-bit-or-not/"
+            "url": "http://www.cyberciti.biz/faq/linux-how-to-find-if-processor-is-64-bit-or-not/"
         },
         {
             "date-known-good": "2015-04-30",
-            "string": "http://stackoverflow.com/questions/2565282/difference-between-machine-hardware-and-hardware-platform"
+            "url": "http://stackoverflow.com/questions/2565282/difference-between-machine-hardware-and-hardware-platform"
         },
         {
             "date-known-good": "2015-04-30",
-            "string": "https://www.ibm.com/developerworks/community/blogs/58e72888-6340-46ac-b488-d31aa4058e9c/entry/know_about_your_linux_system_using_uname_command77?lang=en"
+            "url": "https://www.ibm.com/developerworks/community/blogs/58e72888-6340-46ac-b488-d31aa4058e9c/entry/know_about_your_linux_system_using_uname_command77?lang=en"
         }
     ],
     "uuid": "f69252a3-a58b-48bc-9fd2-89e9e5d29f94"

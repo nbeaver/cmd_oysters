@@ -88,15 +88,15 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-06-01",
-            "string": "https://unix.stackexchange.com/questions/48101/how-can-i-have-date-output-the-time-from-a-different-timezone"
+            "url": "https://unix.stackexchange.com/questions/48101/how-can-i-have-date-output-the-time-from-a-different-timezone"
         },
         {
             "date-known-good": "2015-06-01",
-            "string": "http://www.cyberciti.biz/tips/date-command-set-tz-environment-variable.html"
+            "url": "http://www.cyberciti.biz/tips/date-command-set-tz-environment-variable.html"
         },
         {
             "date-known-good": "2015-06-01",
-            "string": "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"
+            "url": "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"
         }
     ],
     "uuid": "e47766a1-e332-4cd3-9e42-573d0bcd09de"

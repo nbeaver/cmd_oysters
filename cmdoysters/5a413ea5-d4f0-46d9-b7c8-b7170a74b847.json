@@ -70,11 +70,11 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-04-30",
-            "string": "http://unix.stackexchange.com/questions/145131/copy-image-from-clipboard-to-file"
+            "url": "http://unix.stackexchange.com/questions/145131/copy-image-from-clipboard-to-file"
         },
         {
             "date-known-good": "2015-04-30",
-            "string": "http://ubuntuforums.org/showthread.php?t=1335075"
+            "url": "http://ubuntuforums.org/showthread.php?t=1335075"
         }
     ],
     "uuid": "5a413ea5-d4f0-46d9-b7c8-b7170a74b847"

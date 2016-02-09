@@ -23,7 +23,7 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-05-31",
-            "string": "http://www.commandlinefu.com/commands/view/9766/copy-currentworking-directory-to-clipboard"
+            "url": "http://www.commandlinefu.com/commands/view/9766/copy-currentworking-directory-to-clipboard"
         }
     ],
     "uuid": "6f5fdd18-b781-4b22-8b7f-7ad3066b912a"

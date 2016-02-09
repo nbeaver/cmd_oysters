@@ -81,11 +81,11 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-04-30",
-            "string": "http://stackoverflow.com/a/22100700"
+            "url": "http://stackoverflow.com/a/22100700"
         },
         {
             "date-known-good": "2015-04-30",
-            "string": "http://www.cyberciti.biz/faq/lscpu-command-find-out-cpu-architecture-information/"
+            "url": "http://www.cyberciti.biz/faq/lscpu-command-find-out-cpu-architecture-information/"
         }
     ],
     "uuid": "101630e8-efc4-4566-bbc8-78e6ac76120f"

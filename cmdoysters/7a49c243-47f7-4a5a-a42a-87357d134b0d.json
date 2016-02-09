@@ -204,7 +204,7 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-04-30",
-            "string": "https://wiki.archlinux.org/index.php/Zsh#Making_Zsh_your_default_shell"
+            "url": "https://wiki.archlinux.org/index.php/Zsh#Making_Zsh_your_default_shell"
         }
     ],
     "uuid": "7a49c243-47f7-4a5a-a42a-87357d134b0d"

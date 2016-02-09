@@ -105,15 +105,15 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-05-18",
-            "string": "https://unix.stackexchange.com/questions/79702/how-to-test-whether-the-file-is-crlf-or-lf-without-modyfing-it"
+            "url": "https://unix.stackexchange.com/questions/79702/how-to-test-whether-the-file-is-crlf-or-lf-without-modyfing-it"
         },
         {
             "date-known-good": "2015-05-18",
-            "string": "http://unix.stackexchange.com/a/79713"
+            "url": "http://unix.stackexchange.com/a/79713"
         },
         {
             "date-known-good": "2015-05-18",
-            "string": "http://vsingleton.blogspot.com/2009/03/grep-using-octal-patterns-and-avoid.html"
+            "url": "http://vsingleton.blogspot.com/2009/03/grep-using-octal-patterns-and-avoid.html"
         }
     ],
     "uuid": "fd1ea283-a1ec-4997-9806-464a5a715624"

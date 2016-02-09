@@ -41,23 +41,23 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-04-30",
-            "string": "http://magnatecha.com/turn-off-display-from-linux-command-line/"
+            "url": "http://magnatecha.com/turn-off-display-from-linux-command-line/"
         },
         {
             "date-known-good": "2015-04-30",
-            "string": "http://superuser.com/a/66923/219809"
+            "url": "http://superuser.com/a/66923/219809"
         },
         {
             "date-known-good": "2015-04-30",
-            "string": "http://www.cyberciti.biz/faq/linux-how-to-find-if-processor-is-64-bit-or-not/"
+            "url": "http://www.cyberciti.biz/faq/linux-how-to-find-if-processor-is-64-bit-or-not/"
         },
         {
             "date-known-good": "2015-04-30",
-            "string": "http://tldp.org/HOWTO/Battery-Powered/methods.html#XF86"
+            "url": "http://tldp.org/HOWTO/Battery-Powered/methods.html#XF86"
         },
         {
             "date-known-good": "2015-04-30",
-            "string": "https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling#Modifying_DPMS_and_screensaver_settings_using_xset"
+            "url": "https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling#Modifying_DPMS_and_screensaver_settings_using_xset"
         }
     ],
     "uuid": "5b791952-7792-4ca5-bb38-cf622f3cdc8a"

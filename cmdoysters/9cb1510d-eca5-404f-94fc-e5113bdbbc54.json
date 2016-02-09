@@ -48,11 +48,11 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-05-06",
-            "string": "http://askubuntu.com/questions/95910/command-for-determining-my-public-ip"
+            "url": "http://askubuntu.com/questions/95910/command-for-determining-my-public-ip"
         },
         {
             "date-known-good": "2015-05-06",
-            "string": "http://unix.stackexchange.com/questions/22615/how-can-i-get-my-external-ip-address-in-bash"
+            "url": "http://unix.stackexchange.com/questions/22615/how-can-i-get-my-external-ip-address-in-bash"
         }
     ],
     "uuid": "9cb1510d-eca5-404f-94fc-e5113bdbbc54"

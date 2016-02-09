@@ -64,15 +64,15 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-05-12",
-            "string": "https://lists.gnu.org/archive/html/info-gnu/2013-06/msg00003.html"
+            "url": "https://lists.gnu.org/archive/html/info-gnu/2013-06/msg00003.html"
         },
         {
             "date-known-good": "2015-05-12",
-            "string": "https://unix.stackexchange.com/questions/46786/how-to-tell-gzip-to-keep-original-file"
+            "url": "https://unix.stackexchange.com/questions/46786/how-to-tell-gzip-to-keep-original-file"
         },
         {
             "date-known-good": "2015-05-12",
-            "string": "https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=240539"
+            "url": "https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=240539"
         }
     ],
     "uuid": "b70da7de-745f-4774-93eb-6eb034ccbd57"

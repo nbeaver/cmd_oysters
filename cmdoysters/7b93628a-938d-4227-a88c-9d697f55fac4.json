@@ -189,19 +189,19 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-04-30",
-            "string": "http://lists.gnu.org/archive/html/bug-gnu-utils/2006-03/msg00000.html"
+            "url": "http://lists.gnu.org/archive/html/bug-gnu-utils/2006-03/msg00000.html"
         },
         {
             "date-known-good": "2015-04-30",
-            "string": "https://groups.google.com/forum/#!topic/comp.unix.programmer/Auge3Bz4iCA"
+            "url": "https://groups.google.com/forum/#!topic/comp.unix.programmer/Auge3Bz4iCA"
         },
         {
             "date-known-good": "2015-04-30",
-            "string": "https://stackoverflow.com/questions/3001177/how-do-i-grep-for-all-non-ascii-characters-in-unix"
+            "url": "https://stackoverflow.com/questions/3001177/how-do-i-grep-for-all-non-ascii-characters-in-unix"
         },
         {
             "date-known-good": "2015-04-30",
-            "string": "http://superuser.com/questions/417305/how-can-i-identify-non-ascii-characters-from-the-shell"
+            "url": "http://superuser.com/questions/417305/how-can-i-identify-non-ascii-characters-from-the-shell"
         }
     ],
     "uuid": "7b93628a-938d-4227-a88c-9d697f55fac4"

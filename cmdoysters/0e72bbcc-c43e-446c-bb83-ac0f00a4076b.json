@@ -59,19 +59,19 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-05-19",
-            "string": "https://stackoverflow.com/questions/1489277/how-to-use-prune-option-of-find-in-sh"
+            "url": "https://stackoverflow.com/questions/1489277/how-to-use-prune-option-of-find-in-sh"
         },
         {
             "date-known-good": "2015-05-19",
-            "string": "https://stackoverflow.com/questions/4210042/exclude-directory-from-find-command"
+            "url": "https://stackoverflow.com/questions/4210042/exclude-directory-from-find-command"
         },
         {
             "date-known-good": "2015-05-19",
-            "string": "http://www.theunixschool.com/2012/07/find-command-15-examples-to-exclude.html"
+            "url": "http://www.theunixschool.com/2012/07/find-command-15-examples-to-exclude.html"
         },
         {
             "date-known-good": "2015-05-19",
-            "string": "http://www.liamdelahunty.com/tips/linux_find_exclude_multiple_directories.php"
+            "url": "http://www.liamdelahunty.com/tips/linux_find_exclude_multiple_directories.php"
         }
     ],
     "uuid": "0e72bbcc-c43e-446c-bb83-ac0f00a4076b"

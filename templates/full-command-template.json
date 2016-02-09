@@ -86,7 +86,7 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-04-30",
-            "string": "http://tldp.org/"
+            "url": "http://tldp.org/"
         }
     ],
     "uuid" : "793b2f59-baf7-4abf-b4df-55dcc19d0732"

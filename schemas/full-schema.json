@@ -360,13 +360,13 @@
             "format": "date",
             "type": "string"
           },
-          "string": {
+          "url": {
             "format": "uri",
             "type": "string"
           }
         },
         "required": [
-          "string"
+          "url"
         ],
         "type": "object"
       },

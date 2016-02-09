@@ -52,19 +52,19 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-04-30",
-            "string": "http://www.cyberciti.biz/faq/linux-how-to-find-if-processor-is-64-bit-or-not/"
+            "url": "http://www.cyberciti.biz/faq/linux-how-to-find-if-processor-is-64-bit-or-not/"
         },
         {
             "date-known-good": "2015-04-30",
-            "string": "http://stackoverflow.com/questions/10137880/need-help-32-bit-64-bit-check-for-linux"
+            "url": "http://stackoverflow.com/questions/10137880/need-help-32-bit-64-bit-check-for-linux"
         },
         {
             "date-known-good": "2015-04-30",
-            "string": "http://superuser.com/questions/412024/is-my-system-64-bit"
+            "url": "http://superuser.com/questions/412024/is-my-system-64-bit"
         },
         {
             "date-known-good": "2015-04-30",
-            "string": "http://lists.us.dell.com/pipermail/linux-poweredge/2011-February/044344.html"
+            "url": "http://lists.us.dell.com/pipermail/linux-poweredge/2011-February/044344.html"
         }
     ],
     "uuid": "fe1bd5ee-ae26-4abd-85a6-09be801f9f2b"

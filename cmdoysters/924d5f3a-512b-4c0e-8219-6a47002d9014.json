@@ -140,15 +140,15 @@
     "relevant-urls": [
         {
             "date-known-good": "2015-04-30",
-            "string": "http://www.gnu.org/software/coreutils/faq/coreutils-faq.html#ls-_002da-_002a-does-not-list-dot-files"
+            "url": "http://www.gnu.org/software/coreutils/faq/coreutils-faq.html#ls-_002da-_002a-does-not-list-dot-files"
         },
         {
             "date-known-good": "2015-04-30",
-            "string": "http://stackoverflow.com/a/699071/1608986"
+            "url": "http://stackoverflow.com/a/699071/1608986"
         },
         {
             "date-known-good": "2015-04-30",
-            "string": "http://stackoverflow.com/a/2550243/1608986"
+            "url": "http://stackoverflow.com/a/2550243/1608986"
         }
     ],
     "uuid": "924d5f3a-512b-4c0e-8219-6a47002d9014"
