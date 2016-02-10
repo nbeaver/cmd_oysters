@@ -113,4 +113,8 @@ def main(oyster_path, schema_path):
             validate_command(oyster, basename_no_extension, oyster_path)
 
 if __name__ == '__main__':
+    num_args = len(sys.argv) - 1
+    if num_args != 2:
+        sys.stderr.write("Usage: python "+sys.argv[0]+" cmd-oyster.json schema.json"+'\n')
+        sys.exit(1)
     main(sys.argv[1], sys.argv[2])
