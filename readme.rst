@@ -23,28 +23,27 @@ This is an example of the contents of a minimal but valid CmdOyster JSON file::
             "ls"
         ],
         "description": {
-            "sha1-hex": "62f6a0e19cae58eefb0e39bc09aaf7b9469202e5",
-            "string": "List contents of a directory."
+            "verbose-description": "List contents of a directory."
         },
         "invocations": {
             {
-                "sha1-hex": "ebfdec641529d4b59a54e18f8b0e9730f85939fb",
-                "string": "ls"
+                "invocation-string": "ls"
             }
-        }
+        },
+        "uuid": "535f7bb6-09ae-4105-a69c-e576ece9b113"
     }
 
 Here are some less trivial examples:
 
-- `Highlight the non-ASCII characters in a text file <cmdoysters/118f2d8f8666f09b5d9c9db536d645be5f923f6c.json>`_.
+- `Highlight the non-ASCII characters in a text file <cmdoysters/7b93628a-938d-4227-a88c-9d697f55fac4.json>`_.
 
-- `Safely list hidden files <cmdoysters/2d0b6b2b90eeb1efbd9591dbfa593766f6cf540a.json>`_.
+- `Safely list hidden files <cmdoysters/924d5f3a-512b-4c0e-8219-6a47002d9014.json>`_.
 
-- `Change the current user's default shell <cmdoysters/f3951f67052d0a0ea66062977ab7074c88bf9708.json>`_.
+- `Change the current user's default shell <cmdoysters/7a49c243-47f7-4a5a-a42a-87357d134b0d.json>`_.
 
-- `Extract images from multiple PDFs <cmdoysters/040662df76d8e74369a2b56c10764ba16b44d2a7.json>`_.
+- `Extract images from multiple PDFs <cmdoysters/6c0081a3-5c10-4cdf-826b-1bd778ae8ef0.json>`_.
 
-- `Display the machine's CPU architecture <cmdoysters/9f2fdee93e84817e73dcbe46d01e28af001fbe1e.json>`_.
+- `Display the machine's CPU architecture <cmdoysters/f69252a3-a58b-48bc-9fd2-89e9e5d29f94.json>`_.
 
 ----------
 Quickstart
@@ -449,12 +448,12 @@ which appears to currently be Python 2 only.
 
 .. _nilsimsa library: https://pypi.python.org/pypi/nilsimsa/0.3.2
 
-Copy `<testing/62f6a0e19cae58eefb0e39bc09aaf7b9469202e5.json>`_ to ``testing/temp.json``.
+Copy `<testing/535f7bb6-09ae-4105-a69c-e576ece9b113.json>`_ to ``testing/temp.json``.
 
 Edit ``temp.json``, changing at least the ``description`` and ``invocation`` strings.
 
-Run ``python2 validate-database.py --fix --input testing/``
-to supply the SHA-1 and Nilsimsa hashes
+Run ``python2 validate-database.py --input testing/``
+to make sure the JSON matches the schema
 (``make cmd_oyster_testing`` does the same thing).
 
 Copy over some of the fields from other entries
@@ -468,7 +467,7 @@ Continue adding metadata and invocations until satisfied.
 Rename file to the SHA-1 hash of its description,
 appended with ``.json``.
 
-Move the JSON file into `<CmdOysters/>`_.
+Move the JSON file into `<cmdoysters/>`_.
 
 --------------------------------------------
 How to add new metadata fields to the schema
