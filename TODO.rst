@@ -140,7 +140,7 @@ Specific items by file, in no particular order
   - ``[ ]`` Make the description search case-insensitive.
   - ``[ ]`` Make the description search into a full regex search.
 
-- ``[ ]`` Do some unit tests instead of the hacky makefile tests.
+- ``[ ]`` Do some unit tests instead of the hacky makefile tests (use ``unittest`` module).
 
 - ``[*]`` Add a description token search, stripping out punctuation.
 
@@ -168,7 +168,7 @@ Specific items by file, in no particular order
 
 - ``[*]`` Check that no two commands have the same UUIDs.
 
-- ``[ ]`` Check for likely duplicates based on Nilsimsa hashes of both commands and descriptions (use nilsimsa.compare_digests).
+- ``[ ]`` Check for likely duplicates based on Nilsimsa hashes of both commands and descriptions (use ``nilsimsa.compare_digests``).
 
 - ``[*]`` Make a JSON schema to do at least part of this more systematically.
 
@@ -188,7 +188,7 @@ Specific items by file, in no particular order
 `<Makefile>`_
 ~~~~~~~~~~~~~
 
-- ``[*]`` Don't check all CmdOysters by default (make it a separate target).
+- ``[ ]`` Don't check all CmdOysters by default (make it a separate target).
 
 -----------------------------------
 Non-specific notes and observations
