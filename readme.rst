@@ -8,7 +8,7 @@ CmdOysters: shell commands with metadata.
 :Date: $Date: 2015-05-12 (Tuesday, 12 May 2015) $
 :Copyright: This document is licensed under a Creative Commons Attribution 4.0 International license.
 
-See also `<TODO.rst>`_.
+See also `<todo.md>`_.
 
 .. contents::
 

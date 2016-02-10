@@ -1,4 +1,4 @@
-default : cmd_oysters cmd_oyster_testing cmd_oyster_templates find_command_tests readme.html TODO.html
+default : cmd_oysters cmd_oyster_testing cmd_oyster_templates find_command_tests readme.html todo.html
 all_json: cmd_oyster_templates cmd_oyster_testing cmd_oysters
 .PHONY : default all_json cmd_oyster_templates cmd_oysters test_find_command
 
@@ -22,9 +22,9 @@ cmd_oyster_templates : validate-database.py cmdoysters/ schemas/full-schema.json
 readme.html : readme.rst
 	rst2html readme.rst readme.html
 
-TODO.html : TODO.rst
-	rst2html TODO.rst TODO.html
+todo.html : todo.md
+	markdown todo.md > todo.html
 
 clean :
 	rm --force --verbose readme.html
-	rm --force --verbose TODO.html
+	rm --force --verbose todo.html
