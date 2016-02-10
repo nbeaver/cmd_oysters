@@ -7,57 +7,50 @@ Specific items by file, in no particular order
 - [*] Make a minimal template with only required fields
   ([templates/simple-template.json](templates/simple-template.json)).
 
-### [](schemas/full-schema.json)
+### [schemas/full-schema.json](schemas/full-schema.json)
 
 -   [ ] Use a copyright fields like Debian's:
     <https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/>
 -   [*] Specify required commands.
--   [*] Check that `bash-type` is one of `keyword`, `builtin`, or
-    `file`.
+-   [*] Check that `bash-type` is one of `keyword`, `builtin`, or `file`.
 -   [*] Split command database into individual JSON files.
--   [*] Include version numbers in "commands this shell works
-    with/doesn't work with".
+-   [*] Include version numbers in
+    "commands this shell works with/doesn't work with".
 -   [*] Change field name from `compatible-shells` to
     `compatible-with` so it's more generic.
 -   [*] Split requirements into `requirements-in-general` and
     `requirements-as-invoked`.
--   [ ] Indicate XORs in dependencies for Debian packages, e.g.
-    `gawk | mawk`.
--   [x] Use `null` for `executable-path` of shell builtins and
-    keywords. (Abandoned since nulls tend to cause problems.)
--   [*] Combine debian-paths and debian-packages into single debian
-    tree.
+-   [ ] Indicate XORs in dependencies for Debian packages, e.g.  `gawk | mawk`.
+-   [x] Use `null` for `executable-path` of shell builtins and keywords.
+    - Abandoned since `null`s in JSON tend to cause problems.
+-   [*] Combine debian-paths and debian-packages into single debian tree.
 -   [*] Combine `component-command-*` into `component-command-info/*`.
--   [*] Change `related-commands` to a list of objects, not SHA-1
-    hashes, so that e.g. broken links to similar commands can be found
-    by Nilsima hash.
--   [*] Change `related-invocations` to a list of objects, not SHA-1
-    hashes, so that e.g. broken links to similar invocations can be
-    found by Nilsima hash.
--   [*] Change `relevant-urls` to a list of objects, not strings, so
-    that e.g. additional information about the URL can be added.
+-   [*] Change `related-commands` to a list of objects, not SHA-1 hashes, so
+    that e.g. broken links to similar commands can be found by Nilsima hash.
+-   [*] Change `related-invocations` to a list of objects, not SHA-1 hashes, so
+    that e.g. broken links to similar invocations can be found by Nilsima hash.
+-   [*] Change `relevant-urls` to a list of objects, not strings, so that e.g.
+    additional information about the URL can be added.
 -   [*] A "copying" object field.
     -   [*] A "license" field.
     -   [*] An "author" or "acknowledgements" field.
     -   [*] A year field.
--   [ ] Field that indicates if the invocation is a pipeline, since
-    the presence of a pipe character is not a reliable indication.
--   [*] Field for example output of command (only some of them,
-    obviously).
+-   [ ] Field that indicates if the invocation is a pipeline,
+    since the presence of a pipe character is not a reliable indication.
+-   [*] Field for example output of command (only some of them, obviously).
     -   [ ] Include output of `locale` command for these.
 -   [*] Change `shell` compatibility to a list of objects.
--   [*] Enumerate fields with `yes|no|maybe` and
-    `never|sometimes|always` options.
+-   [*] Enumerate fields with `yes|no|maybe` and `never|sometimes|always`.
 -   [ ] Split it into smaller sub-schemas to avoid duplication.
 -   [*] Take descriptions from old pseudo-schema.
 -   [ ] Be more specific about required OS.
 -   [ ] Be more specific about other non-command dependencies.
-    -   For example, `xev` requires an X server, and `ssh -X` doesn't
-        make much sense without an X server.
--   [*] Change `string` to `invocation-string` and
-    `description-string`. This makes ad-hoc grepping easier.
--   [x] Key invocations by invocation string instead of using a
-    separate "string" field.
+    -   For example, `xev` requires an X server,
+        and `ssh -X` doesn't make much sense without an X server.
+-   [*] Change `string` to `invocation-string` and `description-string`.
+    This makes ad-hoc grepping easier.
+-   [x] Key invocations by invocation string instead of using a separate
+    "string" field.
     -   Advantage: more elegant structure.
     -   Disadvantage: Would be a breaking change.
     -   Disadvantage: Would not prevent duplicate invocations:
@@ -79,7 +72,7 @@ Specific items by file, in no particular order
     -   This is helpful in case it unclear if the command has already
         been run before.
 -   [x] Add a `depends-on-locale` field to invocations.
-    -   Decided this was too general, but local information should be
+    -   Decided this was too general, but locale information should be
         part of example outputs.
 -   [ ] Add a `shibboleth-command` field to invocations, e.g.
     `ls --version` will return 0 for the GNU version of `ls` but 1 for
@@ -91,7 +84,7 @@ Specific items by file, in no particular order
 -   [ ] Two different descriptions, one terse (80 characters or less),
     and one verbose.
 
-### [](find-command.py)
+### [find-command.py](find-command.py)
 
 -   [ ] Add a `--shell` flag (short flag `-x`) to spawn a prompt for
     the user with the command already filled in (use `pexpect`).
@@ -124,23 +117,22 @@ Specific items by file, in no particular order
     case-insensitive is a convenient default, but sometimes
     case-sensitivity can make a big difference in matching results.
 
-### [](validate-database.py)
+### [validate-database.py](validate-database.py)
 
--   [*] Check all the commands in component commands are substrings of
-    the main command.
--   [ ] Check that the commands in `component-command-info` are a
-    subset of `component-commands`.
+-   [*] Check all the commands in component commands
+    are substrings of the main command.
+-   [ ] Check that the commands in `component-command-info`
+    are a subset of `component-commands`.
 -   [ ] Check `debian-path` is correct using `which`.
 -   [*] Check that no two commands have the same UUIDs.
 -   [ ] Check for likely duplicates based on Nilsimsa hashes of both
     commands and descriptions (use `nilsimsa.compare_digests`).
--   [*] Make a JSON schema to do at least part of this more
-    systematically.
+-   [*] Make a JSON schema to do at least part of this more systematically.
 -   [*] Check that the filename is the same as the UUID, plus `.json`.
 -   [ ] Check that the fields are in alphanumeric order.
--   [ ] Figure out some way to do fine-grained validation, so once a
-    CmdOyster has been checked, it won't be checked again until it
-    changes.
+-   [ ] Figure out some way to do fine-grained validation,
+    so once a CmdOyster has been checked,
+    it won't be checked again until it changes.
 
 ### [](templates/full-command-template.json)
 
@@ -172,54 +164,54 @@ Non-specific notes and observations
 
 -   Would be good to extend this to work for any programming language,
     not just shells.
--   Sometimes changeable arguments show up more than once -- should
-    slice be a list of slices?
--   Omit requirements for shell keywords, since they don't do anything
-    on their own? Or use `null`?
--   Required packages for shell keywords and builtins -- just omit them,
-    since it depends on the shell anyway? Or use `null`?
+-   Sometimes changeable arguments show up more than once --
+    should slice be a list of slices?
+-   Omit requirements for shell keywords,
+    since they don't do anything on their own?
+    Or use `null`?
+-   Required packages for shell keywords and builtins --
+    just omit them, since it depends on the shell anyway?
+    Or use `null`?
 -   Requirements are vague, e.g. using `ls` in an `sshfs` does require
     an internet connection, but only indirectly.
--   The "always, sometimes, never" is a useful distinction, but what
-    about "depends on flags" or "depends on the arguments" or "depends
-    on configuration" or "depends on shell"?
--   Decide which fields are required and which are optional (JSON
-    schema?).
+-   The "always, sometimes, never" is a useful distinction,
+    but what about "depends on flags"
+    or "depends on the arguments"
+    or "depends on configuration"
+    or "depends on shell"?
+-   Decide which fields are required and which are optional (JSON schema?).
 -   Note: don't use Nilsimsa for one-letter or two-letter commands;
     Nilsimsa of "ls", "rm", "cd", "cp", "bc", "du", "df", "ln", and "bg"
     is the same:
     '0000000000000000000000000000000000000000000000000000000000000000'
 -   `man xclip`: "I hate man pages without examples!"
--   It's kind of a hassle to have to change all the SHA-1 links and
-    filename every time the description changes, but the Nilsimsa hash
-    helps.
--   What is the best way to handle commands that are the same but have
-    different executable names due to forking, e.g. `avconv` and
-    `ffmpeg`?
--   Would be good to differentiate commands that can be run as-is, and
-    commands that need different arguments.
+-   It's kind of a hassle to have to change all the SHA-1 links and filename
+    every time the description changes, but the Nilsimsa hash helps.
+-   What is the best way to handle commands that are the same
+    but have different executable names due to forking,
+    e.g. `avconv` and `ffmpeg`?
+-   Would be good to differentiate commands that can be run as-is
+    and commands that need different arguments.
 
 Getting shell versions
 ----------------------
 
--   bsh: echo 'printBanner();' | bsh
--   bash: bash --version
--   csh: dpkg -s csh | grep Version | cut -d ' ' -f 2 \#
+-   bsh: `echo 'printBanner();' | bsh`
+-   bash: `bash --version`
+-   csh: `dpkg -s csh | grep Version | cut -d ' ' -f 2 \#`
     <https://stackoverflow.com/questions/14259723/how-can-i-determine-my-csh-version>
--   dash: dpkg -s dash | grep Version | cut -d ' ' -f 2 \#
+-   dash: `dpkg -s dash | grep Version | cut -d ' ' -f 2 \#`
     <https://askubuntu.com/questions/283134/how-to-find-the-version-of-the-dash-shell-on-ubuntu-bin>
--   fish: fish --version
--   ksh: ksh --version
--   lshell: lshell --version
--   lush: dpkg -s lush | grep Version | cut -d ' ' -f 2
--   mksh: mksh -c 'echo \$KSH\_VERSION'
--   posh: posh -c 'echo \$POSH\_VERSION'
--   rc: rc -c 'echo \$version'
--   sash: dpkg -s sash | grep Version: | cut -d ' ' -f 2
--   tcsh: tcsh --version
--   yash: yash --version
--   zsh: zsh --version
+-   fish: `fish --version`
+-   ksh: `ksh --version`
+-   lshell: `lshell --version`
+-   lush: `dpkg -s lush | grep Version | cut -d ' ' -f 2`
+-   mksh: `mksh -c 'echo \$KSH\_VERSION'`
+-   posh: `posh -c 'echo \$POSH\_VERSION'`
+-   rc: `rc -c 'echo \$version'`
+-   sash: `dpkg -s sash | grep Version: | cut -d ' ' -f 2`
+-   tcsh: `tcsh --version`
+-   yash: `yash --version`
+-   zsh: `zsh --version`
 
-"bsh", "bash", "csh", "dash", "fish", "ksh", "mksh", "posh", "tcsh",
-"zsh",
-
+"bsh", "bash", "csh", "dash", "fish", "ksh", "mksh", "posh", "tcsh", "zsh",
