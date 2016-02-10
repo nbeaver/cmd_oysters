@@ -100,7 +100,7 @@ Specific items by file, in no particular order
 
 -   [ ] Two different descriptions, one terse (80 characters or less), and one verbose.
 
-### [find-command.py](find-command.py)
+### [find_command.py](find_command.py)
 
 -   [ ] Add a `--shell` flag (short flag `-x`) to spawn a prompt for the user with the command already filled in (use `pexpect`).
     -   [ ] Tailor invocation according to host OS and environment.
@@ -132,7 +132,7 @@ Specific items by file, in no particular order
 
 -   [ ] Add a `--case-sensitive` flag for searching, since case-insensitive is a convenient default, but sometimes case-sensitivity can make a big difference in matching results.
 
-### [validate-database.py](validate-database.py)
+### [validate_database.py](validate_database.py)
 
 -   [x] Check all the commands in component commands are substrings of the main command.
 
@@ -202,7 +202,7 @@ Non-specific notes and observations
     Nilsimsa of "ls", "rm", "cd", "cp", "bc", "du", "df", "ln", and "bg"
     is the same:
     '0000000000000000000000000000000000000000000000000000000000000000'
--   `man xclip`: "I hate man pages without examples!"
+-   From `xclip` man page: "I hate man pages without examples!"
 -   What is the best way to handle commands that are the same
     but have different executable names due to forking,
     e.g. `avconv` and `ffmpeg`?

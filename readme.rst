@@ -53,15 +53,15 @@ Quickstart
 
 #. ``cd cmd-oysters/``
 
-#. ``python2 find-command.py --substring "ping -i"``
+#. ``python2 find_command.py --substring "ping -i"``
 
 More examples:
 
-#. ``python2 find-command.py --commands awk grep``
+#. ``python2 find_command.py --commands awk grep``
 
-#. ``python2 find-command.py --tokens '|' '~'``
+#. ``python2 find_command.py --tokens '|' '~'``
    
-#. ``python2 find-command.py --description-tokens architecture CPU``
+#. ``python2 find_command.py --description-tokens architecture CPU``
 
 ----------
 Motivation
@@ -423,15 +423,19 @@ What about licensing?
 
 CmdOysters have fields for authors and licenses.
 
-This is intended to protect both those who make their own CmdOysters and those who use them.
+This is intended to protect both those who make their own CmdOysters
+and those who use them.
 
 It may seem strange to have a license for what amounts to one line of code,
-but the command invocation is just one part of a JSON document that could be construed as a creative work,
+but the command invocation is just one part
+of a JSON document that could be construed as a creative work,
 so an explicit grant of copyright is always better than an ambiguous one.
 
-The `extent to which metadata is copyrightable`_ varies by country and is still somewhat controversial,
+The `extent to which metadata is copyrightable`_
+varies by country and is still somewhat controversial,
 so while the license field is not strictly required for a valid CmdOyster,
-it is strongly encouraged to ensure others may copy and modify the CmdOysters without fear of infringement or litigation.
+it is strongly encouraged to ensure others may copy and modify the CmdOysters
+without fear of infringement or litigation.
 
 .. _extent to which metadata is copyrightable: http://lj.libraryjournal.com/2013/02/opinion/peer-to-peer-review/metadata-and-copyright-peer-to-peer-review/
 
@@ -440,34 +444,29 @@ Example of making a new CmdOyster
 ---------------------------------
 
 Python has had a built-in JSON library since version 2.6.
-The optional `nilsimsa library`_ can be installed with::
 
-    pip install nilsimsa
+Run ``python generate_oyster.py`` to generate a new CmdOyster.
 
-which appears to currently be Python 2 only.
+    $ python generate_oyster.py 
+    Created new CmdOyster:
+    /path/to/cmd-oysters/cmdoysters/6720d31b-511c-4b48-bf0e-073ec72c9234.json
 
-.. _nilsimsa library: https://pypi.python.org/pypi/nilsimsa/0.3.2
+This will create a minimal CmdOyster and a new UUID;
+6720d31b-511c-4b48-bf0e-073ec72c9234 in this case.
+Inspect the JSON with your favorite editor.
 
-Copy `<testing/535f7bb6-09ae-4105-a69c-e576ece9b113.json>`_ to ``testing/temp.json``.
+You will probably want to copy over some of the fields from other entries
+or from `<templates/full-command-template.json>`_.
 
-Edit ``temp.json``, changing at least the ``description`` and ``invocation`` strings.
+Run ``python cmdoysters/6720d31b-511c-4b48-bf0e-073ec72c9234.json schemas/full-schema.json``
+or simply::
 
-Run ``python2 validate-database.py --input testing/``
-to make sure the JSON matches the schema
-(``make cmd_oyster_testing`` does the same thing).
+    cd cmdoysters/
+    make
 
-Copy over some of the fields from other entries
-or from `<templates/full-command-template.json>`_
-and supply the new values as necessary.
-
-Run ``make`` to ensure the JSON is valid.
+to ensure the JSON is valid.
 
 Continue adding metadata and invocations until satisfied.
-
-Rename file to the SHA-1 hash of its description,
-appended with ``.json``.
-
-Move the JSON file into `<cmdoysters/>`_.
 
 --------------------------------------------
 How to add new metadata fields to the schema
