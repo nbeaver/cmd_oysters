@@ -16,7 +16,7 @@ Specific items by file, in no particular order
 -   [*] Change field name from `compatible-shells` to `compatible-with` so it's more generic.
 -   [*] Split requirements into `requirements-in-general` and `requirements-as-invoked`.
 -   [ ] Indicate XORs in dependencies for Debian packages, e.g.  `gawk | mawk`.
--   [x] Use `null` for `executable-path` of shell builtins and keywords.
+-   [ ] Use `null` for `executable-path` of shell builtins and keywords.
     - Abandoned since `null`s in JSON tend to cause problems.
 -   [*] Combine debian-paths and debian-packages into single debian tree.
 -   [*] Combine `component-command-*` into `component-command-info/*`.
@@ -39,7 +39,7 @@ Specific items by file, in no particular order
     -   For example, `xev` requires an X server, and `ssh -X` doesn't make much sense without an X server.
 -   [*] Change `string` to `invocation-string` and `description-string`.
     This makes ad-hoc grepping easier.
--   [x] Key invocations by invocation string instead of using a separate "string" field.
+-   [ ] Key invocations by invocation string instead of using a separate "string" field.
     -   Advantage: more elegant structure.
     -   Disadvantage: Would be a breaking change.
     -   Disadvantage: Would not prevent duplicate invocations: <https://stackoverflow.com/questions/17063257/necessity-for-duplicate-keys-in-json-object>
@@ -97,11 +97,11 @@ Specific items by file, in no particular order
 -   [ ] Check that the fields are in alphanumeric order.
 -   [ ] Figure out some way to do fine-grained validation, so once a CmdOyster has been checked, it won't be checked again until it changes.
 
-### [](templates/full-command-template.json)
+### [templates/full-command-template.json](templates/full-command-template.json)
 
 -   [ ] Ensure that every field in the schema is in this template.
 
-### [](Makefile)
+### [Makefile](Makefile)
 
 -   [ ] Don't check all CmdOysters by default (make it a separate target).
 
