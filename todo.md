@@ -203,8 +203,6 @@ Non-specific notes and observations
     is the same:
     '0000000000000000000000000000000000000000000000000000000000000000'
 -   `man xclip`: "I hate man pages without examples!"
--   It's kind of a hassle to have to change all the SHA-1 links and filename
-    every time the description changes, but the Nilsimsa hash helps.
 -   What is the best way to handle commands that are the same
     but have different executable names due to forking,
     e.g. `avconv` and `ffmpeg`?
@@ -216,10 +214,10 @@ Getting shell versions
 
 -   bsh: `echo 'printBanner();' | bsh`
 -   bash: `bash --version`
--   csh: `dpkg -s csh | grep Version | cut -d ' ' -f 2 \#`
-    <https://stackoverflow.com/questions/14259723/how-can-i-determine-my-csh-version>
--   dash: `dpkg -s dash | grep Version | cut -d ' ' -f 2 \#`
-    <https://askubuntu.com/questions/283134/how-to-find-the-version-of-the-dash-shell-on-ubuntu-bin>
+-   csh: `dpkg -s csh | grep Version | cut -d ' ' -f 2`
+    -   <https://stackoverflow.com/questions/14259723/how-can-i-determine-my-csh-version>
+-   dash: `dpkg -s dash | grep Version | cut -d ' ' -f 2`
+    -   <https://askubuntu.com/questions/283134/how-to-find-the-version-of-the-dash-shell-on-ubuntu-bin>
 -   fish: `fish --version`
 -   ksh: `ksh --version`
 -   lshell: `lshell --version`
