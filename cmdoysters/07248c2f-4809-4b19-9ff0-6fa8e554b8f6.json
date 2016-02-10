@@ -1,0 +1,159 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "espeak": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/espeak",
+                "required-packages": [
+                    "espeak"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "never"
+            }
+        },
+        "ping": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/bin/ping",
+                "required-packages": [
+                    "iputils-ping"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "sometimes",
+                "internet-connection": "sometimes",
+                "sudo": "sometimes"
+            }
+        },
+        "sed": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/bin/sed",
+                "required-packages": [
+                    "sed"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "never"
+            }
+        }
+    },
+    "component-commands": [
+        "espeak",
+        "ping",
+        "sed"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
+    "description": {
+        "verbose-description": "Generates audible voice that says 'ping' every time it gets an an ICMP ECHO_RESPONSE, sent in intervals of 2 seconds."
+    },
+    "invocations": [
+        {
+            "changeable-arguments": {
+                "2": {
+                    "argument-description": "Time interval in seconds.",
+                    "component-command": "ping",
+                    "component-command-flag": "-i",
+                    "invocation-slice": [
+                        8,
+                        9
+                    ],
+                    "type": "integer"
+                },
+                "localhost": {
+                    "argument-description": "IPv4 address or fully qualified domain name.",
+                    "component-command": "ping",
+                    "invocation-slice": [
+                        10,
+                        19
+                    ],
+                    "type": "string"
+                }
+            },
+            "command-requirements-as-invoked": {
+                "espeak": {
+                    "authentication": "no",
+                    "internet-connection": "no",
+                    "sudo": "no"
+                },
+                "ping": {
+                    "authentication": "no",
+                    "internet-connection": "no",
+                    "sudo": "no"
+                },
+                "sed": {
+                    "authentication": "no",
+                    "internet-connection": "no",
+                    "sudo": "no"
+                }
+            },
+            "comment": "Invocation with short flags.",
+            "invocation-string": "ping -i 2 localhost | sed -u 's/.*/ping/' | espeak"
+        },
+        {
+            "changeable-arguments": {
+                "2": {
+                    "argument-description": "Time interval in seconds.",
+                    "component-command": "ping",
+                    "component-command-flag": "-i",
+                    "invocation-slice": [
+                        8,
+                        9
+                    ],
+                    "type": "integer"
+                },
+                "localhost": {
+                    "argument-description": "IPv4 address or fully qualified domain name.",
+                    "component-command": "ping",
+                    "invocation-slice": [
+                        10,
+                        19
+                    ],
+                    "type": "string"
+                }
+            },
+            "command-requirements-as-invoked": {
+                "espeak": {
+                    "authentication": "no",
+                    "internet-connection": "no",
+                    "sudo": "no"
+                },
+                "ping": {
+                    "authentication": "no",
+                    "internet-connection": "no",
+                    "sudo": "no"
+                },
+                "sed": {
+                    "authentication": "no",
+                    "internet-connection": "no",
+                    "sudo": "no"
+                }
+            },
+            "comment": "Invocation with long flags.",
+            "invocation-string": "ping -i 2 localhost | sed --unbuffered 's/.*/ping/' | espeak"
+        }
+    ],
+    "relevant-urls": [
+        {
+            "date-known-good": "2015-04-30",
+            "url": "http://ftp.arl.mil/mike/ping.html"
+        }
+    ],
+    "uuid": "07248c2f-4809-4b19-9ff0-6fa8e554b8f6"
+}

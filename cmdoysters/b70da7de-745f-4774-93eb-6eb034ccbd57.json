@@ -1,0 +1,79 @@
+{
+    "can-modify": {
+        "filesystem": true,
+        "other-processes": false
+    },
+    "component-commands": [
+        "gzip"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
+    "description": {
+        "verbose-description": "Compress a file using gzip without removing the original file."
+    },
+    "invocations": [
+        {
+            "changeable-arguments": {
+                "file": {
+                    "argument-description": "Path to file to be compressed.",
+                    "invocation-slice": [
+                        7,
+                        11
+                    ],
+                    "subtype": "File path.",
+                    "type": "string"
+                },
+                "file.gz": {
+                    "argument-description": "Path to output compressed file.",
+                    "invocation-slice": [
+                        14,
+                        21
+                    ],
+                    "subtype": "File path.",
+                    "type": "string"
+                }
+            },
+            "comment": "Use gzip as a filter.",
+            "invocation-string": "gzip < file > file.gz"
+        },
+        {
+            "command-requirements-as-invoked": {
+                "gzip": {
+                    "version-specifier": "1.6 or later"
+                }
+            },
+            "comment": "Built-in feature of recent versions of gzip (short flag).",
+            "invocation-string": "gzip -k file"
+        },
+        {
+            "command-requirements-as-invoked": {
+                "gzip": {
+                    "version-specifier": "1.6 or later"
+                }
+            },
+            "comment": "Built-in feature of recent versions of gzip (long flag).",
+            "invocation-string": "gzip --keep file"
+        }
+    ],
+    "relevant-urls": [
+        {
+            "date-known-good": "2015-05-12",
+            "url": "https://lists.gnu.org/archive/html/info-gnu/2013-06/msg00003.html"
+        },
+        {
+            "date-known-good": "2015-05-12",
+            "url": "https://unix.stackexchange.com/questions/46786/how-to-tell-gzip-to-keep-original-file"
+        },
+        {
+            "date-known-good": "2015-05-12",
+            "url": "https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=240539"
+        }
+    ],
+    "uuid": "b70da7de-745f-4774-93eb-6eb034ccbd57"
+}

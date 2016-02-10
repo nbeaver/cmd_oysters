@@ -1,0 +1,71 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "stat": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/stat",
+                "required-packages": [
+                    "coreutils"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "sometimes"
+            }
+        }
+    },
+    "component-commands": [
+        "stat"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
+    "description": {
+        "verbose-description": "Show the time when `updatedb' was run to update the database for the `locate' command."
+    },
+    "invocations": [
+        {
+            "changeable-arguments": {
+                "/var/lib/mlocate/mlocate.db": {
+                    "argument-description": "Path to the `locate' database.",
+                    "component-command": "stat",
+                    "invocation-slice": [
+                        11,
+                        38
+                    ],
+                    "subtype": "Path to file or directory.",
+                    "type": "string"
+                }
+            },
+            "comment": "Short flag version.",
+            "invocation-string": "stat -c %y /var/lib/mlocate/mlocate.db"
+        },
+        {
+            "changeable-arguments": {
+                "/var/lib/mlocate/mlocate.db": {
+                    "argument-description": "Path to the `locate' database.",
+                    "component-command": "stat",
+                    "invocation-slice": [
+                        17,
+                        44
+                    ],
+                    "subtype": "Path to file or directory.",
+                    "type": "string"
+                }
+            },
+            "comment": "Long flag version.",
+            "invocation-string": "stat --format %y /var/lib/mlocate/mlocate.db"
+        }
+    ],
+    "uuid": "308423e6-95a4-4001-9e76-501ad79b2e93"
+}

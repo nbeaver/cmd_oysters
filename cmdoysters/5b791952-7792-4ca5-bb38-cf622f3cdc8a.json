@@ -1,0 +1,64 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "xset": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/xset",
+                "required-packages": [
+                    "x11-xserver-utils"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "never"
+            }
+        }
+    },
+    "component-commands": [
+        "xset"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
+    "description": {
+        "verbose-description": "Turn off the monitor; make the display go dark; blank the screen until the mouse is moved or a key is pressed."
+    },
+    "invocations": [
+        {
+            "invocation-string": "xset dpms force standby"
+        }
+    ],
+    "relevant-urls": [
+        {
+            "date-known-good": "2015-04-30",
+            "url": "http://magnatecha.com/turn-off-display-from-linux-command-line/"
+        },
+        {
+            "date-known-good": "2015-04-30",
+            "url": "http://superuser.com/a/66923/219809"
+        },
+        {
+            "date-known-good": "2015-04-30",
+            "url": "http://www.cyberciti.biz/faq/linux-how-to-find-if-processor-is-64-bit-or-not/"
+        },
+        {
+            "date-known-good": "2015-04-30",
+            "url": "http://tldp.org/HOWTO/Battery-Powered/methods.html#XF86"
+        },
+        {
+            "date-known-good": "2015-04-30",
+            "url": "https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling#Modifying_DPMS_and_screensaver_settings_using_xset"
+        }
+    ],
+    "uuid": "5b791952-7792-4ca5-bb38-cf622f3cdc8a"
+}

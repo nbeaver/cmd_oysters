@@ -1,0 +1,65 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "find": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/find",
+                "required-packages": [
+                    "findutils"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "sometimes"
+            }
+        }
+    },
+    "component-commands": [
+        "find"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
+    "description": {
+        "verbose-description": "Find files in your home directory that you don't own."
+    },
+    "invocations": [
+        {
+            "changeable-arguments": {
+                "$HOME": {
+                    "argument-description": "Path to search.",
+                    "component-command": "find",
+                    "invocation-slice": [
+                        5,
+                        10
+                    ],
+                    "subtype": "Path to file or directory.",
+                    "type": "string"
+                },
+                "$USER": {
+                    "argument-description": "User login the file is not owned by.",
+                    "component-command": "find",
+                    "component-command-flag": "-user",
+                    "invocation-slice": [
+                        19,
+                        24
+                    ],
+                    "subtype": "Login user name.",
+                    "type": "string"
+                }
+            },
+            "invocation-string": "find $HOME ! -user $USER"
+        }
+    ],
+    "uuid": "2b0656bc-9ea5-466b-8734-dcc1570be067"
+}

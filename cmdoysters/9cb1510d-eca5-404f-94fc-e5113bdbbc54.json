@@ -1,0 +1,59 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "curl": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/curl",
+                "required-packages": [
+                    "curl"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "sometimes",
+                "sudo": "never"
+            }
+        }
+    },
+    "component-commands": [
+        "curl"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
+    "description": {
+        "verbose-description": "Show external IP address using http://ifconfig.me website."
+    },
+    "invocations": [
+        {
+            "command-requirements-as-invoked": {
+                "curl": {
+                    "authentication": "no",
+                    "internet-connection": "yes",
+                    "sudo": "no"
+                }
+            },
+            "invocation-string": "curl --proto https ifconfig.me"
+        }
+    ],
+    "relevant-urls": [
+        {
+            "date-known-good": "2015-05-06",
+            "url": "http://askubuntu.com/questions/95910/command-for-determining-my-public-ip"
+        },
+        {
+            "date-known-good": "2015-05-06",
+            "url": "http://unix.stackexchange.com/questions/22615/how-can-i-get-my-external-ip-address-in-bash"
+        }
+    ],
+    "uuid": "9cb1510d-eca5-404f-94fc-e5113bdbbc54"
+}

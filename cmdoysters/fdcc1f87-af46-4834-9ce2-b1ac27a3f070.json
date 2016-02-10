@@ -1,0 +1,83 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes": false
+    },
+    "component-commands": [
+        "ps"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
+    "description": {
+        "verbose-description": "Show information about parent process."
+    },
+    "invocations": [
+        {
+            "invocation-string": "ps -p $PPID",
+            "shell-compatibility": {
+                "bash": {
+                    "compatible-versions-tested": [
+                        "GNU bash, version 4.3.30(1)-release (x86_64-pc-linux-gnu)"
+                    ]
+                },
+                "csh": {
+                    "incompatible-versions-tested": [
+                        "20110502-2.1"
+                    ]
+                },
+                "dash": {
+                    "compatible-versions-tested": [
+                        "0.5.7-4+b1"
+                    ]
+                },
+                "fish": {
+                    "incompatible-versions-tested": [
+                        "1.23.1"
+                    ]
+                },
+                "ksh": {
+                    "compatible-versions-tested": [
+                        "93u+ 2012-08-01"
+                    ]
+                },
+                "mksh": {
+                    "compatible-versions-tested": [
+                        "@(#)MIRBSD KSH R50 2014/10/19 Debian-5"
+                    ]
+                },
+                "posh": {
+                    "compatible-versions-tested": [
+                        "0.12.3"
+                    ]
+                },
+                "rc": {
+                    "incompatible-versions-tested": [
+                        "1.7.2 $Release: @(#)rc 1.7.2 2014-09-27"
+                    ]
+                },
+                "tcsh": {
+                    "incompatible-versions-tested": [
+                        "tcsh 6.18.01 (Astron) 2012-02-14 (x86_64-unknown-linux)"
+                    ]
+                },
+                "yash": {
+                    "compatible-versions-tested": [
+                        "2.36"
+                    ]
+                },
+                "zsh": {
+                    "compatible-versions-tested": [
+                        "zsh 5.0.7 (x86_64-pc-linux-gnu)"
+                    ]
+                }
+            }
+        }
+    ],
+    "uuid": "fdcc1f87-af46-4834-9ce2-b1ac27a3f070"
+}

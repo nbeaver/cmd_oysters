@@ -1,0 +1,81 @@
+{
+    "can-modify": {
+        "filesystem": true,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "xclip": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/xclip",
+                "required-packages": [
+                    "xclip"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "never"
+            }
+        }
+    },
+    "component-commands": [
+        "xclip"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
+    "description": {
+        "verbose-description": "Save copied image to file."
+    },
+    "invocations": [
+        {
+            "changeable-arguments": {
+                "out.png": {
+                    "argument-description": "Filename of image.",
+                    "component-command": "xclip",
+                    "invocation-slice": [
+                        45,
+                        52
+                    ],
+                    "subtype": "Path to image filename.",
+                    "type": "string"
+                }
+            },
+            "comment": "Works with any POSIX shell.",
+            "invocation-string": "xclip -selection clipboard -t image/png -o > out.png"
+        },
+        {
+            "changeable-arguments": {
+                "out.png": {
+                    "argument-description": "Filename of image.",
+                    "component-command": "xclip",
+                    "invocation-slice": [
+                        52,
+                        59
+                    ],
+                    "subtype": "Path to image filename.",
+                    "type": "string"
+                }
+            },
+            "comment": "Works with any POSIX shell; long flags version.",
+            "invocation-string": "xclip -selection clipboard -target image/png -out > out.png"
+        }
+    ],
+    "relevant-urls": [
+        {
+            "date-known-good": "2015-04-30",
+            "url": "http://unix.stackexchange.com/questions/145131/copy-image-from-clipboard-to-file"
+        },
+        {
+            "date-known-good": "2015-04-30",
+            "url": "http://ubuntuforums.org/showthread.php?t=1335075"
+        }
+    ],
+    "uuid": "5a413ea5-d4f0-46d9-b7c8-b7170a74b847"
+}

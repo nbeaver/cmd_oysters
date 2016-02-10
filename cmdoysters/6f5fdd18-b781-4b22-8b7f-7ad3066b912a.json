@@ -1,0 +1,30 @@
+{
+    "component-commands": [
+        "pwd",
+        "tr",
+        "xsel"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
+    "description": {
+        "verbose-description": "Copy working directory to clipboard."
+    },
+    "invocations": [
+        {
+            "invocation-string": "pwd | tr -d '\\n' | xsel -b"
+        }
+    ],
+    "relevant-urls": [
+        {
+            "date-known-good": "2015-05-31",
+            "url": "http://www.commandlinefu.com/commands/view/9766/copy-currentworking-directory-to-clipboard"
+        }
+    ],
+    "uuid": "6f5fdd18-b781-4b22-8b7f-7ad3066b912a"
+}

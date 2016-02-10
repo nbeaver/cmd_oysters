@@ -1,0 +1,211 @@
+{
+    "component-command-info": {
+        "chsh": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/chsh",
+                "required-packages": [
+                    "passwd"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "always",
+                "internet-connection": "never",
+                "sudo": "sometimes"
+            }
+        },
+        "which": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/which",
+                "required-packages": [
+                    "debianutils"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "never"
+            }
+        }
+    },
+    "component-commands": [
+        "chsh",
+        "which"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
+    "description": {
+        "verbose-description": "Change the default shell of the current user to zsh."
+    },
+    "invocations": [
+        {
+            "changeable-arguments": {
+                "$(which zsh)": {
+                    "argument-description": "Path to desired shell.",
+                    "component-command": "chsh",
+                    "component-command-flag": "-s",
+                    "invocation-slice": [
+                        8,
+                        20
+                    ],
+                    "subtype": "path",
+                    "type": "string"
+                },
+                "$USER": {
+                    "argument-description": "Username. Requires sudo if different than current user.",
+                    "component-command": "chsh",
+                    "invocation-slice": [
+                        21,
+                        26
+                    ],
+                    "type": "string"
+                },
+                "zsh": {
+                    "argument-description": "Name of desired shell.",
+                    "component-command": "which",
+                    "invocation-slice": [
+                        16,
+                        19
+                    ],
+                    "type": "string"
+                }
+            },
+            "command-requirements-as-invoked": {
+                "chsh": {
+                    "authentication": "yes",
+                    "internet-connection": "no",
+                    "sudo": "no"
+                },
+                "which": {
+                    "authentication": "no",
+                    "internet-connection": "no",
+                    "sudo": "no"
+                }
+            },
+            "comment": "Short flag.",
+            "invocation-string": "chsh -s $(which zsh) $USER",
+            "shell-compatibility": {
+                "bash": {
+                    "compatible-versions-tested": [
+                        "4.2.37"
+                    ]
+                },
+                "csh": {
+                    "incompatible-versions-tested": [
+                        "20110502-2"
+                    ]
+                },
+                "dash": {
+                    "compatible-versions-tested": [
+                        "0.5.7-3"
+                    ]
+                },
+                "fish": {
+                    "incompatible-versions-tested": [
+                        "1.23.1"
+                    ]
+                },
+                "ksh": {
+                    "compatible-versions-tested": [
+                        "93u+-1.2"
+                    ]
+                },
+                "tcsh": {
+                    "incompatible-versions-tested": [
+                        "6.18.01 (Astron) 2012-02-14"
+                    ]
+                },
+                "zsh": {
+                    "compatible-versions-tested": [
+                        "4.3.17"
+                    ]
+                }
+            }
+        },
+        {
+            "changeable-arguments": {
+                "$(which zsh)": {
+                    "argument-description": "Path to desired shell.",
+                    "component-command": "chsh",
+                    "component-command-flag": "--shell",
+                    "invocation-slice": [
+                        13,
+                        25
+                    ],
+                    "type": "string"
+                },
+                "$USER": {
+                    "argument-description": "Username. Requires sudo if different than current user.",
+                    "component-command": "chsh",
+                    "invocation-slice": [
+                        26,
+                        31
+                    ],
+                    "type": "string"
+                },
+                "zsh": {
+                    "argument-description": "Name of desired shell.",
+                    "component-command": "which",
+                    "invocation-slice": [
+                        21,
+                        24
+                    ],
+                    "type": "string"
+                }
+            },
+            "comment": "Long flag.",
+            "invocation-string": "chsh --shell $(which zsh) $USER",
+            "shell-compatibility": {
+                "bash": {
+                    "compatible-versions-tested": [
+                        "4.2.37"
+                    ]
+                },
+                "csh": {
+                    "incompatible-versions-tested": [
+                        "20110502-2"
+                    ]
+                },
+                "dash": {
+                    "compatible-versions-tested": [
+                        "0.5.7-3"
+                    ]
+                },
+                "fish": {
+                    "incompatible-versions-tested": [
+                        "1.23.1"
+                    ]
+                },
+                "ksh": {
+                    "compatible-versions-tested": [
+                        "93u+-1.2"
+                    ]
+                },
+                "tcsh": {
+                    "incompatible-versions-tested": [
+                        "6.18.01 (Astron) 2012-02-14"
+                    ]
+                },
+                "zsh": {
+                    "compatible-versions-tested": [
+                        "4.3.17"
+                    ]
+                }
+            }
+        }
+    ],
+    "relevant-urls": [
+        {
+            "date-known-good": "2015-04-30",
+            "url": "https://wiki.archlinux.org/index.php/Zsh#Making_Zsh_your_default_shell"
+        }
+    ],
+    "uuid": "7a49c243-47f7-4a5a-a42a-87357d134b0d"
+}

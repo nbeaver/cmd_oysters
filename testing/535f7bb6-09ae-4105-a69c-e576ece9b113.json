@@ -1,0 +1,22 @@
+{
+    "component-commands": [
+        "ls"
+    ],
+    "copying": {
+        "authors": [
+            "Firstname Lastname"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
+    "description": {
+        "verbose-description": "List contents of a directory."
+    },
+    "invocations": [
+        {
+            "invocation-string": "ls"
+        }
+    ],
+    "uuid": "535f7bb6-09ae-4105-a69c-e576ece9b113"
+}

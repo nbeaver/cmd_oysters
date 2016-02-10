@@ -1,0 +1,117 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes": true
+    },
+    "component-command-info": {
+        "jobs": {
+            "bash-type": "builtin",
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "never"
+            }
+        },
+        "kill": {
+            "bash-type": "builtin",
+            "requirements-in-general": {
+                "authentication": "sometimes",
+                "internet-connection": "never",
+                "sudo": "sometimes"
+            }
+        }
+    },
+    "component-commands": [
+        "jobs",
+        "kill"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
+    "description": {
+        "verbose-description": "Kill stopped jobs."
+    },
+    "invocations": [
+        {
+            "comment": "Bash-specific because of `jobs -p` to list process IDs.",
+            "invocation-string": "kill $(jobs -ps)",
+            "shell-compatibility": {
+                "bash": {
+                    "compatible-versions-tested": [
+                        "4.2.37"
+                    ]
+                },
+                "bsh": {
+                    "incompatible-versions-tested": [
+                        "2.0b4"
+                    ]
+                },
+                "csh": {
+                    "incompatible-versions-tested": [
+                        "20110502-2"
+                    ]
+                },
+                "dash": {
+                    "incompatible-versions-tested": [
+                        "0.5.7-3"
+                    ]
+                },
+                "fish": {
+                    "incompatible-versions-tested": [
+                        "1.23.1"
+                    ]
+                },
+                "ksh": {
+                    "compatible-versions-tested": [
+                        "93u+-1.2"
+                    ]
+                },
+                "mksh": {
+                    "compatible-versions-tested": [
+                        "40.9.20120630-7"
+                    ]
+                },
+                "posh": {
+                    "incompatible-versions-tested": [
+                        "0.10.2"
+                    ]
+                },
+                "rc": {
+                    "incompatible-versions-tested": [
+                        "1.7.1 2003-07-17"
+                    ]
+                },
+                "tcsh": {
+                    "incompatible-versions-tested": [
+                        "6.18.01 (Astron) 2012-02-14"
+                    ]
+                },
+                "zsh": {
+                    "incompatible-versions-tested": [
+                        "4.3.17"
+                    ]
+                }
+            }
+        }
+    ],
+    "relevant-urls": [
+        {
+            "date-known-good": "2015-04-30",
+            "url": "http://serverfault.com/questions/240155/how-can-i-kill-all-stopped-jobs"
+        },
+        {
+            "date-known-good": "2015-04-30",
+            "url": "http://superuser.com/a/228926/219809"
+        },
+        {
+            "date-known-good": "2015-04-30",
+            "url": "http://ubuntuforums.org/showthread.php?t=1954090&s=c408c62db23afe753dfcfd40f1a86e32&p=11825162#post11825162"
+        }
+    ],
+    "uuid": "dbadb0c9-5590-46af-b846-095c44a66e2c"
+}

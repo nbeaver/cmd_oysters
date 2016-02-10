@@ -1,0 +1,103 @@
+{
+    "component-commands": [
+        "date"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
+    "description": {
+        "verbose-description": "Show the date and time in a different timezone without changing the system time zone."
+    },
+    "invocations": [
+        {
+            "changeable-arguments": {
+                "America/Argentina/Buenos_Aires": {
+                    "argument-description": "Any timezone in the tz database.",
+                    "invocation-slice": [
+                        3,
+                        33
+                    ],
+                    "subtype": "Timezone code.",
+                    "type": "string"
+                }
+            },
+            "comment": "Date and time in Buenos Aires, Argentina.",
+            "example-outputs": [
+                "Thu Jan  1 00:00:00 ART 1970"
+            ],
+            "invocation-string": "TZ=America/Argentina/Buenos_Aires date",
+            "shell-compatibility": {
+                "bash": {
+                    "compatible-versions-tested": [
+                        "GNU bash, version 4.3.30(1)-release (x86_64-pc-linux-gnu)"
+                    ]
+                },
+                "csh": {
+                    "incompatible-versions-tested": [
+                        "20110502-2.1"
+                    ]
+                },
+                "dash": {
+                    "compatible-versions-tested": [
+                        "0.5.7-4+b1"
+                    ]
+                },
+                "fish": {
+                    "incompatible-versions-tested": [
+                        "1.23.1"
+                    ]
+                },
+                "ksh": {
+                    "compatible-versions-tested": [
+                        "93u+ 2012-08-01"
+                    ]
+                },
+                "mksh": {
+                    "compatible-versions-tested": [
+                        "@(#)MIRBSD KSH R50 2014/10/19 Debian-5"
+                    ]
+                },
+                "posh": {
+                    "compatible-versions-tested": [
+                        "0.12.3"
+                    ]
+                },
+                "rc": {
+                    "compatible-versions-tested": [
+                        "1.7.2 $Release: @(#)rc 1.7.2 2014-09-27 $"
+                    ]
+                },
+                "yash": {
+                    "compatible-versions-tested": [
+                        "2.36"
+                    ]
+                },
+                "zsh": {
+                    "compatible-versions-tested": [
+                        "zsh 5.0.7 (x86_64-pc-linux-gnu)"
+                    ]
+                }
+            }
+        }
+    ],
+    "relevant-urls": [
+        {
+            "date-known-good": "2015-06-01",
+            "url": "https://unix.stackexchange.com/questions/48101/how-can-i-have-date-output-the-time-from-a-different-timezone"
+        },
+        {
+            "date-known-good": "2015-06-01",
+            "url": "http://www.cyberciti.biz/tips/date-command-set-tz-environment-variable.html"
+        },
+        {
+            "date-known-good": "2015-06-01",
+            "url": "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"
+        }
+    ],
+    "uuid": "e47766a1-e332-4cd3-9e42-573d0bcd09de"
+}

@@ -1,0 +1,118 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "du": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/du",
+                "required-packages": [
+                    "coreutils"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "sometimes"
+            }
+        },
+        "sort": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/sort",
+                "required-packages": [
+                    "coreutils"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "sometimes"
+            }
+        }
+    },
+    "component-commands": [
+        "du",
+        "sort"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
+    "description": {
+        "verbose-description": "See directories taking up the most space in user's home directory."
+    },
+    "invocations": [
+        {
+            "changeable-arguments": {
+                "~": {
+                    "argument-description": "Directory that is examined for disk usage.",
+                    "component-command": "du",
+                    "invocation-slice": [
+                        8,
+                        9
+                    ],
+                    "subtype": "Path to directory or file.",
+                    "type": "string"
+                }
+            },
+            "comment": "Short flags.",
+            "invocation-string": "du -d 1 ~ | sort -nr | less"
+        },
+        {
+            "changeable-arguments": {
+                "$HOME": {
+                    "argument-description": "Directory that is examined for disk usage.",
+                    "component-command": "du",
+                    "invocation-slice": [
+                        17,
+                        22
+                    ],
+                    "subtype": "Path to directory or file.",
+                    "type": "string"
+                }
+            },
+            "comment": "Long flags.",
+            "invocation-string": "du --max-depth=1 $HOME | sort --reverse --human-numeric-sort | less"
+        },
+        {
+            "changeable-arguments": {
+                "~": {
+                    "argument-description": "Directory that is examined for disk usage.",
+                    "component-command": "du",
+                    "invocation-slice": [
+                        9,
+                        10
+                    ],
+                    "subtype": "Path to directory or file.",
+                    "type": "string"
+                }
+            },
+            "comment": "Human-readable size (e.g. 8M for 8 megabytes). Short flags.",
+            "invocation-string": "du -hd 1 ~ | sort -hr | less"
+        },
+        {
+            "changeable-arguments": {
+                "$HOME": {
+                    "argument-description": "Directory that is examined for disk usage.",
+                    "component-command": "du",
+                    "invocation-slice": [
+                        25,
+                        30
+                    ],
+                    "subtype": "Path to directory or file.",
+                    "type": "string"
+                }
+            },
+            "comment": "Human-readable size (e.g. 8M for 8 megabytes). Long flags.",
+            "invocation-string": "du --human --max-depth=1 $HOME | sort --reverse --human-numeric-sort | less"
+        }
+    ],
+    "uuid": "64c52fa6-cdde-4e8b-9671-1b74978cdc2c"
+}

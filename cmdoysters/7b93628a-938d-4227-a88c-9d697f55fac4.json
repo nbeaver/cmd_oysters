@@ -1,0 +1,208 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "grep": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/bin/grep",
+                "required-packages": [
+                    "grep"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "sometimes",
+                "internet-connection": "never",
+                "sudo": "sometimes"
+            }
+        },
+        "less": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/less",
+                "required-packages": [
+                    "less"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "sometimes",
+                "internet-connection": "never",
+                "sudo": "sometimes"
+            }
+        }
+    },
+    "component-commands": [
+        "grep",
+        "less"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
+    "description": {
+        "verbose-description": "Highlight non-ASCII characters (e.g. Unicode) in a text file and give the line number they are on."
+    },
+    "invocations": [
+        {
+            "changeable-arguments": {
+                "/usr/share/dict/words": {
+                    "argument-description": "File or file path of text file.",
+                    "component-command": "grep",
+                    "invocation-slice": [
+                        39,
+                        60
+                    ],
+                    "subtype": "path",
+                    "type": "string"
+                }
+            },
+            "comment": "Short flags version.",
+            "invocation-string": "grep -nP '[^[:ascii:]]' --color=always /usr/share/dict/words | less -R",
+            "shell-compatibility": {
+                "bash": {
+                    "compatible-versions-tested": [
+                        "4.2.37"
+                    ]
+                },
+                "bsh": {
+                    "incompatible-versions-tested": [
+                        "2.0b4"
+                    ]
+                },
+                "csh": {
+                    "compatible-versions-tested": [
+                        "20110502"
+                    ]
+                },
+                "dash": {
+                    "compatible-versions-tested": [
+                        "0.5.7"
+                    ]
+                },
+                "fish": {
+                    "compatible-versions-tested": [
+                        "1.23.1"
+                    ]
+                },
+                "ksh": {
+                    "compatible-versions-tested": [
+                        "93u+-1.2"
+                    ]
+                },
+                "mksh": {
+                    "compatible-versions-tested": [
+                        "40.9.20120630"
+                    ]
+                },
+                "posh": {
+                    "compatible-versions-tested": [
+                        "0.10.2"
+                    ]
+                },
+                "tcsh": {
+                    "compatible-versions-tested": [
+                        "6.18.01 (Astron) 2012-02-14"
+                    ]
+                },
+                "zsh": {
+                    "compatible-versions-tested": [
+                        "4.3.17"
+                    ]
+                }
+            }
+        },
+        {
+            "changeable-arguments": {
+                "/usr/share/dict/words": {
+                    "argument-description": "File or file path of text file.",
+                    "component-command": "grep",
+                    "invocation-slice": [
+                        63,
+                        84
+                    ],
+                    "subtype": "path",
+                    "type": "string"
+                }
+            },
+            "comment": "Long flags version.",
+            "invocation-string": "grep --line-number --perl-regexp '[^[:ascii:]]' --color=always /usr/share/dict/words | less --RAW-CONTROL-CHARS",
+            "shell-compatibility": {
+                "bash": {
+                    "compatible-versions-tested": [
+                        "4.2.37"
+                    ]
+                },
+                "bsh": {
+                    "incompatible-versions-tested": [
+                        "2.0b4"
+                    ]
+                },
+                "csh": {
+                    "compatible-versions-tested": [
+                        "20110502"
+                    ]
+                },
+                "dash": {
+                    "compatible-versions-tested": [
+                        "0.5.7"
+                    ]
+                },
+                "fish": {
+                    "compatible-versions-tested": [
+                        "1.23.1"
+                    ]
+                },
+                "ksh": {
+                    "compatible-versions-tested": [
+                        "93u+-1.2"
+                    ]
+                },
+                "mksh": {
+                    "compatible-versions-tested": [
+                        "40.9.20120630"
+                    ]
+                },
+                "posh": {
+                    "compatible-versions-tested": [
+                        "0.10.2"
+                    ]
+                },
+                "tcsh": {
+                    "compatible-versions-tested": [
+                        "6.18.01 (Astron) 2012-02-14"
+                    ]
+                },
+                "zsh": {
+                    "compatible-versions-tested": [
+                        "4.3.17"
+                    ]
+                }
+            }
+        }
+    ],
+    "relevant-urls": [
+        {
+            "date-known-good": "2015-04-30",
+            "url": "http://lists.gnu.org/archive/html/bug-gnu-utils/2006-03/msg00000.html"
+        },
+        {
+            "date-known-good": "2015-04-30",
+            "url": "https://groups.google.com/forum/#!topic/comp.unix.programmer/Auge3Bz4iCA"
+        },
+        {
+            "date-known-good": "2015-04-30",
+            "url": "https://stackoverflow.com/questions/3001177/how-do-i-grep-for-all-non-ascii-characters-in-unix"
+        },
+        {
+            "date-known-good": "2015-04-30",
+            "url": "http://superuser.com/questions/417305/how-can-i-identify-non-ascii-characters-from-the-shell"
+        }
+    ],
+    "uuid": "7b93628a-938d-4227-a88c-9d697f55fac4"
+}

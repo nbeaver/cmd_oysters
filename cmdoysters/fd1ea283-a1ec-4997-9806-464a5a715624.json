@@ -1,0 +1,120 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes": false
+    },
+    "component-commands": [
+        "grep"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2015
+    },
+    "description": {
+        "verbose-description": "Recursively find text files ending in '.txt' that contain the DOS carriage return (octal 015, hexadecimal x0D). Uses ANSI-C single quotes instead of a literal carriage return character."
+    },
+    "invocations": [
+        {
+            "command-requirements-as-invoked": {
+                "grep": {
+                    "authentication": "no",
+                    "internet-connection": "no",
+                    "sudo": "no",
+                    "versions-tested": [
+                        "GNU grep 2.20"
+                    ]
+                }
+            },
+            "comment": "Short flags and octal value for carriage return.",
+            "invocation-string": "grep -Url $'\\015' --include='*.txt'",
+            "shell-compatibility": {
+                "bash": {
+                    "compatible-versions-tested": [
+                        "GNU bash, version 4.3.30"
+                    ]
+                },
+                "bsh": {
+                    "incompatible-versions-tested": [
+                        "BeanShell 2.0b4"
+                    ]
+                },
+                "csh": {
+                    "incompatible-versions-tested": [
+                        "20110502-2.1"
+                    ]
+                },
+                "dash": {
+                    "incompatible-versions-tested": [
+                        "0.5.7-4+b1"
+                    ]
+                },
+                "fish": {
+                    "incompatible-versions-tested": [
+                        "fish, version 1.23.1"
+                    ]
+                },
+                "ksh": {
+                    "compatible-versions-tested": [
+                        "sh (AT&T Research) 93u+ 2012-08-01"
+                    ]
+                },
+                "mksh": {
+                    "compatible-versions-tested": [
+                        "MIRBSD KSH R50 2014/10/19 Debian-5"
+                    ]
+                },
+                "posh": {
+                    "incompatible-versions-tested": [
+                        "0.12.3"
+                    ]
+                },
+                "rc": {
+                    "incompatible-versions-tested": [
+                        "1.7.2 $Release: @(#)rc 1.7.2 2014-09-27 $"
+                    ]
+                },
+                "tcsh": {
+                    "incompatible-versions-tested": [
+                        "6.18.01 (Astron) 2012-02-14"
+                    ]
+                },
+                "zsh": {
+                    "compatible-versions-tested": [
+                        "zsh 5.0.7"
+                    ]
+                }
+            }
+        },
+        {
+            "comment": "Short flags and hexadecimal value for carriage return.",
+            "invocation-string": "grep -Url $'\\x0d' --include='*.txt'"
+        },
+        {
+            "comment": "Short flags and C-style notation for carriage return.",
+            "invocation-string": "grep -Url $'\\r' --include='*.txt'"
+        },
+        {
+            "comment": "Long flags and C-style notation for carriage return.",
+            "invocation-string": "grep --binary --recursive --files-with-matches $'\\r' --include='*.txt'"
+        }
+    ],
+    "relevant-urls": [
+        {
+            "date-known-good": "2015-05-18",
+            "url": "https://unix.stackexchange.com/questions/79702/how-to-test-whether-the-file-is-crlf-or-lf-without-modyfing-it"
+        },
+        {
+            "date-known-good": "2015-05-18",
+            "url": "http://unix.stackexchange.com/a/79713"
+        },
+        {
+            "date-known-good": "2015-05-18",
+            "url": "http://vsingleton.blogspot.com/2009/03/grep-using-octal-patterns-and-avoid.html"
+        }
+    ],
+    "uuid": "fd1ea283-a1ec-4997-9806-464a5a715624"
+}
