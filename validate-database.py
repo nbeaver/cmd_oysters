@@ -21,112 +21,16 @@ class NoDuplicates:
         else:
             self.set.add(elem)
 
-def get_slice(string_to_slice, slice_index_list):
-    # We're slicing a string, so the list should only have the start and stop of the slice.
-    assert len(slice_index_list) == 2
-    i1 = slice_index_list[0]
-    i2 = slice_index_list[1]
-    return str(string_to_slice)[i1:i2]
-
-def pretty_print_slice(string_to_slice, slice_index_list):
-    assert len(slice_index_list) == 2
-    i1 = slice_index_list[0]
-    i2 = slice_index_list[1]
-    assert i2 > i1
-    print " "*i1 + str(string_to_slice)[i1:i2]
-    print string_to_slice
-    print ' '*i1 + '^' + ' '*(i2-i1-2) + '^'
-
-def find_slice(string, substring):
-    # TODO: find all the slices, not just the first one.
-    if substring not in string:
-        return None
-    else:
-        start = string.find(substring)
-        stop = start + len(substring)
-        return [start, stop]
-
-def validate_command(command, uuid_from_filename):
-    global modify_file
-
-    def assert_custom(assertion, error_string):
-        try:
-            assert assertion, error_string
-        except AssertionError:
-            sys.stderr.write("Error in file: "+ json_filepath+'\n')
-            traceback.print_exc()
-            raise
-
-    def assert_subset(subset, superset):
-        assert_custom(subset.issubset(superset), repr(subset)+ "is not a subset of " + repr(superset))
-
-    def assert_in(A, B):
-        assert_custom(A in B, repr(A)+ "is not in " + repr(B))
-
-    if 'component-command-info' in command.keys():
-
-        assert_subset(set(command['component-command-info'].keys()), set(command['component-commands']))
-
-        for command_name, info in command['component-command-info'].iteritems():
-            for info_key, info_item in info.iteritems():
-
-                if info_key == 'debian':
-                    if 'executable-path' in info_item.keys() and info_item['executable-path']:
-                        # e.g. `ls` is in `/bin/ls`
-                        assert_in(command_name, info_item['executable-path'])
-
-    uuids.add(command['uuid'])
-
-    if uuid_from_filename != command['uuid']:
-            sys.stderr.write("Warning in file: "+ json_filepath+'\n')
-            sys.stderr.write("Filename does not match UUID. Should be: {}.json\n".format(command['uuid']))
-
-    def validate_invocation(invocation):
-
-        if 'changeable-arguments' in invocation_dict.keys():
-            arg_dict = invocation_dict['changeable-arguments']
-            if arg_dict:
-                for arg, arginfo in arg_dict.iteritems():
-                    # Check that the argument actually matches the sliced command.
-                    arg_slice = get_slice(invocation_dict['invocation-string'], arginfo['invocation-slice'])
-                    try:
-                        assert_custom(arg == arg_slice, "arg is:\n'"+arg+"'\nbut slice is:\n'"+arg_slice+"'")
-                    except AssertionError:
-                        pretty_print_slice(invocation_dict['invocation-string'], arginfo['invocation-slice'])
-                        slice_candidate = find_slice(invocation_dict['invocation-string'], arg)
-                        if slice_candidate:
-                            print "Slice in file:", str(arginfo['invocation-slice'])
-                            print "Suggested slice:", str(slice_candidate)
-                            pretty_print_slice(invocation_dict['invocation-string'], slice_candidate)
-                        raise
-                    if 'component-command' in arginfo.keys():
-                        assert_in(arginfo['component-command'], command['component-commands'])
-
-        for component_command in command['component-commands']:
-            assert_in(component_command, invocation_dict['invocation-string'])
-
-    for invocation_dict in command['invocations']:
-        validate_invocation(invocation_dict)
-
 default_schema_path = os.path.join(sys.path[0],"schemas", "full-schema.json") # need to do it this way for symlinks to work.
 parser = argparse.ArgumentParser(description='validate CmdOysters')
 parser.add_argument('-i', '--input', help='path to root directory of JSON input files', required=True)
 parser.add_argument('-s', '--schema', help='path to schema file', required=False, default=default_schema_path)
-parser.add_argument('-f', '--fix-all', help='automatically fix missing or mismatched fields', required=False, action='store_true')
 args = parser.parse_args()
 root_directory = args.input
 
 if len(sys.argv) == 1:
     sys.stderr.write("Usage: python "+sys.argv[0]+" path-to-json-files/"+'\n')
     sys.exit(1)
-
-uuids = NoDuplicates()
-num_invocations = 0
-
-if args.fix_all:
-    modify_file = True
-else:
-    modify_file = False
 
 json_filepaths = glob.glob(root_directory + "/*.json")
 
@@ -140,17 +44,15 @@ for i, json_filepath in enumerate(json_filepaths):
         except:
             sys.stderr.write("Invalid JSON in file: `"+json_file.name+"'"+'\n')
             raise
-        basename_no_extension = os.path.splitext(os.path.basename(json_file.name))[0]
         try:
             jsonschema.validate(json_data, full_schema)
         except jsonschema.exceptions.ValidationError:
             sys.stderr.write(json_file.name+'\n')
             raise
-        validate_command(json_data, basename_no_extension)
-        num_invocations += len(json_data['invocations'])
-    if modify_file:
-        new_file = open(json_filepath, 'w')
-        json.dump(json_data, new_file, indent=4, separators=(',', ': '), sort_keys=True)
+
+        uuids = NoDuplicates()
+
+        uuids.add(json_data['uuid'])
 
 num_commands = i + 1 # enumerate starts from 0.
-print "Validated", num_commands ,"files(s) and", num_invocations, "invocation(s)."
+print "Validated", num_commands ,"files(s)."
