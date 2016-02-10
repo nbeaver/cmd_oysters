@@ -7,7 +7,6 @@ import json
 import uuid
 
 root = sys.path[0]
-print('root =', root)
 template_path = os.path.join(root, 'templates', 'simple.json')
 with open(template_path) as template:
     oyster = json.load(template)
