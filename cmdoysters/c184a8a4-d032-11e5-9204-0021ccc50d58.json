@@ -58,7 +58,17 @@
                     ]
                 }
             },
-            "invocation-string": "find . -type f -executable -print"
+            "invocation-string": "find . -type f -executable -print",
+            "shibboleths": [
+                {
+                    "shibboleth-invocation": "find --version",
+                    "exit-status": 0
+                },
+                {
+                    "shibboleth-invocation": "find -help",
+                    "exit-status": 0
+                }
+            ]
         }
     ],
     "relevant-urls": [
