@@ -5,7 +5,7 @@ CmdOysters: shell commands with metadata.
 =========================================
 
 :Author: Nathaniel Beaver
-:Date: $Date: 2015-05-12 (Tuesday, 12 May 2015) $
+:Date: $Date: 2016-02-10 (Wednesday, 10 February 2016) $
 :Copyright: This document is licensed under a Creative Commons Attribution 4.0 International license.
 
 See also `<todo.md>`_.
@@ -487,7 +487,7 @@ Example of making a new CmdOyster
 
 Python has had a built-in JSON library since version 2.6.
 
-Run ``python generate_oyster.py`` to generate a new CmdOyster.
+Run ``python generate_oyster.py`` to generate a new CmdOyster::
 
     $ python generate_oyster.py 
     Created new CmdOyster:
@@ -516,10 +516,10 @@ How to add new metadata fields to the schema
 
 Add the field to `<schemas/full-schema.json>`_.
 
-See http://json-schema.org/documentation.html
-or
-https://spacetelescope.github.io/understanding-json-schema/
-for help on JSON schemas.
+Resources on writing JSON schemas:
+
+- http://json-schema.org/documentation.html
+- https://spacetelescope.github.io/understanding-json-schema/
 
 Note that the best command metadata to include in a CmdOyster is information that is:
 
@@ -546,7 +546,7 @@ as they are JSON documents containing license information as part of their metad
 Future improvements
 -------------------
 
-See `<TODO.rst>`_.
+See `<todo.md>`_.
 
 Here are some highlights, in no particular order:
 
