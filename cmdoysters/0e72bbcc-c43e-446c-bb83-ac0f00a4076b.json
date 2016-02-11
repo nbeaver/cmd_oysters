@@ -25,18 +25,18 @@
                     "component-command": "find",
                     "component-command-flag": "-name",
                     "invocation-slice": [
-                        67,
-                        72
+                        66,
+                        71
                     ],
                     "subtype": "Relative or absolute path.",
                     "type": "string"
                 },
-                "/usr/share/": {
+                "/usr/share": {
                     "argument-description": "Path to search under.",
                     "component-command": "find",
                     "invocation-slice": [
                         6,
-                        17
+                        16
                     ],
                     "subtype": "Relative or absolute path.",
                     "type": "string"
@@ -46,14 +46,14 @@
                     "component-command": "find",
                     "component-command-flag": "-path",
                     "invocation-slice": [
-                        26,
-                        40
+                        25,
+                        39
                     ],
                     "subtype": "Relative or absolute path.",
                     "type": "string"
                 }
             },
-            "invocation-string": "find '/usr/share/' -path '/usr/share/doc' -prune -o -type d -name '*doc*'"
+            "invocation-string": "find '/usr/share' -path '/usr/share/doc' -prune -o -type d -name '*doc*'"
         }
     ],
     "relevant-urls": [
