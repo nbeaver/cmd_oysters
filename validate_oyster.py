@@ -16,9 +16,11 @@ def pretty_print_slice(string_to_slice, slice_index_list):
     i1 = slice_index_list[0]
     i2 = slice_index_list[1]
     assert i2 > i1
-    print " "*i1 + str(string_to_slice)[i1:i2]
-    print string_to_slice
-    print ' '*i1 + '^' + ' '*(i2-i1-2) + '^'
+    slice_string = ""
+    slice_string += ' '*i1 + str(string_to_slice)[i1:i2] + '\n'
+    slice_string += string_to_slice + '\n'
+    slice_string += ' '*i1 + '^' + ' '*(i2-i1-2) + '^\n'
+    return slice_string
 
 def find_slice(string, substring):
     # TODO: find all the slices, not just the first one.
@@ -75,13 +77,12 @@ def validate_command(command, uuid_from_filename, oyster_path):
                         pretty_print_slice(invocation_dict['invocation-string'], arginfo['invocation-slice'])
                         slice_candidate = find_slice(invocation_dict['invocation-string'], arg)
                         if slice_candidate:
-                            print "Slice in file:", str(arginfo['invocation-slice'])
-                            print "Suggested slice:", str(slice_candidate)
-                            pretty_print_slice(invocation_dict['invocation-string'], slice_candidate)
+                            sys.stderr.write("Slice in file:"+ str(arginfo['invocation-slice'])+'\n')
+                            sys.stderr.write("Suggested slice:"+ str(slice_candidate)+'\n')
+                            sys.stderr.write(pretty_print_slice(invocation_dict['invocation-string'], slice_candidate))
                         raise
                     if 'component-command' in arginfo.keys():
                         assert_in(arginfo['component-command'], command['component-commands'])
-
         for component_command in command['component-commands']:
             assert_in(component_command, invocation_dict['invocation-string'])
 
