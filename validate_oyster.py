@@ -37,7 +37,6 @@ def validate_command(command, uuid_from_filename, oyster_path):
             assert assertion, error_string
         except AssertionError:
             sys.stderr.write("Error in file: "+ oyster_path+'\n')
-            traceback.print_exc()
             raise
 
     def assert_subset(subset, superset):
