@@ -400,6 +400,31 @@ but also because different component commands have different behaviors and seman
 
 .. _cross-referenced: `Cross-referencing`_
 
+~~~~~~~~~~~~~~~~~~~~~~~
+What about portability?
+~~~~~~~~~~~~~~~~~~~~~~~
+
+CmdOysters are structured with portability in mind.
+
+Each CmdOyster can have multiple invocations,
+so the GNU-only long flags can be put in one invocation
+while the BSD-style short flags can go in another,
+for example.
+
+Each invocation also has shibboleths,
+which are a form of sanity test.
+A shibboleth pairs a command with an expected exit status.
+For example, using the GNU version of ``ls``,
+``ls --version`` will return 0,
+but the BSD version of ``ls`` will return an error (1).
+
+If the shibboleth command and exit status do not match,
+the invocation may not behave as expected.
+
+The ``shell-compatibility`` field
+permits specifying which shells are compatible or incompatible,
+as well as which version of those shells.
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Why aren't there many commands yet?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
