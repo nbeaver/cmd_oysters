@@ -134,15 +134,18 @@ Specific items by file, in no particular order
 
 ### [validate_database.py](validate_database.py)
 
+-   [x] Check that no two commands have the same UUIDs.
+
+-   [ ] Check for likely duplicates based on Nilsimsa hashes of both commands and descriptions (use `nilsimsa.compare_digests`).
+
+
+### [validate_oyster.py](validate_oyster.py)
+
 -   [x] Check all the commands in component commands are substrings of the main command.
 
 -   [ ] Check that the commands in `component-command-info` are a subset of `component-commands`.
 
 -   [ ] Check `debian-path` is correct using `which`.
-
--   [x] Check that no two commands have the same UUIDs.
-
--   [ ] Check for likely duplicates based on Nilsimsa hashes of both commands and descriptions (use `nilsimsa.compare_digests`).
 
 -   [x] Make a JSON schema to do at least part of this more systematically.
 
@@ -150,15 +153,15 @@ Specific items by file, in no particular order
 
 -   [ ] Check that the fields are in alphanumeric order.
 
--   [ ] Figure out some way to do fine-grained validation, so once a CmdOyster has been checked, it won't be checked again until it changes.
-
 ### [templates/full-command-template.json](templates/full-command-template.json)
 
 -   [ ] Ensure that every field in the schema is in this template.
 
-### [Makefile](Makefile)
+### [cmdoysters/Makefile](cmdoysters/Makefile)
 
--   [ ] Don't check all CmdOysters by default (make it a separate target).
+-   [x] Figure out some way to do fine-grained validation, so once a CmdOyster has been checked, it won't be checked again until it changes.
+-   [x] Don't check all CmdOysters by default (make it a separate target).
+
 
 Non-specific notes and observations
 -----------------------------------
