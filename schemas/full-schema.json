@@ -321,14 +321,34 @@
                                     "description": "List of versions for the shell that are known to fail or not work as expected for this invocation.",
                                     "items": {
                                         "type": "string"
-                                    },
-                                    "type": "array"
+                                    }
                                 }
                             },
                             "type": "object"
                         },
                         "description": "Explains which shells are/aren't compatible with this invocation.",
                         "type": "object"
+                    },
+                    "shibboleths": {
+                        "description": "",
+                        "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                                "shibboleth-invocation": {
+                                    "type": "string"
+                                },
+                                "exit-status": {
+                                    "type": "integer"
+                                }
+                            },
+                            "required": [
+                                "shibboleth-invocation",
+                                "exit-status"
+                            ],
+                            "type": "object"
+                        },
+                        "minItems": 1,
+                        "type": "array"
                     }
                 },
                 "required": [
@@ -360,6 +380,7 @@
             "description": "A list of URLs that discuss the command or an equivalent command with the same component commands.",
             "items": {
                 "additionalProperties": false,
+                "minItems": 1,
                 "properties": {
                     "date-known-good": {
                         "format": "date",

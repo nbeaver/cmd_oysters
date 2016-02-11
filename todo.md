@@ -90,7 +90,7 @@ Specific items by file, in no particular order
 -   [x] Add a `depends-on-locale` field to invocations.
     -   Decided this was too general, but locale information should be part of example outputs.
 
--   [ ] Add a `shibboleth-command` field to invocations, e.g. `ls --version` will return 0 for the GNU version of `ls` but 1 for the BSD version of `ls`.
+-   [x] Add a `shibboleth` field to invocations, e.g. `ls --version` will return 0 for the GNU version of `ls` but 1 for the BSD version of `ls`.
 
 -   [ ] Add a `warning` or `caution` field.
 
