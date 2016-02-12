@@ -334,6 +334,9 @@
                         "items": {
                             "additionalProperties": false,
                             "properties": {
+                                "comment": {
+                                    "type": "string"
+                                },
                                 "shibboleth-invocation": {
                                     "type": "string"
                                 },
