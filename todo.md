@@ -92,6 +92,8 @@ Specific items by file, in no particular order
 
 -   [x] Add a `shibboleth` field to invocations, e.g. `ls --version` will return 0 for the GNU version of `ls` but 1 for the BSD version of `ls`.
 
+    -   Could also do something more elaborate like `ls --version | head -n 1 | cut -d ' ' -f 4` to get version number, but this is too brittle and complicated.
+
 -   [ ] Add a `warning` or `caution` field.
 
 -   [ ] Indicate if the command is POSIX-standard, and if so, which version of POSIX.
