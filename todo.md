@@ -155,6 +155,8 @@ Specific items by file, in no particular order
 
 -   [ ] Check that the fields are in alphanumeric order.
 
+-   [x] Check that `component-command-flag` is a substring of `invocation-string`.
+
 ### [templates/full-command-template.json](templates/full-command-template.json)
 
 -   [ ] Ensure that every field in the schema is in this template.

@@ -65,6 +65,9 @@ def validate_invocation(invocation, component_commands):
                 if 'component-command' in arginfo:
                     assert_in(arginfo['component-command'], component_commands)
 
+                if 'component-command-flag' in arginfo:
+                    assert_in(arginfo['component-command-flag'], invocation['invocation-string'])
+
     for component_command in component_commands:
         assert_in(component_command, invocation['invocation-string'])
 
