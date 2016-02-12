@@ -1,0 +1,170 @@
+{
+    "can-modify": {
+        "filesystem": true,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "mv": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/bin/mv",
+                "required-packages": [
+                    "coreutils"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "sometimes",
+                "internet-connection": "never",
+                "sudo": "sometimes"
+            }
+        }
+    },
+    "component-commands": [
+        "mv"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2016
+    },
+    "description": {
+        "verbose-description": "Move all files in the current directory to the parent directory, including hidden files (dotfiles). Preserves inodes."
+    },
+    "invocations": [
+        {
+            "changeable-arguments": {
+                "* .[!.] .??*": {
+                    "argument-description": "Files or directories to move.",
+                    "component-command": "mv",
+                    "invocation-slice": [
+                        6,
+                        18
+                    ],
+                    "subtype": "path|paths",
+                    "type": "string"
+                },
+                "../": {
+                    "argument-description": "Destination directory.",
+                    "component-command": "mv",
+                    "invocation-slice": [
+                        19,
+                        22
+                    ],
+                    "subtype": "path",
+                    "type": "string"
+                }
+            },
+            "comment": "Excludes the current directory and parent directory and includes filenames starting with two dots.",
+            "invocation-string": "mv -- * .[!.] .??* ../",
+            "shibboleths": [
+                {
+                    "comment": "If dotglob is set, the shell will try to move the files twice.",
+                    "shibboleth-invocation": "shopt dotglob",
+                    "exit-status": 1
+                }
+            ]
+        },
+        {
+            "changeable-arguments": {
+                "* .[!.] .??*": {
+                    "argument-description": "Files or directories to move.",
+                    "component-command": "mv",
+                    "component-command-flag": "-t",
+                    "invocation-slice": [
+                        13,
+                        25
+                    ],
+                    "subtype": "path|paths",
+                    "type": "string"
+                },
+                "../": {
+                    "argument-description": "Destination directory.",
+                    "component-command": "mv",
+                    "invocation-slice": [
+                        6,
+                        9
+                    ],
+                    "subtype": "path",
+                    "type": "string"
+                }
+            },
+            "comment": "Excludes the current directory and parent directory and includes filenames starting with two dots.",
+            "invocation-string": "mv -t ../ -- * .[!.] .??*",
+            "shibboleths": [
+                {
+                    "comment": "If dotglob is set, the shell will try to move the files twice.",
+                    "shibboleth-invocation": "shopt dotglob",
+                    "exit-status": 1
+                }
+            ]
+        },
+        {
+            "changeable-arguments": {
+                "*": {
+                    "argument-description": "Files or directories to move.",
+                    "component-command": "mv",
+                    "invocation-slice": [
+                        6,
+                        7
+                    ],
+                    "subtype": "path|paths",
+                    "type": "string"
+                },
+                "..": {
+                    "argument-description": "Destination directory.",
+                    "component-command": "mv",
+                    "invocation-slice": [
+                        8,
+                        10
+                    ],
+                    "subtype": "path",
+                    "type": "string"
+                }
+            },
+            "comment": "Requires dotglob to be set.",
+            "invocation-string": "mv -- * ..",
+            "shibboleths": [
+                {
+                    "comment": "Make sure dotglob is set.",
+                    "shibboleth-invocation": "shopt dotglob",
+                    "exit-status": 0
+                }
+            ]
+        }
+    ],
+    "relevant-urls": [
+        {
+            "date-known-good": "2016-02-12",
+            "url": "http://stackoverflow.com/questions/20192070/how-to-move-all-files-including-hidden-files-into-parent-directory-via"
+        },
+        {
+            "date-known-good": "2016-02-12",
+            "url": "http://unix.stackexchange.com/questions/6393/how-do-you-move-all-files-including-hidden-from-one-directory-to-another"
+        },
+        {
+            "date-known-good": "2016-02-12",
+            "url": "http://superuser.com/questions/62141/how-to-move-all-files-from-current-directory-to-upper-directory"
+        },
+        {
+            "date-known-good": "2016-02-12",
+            "url": "http://superuser.com/questions/88202/how-do-i-move-files-and-directories-to-the-parent-folder-in-linux/542214"
+        },
+        {
+            "date-known-good": "2016-02-12",
+            "url": "http://serverfault.com/questions/122233/how-to-recursively-move-all-files-including-hidden-in-a-subfolder-into-a-paren"
+        },
+        {
+            "date-known-good": "2016-02-12",
+            "url": "https://askubuntu.com/questions/259383/how-can-i-get-mv-or-the-wildcard-to-move-hidden-files/259386"
+        }
+    ],
+    "related-commands": [
+        {
+            "uuid": "19e51b80-ceb4-4a9a-a5f8-fd8e8bf8101d"
+        }
+    ],
+    "uuid": "510c302e-fb2b-4a2a-898f-b98ba0326453"
+}

@@ -1,0 +1,109 @@
+{
+    "can-modify": {
+        "filesystem": true,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "mv": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/bin/mv",
+                "required-packages": [
+                    "coreutils"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "sometimes",
+                "internet-connection": "never",
+                "sudo": "sometimes"
+            }
+        },
+        "find": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/find",
+                "required-packages": [
+                    "findutils"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "sometimes",
+                "internet-connection": "never",
+                "sudo": "sometimes"
+            }
+        }
+    },
+    "component-commands": [
+        "find",
+        "mv"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2016
+    },
+    "description": {
+        "verbose-description": "Move all files in the current directory to the parent directory, including hidden files (dotfiles). Preserves inodes."
+    },
+    "invocations": [
+        {
+            "changeable-arguments": {
+                ".": {
+                    "argument-description": "Source directory.",
+                    "component-command": "find",
+                    "invocation-slice": [
+                        5,
+                        6
+                    ],
+                    "subtype": "path",
+                    "type": "string"
+                },
+                "../": {
+                    "argument-description": "Destination directory.",
+                    "component-command": "mv",
+                    "invocation-slice": [
+                        46,
+                        49
+                    ],
+                    "subtype": "path",
+                    "type": "string"
+                }
+            },
+            "invocation-string": "find . -mindepth 1 -maxdepth 1 -exec mv -- {} ../ \\;"
+        },
+        {
+            "changeable-arguments": {
+                ".": {
+                    "argument-description": "Source directory.",
+                    "component-command": "find",
+                    "invocation-slice": [
+                        5,
+                        6
+                    ],
+                    "subtype": "path",
+                    "type": "string"
+                },
+                "../": {
+                    "argument-description": "Destination directory.",
+                    "component-command": "mv",
+                    "invocation-slice": [
+                        43,
+                        46
+                    ],
+                    "subtype": "path",
+                    "type": "string"
+                }
+            },
+            "invocation-string": "find . -mindepth 1 -maxdepth 1 -exec mv -t ../ -- {} +"
+        }
+    ],
+    "related-commands": [
+        {
+            "uuid": "510c302e-fb2b-4a2a-898f-b98ba0326453"
+        }
+    ],
+    "uuid": "19e51b80-ceb4-4a9a-a5f8-fd8e8bf8101d"
+}
