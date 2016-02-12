@@ -61,10 +61,12 @@
             "invocation-string": "find . -type f -executable -print",
             "shibboleths": [
                 {
+                    "comment": "Check that it is the GNU version, not the BSD version.",
                     "shibboleth-invocation": "find --version",
                     "exit-status": 0
                 },
                 {
+                    "comment": "Check that it is the GNU version, not the BSD version.",
                     "shibboleth-invocation": "find -help",
                     "exit-status": 0
                 }
