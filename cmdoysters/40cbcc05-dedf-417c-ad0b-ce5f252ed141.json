@@ -1,0 +1,140 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "find": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/find",
+                "required-packages": [
+                    "findutils"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "sometimes",
+                "internet-connection": "never",
+                "sudo": "sometimes"
+            }
+        },
+        "wc": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/wc",
+                "required-packages": [
+                    "coreutils"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "never"
+            }
+        }
+    },
+    "component-commands": [
+        "find",
+        "wc"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2016
+    },
+    "description": {
+        "verbose-description": "Count number of files in this directory and all subdirectories."
+    },
+    "invocations": [
+        {
+            "changeable-arguments": {
+                ".": {
+                    "component-command": "find",
+                    "argument-description": "Path to directory to search.",
+                    "invocation-slice": [
+                        5,
+                        6
+                    ],
+                    "subtype": "path",
+                    "type": "string"
+                }
+            },
+            "comment": "This is the simplest example, but it assumes none of the filenames contain newlines.",
+            "invocation-string": "find . -type f | wc -l"
+        },
+        {
+            "changeable-arguments": {
+                ".": {
+                    "component-command": "find",
+                    "argument-description": "Path to directory to search.",
+                    "invocation-slice": [
+                        5,
+                        6
+                    ],
+                    "subtype": "path",
+                    "type": "string"
+                }
+            },
+            "comment": "This variant is necessary for filenames with newlines.",
+            "invocation-string": "find . -type f -printf '\n' | wc -l"
+        },
+        {
+            "changeable-arguments": {
+                ".": {
+                    "component-command": "find",
+                    "argument-description": "Path to directory to search.",
+                    "invocation-slice": [
+                        5,
+                        6
+                    ],
+                    "subtype": "path",
+                    "type": "string"
+                }
+            },
+            "comment": "This also works for filenames with newlines.",
+            "invocation-string": "find . -type f -printf '.' | wc -c"
+        },
+        {
+            "changeable-arguments": {
+                ".": {
+                    "component-command": "find",
+                    "argument-description": "Path to directory to search.",
+                    "invocation-slice": [
+                        5,
+                        6
+                    ],
+                    "subtype": "path",
+                    "type": "string"
+                }
+            },
+            "comment": "This is necessary if any subdirectories are on a different filesystem.",
+            "invocation-string": "find . -xdev -type f | wc -l"
+        }
+    ],
+    "relevant-urls": [
+        {
+            "date-known-good": "2016-02-11",
+            "url": "http://stackoverflow.com/questions/27942749/return-number-of-files-in-a-directory-to-a-variable-in-a-shell-scrtpt"
+        },
+        {
+            "date-known-good": "2016-02-11",
+            "url": "http://askubuntu.com/questions/711293/how-to-count-the-total-number-of-files-folders-on-a-system"
+        },
+        {
+            "date-known-good": "2016-02-11",
+            "url": "http://superuser.com/questions/689293/is-there-anything-faster-than-find-wc-l-to-count-files-in-a-directory"
+        },
+        {
+            "date-known-good": "2016-02-11",
+            "url": "http://stackoverflow.com/questions/9157138/recursively-counting-files-in-a-linux-directory"
+        },
+        {
+            "date-known-good": "2016-02-11",
+            "url": "http://www.commandlinefu.com/commands/view/4/count-files-beneath-current-directory-including-subfolders"
+        }
+    ],
+    "uuid": "40cbcc05-dedf-417c-ad0b-ce5f252ed141"
+}
