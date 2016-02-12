@@ -38,9 +38,9 @@
         {
             "changeable-arguments": {
                 "$ARG": {
+                    "argument-description": "",
                     "component-command": "$COMMAND",
                     "component-command-flag": "$FLAG",
-                    "argument-description": "",
                     "invocation-slice": [
                         15,
                         19
@@ -64,6 +64,7 @@
             "example-outputs": [
                 "output text"
             ],
+            "invocation-string": "$COMMAND $FLAG $ARG",
             "shell-compatibility": {
                 "$SHELL": {
                     "compatible-version-specifier": "version 0.8 or later",
@@ -75,8 +76,7 @@
                         "0.1.2 version name"
                     ]
                 }
-            },
-            "invocation-string": "$COMMAND $FLAG $ARG"
+            }
         }
     ],
     "related-commands": [
@@ -90,5 +90,5 @@
             "url": "http://tldp.org/"
         }
     ],
-    "uuid" : "793b2f59-baf7-4abf-b4df-55dcc19d0732"
+    "uuid": "793b2f59-baf7-4abf-b4df-55dcc19d0732"
 }
