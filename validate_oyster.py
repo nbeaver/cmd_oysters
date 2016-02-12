@@ -31,65 +31,70 @@ def find_slice(string, substring):
         stop = start + len(substring)
         return [start, stop]
 
+def assert_with_path(assertion, error_string):
+    try:
+        assert assertion, error_string
+    except AssertionError:
+        sys.stderr.write("Error in file: "+ filepath +'\n')
+        raise
 
-def validate_command(command, uuid_from_filename, oyster_path):
+def assert_subset(subset, superset):
+    assert_with_path(subset.issubset(superset), repr(subset)+ "is not a subset of " + repr(superset))
 
-    def assert_custom(assertion, error_string):
-        try:
-            assert assertion, error_string
-        except AssertionError:
-            sys.stderr.write("Error in file: "+ oyster_path+'\n')
-            raise
+def assert_in(A, B):
+    assert_with_path(A in B, repr(A)+ "is not in " + repr(B))
 
-    def assert_subset(subset, superset):
-        assert_custom(subset.issubset(superset), repr(subset)+ "is not a subset of " + repr(superset))
+def validate_invocation(invocation, component_commands):
+    if 'changeable-arguments' in invocation:
+        arg_dict = invocation['changeable-arguments']
+        if arg_dict:
+            for arg, arginfo in arg_dict.iteritems():
+                # Check that the argument actually matches the sliced command.
+                arg_slice = get_slice(invocation['invocation-string'], arginfo['invocation-slice'])
+                try:
+                    assert_with_path(arg == arg_slice, "arg is:\n'"+arg+"'\nbut slice is:\n'"+arg_slice+"'")
+                except AssertionError:
+                    pretty_print_slice(invocation['invocation-string'], arginfo['invocation-slice'])
+                    slice_candidate = find_slice(invocation['invocation-string'], arg)
+                    if slice_candidate:
+                        sys.stderr.write("Slice in file:"+ str(arginfo['invocation-slice'])+'\n')
+                        sys.stderr.write("Suggested slice:"+ str(slice_candidate)+'\n')
+                        sys.stderr.write(pretty_print_slice(invocation['invocation-string'], slice_candidate))
+                    raise
 
-    def assert_in(A, B):
-        assert_custom(A in B, repr(A)+ "is not in " + repr(B))
+                if 'component-command' in arginfo:
+                    assert_in(arginfo['component-command'], component_commands)
 
-    if 'component-command-info' in command.keys():
+    for component_command in component_commands:
+        assert_in(component_command, invocation['invocation-string'])
 
-        assert_subset(set(command['component-command-info'].keys()), set(command['component-commands']))
 
-        for command_name, info in command['component-command-info'].iteritems():
+def validate_oyster(oyster, uuid_from_filename):
+
+    if 'component-command-info' in oyster:
+
+        assert_subset(set(oyster['component-command-info'].keys()), set(oyster['component-commands']))
+
+        for command_name, info in oyster['component-command-info'].iteritems():
             for info_key, info_item in info.iteritems():
 
                 if info_key == 'debian':
-                    if 'executable-path' in info_item.keys() and info_item['executable-path']:
+                    if 'executable-path' in info_item and info_item['executable-path']:
                         # e.g. `ls` is in `/bin/ls`
                         assert_in(command_name, info_item['executable-path'])
 
-    if uuid_from_filename != command['uuid']:
-            sys.stderr.write("Warning in file: "+ oyster_path+'\n')
-            sys.stderr.write("Filename does not match UUID. Should be: {}.json\n".format(command['uuid']))
+    if uuid_from_filename != oyster['uuid']:
+            sys.stderr.write("Warning in file: "+ filepath+'\n')
+            sys.stderr.write("Filename does not match UUID. Should be: {}.json\n".format(oyster['uuid']))
 
-    def validate_invocation(invocation):
-
-        if 'changeable-arguments' in invocation_dict.keys():
-            arg_dict = invocation_dict['changeable-arguments']
-            if arg_dict:
-                for arg, arginfo in arg_dict.iteritems():
-                    # Check that the argument actually matches the sliced command.
-                    arg_slice = get_slice(invocation_dict['invocation-string'], arginfo['invocation-slice'])
-                    try:
-                        assert_custom(arg == arg_slice, "arg is:\n'"+arg+"'\nbut slice is:\n'"+arg_slice+"'")
-                    except AssertionError:
-                        pretty_print_slice(invocation_dict['invocation-string'], arginfo['invocation-slice'])
-                        slice_candidate = find_slice(invocation_dict['invocation-string'], arg)
-                        if slice_candidate:
-                            sys.stderr.write("Slice in file:"+ str(arginfo['invocation-slice'])+'\n')
-                            sys.stderr.write("Suggested slice:"+ str(slice_candidate)+'\n')
-                            sys.stderr.write(pretty_print_slice(invocation_dict['invocation-string'], slice_candidate))
-                        raise
-                    if 'component-command' in arginfo.keys():
-                        assert_in(arginfo['component-command'], command['component-commands'])
-        for component_command in command['component-commands']:
-            assert_in(component_command, invocation_dict['invocation-string'])
-
-    for invocation_dict in command['invocations']:
-        validate_invocation(invocation_dict)
+    for invocation_dict in oyster['invocations']:
+        validate_invocation(invocation_dict, oyster['component-commands'])
 
 def main(oyster_path, schema_path):
+
+    global filepath
+
+    filepath = oyster_path
 
     with open(schema_path) as schema_file:
             try:
@@ -110,7 +115,11 @@ def main(oyster_path, schema_path):
                 sys.stderr.write(json_file.name+'\n')
                 raise
             basename_no_extension = os.path.splitext(os.path.basename(json_file.name))[0]
-            validate_command(oyster, basename_no_extension, oyster_path)
+            validate_oyster(oyster, basename_no_extension)
+
+# It's easier to make this a global variable
+# than to thread it through every function.
+filepath = None
 
 if __name__ == '__main__':
     num_args = len(sys.argv) - 1
