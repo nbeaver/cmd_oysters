@@ -157,6 +157,13 @@ Specific items by file, in no particular order
 
 -   [x] Check that `component-command-flag` is a substring of `invocation-string`.
 
+
+### [find_command.py](find_command.py)
+
+-   [ ] More options for output formatting.
+    -   [ ] Use short descriptions instead of long descriptions.
+    -   [ ] Terse output (commands only, no comments). Or should this be by default?
+
 ### [templates/full-command-template.json](templates/full-command-template.json)
 
 -   [ ] Ensure that every field in the schema is in this template.
