@@ -321,7 +321,8 @@
                                     "description": "List of versions for the shell that are known to fail or not work as expected for this invocation.",
                                     "items": {
                                         "type": "string"
-                                    }
+                                    },
+                                    "type": "array"
                                 }
                             },
                             "type": "object"
