@@ -61,7 +61,7 @@
         "year": 2015
     },
     "description": {
-        "verbose-description": "Generates audible voice that says 'ping' every time it gets an an ICMP ECHO_RESPONSE, sent in intervals of 2 seconds."
+        "verbose-description": "Generates audible voice that says 'ping' every time it gets an ICMP ECHO_RESPONSE, sent in intervals of 2 seconds."
     },
     "invocations": [
         {

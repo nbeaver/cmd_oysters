@@ -24,13 +24,12 @@ Quickstart
 
 You should see something like this::
 
-    # path/to/cmd-oysters/cmdoysters/07248c2f-4809-4b19-9ff0-6fa8e554b8f6.json
-    # Generates audible voice that says 'ping' every time it gets an an ICMP ECHO_RESPONSE, sent in intervals of 2 seconds.
+    # /path/to/cmd-oysters/cmdoysters/07248c2f-4809-4b19-9ff0-6fa8e554b8f6.json
+    # Generates audible voice that says 'ping' every time it gets an ICMP ECHO_RESPONSE, sent in intervals of 2 seconds.
     # Invocation with short flags.
     ping -i 2 localhost | sed -u 's/.*/ping/' | espeak
     # Invocation with long flags.
     ping -i 2 localhost | sed --unbuffered 's/.*/ping/' | espeak
-
 
 More examples:
 
