@@ -80,8 +80,8 @@
             "shibboleths": [
                 {
                     "comment": "Checks that this command has a -help flag.",
-                    "shibboleth-invocation": "$COMMAND -help",
-                    "exit-status": 0
+                    "exit-status": 0,
+                    "shibboleth-invocation": "$COMMAND -help"
                 }
             ]
         }
