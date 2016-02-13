@@ -1,14 +1,14 @@
-.PHONY : default all_json cmd_oyster_templates cmd_oysters test_find_command
+.PHONY : default all_json cmd_oyster_templates cmd_oysters test_searchoysters
 default : readme.html todo.html
-validate: find_command_tests cmd_oyster_templates cmd_oyster_testing cmd_oysters
+validate: test_searchoysters cmd_oyster_templates cmd_oyster_testing cmd_oysters
 
-find_command_tests : find-command.py cmdoysters/*
-	python2 find_command.py --substring 'ping -i' > /dev/null
-	python2 find_command.py --commands ping espeak sed > /dev/null
-	python2 find_command.py --tokens '|' sed localhost ping > /dev/null
-	python2 find_command.py --description 'audible voice' > /dev/null
-	python2 find_command.py --substring 'ping -i' --commands ping espeak sed --tokens '|' sed localhost ping --description 'audible voice' > /dev/null
-	python2 find_command.py --description-tokens ping generates seconds > /dev/null
+test_searchoysters : searchoysters.py
+	python searchoysters.py --substring 'ping -i' > /dev/null
+	python searchoysters.py --commands ping espeak sed > /dev/null
+	python searchoysters.py --tokens '|' sed localhost ping > /dev/null
+	python searchoysters.py --description 'audible voice' > /dev/null
+	python searchoysters.py --substring 'ping -i' --commands ping espeak sed --tokens '|' sed localhost ping --description 'audible voice' > /dev/null
+	python searchoysters.py --description-tokens ping generates seconds > /dev/null
 
 cmd_oysters : validate-database.py cmdoysters/* schemas/full-schema.json
 	python2 validate_database.py --input cmdoysters/

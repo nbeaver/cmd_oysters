@@ -102,7 +102,7 @@ Specific items by file, in no particular order
 
 -   [ ] Two different descriptions, one terse (80 characters or less), and one verbose.
 
-### [find_command.py](find_command.py)
+### [searchoysters.py](searchoysters.py)
 
 -   [ ] Add a `--shell` flag (short flag `-x`) to spawn a prompt for the user with the command already filled in (use `pexpect`).
     -   [ ] Tailor invocation according to host OS and environment.
@@ -134,6 +134,11 @@ Specific items by file, in no particular order
 
 -   [ ] Add a `--case-sensitive` flag for searching, since case-insensitive is a convenient default, but sometimes case-sensitivity can make a big difference in matching results.
 
+-   [ ] More options for output formatting.
+    -   [ ] Use short descriptions instead of long descriptions.
+    -   [ ] Terse output (commands only, no comments). Or should this be by default?
+
+
 ### [validate_database.py](validate_database.py)
 
 -   [x] Check that no two commands have the same UUIDs.
@@ -157,12 +162,6 @@ Specific items by file, in no particular order
 
 -   [x] Check that `component-command-flag` is a substring of `invocation-string`.
 
-
-### [find_command.py](find_command.py)
-
--   [ ] More options for output formatting.
-    -   [ ] Use short descriptions instead of long descriptions.
-    -   [ ] Terse output (commands only, no comments). Or should this be by default?
 
 ### [templates/full-command-template.json](templates/full-command-template.json)
 

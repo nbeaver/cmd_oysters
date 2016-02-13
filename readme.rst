@@ -20,7 +20,7 @@ Quickstart
 
 #. ``cd cmd-oysters/``
 
-#. ``python2 find_command.py --substring "ping -i"``
+#. ``python searchoysters.py --substring "ping -i"``
 
 You should see something like this::
 
@@ -34,7 +34,7 @@ You should see something like this::
 
 More examples:
 
-#. ``python2 find_command.py --commands awk grep``
+#. ``python searchoysters.py --commands awk grep``
 
    Output::
 
@@ -43,7 +43,7 @@ More examples:
        # Uses the Linux-specific `lscpu' command.
        lscpu | grep '^Architecture:' | awk '{print $2}'
 
-#. ``python2 find_command.py --tokens '|' '~'``
+#. ``python searchoysters.py --tokens '|' '~'``
 
    Output::
 
@@ -54,7 +54,7 @@ More examples:
        # Human-readable size (e.g. 8M for 8 megabytes). Short flags.
        du -hd 1 ~ | sort -hr | less
 
-#. ``python2 find_command.py --description-tokens architecture CPU``
+#. ``python searchoysters.py --description-tokens architecture CPU``
 
    Output::
 
