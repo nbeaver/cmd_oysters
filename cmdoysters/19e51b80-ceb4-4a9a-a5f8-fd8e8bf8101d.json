@@ -46,7 +46,7 @@
         "year": 2016
     },
     "description": {
-        "verbose-description": "Move all files in the current directory to the parent directory, including hidden files (dotfiles). Preserves inodes."
+        "verbose-description": "Move all files and folders in the current directory to the parent directory, including hidden files and folders (dotfiles). Preserves inodes."
     },
     "invocations": [
         {
