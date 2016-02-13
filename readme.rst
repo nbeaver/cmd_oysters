@@ -36,38 +36,38 @@ More examples:
 
 #. ``python2 find_command.py --commands awk grep``
 
-Output::
+   Output::
 
-    # /path/to/cmd-oysters/cmdoysters/101630e8-efc4-4566-bbc8-78e6ac76120f.json
-    # Display name of hardware's CPU architecture, e.g. x86_64 for 64-bit Intel processors and i686 for 32-bit Intel processors.
-    # Uses the Linux-specific `lscpu' command.
-    lscpu | grep '^Architecture:' | awk '{print $2}'
+       # /path/to/cmd-oysters/cmdoysters/101630e8-efc4-4566-bbc8-78e6ac76120f.json
+       # Display name of hardware's CPU architecture, e.g. x86_64 for 64-bit Intel processors and i686 for 32-bit Intel processors.
+       # Uses the Linux-specific `lscpu' command.
+       lscpu | grep '^Architecture:' | awk '{print $2}'
 
 #. ``python2 find_command.py --tokens '|' '~'``
 
-Output::
+   Output::
 
-    # /path/to/cmd-oysters/cmdoysters/64c52fa6-cdde-4e8b-9671-1b74978cdc2c.json
-    # See directories taking up the most space in user's home directory.
-    # Short flags.
-    du -d 1 ~ | sort -nr | less
-    # Human-readable size (e.g. 8M for 8 megabytes). Short flags.
-    du -hd 1 ~ | sort -hr | less
+       # /path/to/cmd-oysters/cmdoysters/64c52fa6-cdde-4e8b-9671-1b74978cdc2c.json
+       # See directories taking up the most space in user's home directory.
+       # Short flags.
+       du -d 1 ~ | sort -nr | less
+       # Human-readable size (e.g. 8M for 8 megabytes). Short flags.
+       du -hd 1 ~ | sort -hr | less
 
 #. ``python2 find_command.py --description-tokens architecture CPU``
 
-Output::
+   Output::
 
-    # /path/to/cmd-oysters/cmdoysters/101630e8-efc4-4566-bbc8-78e6ac76120f.json
-    # Display name of hardware's CPU architecture, e.g. x86_64 for 64-bit Intel processors and i686 for 32-bit Intel processors.
-    # Uses the Linux-specific `lscpu' command.
-    lscpu | grep '^Architecture:' | awk '{print $2}'
-    # /path/to/cmd-oysters/cmdoysters/f69252a3-a58b-48bc-9fd2-89e9e5d29f94.json
-    # Determine which architecture the Linux kernel is configured for; may not be the same as the actual CPU architecture. For example, an Intel i686 kernel can run on an Intel x86_64 processor, but its RAM will be limited unless the kernel has PAE is enabled.
-    # Short flag.
-    uname -m
-    # Long flag.
-    uname --machine
+       # /path/to/cmd-oysters/cmdoysters/101630e8-efc4-4566-bbc8-78e6ac76120f.json
+       # Display name of hardware's CPU architecture, e.g. x86_64 for 64-bit Intel processors and i686 for 32-bit Intel processors.
+       # Uses the Linux-specific `lscpu' command.
+       lscpu | grep '^Architecture:' | awk '{print $2}'
+       # /path/to/cmd-oysters/cmdoysters/f69252a3-a58b-48bc-9fd2-89e9e5d29f94.json
+       # Determine which architecture the Linux kernel is configured for; may not be the same as the actual CPU architecture. For example, an Intel i686 kernel can run on an Intel x86_64 processor, but its RAM will be limited unless the kernel has PAE is enabled.
+       # Short flag.
+       uname -m
+       # Long flag.
+       uname --machine
 
 ---------------
 Minimal example
