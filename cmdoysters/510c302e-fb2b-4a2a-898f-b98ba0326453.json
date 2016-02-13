@@ -62,8 +62,8 @@
             "shibboleths": [
                 {
                     "comment": "If dotglob is set, the shell will try to move the files twice.",
-                    "shibboleth-invocation": "shopt dotglob",
-                    "exit-status": 1
+                    "exit-status": 1,
+                    "shibboleth-invocation": "shopt dotglob"
                 }
             ]
         },
@@ -96,8 +96,8 @@
             "shibboleths": [
                 {
                     "comment": "If dotglob is set, the shell will try to move the files twice.",
-                    "shibboleth-invocation": "shopt dotglob",
-                    "exit-status": 1
+                    "exit-status": 1,
+                    "shibboleth-invocation": "shopt dotglob"
                 }
             ]
         },
@@ -129,10 +129,15 @@
             "shibboleths": [
                 {
                     "comment": "Make sure dotglob is set.",
-                    "shibboleth-invocation": "shopt dotglob",
-                    "exit-status": 0
+                    "exit-status": 0,
+                    "shibboleth-invocation": "shopt dotglob"
                 }
             ]
+        }
+    ],
+    "related-commands": [
+        {
+            "uuid": "19e51b80-ceb4-4a9a-a5f8-fd8e8bf8101d"
         }
     ],
     "relevant-urls": [
@@ -159,11 +164,6 @@
         {
             "date-known-good": "2016-02-12",
             "url": "https://askubuntu.com/questions/259383/how-can-i-get-mv-or-the-wildcard-to-move-hidden-files/259386"
-        }
-    ],
-    "related-commands": [
-        {
-            "uuid": "19e51b80-ceb4-4a9a-a5f8-fd8e8bf8101d"
         }
     ],
     "uuid": "510c302e-fb2b-4a2a-898f-b98ba0326453"

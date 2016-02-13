@@ -4,12 +4,12 @@
         "other-processes": false
     },
     "component-command-info": {
-        "mv": {
+        "find": {
             "bash-type": "file",
             "debian": {
-                "executable-path": "/bin/mv",
+                "executable-path": "/usr/bin/find",
                 "required-packages": [
-                    "coreutils"
+                    "findutils"
                 ]
             },
             "requirements-in-general": {
@@ -18,12 +18,12 @@
                 "sudo": "sometimes"
             }
         },
-        "find": {
+        "mv": {
             "bash-type": "file",
             "debian": {
-                "executable-path": "/usr/bin/find",
+                "executable-path": "/bin/mv",
                 "required-packages": [
-                    "findutils"
+                    "coreutils"
                 ]
             },
             "requirements-in-general": {

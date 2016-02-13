@@ -62,13 +62,13 @@
             "shibboleths": [
                 {
                     "comment": "Check that it is the GNU version, not the BSD version.",
-                    "shibboleth-invocation": "find --version",
-                    "exit-status": 0
+                    "exit-status": 0,
+                    "shibboleth-invocation": "find --version"
                 },
                 {
                     "comment": "Check that it is the GNU version, not the BSD version.",
-                    "shibboleth-invocation": "find -help",
-                    "exit-status": 0
+                    "exit-status": 0,
+                    "shibboleth-invocation": "find -help"
                 }
             ]
         }

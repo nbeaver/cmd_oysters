@@ -52,8 +52,8 @@
         {
             "changeable-arguments": {
                 ".": {
-                    "component-command": "find",
                     "argument-description": "Path to directory to search.",
+                    "component-command": "find",
                     "invocation-slice": [
                         5,
                         6
@@ -68,8 +68,8 @@
         {
             "changeable-arguments": {
                 ".": {
-                    "component-command": "find",
                     "argument-description": "Path to directory to search.",
+                    "component-command": "find",
                     "invocation-slice": [
                         5,
                         6
@@ -84,8 +84,8 @@
         {
             "changeable-arguments": {
                 ".": {
-                    "component-command": "find",
                     "argument-description": "Path to directory to search.",
+                    "component-command": "find",
                     "invocation-slice": [
                         5,
                         6
@@ -100,8 +100,8 @@
         {
             "changeable-arguments": {
                 ".": {
-                    "component-command": "find",
                     "argument-description": "Path to directory to search.",
+                    "component-command": "find",
                     "invocation-slice": [
                         5,
                         6
