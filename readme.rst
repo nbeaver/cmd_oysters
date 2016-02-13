@@ -12,6 +12,63 @@ See also `<todo.md>`_.
 
 .. contents::
 
+----------
+Quickstart
+----------
+
+#. ``git clone https://github.com/nbeaver/cmd-oysters``
+
+#. ``cd cmd-oysters/``
+
+#. ``python2 find_command.py --substring "ping -i"``
+
+You should see something like this::
+
+    # path/to/cmd-oysters/cmdoysters/07248c2f-4809-4b19-9ff0-6fa8e554b8f6.json
+    # Generates audible voice that says 'ping' every time it gets an an ICMP ECHO_RESPONSE, sent in intervals of 2 seconds.
+    # Invocation with short flags.
+    ping -i 2 localhost | sed -u 's/.*/ping/' | espeak
+    # Invocation with long flags.
+    ping -i 2 localhost | sed --unbuffered 's/.*/ping/' | espeak
+
+
+More examples:
+
+#. ``python2 find_command.py --commands awk grep``
+
+Output::
+
+    # /path/to/cmd-oysters/cmdoysters/101630e8-efc4-4566-bbc8-78e6ac76120f.json
+    # Display name of hardware's CPU architecture, e.g. x86_64 for 64-bit Intel processors and i686 for 32-bit Intel processors.
+    # Uses the Linux-specific `lscpu' command.
+    lscpu | grep '^Architecture:' | awk '{print $2}'
+
+#. ``python2 find_command.py --tokens '|' '~'``
+
+Output::
+
+    # /path/to/cmd-oysters/cmdoysters/64c52fa6-cdde-4e8b-9671-1b74978cdc2c.json
+    # See directories taking up the most space in user's home directory.
+    # Short flags.
+    du -d 1 ~ | sort -nr | less
+    # Human-readable size (e.g. 8M for 8 megabytes). Short flags.
+    du -hd 1 ~ | sort -hr | less
+
+#. ``python2 find_command.py --description-tokens architecture CPU``
+
+Output::
+
+    # /path/to/cmd-oysters/cmdoysters/101630e8-efc4-4566-bbc8-78e6ac76120f.json
+    # Display name of hardware's CPU architecture, e.g. x86_64 for 64-bit Intel processors and i686 for 32-bit Intel processors.
+    # Uses the Linux-specific `lscpu' command.
+    lscpu | grep '^Architecture:' | awk '{print $2}'
+    # /path/to/cmd-oysters/cmdoysters/f69252a3-a58b-48bc-9fd2-89e9e5d29f94.json
+    # Determine which architecture the Linux kernel is configured for; may not be the same as the actual CPU architecture. For example, an Intel i686 kernel can run on an Intel x86_64 processor, but its RAM will be limited unless the kernel has PAE is enabled.
+    # Short flag.
+    uname -m
+    # Long flag.
+    uname --machine
+
 ---------------
 Minimal example
 ---------------
@@ -44,24 +101,6 @@ Here are some less trivial examples:
 - `Extract images from multiple PDFs <cmdoysters/6c0081a3-5c10-4cdf-826b-1bd778ae8ef0.json>`_.
 
 - `Display the machine's CPU architecture <cmdoysters/f69252a3-a58b-48bc-9fd2-89e9e5d29f94.json>`_.
-
-----------
-Quickstart
-----------
-
-#. ``git clone https://github.com/nbeaver/cmd-oysters``
-
-#. ``cd cmd-oysters/``
-
-#. ``python2 find_command.py --substring "ping -i"``
-
-More examples:
-
-#. ``python2 find_command.py --commands awk grep``
-
-#. ``python2 find_command.py --tokens '|' '~'``
-   
-#. ``python2 find_command.py --description-tokens architecture CPU``
 
 ----------
 Motivation
