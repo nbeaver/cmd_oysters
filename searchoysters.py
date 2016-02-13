@@ -31,9 +31,9 @@ if len(sys.argv) < 2:
     parser.print_help()
     sys.exit(1)
 
-json_filenames = glob.glob(args.json + "/*.json")
-for filename in json_filenames:
-    with open(os.path.join(args.json, filename)) as json_file:
+json_filepaths = glob.glob(args.json + "/*.json")
+for filepath in json_filepaths:
+    with open(os.path.join(args.json, filepath)) as json_file:
         try:
             command = json.load(json_file)
         except ValueError:
@@ -74,7 +74,7 @@ for filename in json_filenames:
 
 
     if len(matching_invocations) > 0:
-        print('# ' + filename)
+        print('# ' + filepath)
         # TODO: break the description on 80 lines (without splitting words),
         # and add a comment character at each point.
         print('# ' + command['description']['verbose-description'])
