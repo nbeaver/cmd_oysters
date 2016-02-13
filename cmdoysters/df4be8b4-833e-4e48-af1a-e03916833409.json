@@ -1,0 +1,60 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "getconf": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/getconf",
+                "required-packages": [
+                    "libc-bin"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "never"
+            }
+        }
+    },
+    "component-commands": [
+        "getconf"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2016
+    },
+    "description": {
+        "verbose-description": "Returns the number of processors / CPU cores available on this machine."
+    },
+    "invocations": [
+        {
+            "example-outputs": [
+                "4"
+            ],
+            "invocation-string": "getconf _NPROCESSORS_ONLN"
+        }
+    ],
+    "related-commands": [
+        {
+            "uuid": "d67df423-d4c2-4a24-b83c-c494f94bdb75"
+        }
+    ],
+    "relevant-urls": [
+        {
+            "date-known-good": "2016-02-13",
+            "url": "http://stackoverflow.com/questions/4586405/get-number-of-cpus-in-linux-using-c"
+        },
+        {
+            "date-known-good": "2016-02-13",
+            "url": "http://stackoverflow.com/questions/6481005/how-to-obtain-the-number-of-cpus-cores-in-linux-from-the-command-line"
+        }
+    ],
+    "uuid": "df4be8b4-833e-4e48-af1a-e03916833409"
+}

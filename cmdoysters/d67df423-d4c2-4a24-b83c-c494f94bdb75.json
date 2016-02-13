@@ -1,0 +1,60 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "nproc": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/nproc",
+                "required-packages": [
+                    "coreutils"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "never"
+            }
+        }
+    },
+    "component-commands": [
+        "nproc"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2016
+    },
+    "description": {
+        "verbose-description": "Returns the number of processors / CPU cores available on this machine."
+    },
+    "invocations": [
+        {
+            "example-outputs": [
+                "4"
+            ],
+            "invocation-string": "nproc"
+        }
+    ],
+    "related-commands": [
+        {
+            "uuid": "df4be8b4-833e-4e48-af1a-e03916833409"
+        }
+    ],
+    "relevant-urls": [
+        {
+            "date-known-good": "2016-02-13",
+            "url": "http://stackoverflow.com/questions/6481005/how-to-obtain-the-number-of-cpus-cores-in-linux-from-the-command-line"
+        },
+        {
+            "date-known-good": "2016-02-13",
+            "url": "http://stackoverflow.com/questions/13875081/difference-between-nproc-and-ulimit"
+        }
+    ],
+    "uuid": "d67df423-d4c2-4a24-b83c-c494f94bdb75"
+}
