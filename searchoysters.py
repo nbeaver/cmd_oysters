@@ -1,4 +1,5 @@
-#! /usr/bin/env python2
+#! /usr/bin/env python
+from __future__ import print_function
 import json
 import os
 import glob
@@ -36,7 +37,7 @@ for filename in json_filenames:
         try:
             command = json.load(json_file)
         except ValueError:
-            print "Invalid JSON for file: `"+json_file.name+"'"
+            sys.stderr.write("Invalid JSON for file: `{}'\n".format(json_file.name))
 
     if args.commands:
         if not set(args.commands).issubset(set(command['component-commands'])):
@@ -73,11 +74,11 @@ for filename in json_filenames:
 
 
     if len(matching_invocations) > 0:
-        print '# ' + filename
+        print('# ' + filename)
         # TODO: break the description on 80 lines (without splitting words),
         # and add a comment character at each point.
-        print '# ' + command['description']['verbose-description']
+        print('# ' + command['description']['verbose-description'])
         for invocation_string, comment in matching_invocations:
             if comment:
-                print '# ' + comment
-            print invocation_string
+                print('# ' + comment)
+            print(invocation_string)
