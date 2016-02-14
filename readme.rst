@@ -331,7 +331,7 @@ Finally, it is inconvenient to synchronize shell histories across multiple machi
 for both technical and security reasons.
 
 (There is a project called `shellsink`_ that `addresses many of these problems`_,
-but it is only for ``bash`` and ``zsh`` and its development `appears to be inactive`_ `as of mid 2011`_.)
+but it is only for ``bash`` and ``zsh`` and its development `appears to have stopped`_ `around mid 2011`_.)
 
 CmdOysters are individual text files,
 so they can be
@@ -349,8 +349,8 @@ and so on.
 .. _length of the history file: http://stackoverflow.com/questions/9457233/unlimited-bash-history/19533853#19533853
 .. _shellsink: http://shell-sink.blogspot.com/
 .. _addresses many of these problems: https://www.debian-administration.org/article/625/Making_The_Bash_History_More_Useful
-.. _appears to be inactive: https://groups.google.com/forum/#!topic/shell-sink/RxMP6AsT5zw
-.. _as of mid 2011: https://github.com/joshuacronemeyer/shellsink
+.. _appears to have stopped: https://groups.google.com/forum/#!topic/shell-sink/RxMP6AsT5zw
+.. _around mid 2011: https://github.com/joshuacronemeyer/shellsink
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 How is this different from, say, an offline cache of commandlinefu.com?
