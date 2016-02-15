@@ -330,7 +330,7 @@ so useful commands may disappear if not used often enough.
 Finally, it is inconvenient to synchronize shell histories across multiple machines,
 for both technical and security reasons.
 
-(There is a project called `shellsink`_ that `addresses many of these problems`_,
+(There was a project called `shellsink`_ that `addressed many of these problems`_,
 but it is only for ``bash`` and ``zsh`` and its development `appears to have stopped`_ `around mid 2011`_.)
 
 CmdOysters are individual text files,
@@ -348,7 +348,7 @@ and so on.
 .. _not be available in a new terminal: http://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows
 .. _length of the history file: http://stackoverflow.com/questions/9457233/unlimited-bash-history/19533853#19533853
 .. _shellsink: http://shell-sink.blogspot.com/
-.. _addresses many of these problems: https://www.debian-administration.org/article/625/Making_The_Bash_History_More_Useful
+.. _addressed many of these problems: https://www.debian-administration.org/article/625/Making_The_Bash_History_More_Useful
 .. _appears to have stopped: https://groups.google.com/forum/#!topic/shell-sink/RxMP6AsT5zw
 .. _around mid 2011: https://github.com/joshuacronemeyer/shellsink
 
