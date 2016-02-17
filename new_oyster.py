@@ -15,7 +15,7 @@ else:
 
 def get_year():
     now = datetime.datetime.now()
-    return now.year()
+    return now.year
 
 def get_username():
     try:
