@@ -57,6 +57,7 @@ def validate_invocation(invocation, component_commands):
                     slice_candidate = find_slice(invocation['invocation-string'], arg)
                     if slice_candidate:
                         sys.stderr.write("Slice in file:"+ str(arginfo['invocation-slice'])+'\n')
+                        sys.stderr.write(pretty_print_slice(invocation['invocation-string'], arginfo['invocation-slice']))
                         sys.stderr.write("Suggested slice:"+ str(slice_candidate)+'\n')
                         sys.stderr.write(pretty_print_slice(invocation['invocation-string'], slice_candidate))
                     raise
