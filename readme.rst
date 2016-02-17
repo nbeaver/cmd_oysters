@@ -550,9 +550,10 @@ Example of making a new CmdOyster
 
 Python has had a built-in JSON library since version 2.6.
 
-Run ``python generate_oyster.py`` to generate a new CmdOyster::
+Run ``python new_oyster.py`` with the command as an argument.
+For example, a CmdOyster for the ``pwd`` command::
 
-    $ python generate_oyster.py
+    $ python new_oyster.py pwd
     Created new CmdOyster:
     /path/to/cmd-oysters/cmdoysters/6720d31b-511c-4b48-bf0e-073ec72c9234.json
 
