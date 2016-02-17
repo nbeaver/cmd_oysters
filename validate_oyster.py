@@ -29,7 +29,7 @@ def find_slice(string, substring):
     else:
         start = string.find(substring)
         stop = start + len(substring)
-        return [start, stop]
+        return (start, stop)
 
 def assert_with_path(assertion, error_string):
     try:
