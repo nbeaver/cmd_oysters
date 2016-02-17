@@ -2,7 +2,7 @@
 from __future__ import print_function
 
 import datetime
-import os.path
+import os
 import sys
 import json
 import uuid
@@ -10,10 +10,24 @@ import uuid
 if len(sys.argv) > 1:
     invocation = sys.argv[1]
 else:
-    invocation = "<FIXME>"
+    sys.stderr.write("Usage: python "+sys.argv[0]+" 'command-invocation'"+'\n')
+    sys.exit(1)
 
-now = datetime.datetime.now()
-year = now.year
+def get_year():
+    now = datetime.datetime.now()
+    return now.year()
+
+def get_username():
+    try:
+        # POSIX only
+        import pwd
+        gecos_field =  pwd.getpwuid(os.getuid()).pw_gecos
+        full_name = gecos_field.split(',')[0]
+        return full_name
+    except ImportError:
+        import getpass
+        return getpass.getuser()
+
 new_uuid = str(uuid.uuid4())
 
 oyster = \
@@ -23,11 +37,11 @@ oyster = \
     ],
     "copying": {
         "authors": [
-            "Firstname Lastname"
+            get_username()
         ],
         "license-name": "MIT (Expat) License",
         "license-url": "http://opensource.org/licenses/MIT",
-        "year": year
+        "year": get_year()
     },
     "description": {
         "verbose-description": "<FIXME>"
