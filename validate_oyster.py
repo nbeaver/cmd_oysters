@@ -23,6 +23,7 @@ def pretty_print_slice(string_to_slice, slice_indices):
 
 def find_slice(string, substring):
     # TODO: find all the slices, not just the first one.
+    # http://stackoverflow.com/questions/4664850/find-all-occurrences-of-a-substring-in-python
     if substring not in string:
         return None
     else:
