@@ -580,18 +580,21 @@ How to add new metadata fields to the schema
 
 Add the field to `<schemas/full-schema.json>`_.
 
-Resources on writing JSON schemas:
+Helpful introduction to JSON schemas:
+
+- https://spacetelescope.github.io/understanding-json-schema/
+
+Full reference and standard:
 
 - http://json-schema.org/documentation.html
-- https://spacetelescope.github.io/understanding-json-schema/
 
 Note that the best command metadata to include in a CmdOyster is information that is:
 
-- not readily available in man pages,
+- Not readily available in man pages
 
-- directly applicable to the specific use of the invocation,
+- Directly applicable to the specific use of the invocation
 
-- and easy to verify or falsify.
+- Easy to verify or falsify
 
 -------
 License
