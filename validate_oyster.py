@@ -11,10 +11,9 @@ def get_slice(string_to_slice, slice_index_list):
     i2 = slice_index_list[1]
     return str(string_to_slice)[i1:i2]
 
-def pretty_print_slice(string_to_slice, slice_index_list):
-    assert len(slice_index_list) == 2
-    i1 = slice_index_list[0]
-    i2 = slice_index_list[1]
+def pretty_print_slice(string_to_slice, slice_indices):
+    assert len(slice_indices) == 2
+    i1, i2 = slice_indices
     assert i2 > i1
     slice_string = ""
     slice_string += ' '*i1 + str(string_to_slice)[i1:i2] + '\n'
