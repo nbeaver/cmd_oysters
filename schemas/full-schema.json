@@ -19,6 +19,7 @@
         "component-command-info": {
             "additionalProperties": {
                 "additionalProperties": false,
+                "description": "The component command.",
                 "properties": {
                     "bash-type": {
                         "description": "The output of `type -t $COMMAND` in bash; one of `alias`, `keyword`, `function`, `builtin`, or `file`. May be different in other shells, e.g. `which` is a `builtin` in zsh but a `file` in bash.",
@@ -41,6 +42,7 @@
                                 "additionalItems": false,
                                 "description": "the Debian package(s) required to install the relevant command.",
                                 "items": {
+                                    "description": "Name of the Debian package.",
                                     "type": "string"
                                 },
                                 "type": "array"
@@ -104,6 +106,7 @@
                 "authors": {
                     "description": "List of the people who wrote the CmdOyster, not necessarily the command itself.",
                     "items": {
+                        "description": "Full name of person.",
                         "type": "string"
                     },
                     "type": "array"
