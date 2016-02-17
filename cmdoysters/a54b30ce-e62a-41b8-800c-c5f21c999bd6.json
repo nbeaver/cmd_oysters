@@ -1,0 +1,86 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "echo": {
+            "bash-type": "builtin",
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "never"
+            }
+        },
+        "parallel": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/parallel",
+                "required-packages": [
+                    "moreutils"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "never"
+            }
+        },
+        "sleep": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/bin/sleep",
+                "required-packages": [
+                    "coreutils"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "never"
+            }
+        }
+    },
+    "component-commands": [
+        "echo",
+        "parallel",
+        "sleep"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2016
+    },
+    "description": {
+        "verbose-description": "Run three different `sleep` commands in parallel."
+    },
+    "invocations": [
+        {
+            "changeable-arguments": {
+                "2": {
+                    "argument-description": "Time interval in seconds.",
+                    "component-command": "sleep",
+                    "invocation-slice": [
+                        24,
+                        25
+                    ],
+                    "type": "integer"
+                },
+                "1": {
+                    "argument-description": "Time interval in seconds.",
+                    "component-command": "sleep",
+                    "invocation-slice": [
+                        46,
+                        47
+                    ],
+                    "type": "integer"
+                }
+            },
+            "invocation-string": "parallel -j 3 -- \"sleep 2; echo '1st'\" \"sleep 1; echo '2nd'\" \"echo '3rd'\""
+        }
+    ],
+    "uuid": "a54b30ce-e62a-41b8-800c-c5f21c999bd6"
+}
