@@ -9,6 +9,7 @@ import traceback
 import argparse
 
 class NoDuplicates:
+    """A set that throws an error if a duplicate item is added."""
     def __init__(self, iterable=[]):
         self.set = set()
         for elem in iterable:

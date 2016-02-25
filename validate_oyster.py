@@ -5,6 +5,7 @@ import sys
 import os
 
 def get_slice(string_to_slice, slice_index_list):
+    """String slice of a string and slice pair."""
     # We're slicing a string, so the list should only have the start and stop of the slice.
     assert len(slice_index_list) == 2
     i1 = slice_index_list[0]
@@ -12,6 +13,15 @@ def get_slice(string_to_slice, slice_index_list):
     return str(string_to_slice)[i1:i2]
 
 def pretty_print_slice(string_to_slice, slice_indices):
+    """Align a string and its slice so it's easy to read.
+
+    For example, this slice of a command:
+
+              localhost
+    ping -i 2 localhost | sed --unbuffered 's/.*/ping/' | espeak
+              ^       ^
+    """
+
     assert len(slice_indices) == 2
     i1, i2 = slice_indices
     assert i2 > i1
@@ -22,6 +32,7 @@ def pretty_print_slice(string_to_slice, slice_indices):
     return slice_string
 
 def find_slice(string, substring):
+    """First matching slice of a substring in a string."""
     # TODO: find all the slices, not just the first one.
     # http://stackoverflow.com/questions/4664850/find-all-occurrences-of-a-substring-in-python
     if substring not in string:
@@ -32,6 +43,7 @@ def find_slice(string, substring):
         return (start, stop)
 
 def assert_with_path(assertion, error_string):
+    """Reference a global variable so that it is clear which file the problem is in."""
     try:
         assert assertion, error_string
     except AssertionError:
@@ -45,6 +57,7 @@ def assert_in(A, B):
     assert_with_path(A in B, repr(A)+ "is not in " + repr(B))
 
 def validate_invocation(invocation, component_commands):
+    """Validation checks on the CmdOyster invocation that can't be captured in the schema."""
     if 'changeable-arguments' in invocation:
         arg_dict = invocation['changeable-arguments']
         if arg_dict:
@@ -74,6 +87,7 @@ def validate_invocation(invocation, component_commands):
 
 
 def validate_oyster(oyster, uuid_from_filename):
+    """Validation checks on the CmdOyster that can't be captured in the schema."""
 
     if 'component-command-info' in oyster:
 

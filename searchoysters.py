@@ -8,10 +8,12 @@ import argparse
 import string
 
 def tokenize(text):
+    """Strip punctuation from free text sentences and split into tokens."""
     table = {ord(punc): None for punc in string.punctuation}
     return text.translate(table).split()
 
 def lowercase_subset(A, B):
+    """Check that A is a subset of B when case is ignored."""
     set_a = set([a.lower() for a in A])
     set_b = set([b.lower() for b in B])
     return set_a.issubset(set_b)
