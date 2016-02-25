@@ -7,8 +7,9 @@ import sys
 import argparse
 import string
 
-def tokens(text):
-    return text.encode('utf-8').translate(None, string.punctuation).split()
+def tokenize(text):
+    table = {ord(punc): None for punc in string.punctuation}
+    return text.translate(table).split()
 
 def lowercase_subset(A, B):
     set_a = set([a.lower() for a in A])
@@ -50,7 +51,7 @@ for filepath in json_filepaths:
             continue
 
     if args.description_tokens:
-        if not lowercase_subset(args.description_tokens, tokens(command['description']['verbose-description'])):
+        if not lowercase_subset(args.description_tokens, tokenize(command['description']['verbose-description'])):
             continue
 
     matching_invocations = []
