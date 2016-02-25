@@ -391,6 +391,7 @@
                 "minItems": 1,
                 "properties": {
                     "date-known-good": {
+                        "description": "Date when the link to the page worked. Useful if the page changes or link is broken and searching for an archival copy.",
                         "format": "date",
                         "type": "string"
                     },
