@@ -22,9 +22,9 @@ def pretty_print_slice(string_to_slice, slice_indices):
               ^       ^
     """
 
-    assert len(slice_indices) == 2
+    assert_with_path(len(slice_indices) == 2, "Too many for one slice: {}".format(slice_indices))
     i1, i2 = slice_indices
-    assert i2 > i1
+    assert_with_path(i2 > i1, "Bad slice: {}, {}".format(i1, i2))
     slice_string = ""
     slice_string += ' '*i1 + str(string_to_slice)[i1:i2] + '\n'
     slice_string += string_to_slice + '\n'
