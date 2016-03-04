@@ -105,7 +105,7 @@ Here are some less trivial examples:
 Motivation
 ----------
 
-Ever bookmarked a useful shell one-liner and had trouble finding it later?
+Ever bookmarked a useful shell one-liner and `had trouble finding it later`_?
 
 Ever been stymied by a `man page without examples`_?
 
@@ -149,6 +149,7 @@ It's also intended to make sharing the knowledge
 of how to use a shell command for a particular purpose
 as simple as sending a text file.
 
+.. _had trouble finding it later: https://unix.stackexchange.com/questions/148187/how-do-you-remember-command-options
 .. _man page without examples: https://wiki.freebsd.org/ManPagesWithoutExamples
 .. _which ones they don't: http://tldp.org/LDP/abs/html/portabilityissues.html
 .. _copying and pasting them from online forums into a terminal: http://thejh.net/misc/website-terminal-copy-paste
