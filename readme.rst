@@ -188,7 +188,7 @@ which is better than::
 
 even though the last example is the most abstract, general case.
 
-For the purposed of the CmdOysters,
+For the purposes of the CmdOysters,
 the "best" example is not the most general,
 it is the one that is closest to an example that can be run without modification.
 
