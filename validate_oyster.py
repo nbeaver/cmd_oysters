@@ -43,7 +43,7 @@ def find_slice(string, substring):
         return (start, stop)
 
 def assert_with_path(assertion, error_string):
-    """Reference a global variable so that it is clear which file the problem is in."""
+    """Use the global 'filepath' variable so that it is clear which file the problem is in."""
     try:
         assert assertion, error_string
     except AssertionError:
