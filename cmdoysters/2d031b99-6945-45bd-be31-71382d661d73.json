@@ -1,0 +1,83 @@
+{
+    "can-modify": {
+        "filesystem": true,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "chmod": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/bin/chmod",
+                "required-packages": [
+                    "coreutils"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "sometimes",
+                "internet-connection": "never",
+                "sudo": "sometimes"
+            }
+        }
+    },
+    "component-commands": [
+        "chmod"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2016
+    },
+    "description": {
+        "verbose-description": "Make home directory private from all other users."
+    },
+    "invocations": [
+        {
+            "changeable-arguments": {
+                "$HOME": {
+                    "argument-description": "Directory with permissions being changed.",
+                    "component-command": "chmod",
+                    "invocation-slice": [
+                        18,
+                        23
+                    ],
+                    "subtype": "Relative or absolute path.",
+                    "type": "string"
+                }
+            },
+            "invocation-string": "chmod g-rwx,o-rwx $HOME"
+        },
+        {
+            "changeable-arguments": {
+                "$HOME": {
+                    "argument-description": "Directory with permissions being changed.",
+                    "component-command": "chmod",
+                    "invocation-slice": [
+                        11,
+                        16
+                    ],
+                    "subtype": "Relative or absolute path.",
+                    "type": "string"
+                }
+            },
+            "invocation-string": "chmod 0700 $HOME"
+        }
+    ],
+    "relevant-urls": [
+        {
+            "date-known-good": "2016-03-04",
+            "url": "https://askubuntu.com/questions/46501/why-can-other-users-see-the-files-in-my-home-folder"
+        },
+        {
+            "date-known-good": "2016-03-04",
+            "url": "https://superuser.com/questions/303910/ubuntu-default-access-mode-permissions-for-users-home-dir-home-user"
+        },
+        {
+            "date-known-good": "2015-03-04",
+            "url": "https://unix.stackexchange.com/questions/95897/permissions-755-on-home-user"
+        }
+    ],
+    "uuid": "2d031b99-6945-45bd-be31-71382d661d73"
+}
