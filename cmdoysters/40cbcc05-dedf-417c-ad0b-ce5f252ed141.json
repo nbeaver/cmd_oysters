@@ -79,7 +79,7 @@
                 }
             },
             "comment": "This variant is necessary for filenames with newlines.",
-            "invocation-string": "find . -type f -printf '\n' | wc -l"
+            "invocation-string": "find . -type f -printf '\\n' | wc -l"
         },
         {
             "changeable-arguments": {
