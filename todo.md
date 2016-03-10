@@ -4,9 +4,12 @@ TODO
 Specific items by file, in no particular order
 ----------------------------------------------
 
-- [x] Make a minimal template with only required fields ([templates/simple-template.json](templates/simple-template.json)).
+-   [x] Make a minimal template with only required fields ([templates/simple-template.json](templates/simple-template.json)).
 
 ### [schemas/full-schema.json](schemas/full-schema.json)
+
+-   [ ] Add field for specifying dependency on environment variables like `$HOME`, `$LANG`, `$TERM`, and `$DISPLAY`.
+    - Useful for e.g. commands that require an X11 server, so won't work in a TTY or on Cygwin.
 
 -   [ ] Use a copyright fields like Debian's: <https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/>
 
