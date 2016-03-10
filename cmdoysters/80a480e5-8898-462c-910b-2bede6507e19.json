@@ -1,0 +1,82 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "readlink": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/bin/readlink",
+                "required-packages": [
+                    "coreutils"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "never"
+            }
+        },
+        "xargs": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/xargs",
+                "required-packages": [
+                    "findutils"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "never"
+            }
+        },
+        "basename": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/basename",
+                "required-packages": [
+                    "coreutils"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "never"
+            }
+        }
+    },
+    "component-commands": [
+        "readlink",
+        "xargs",
+        "basename"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2016
+    },
+    "description": {
+        "verbose-description": "Get driver names for all network interfaces."
+    },
+    "invocations": [
+        {
+            "example-outputs": [
+                "e1000e\niwlwifi"
+            ],
+            "invocation-string": "readlink /sys/class/net/*/device/driver | xargs -L 1 basename",
+            "shibboleths": [
+                {
+                    "comment": "Checks for the sysfs virtual filesystem.",
+                    "exit-status": 0,
+                    "shibboleth-invocation": "ls /sys/"
+                }
+            ]
+        }
+    ],
+    "uuid": "80a480e5-8898-462c-910b-2bede6507e19"
+}
