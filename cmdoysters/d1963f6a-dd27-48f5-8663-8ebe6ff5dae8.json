@@ -1,0 +1,122 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "find": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/find",
+                "required-packages": [
+                    "findutils"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "sometimes",
+                "internet-connection": "never",
+                "sudo": "sometimes"
+            }
+        }
+    },
+    "component-commands": [
+        "find"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2016
+    },
+    "description": {
+        "verbose-description": "Find broken symbolic links (symlinks) in current directory and below."
+    },
+    "invocations": [
+        {
+            "comment": "Efficient, but requires GNU version of find command and does not detect cyclic symlinks.",
+            "changeable-arguments": {
+                ".": {
+                    "argument-description": "Path to look under.",
+                    "component-command": "find",
+                    "invocation-slice": [
+                        5,
+                        6
+                    ],
+                    "subtype": "path",
+                    "type": "string"
+                }
+            },
+            "invocation-string": "find . -xtype l",
+            "shibboleths": [
+                {
+                    "comment": "Check for --version flag. Not in BSD find.",
+                    "exit-status": 0,
+                    "shibboleth-invocation": "find --version"
+                }
+            ]
+        },
+        {
+            "comment": "Slightly more efficient.",
+            "changeable-arguments": {
+                ".": {
+                    "argument-description": "Path to look under.",
+                    "component-command": "find",
+                    "invocation-slice": [
+                        5,
+                        6
+                    ],
+                    "subtype": "path",
+                    "type": "string"
+                }
+            },
+            "invocation-string": "find . -type l -xtype l",
+            "shibboleths": [
+                {
+                    "comment": "Check for --version flag. Not in BSD versions.",
+                    "exit-status": 0,
+                    "shibboleth-invocation": "find --version"
+                }
+            ]
+        },
+        {
+            "comment": "POSIX portable, but may follow symlinks pointing outside of current directory.",
+            "changeable-arguments": {
+                ".": {
+                    "argument-description": "Path to look under.",
+                    "component-command": "find",
+                    "invocation-slice": [
+                        8,
+                        9
+                    ],
+                    "subtype": "path",
+                    "type": "string"
+                }
+            },
+            "invocation-string": "find -L . -type l",
+            "shibboleths": [
+                {
+                    "comment": "Check for --version flag. Not in BSD versions.",
+                    "exit-status": 0,
+                    "shibboleth-invocation": "find --version"
+                }
+            ]
+        }
+    ],
+    "relevant-urls": [
+        {
+            "date-known-good": "2016-03-10",
+            "url": "https://unix.stackexchange.com/questions/34248/how-can-i-find-broken-symlinks"
+        },
+        {
+            "date-known-good": "2016-03-10",
+            "url": "https://serverfault.com/questions/295929/how-do-i-find-and-report-on-broken-symbolic-links-automatically"
+        },
+        {
+            "date-known-good": "2016-03-10",
+            "url": "http://www.commandlinefu.com/commands/view/10742/find-broken-symlinks"
+        }
+    ],
+    "uuid": "d1963f6a-dd27-48f5-8663-8ebe6ff5dae8"
+}
