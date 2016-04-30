@@ -41,6 +41,7 @@ for filepath in json_filepaths:
             command = json.load(json_file)
         except ValueError:
             sys.stderr.write("Invalid JSON for file: `{}'\n".format(json_file.name))
+            sys.exit(1)
 
     if args.commands:
         if not set(args.commands).issubset(set(command['component-commands'])):
