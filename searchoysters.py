@@ -58,7 +58,12 @@ for filepath in json_filepaths:
 
     matching_invocations = []
     for invocation in command['invocations']:
-        invocation_string = invocation['invocation-string']
+        try:
+            invocation_string = invocation['invocation-string']
+        except KeyError:
+            sys.stderr.write("Error: no 'invocation-string' in file `{}'\n".format(json_file.name))
+            sys.exit(1)
+
         if args.substring:
             if not args.substring in invocation_string :
                 # This doesn't match, so try the next invocation.
