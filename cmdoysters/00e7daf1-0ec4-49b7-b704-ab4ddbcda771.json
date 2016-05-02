@@ -1,0 +1,123 @@
+{
+    "can-modify": {
+        "filesystem": true,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "head": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/head",
+                "required-packages": [
+                    "coreutils"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "sometimes"
+            }
+        }
+    },
+    "component-commands": [
+        "head"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2016
+    },
+    "description": {
+        "verbose-description": "Create a 10 megabyte file full of ASCII NULs."
+    },
+    "invocations": [
+        {
+            "changeable-arguments": {
+                "10000000": {
+                    "argument-description": "Size in bytes.",
+                    "component-command": "head",
+                    "component-command-flag": "-c",
+                    "invocation-slice": [
+                        8,
+                        16
+                    ],
+                    "type": "integer"
+                },
+                "/dev/zero": {
+                    "argument-description": "Source of output file, in this case \\0 characters.",
+                    "component-command": "head",
+                    "invocation-slice": [
+                        17,
+                        26
+                    ],
+                    "subtype": "Relative or absolute path.",
+                    "type": "string"
+                },
+                "./bigfile": {
+                    "argument-description": "Path to output file.",
+                    "invocation-slice": [
+                        29,
+                        38
+                    ],
+                    "subtype": "Relative or absolute path to file.",
+                    "type": "string"
+                }
+            },
+            "comment": "Portable invocation.",
+            "command-requirements-as-invoked": {
+                "head": {
+                    "authentication": "no",
+                    "internet-connection": "no",
+                    "sudo": "maybe"
+                }
+            },
+            "invocation-string": "head -c 10000000 /dev/zero > ./bigfile"
+        },
+        {
+            "changeable-arguments": {
+                "10MB": {
+                    "argument-description": "Abbreviation for size in bytes.",
+                    "component-command": "head",
+                    "component-command-flag": "--bytes",
+                    "invocation-slice": [
+                        13,
+                        17
+                    ],
+                    "type": "string"
+                },
+                "/dev/zero": {
+                    "argument-description": "Source of output file, in this case ASCII NUL characters.",
+                    "component-command": "head",
+                    "invocation-slice": [
+                        18,
+                        27
+                    ],
+                    "subtype": "Relative or absolute path.",
+                    "type": "string"
+                },
+                "./bigfile": {
+                    "argument-description": "Path to output file.",
+                    "invocation-slice": [
+                        30,
+                        39
+                    ],
+                    "subtype": "Relative or absolute path to file.",
+                    "type": "string"
+                }
+            },
+            "comment": "Invocation with GNU extensions.",
+            "command-requirements-as-invoked": {
+                "head": {
+                    "authentication": "no",
+                    "internet-connection": "no",
+                    "sudo": "maybe"
+                }
+            },
+            "invocation-string": "head --bytes=10MB /dev/zero > ./bigfile"
+        }
+    ],
+    "uuid": "00e7daf1-0ec4-49b7-b704-ab4ddbcda771"
+}
