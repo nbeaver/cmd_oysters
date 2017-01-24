@@ -8,7 +8,9 @@ Specific items by file, in no particular order
 
 ### [schemas/full-schema.json](schemas/full-schema.json)
 
--   [ ] Add field for specifying dependency on environment variables like `$HOME`, `$LANG`, `$TERM`, and `$DISPLAY`.
+-   [ ] Add field for specifying dependency on environment variables like `$HOME`, `$LANG`, `$TERM`, and `$DISPLAY`,
+        as well as locale (e.g. `sort` is affected by `LC_COLLATE`)
+
     - Useful for e.g. commands that require an X11 server, so won't work in a TTY or on Cygwin.
 
 -   [ ] Use a copyright fields like Debian's: <https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/>
