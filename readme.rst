@@ -626,3 +626,13 @@ Here are some highlights, in no particular order:
 
 - Extend CmdOysters to interactive textual commands in general,
   such as ``gnuplot``, ``ipython``, ``irb``, ``maxima``, and so on.
+
+----------------
+Similar projects
+----------------
+
+- https://github.com/knqyf263/pet
+
+- https://github.com/ok-borg/borg
+
+- https://github.com/orkohunter/keep
