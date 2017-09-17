@@ -250,10 +250,12 @@ provided each invocation uses the same `component commands`_.
 The metadata about the commands indicate which shells they are compatible with,
 and what their dependencies are (i.e. a list of component commands).
 
-Currently there is also an optional field for a list of required Debian packages.
+Currently there is also an optional field
+for a list of required Debian packages.
 In the future, this should be expanded to other package managers.
 
-Per-shell and per-invocation compatibility metadata is provided in several ways:
+Per-shell and per-invocation compatibility metadata
+is provided in several ways:
 
 - A human-readable version specifier string, e.g. ``version 1.3 or higher``
 - A list of versions known to be compatible.
@@ -270,7 +272,7 @@ depends on whether it was compiled with ``bignum`` support.
 This does not change the version information,
 but it does change the SHA-1 checksum of the binary.
 
-To be sure, posessing the same SHA-1 checksum for the binary
+To be sure, possessing the same SHA-1 checksum for the binary
 does not guarantee the same result
 because of e.g. differing config files.
 However, if the SHA-1 is identical,
@@ -354,11 +356,12 @@ but there are some things it lacks or was never designed to have, such as:
 
 #. Metadata and search based on metadata.
 #. Cross-referencing.
-#. Unique (SHA-1) hashes of command invocations.
 #. Explicit open-source licensing.
 
-In addition, the focus of Commandlinefu is in providing a platform for commenting and upvoting,
-which is a different focus than a custom repository of specialized shell commands,
+In addition, the focus of Commandlinefu
+is in providing a platform for commenting and upvoting,
+which is a different focus
+than a custom repository of specialized shell commands,
 many of which may only be useful to their creator.
 
 .. _Commandlinefu: http://www.commandlinefu.com/
@@ -367,12 +370,16 @@ many of which may only be useful to their creator.
 Why not just make an alias or shell function and add it to your ``bashrc``?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-It's not always easy to find a short, memorable name for an alias that doesn't conflict with existing commands,
-and a multitude of aliases tend to make autocompletion more unwieldy and less predictable.
+It's not always easy to find a short, memorable name for an alias
+that doesn't conflict with existing commands,
+and a multitude of aliases
+tend to make autocompletion more unwieldy and less predictable.
 
-Aliases and shell functions are great for commonly used commands with a particular shell,
-but not so great for remembering how to use a command from several months ago,
-or for keeping track of how to do the same thing with a variety of different shells.
+Aliases and shell functions are great
+for commonly used commands with a particular shell, but not so great
+for remembering how to use a command from several months ago,
+or for keeping track of
+how to do the same thing with a variety of different shells.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 What does the term "component command" refer to?
@@ -383,10 +390,14 @@ is that they can be composed in many ways.
 
 They can be:
 
-- used in conditional sequence (e.g. ``./configure && make``),
-- piped together (e.g. ``du | sort -nr``),
-- evaluated to supply arguments to other commands (e.g. ``mkdir $(date -I)``),
-- or even taken directly as arguments to other commands (e.g. ``find . -exec file '{}' +``).
+- used in conditional sequence
+  (e.g. ``./configure && make``),
+- piped together
+  (e.g. ``du | sort -nr``),
+- evaluated to supply arguments to other commands
+  (e.g. ``mkdir $(date -I)``),
+- or even taken directly as arguments to other commands
+  (e.g. ``find . -exec file '{}' +``).
 
 These composite commands consist of more than one component command.
 
@@ -427,7 +438,8 @@ However, these related CmdOysters can (and should) be `cross-referenced`_.
 
 The rationale for this is partly the simplicity of implementation
 and to prevent a single CmdOyster from storing too much,
-but also because different component commands have different behaviors and semantics.
+but also because different component commands
+have different behaviors and semantics.
 
 .. _cross-referenced: `Cross-referencing`_
 
