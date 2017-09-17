@@ -231,8 +231,7 @@ CmdOysters are not assigned arbitrary primary keys,
 since two different databases could have clashing primary keys.
 
 Instead, CmdOysters can reference related commands or invocations
-by the SHA-1 hash of the description text or invocation string
-(see `Cross-referencing`_).
+by UUID (see `Cross-referencing`_).
 
 ~~~~~~~~~~~~~~~~~~~~~~
 Compatibility metadata
@@ -293,18 +292,11 @@ Cross-referencing
 ~~~~~~~~~~~~~~~~~
 
 CmdOysters can "link" to related descriptions or invocations
-via their SHA-1 hash hex digests.
+via their UUIDs.
 
 This also makes finding CmdOysters indexed by search engines much easier,
 since most search engines do not match special characters,
-but a SHA-1 hash is a unique alphanumeric identifier.
-
-This has a cost;
-it means that two different CmdOysters must not have the same description text,
-and that updating one CmdOyster's description
-requires updating all the CmdOysters that point to it,
-but it evades some of the problems that URIs and file paths have,
-such as maintaining hierarchies and using arbitrary identifiers.
+but a UUID is a unique alphanumeric identifier.
 
 ---------------------
 Questions and answers

@@ -226,6 +226,7 @@ Non-specific notes and observations
     e.g. `avconv` and `ffmpeg`?
 -   Would be good to differentiate commands that can be run as-is
     and commands that need different arguments.
+- Add UUID per invocation.
 
 Getting shell versions
 ----------------------
