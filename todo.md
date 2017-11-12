@@ -99,6 +99,8 @@ Specific items by file, in no particular order
 
     -   Could also do something more elaborate like `ls --version | head -n 1 | cut -d ' ' -f 4` to get version number, but this is too brittle and complicated.
 
+    -   Two kinds of shibboleths: "likely to work" and "likely to fail", with corresponding output and return codes.
+
 -   [ ] Add a `warning` or `caution` field.
 
 -   [ ] Indicate if the command is POSIX-standard, and if so, which version of POSIX.
