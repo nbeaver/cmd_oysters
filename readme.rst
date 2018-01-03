@@ -640,3 +640,5 @@ Similar projects
 - https://github.com/ok-borg/borg
 
 - https://github.com/orkohunter/keep
+
+- https://launchpad.net/clicompanion
