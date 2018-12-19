@@ -2,14 +2,30 @@
 
 import sys
 import json
+import argparse
 
-for filepath in sys.argv[1:]:
-    with open(filepath) as f:
-        try:
-            oyster = json.load(f)
-        except ValueError:
-            sys.stderr.write("In file: {}\n".format(filepath))
-            raise
-    with open(filepath, 'w') as f:
-        json.dump(oyster, f, ensure_ascii=False, indent=4, separators=(',', ': '), sort_keys=True)
-        f.write('\n') # add a trailing newline.
+def format_json(fp):
+    try:
+        data = json.load(fp)
+    except ValueError:
+        sys.stderr.write("In file: {}\n".format(fp.name))
+        raise
+    # Jump back to the beginning of the file before overwriting it.
+    fp.seek(0)
+    json.dump(data, fp, ensure_ascii=False, indent=4, separators=(',', ': '), sort_keys=True)
+    fp.write('\n') # add a trailing newline.
+    fp.close()
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(
+        description='Format JSON files in place.'
+    )
+    parser.add_argument(
+        'files',
+        type=argparse.FileType('r+'),
+        help='JSON filepaths',
+        nargs='+'
+    )
+    args = parser.parse_args()
+    for json_file in args.files:
+        format_json(json_file)
