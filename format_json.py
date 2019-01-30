@@ -5,6 +5,8 @@ import json
 import argparse
 
 def format_json(fp):
+    # TODO: use a proper temporary file instead.
+    # https://backreference.org/2011/01/29/in-place-editing-of-files/
     try:
         data = json.load(fp)
     except ValueError:
