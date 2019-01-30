@@ -12,6 +12,7 @@ def format_json(fp):
         raise
     # Jump back to the beginning of the file before overwriting it.
     fp.seek(0)
+    fp.truncate(0)
     json.dump(data, fp, ensure_ascii=False, indent=4, separators=(',', ': '), sort_keys=True)
     fp.write('\n') # add a trailing newline.
     fp.close()
