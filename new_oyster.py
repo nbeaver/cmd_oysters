@@ -7,12 +7,6 @@ import sys
 import json
 import uuid
 
-if len(sys.argv) > 1:
-    invocation = sys.argv[1]
-else:
-    sys.stderr.write("Usage: python "+sys.argv[0]+" 'command-invocation'"+'\n')
-    sys.exit(1)
-
 def get_year():
     now = datetime.datetime.now()
     return now.year
@@ -27,6 +21,12 @@ def get_username():
     except ImportError:
         import getpass
         return getpass.getuser()
+
+if len(sys.argv) > 1:
+    invocation = sys.argv[1]
+else:
+    sys.stderr.write("Usage: python "+sys.argv[0]+" 'command-invocation'"+'\n')
+    sys.exit(1)
 
 new_uuid = str(uuid.uuid4())
 
