@@ -109,7 +109,7 @@ Specific items by file, in no particular order
 
 -   [ ] Two different descriptions, one terse (80 characters or less), and one verbose.
 
-### [searchoysters.py](searchoysters.py)
+### [cmdoysters.py](cmdoysters.py)
 
 -   [ ] Add a `--shell` flag (short flag `-x`) to spawn a prompt for the user with the command already filled in (use `pexpect`).
     -   [ ] Tailor invocation according to host OS and environment.
