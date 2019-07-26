@@ -1,0 +1,24 @@
+{
+    "component-commands": [
+        "mkdir",
+        "unzip"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Foley-Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2019
+    },
+    "description": {
+        "terse-description": "unzip into a new directory",
+        "verbose-description": "Make a new empty directory and unzip a ZIP archive into the same directory."
+    },
+    "invocations": [
+        {
+            "invocation-string": "mkdir output\nunzip my-zip-file.zip -d output"
+        }
+    ],
+    "uuid": "ea0ee52c-0dc4-44df-8a4d-2db6bf83634e"
+}
