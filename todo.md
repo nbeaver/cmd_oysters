@@ -147,6 +147,7 @@ Specific items by file, in no particular order
     -   [ ] Use short descriptions instead of long descriptions.
     -   [ ] Terse output (commands only, no comments). Or should this be by default?
     -   [ ] Show explanations of flags and changeable arguments.
+    -   [ ] Show relevant URLs.
 
 
 ### [validate_database.py](validate_database.py)
