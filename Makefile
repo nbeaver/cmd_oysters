@@ -1,6 +1,6 @@
 .PHONY : default all_json cmd_oyster_templates cmd_oysters test_search
 default : readme.html todo.html
-validate: test_cmdoysters cmd_oyster_templates cmd_oyster_testing cmd_oysters
+validate: test_search cmd_oyster_templates cmd_oyster_testing cmd_oysters
 
 test_search : cmdoysters.py
 	python cmdoysters.py --substring 'ping -i' > /dev/null
