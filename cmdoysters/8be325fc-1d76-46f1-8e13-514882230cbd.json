@@ -1,0 +1,80 @@
+{
+    "component-commands": [
+        "cp"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Foley-Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2019
+    },
+    "description": {
+        "verbose-description": "Make a copy of a symbolic link (symlink)."
+    },
+    "invocations": [
+        {
+            "changeable-arguments": {
+                "mylink": {
+                    "argument-description": "Path to an existing symbolic link.",
+                    "component-command": "cp",
+                    "invocation-slice": [
+                        6,
+                        12
+                    ],
+                    "subtype": "Relative or absolute path.",
+                    "type": "string"
+                },
+                "mylink-copy": {
+                    "argument-description": "Path to new symbolic link.",
+                    "component-command": "cp",
+                    "invocation-slice": [
+                        13,
+                        24
+                    ],
+                    "subtype": "Relative or absolute path to file.",
+                    "type": "string"
+                }
+            },
+            "invocation-string": "cp -P mylink mylink-copy"
+        },
+        {
+            "changeable-arguments": {
+                "mylink": {
+                    "argument-description": "Path to an existing symbolic link.",
+                    "component-command": "cp",
+                    "invocation-slice": [
+                        20,
+                        26
+                    ],
+                    "subtype": "Relative or absolute path.",
+                    "type": "string"
+                },
+                "mylink-copy": {
+                    "argument-description": "Path to new symbolic link.",
+                    "component-command": "cp",
+                    "invocation-slice": [
+                        27,
+                        38
+                    ],
+                    "subtype": "Relative or absolute path to file.",
+                    "type": "string"
+                }
+            },
+            "invocation-string": "cp --no-dereference mylink mylink-copy"
+        }
+    ],
+    "relevant-urls": [
+        {
+            "url": "https://superuser.com/questions/138587/how-to-copy-symbolic-links"
+        },
+        {
+            "url": "https://unix.stackexchange.com/questions/56084/how-do-i-copy-a-symbolic-link"
+        },
+        {
+            "url": "https://www.gnu.org/software/coreutils/manual/html_node/cp-invocation.html#index-_002d_002dno_002ddereference"
+        }
+    ],
+    "uuid": "8be325fc-1d76-46f1-8e13-514882230cbd"
+}
