@@ -8,6 +8,8 @@ Specific items by file, in no particular order
 
 ### [schemas/full-schema.json](schemas/full-schema.json)
 
+-   [ ] Add a field for explaining the meaning of flags even if they don't take an argument.
+
 -   [ ] Add field for specifying dependency on environment variables like `$HOME`, `$LANG`, `$TERM`, and `$DISPLAY`,
         as well as locale (e.g. `sort` is affected by `LC_COLLATE`)
 
@@ -144,6 +146,7 @@ Specific items by file, in no particular order
 -   [ ] More options for output formatting.
     -   [ ] Use short descriptions instead of long descriptions.
     -   [ ] Terse output (commands only, no comments). Or should this be by default?
+    -   [ ] Show explanations of flags and changeable arguments.
 
 
 ### [validate_database.py](validate_database.py)
