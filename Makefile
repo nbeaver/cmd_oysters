@@ -10,13 +10,13 @@ test_search : cmdoysters.py
 	python cmdoysters.py --substring 'ping -i' --commands ping espeak sed --tokens '|' sed localhost ping --description 'audible voice' > /dev/null
 	python cmdoysters.py --description-tokens ping generates seconds > /dev/null
 
-cmd_oysters : validate-database.py cmdoysters/* schemas/full-schema.json
+cmd_oysters : validate_database.py cmdoysters/* schemas/full-schema.json
 	python2 validate_database.py --input cmdoysters/
 
-cmd_oyster_testing : validate-database.py cmdoysters/* schemas/full-schema.json
+cmd_oyster_testing : validate_database.py cmdoysters/* schemas/full-schema.json
 	python2 validate_database.py --input testing/
 
-cmd_oyster_templates : validate-database.py cmdoysters/* schemas/full-schema.json
+cmd_oyster_templates : validate_database.py cmdoysters/* schemas/full-schema.json
 	python2 validate_database.py --input templates/
 
 readme.html : readme.rst
