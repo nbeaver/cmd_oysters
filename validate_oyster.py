@@ -61,7 +61,7 @@ def validate_invocation(invocation, component_commands):
     if 'changeable-arguments' in invocation:
         arg_dict = invocation['changeable-arguments']
         if arg_dict:
-            for arg, arginfo in arg_dict.iteritems():
+            for arg, arginfo in arg_dict.items():
                 # Check that the argument actually matches the sliced command.
                 arg_slice = get_slice(invocation['invocation-string'], arginfo['invocation-slice'])
                 try:
@@ -93,8 +93,8 @@ def validate_oyster(oyster, uuid_from_filename):
 
         assert_subset(set(oyster['component-command-info'].keys()), set(oyster['component-commands']))
 
-        for command_name, info in oyster['component-command-info'].iteritems():
-            for info_key, info_item in info.iteritems():
+        for command_name, info in oyster['component-command-info'].items():
+            for info_key, info_item in info.items():
 
                 if info_key == 'debian':
                     if 'executable-path' in info_item and info_item['executable-path']:
