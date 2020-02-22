@@ -31,6 +31,10 @@ readme.html : readme.rst
 todo.html : todo.md
 	markdown todo.md > todo.html
 
+.PHONY: new_cmd_oyster
+new_cmd_oyster:
+	./new_oyster.py cmdoysters/ my-command
+
 .PHONY : clean
 clean :
 	rm --force --verbose readme.html
