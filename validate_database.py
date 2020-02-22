@@ -1,5 +1,4 @@
 #! /usr/bin/env python
-from __future__ import print_function
 import json
 import jsonschema
 import sys
@@ -57,4 +56,4 @@ for i, json_filepath in enumerate(json_filepaths):
         uuids.add(json_data['uuid'])
 
 num_commands = i + 1 # enumerate starts from 0.
-print("Validated", num_commands ,"files(s).")
+sys.stdout.write("Validated {} files(s).\n".format(num_commands))
