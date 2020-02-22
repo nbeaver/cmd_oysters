@@ -16,5 +16,6 @@ if __name__ == '__main__':
     new_filepath = os.path.join(root, 'cmdoysters', new_filename)
     with open(new_filepath, 'w') as new_file:
         oyster['uuid'] = new_id
-        json.dump(oyster, new_file, indent=4, separators=(',', ': '), sort_keys=True)
+        json.dump(
+            oyster, new_file, indent=4, separators=(',', ': '), sort_keys=True)
         sys.stdout.write('{}\n'.format(new_filepath))

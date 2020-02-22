@@ -7,10 +7,12 @@ import sys
 import argparse
 import string
 
+
 def tokenize(text):
     """Strip punctuation from free text sentences and split into tokens."""
     table = {ord(punc): None for punc in string.punctuation}
     return text.translate(table).split()
+
 
 def lowercase_subset(A, B):
     """Check that A is a subset of B when case is ignored."""
@@ -18,16 +20,44 @@ def lowercase_subset(A, B):
     set_b = set([b.lower() for b in B])
     return set_a.issubset(set_b)
 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='search CmdOysters')
-    parser.add_argument('-c', '--commands', help='component command search', required=False, nargs='+')
-    parser.add_argument('-s', '--substring', help='simple command substring search', required=False)
-    parser.add_argument('-t', '--tokens', help='unordered token subset command search',required=False, nargs='+')
-    parser.add_argument('-d', '--description', help='command description', required=False)
-    parser.add_argument('-D', '--description-tokens', help='description token search (case-insensitive)', required=False, nargs='+')
+    parser.add_argument(
+        '-c',
+        '--commands',
+        help='component command search',
+        required=False,
+        nargs='+')
+    parser.add_argument(
+        '-s',
+        '--substring',
+        help='simple command substring search',
+        required=False)
+    parser.add_argument(
+        '-t',
+        '--tokens',
+        help='unordered token subset command search',
+        required=False,
+        nargs='+')
+    parser.add_argument(
+        '-d', '--description', help='command description', required=False)
+    parser.add_argument(
+        '-D',
+        '--description-tokens',
+        help='description token search (case-insensitive)',
+        required=False,
+        nargs='+')
 
-    default_json_path = os.path.join(sys.path[0],"cmdoysters") # need to do it this way for symlinks to work.
-    parser.add_argument('-j', '--json', help='path to root directory of JSON input files', required=False, default=default_json_path)
+    default_json_path = os.path.join(
+        sys.path[0],
+        "cmdoysters")  # need to do it this way for symlinks to work.
+    parser.add_argument(
+        '-j',
+        '--json',
+        help='path to root directory of JSON input files',
+        required=False,
+        default=default_json_path)
 
     args = parser.parse_args()
 
@@ -41,21 +71,26 @@ if __name__ == '__main__':
             try:
                 command = json.load(json_file)
             except ValueError:
-                sys.stderr.write("Invalid JSON for file: `{}'\n".format(json_file.name))
+                sys.stderr.write("Invalid JSON for file: `{}'\n".format(
+                    json_file.name))
                 sys.exit(1)
 
         if args.commands:
-            if not set(args.commands).issubset(set(command['component-commands'])):
+            if not set(args.commands).issubset(
+                    set(command['component-commands'])):
                 # The command list is not a subset of the component commands,
                 # so try next command.
                 continue
 
         if args.description:
-            if not args.description.lower() in command['description']['verbose-description'].lower():
+            if not args.description.lower(
+            ) in command['description']['verbose-description'].lower():
                 continue
 
         if args.description_tokens:
-            if not lowercase_subset(args.description_tokens, tokenize(command['description']['verbose-description'])):
+            if not lowercase_subset(
+                    args.description_tokens,
+                    tokenize(command['description']['verbose-description'])):
                 continue
 
         matching_invocations = []
@@ -63,11 +98,13 @@ if __name__ == '__main__':
             try:
                 invocation_string = invocation['invocation-string']
             except KeyError:
-                sys.stderr.write("Error: no 'invocation-string' in file `{}'\n".format(json_file.name))
+                sys.stderr.write(
+                    "Error: no 'invocation-string' in file `{}'\n".format(
+                        json_file.name))
                 sys.exit(1)
 
             if args.substring:
-                if not args.substring in invocation_string :
+                if not args.substring in invocation_string:
                     # This doesn't match, so try the next invocation.
                     continue
             if args.tokens:
@@ -78,10 +115,10 @@ if __name__ == '__main__':
                     continue
             # At this point, the command must be a match.
             if 'comment' in invocation.keys():
-                matching_invocations.append((invocation_string, invocation['comment']))
+                matching_invocations.append((invocation_string,
+                                             invocation['comment']))
             else:
                 matching_invocations.append((invocation_string, None))
-
 
         if len(matching_invocations) > 0:
             print('# ' + filepath)

@@ -10,4 +10,9 @@ if __name__ == '__main__':
         if 'uuid' not in oyster.keys():
             oyster['uuid'] = str(uuid.uuid4())
             with_uuid = open(filepath, 'w')
-            json.dump(oyster, with_uuid, indent=4, separators=(',', ': '), sort_keys=True)
+            json.dump(
+                oyster,
+                with_uuid,
+                indent=4,
+                separators=(',', ': '),
+                sort_keys=True)

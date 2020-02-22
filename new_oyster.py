@@ -8,9 +8,11 @@ import json
 import uuid
 import logging
 
+
 def get_year():
     now = datetime.datetime.now()
     return now.year
+
 
 def writable_directory(path):
     if not os.path.isdir(path):
@@ -21,9 +23,11 @@ def writable_directory(path):
             'not a writable directory: {}'.format(path))
     return path
 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Create new cmd-oyster.')
-    parser.add_argument('write_dir', type=writable_directory, help='Directory to write to.')
+    parser.add_argument(
+        'write_dir', type=writable_directory, help='Directory to write to.')
     parser.add_argument('invocation', help='Command invocation.')
     parser.add_argument(
         '-v',
@@ -74,5 +78,6 @@ if __name__ == '__main__':
     new_filename = new_uuid + '.json'
     new_filepath = os.path.join(args.write_dir, new_filename)
     with open(new_filepath, 'w') as new_file:
-        json.dump(oyster, new_file, indent=4, separators=(',', ': '), sort_keys=True)
+        json.dump(
+            oyster, new_file, indent=4, separators=(',', ': '), sort_keys=True)
         sys.stdout.write('{}\n'.format(new_filepath))
