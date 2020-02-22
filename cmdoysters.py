@@ -122,7 +122,7 @@ if __name__ == '__main__':
 
         if len(matching_invocations) > 0:
             print('# ' + filepath)
-            # TODO: break the description on 80 lines (without splitting words),
+            # TODO: break the description on 80 lines (without splitting words)
             # and add a comment character at each point.
             print('# ' + command['description']['verbose-description'])
             for invocation_string, comment in matching_invocations:

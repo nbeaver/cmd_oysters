@@ -7,7 +7,8 @@ import os
 
 def get_slice(string_to_slice, slice_index_list):
     """String slice of a string and slice pair."""
-    # We're slicing a string, so the list should only have the start and stop of the slice.
+    # We're slicing a string,
+    # so the list should only have the start and stop of the slice.
     assert len(slice_index_list) == 2
     i1 = slice_index_list[0]
     i2 = slice_index_list[1]

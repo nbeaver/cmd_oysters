@@ -54,7 +54,9 @@ if __name__ == '__main__':
 
     full_schema = json.load(open(args.schema))
 
-    i = -1  # If the given folder is empty, this is what we need to be consistent with starting from 0.
+    # If the given folder is empty,
+    # this is what we need to be consistent with starting from 0.
+    i = -1
     for i, json_filepath in enumerate(json_filepaths):
         with open(json_filepath) as json_file:
             try:
