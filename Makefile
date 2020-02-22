@@ -35,6 +35,9 @@ todo.html : todo.md
 new_cmd_oyster:
 	./new_oyster.py cmdoysters/ my-command
 
+format_py:
+	yapf3 --in-place *.py
+
 .PHONY : clean
 clean :
 	rm --force --verbose readme.html
