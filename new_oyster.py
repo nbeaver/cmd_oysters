@@ -11,17 +11,6 @@ def get_year():
     now = datetime.datetime.now()
     return now.year
 
-def get_username():
-    try:
-        # POSIX only
-        import pwd
-        gecos_field =  pwd.getpwuid(os.getuid()).pw_gecos
-        full_name = gecos_field.split(',')[0]
-        return full_name
-    except ImportError:
-        import getpass
-        return getpass.getuser()
-
 if len(sys.argv) > 1:
     invocation = sys.argv[1]
 else:
@@ -37,7 +26,7 @@ oyster = \
     ],
     "copying": {
         "authors": [
-            get_username()
+            "<FIXME>"
         ],
         "license-name": "MIT (Expat) License",
         "license-url": "http://opensource.org/licenses/MIT",
