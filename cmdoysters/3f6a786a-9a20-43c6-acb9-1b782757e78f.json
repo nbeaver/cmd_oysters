@@ -1,0 +1,42 @@
+{
+    "can-modify": {
+        "filesystem": false,
+        "other-processes": false
+    },
+    "component-command-info": {
+        "siggen": {
+            "bash-type": "file",
+            "debian": {
+                "executable-path": "/usr/bin/siggen",
+                "required-packages": [
+                    "siggen"
+                ]
+            },
+            "requirements-in-general": {
+                "authentication": "never",
+                "internet-connection": "never",
+                "sudo": "never"
+            }
+        }
+    },
+    "component-commands": [
+        "siggen"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Foley-Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2020
+    },
+    "description": {
+        "verbose-description": "Interactive audio signal / tone / sound generator with various waveforms, including sine, triangle, square, and sawtooth (stereo mode)."
+    },
+    "invocations": [
+        {
+            "invocation-string": "siggen -2"
+        }
+    ],
+    "uuid": "3f6a786a-9a20-43c6-acb9-1b782757e78f"
+}
