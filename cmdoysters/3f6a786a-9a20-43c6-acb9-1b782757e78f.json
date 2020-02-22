@@ -36,6 +36,12 @@
     "invocations": [
         {
             "invocation-string": "siggen -2"
+        },
+        {
+            "invocation-string": "aoss siggen -2"
+        },
+        {
+            "invocation-string": "padsp siggen -2"
         }
     ],
     "uuid": "3f6a786a-9a20-43c6-acb9-1b782757e78f"
