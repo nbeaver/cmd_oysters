@@ -1,0 +1,22 @@
+{
+    "component-commands": [
+        "apt-file"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel Morck Foley-Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2020
+    },
+    "description": {
+        "verbose-description": "Find all packages in apt repositories that match the pattern '/fftw3.h$', even if the package is not installed. Should return result 'libfftw3-dev'."
+    },
+    "invocations": [
+        {
+            "invocation-string": "apt-file -x search '/fftw3.h$'"
+        }
+    ],
+    "uuid": "efd177f4-51e5-40cc-8c16-2720cb06d94e"
+}
