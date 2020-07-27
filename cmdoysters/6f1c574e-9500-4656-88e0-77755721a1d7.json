@@ -1,0 +1,22 @@
+{
+    "component-commands": [
+        "texdoc"
+    ],
+    "copying": {
+        "authors": [
+            "Nathaniel M. Beaver"
+        ],
+        "license-name": "MIT (Expat) License",
+        "license-url": "http://opensource.org/licenses/MIT",
+        "year": 2020
+    },
+    "description": {
+        "verbose-description": "List all matching documentation files for 'siunitx'"
+    },
+    "invocations": [
+        {
+            "invocation-string": "texdoc -l -s siunitx"
+        }
+    ],
+    "uuid": "6f1c574e-9500-4656-88e0-77755721a1d7"
+}
