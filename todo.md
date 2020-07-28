@@ -124,6 +124,8 @@ Specific items by file, in no particular order
 
 -   [ ] Take multiple arguments to `--substring` so it's effectively a regex search for `arg1.*arg2.*arg3`.
 
+-   [ ] Consider making the `--token` search more forgiving than exact match to whitespace-delimited token subset. (Example: `tiff` does not match `tiff2pdf myfile.tiff -o out.pdf`)
+
 -   [ ] Add a flag for excluding patterns.
 
 -   [ ] Add a flag for excluding commands.
