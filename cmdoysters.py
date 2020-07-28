@@ -6,7 +6,7 @@ import glob
 import sys
 import argparse
 import string
-
+import logging
 
 class QueryInfo:
     pass
@@ -68,9 +68,7 @@ def get_matching_invocations(oyster, query, filepath):
         try:
             invocation_string = invocation['invocation-string']
         except KeyError:
-            sys.stderr.write(
-                "Error: no 'invocation-string' in file `{}'\n".format(
-                    filepath))
+            logging.error("no 'invocation-string' in file '{}'".format(filepath))
             raise
 
         if query.substring:
@@ -94,8 +92,7 @@ def print_oysters(topdir, query):
             try:
                 oyster = json.load(json_file)
             except ValueError:
-                sys.stderr.write("Invalid JSON for file: `{}'\n".format(
-                    json_file.name))
+                logging.error("Invalid JSON for file: '{}'".format(json_file.name))
                 raise
 
         if not oyster_matches(oyster, query):
