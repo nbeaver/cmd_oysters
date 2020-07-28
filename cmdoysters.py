@@ -8,6 +8,10 @@ import argparse
 import string
 
 
+class QueryInfo:
+    pass
+
+
 def tokenize(text):
     """Strip punctuation from free text sentences and split into tokens."""
     table = {ord(punc): None for punc in string.punctuation}
@@ -28,10 +32,6 @@ def display_invocation(invocation):
     except KeyError:
         pass
     yield invocation["invocation-string"]
-
-
-class QueryInfo:
-    pass
 
 
 def print_oysters(topdir, query):
