@@ -132,27 +132,27 @@ def main():
     parser.add_argument(
         '-c',
         '--commands',
-        help='component command search',
-        required=False,
+        help="component command search (case-sensitive, order doesn't matter)",
         nargs='+')
     parser.add_argument(
         '-s',
         '--substring',
-        help='simple command substring search',
-        required=False)
+        help='command substring search (case-sensitive, order matters)',
+        nargs=1)
     parser.add_argument(
         '-t',
         '--tokens',
-        help='unordered token subset command search',
-        required=False,
+        help="token subset command search (case-sensitive, order doesn't matter)",
         nargs='+')
     parser.add_argument(
-        '-d', '--description', help='command description', required=False)
+        '-d',
+        '--description',
+        help="description substring search (case-sensitive, order matters)",
+        nargs=1)
     parser.add_argument(
         '-D',
         '--description-tokens',
-        help='description token search (case-insensitive)',
-        required=False,
+        help="description token search (case-insensitive, order doesn't matter)",
         nargs='+')
 
     default_json_path = os.path.join(
@@ -162,7 +162,6 @@ def main():
         '-j',
         '--json',
         help='path to root directory of JSON input files',
-        required=False,
         default=default_json_path)
 
     args = parser.parse_args()
