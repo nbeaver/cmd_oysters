@@ -13,6 +13,10 @@ test_search : cmdoysters.py
 	python3 cmdoysters.py --substring 'ping -i' --commands ping espeak sed --tokens '|' sed localhost ping --description 'audible voice' > /dev/null
 	python3 cmdoysters.py --description-tokens ping generates seconds > /dev/null
 
+.PHONY: unittest
+unittest:
+	./test_script.py
+
 .PHONY : cmd_oysters
 cmd_oysters : validate_database.py cmdoysters/* schemas/full-schema.json
 	python3 validate_database.py --input cmdoysters/
