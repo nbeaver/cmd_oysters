@@ -45,21 +45,21 @@ def print_oysters(topdir, query):
                     json_file.name))
                 sys.exit(1)
 
-        if cmd_query.commands:
-            if not set(cmd_query.commands).issubset(
+        if query.commands:
+            if not set(query.commands).issubset(
                     set(command['component-commands'])):
                 # The command list is not a subset of the component commands,
                 # so try next command.
                 continue
 
-        if cmd_query.description:
-            if not cmd_query.description.lower(
+        if query.description:
+            if not query.description.lower(
             ) in command['description']['verbose-description'].lower():
                 continue
 
-        if cmd_query.description_tokens:
+        if query.description_tokens:
             if not lowercase_subset(
-                    cmd_query.description_tokens,
+                    query.description_tokens,
                     tokenize(command['description']['verbose-description'])):
                 continue
 
@@ -73,13 +73,13 @@ def print_oysters(topdir, query):
                         json_file.name))
                 sys.exit(1)
 
-            if cmd_query.substring:
-                if not cmd_query.substring in invocation_string:
+            if query.substring:
+                if not query.substring in invocation_string:
                     # This doesn't match, so try the next invocation.
                     continue
-            if cmd_query.tokens:
+            if query.tokens:
                 invocation_tokens = invocation_string.split()
-                if not set(cmd_query.tokens).issubset(set(invocation_tokens)):
+                if not set(query.tokens).issubset(set(invocation_tokens)):
                     # At least one of the query tokens doesn't match,
                     # so try the next invocation.
                     continue
