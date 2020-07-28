@@ -33,13 +33,12 @@ def display_invocation(invocation):
         pass
     yield invocation["invocation-string"]
 
-
 def print_oysters(topdir, query):
     json_filepaths = glob.glob(topdir + "/*.json")
     for filepath in json_filepaths:
         with open(os.path.join(topdir, filepath)) as json_file:
             try:
-                command = json.load(json_file)
+                oyster = json.load(json_file)
             except ValueError:
                 sys.stderr.write("Invalid JSON for file: `{}'\n".format(
                     json_file.name))
@@ -47,24 +46,24 @@ def print_oysters(topdir, query):
 
         if query.commands:
             if not set(query.commands).issubset(
-                    set(command['component-commands'])):
+                    set(oyster['component-commands'])):
                 # The command list is not a subset of the component commands,
-                # so try next command.
+                # so try next oyster.
                 continue
 
         if query.description:
             if not query.description.lower(
-            ) in command['description']['verbose-description'].lower():
+            ) in oyster['description']['verbose-description'].lower():
                 continue
 
         if query.description_tokens:
             if not lowercase_subset(
                     query.description_tokens,
-                    tokenize(command['description']['verbose-description'])):
+                    tokenize(oyster['description']['verbose-description'])):
                 continue
 
         matching_invocations = []
-        for invocation in command['invocations']:
+        for invocation in oyster['invocations']:
             try:
                 invocation_string = invocation['invocation-string']
             except KeyError:
@@ -88,11 +87,10 @@ def print_oysters(topdir, query):
 
         if len(matching_invocations) > 0:
             print('# ' + filepath)
-            print('# ' + command['description']['verbose-description'])
+            print('# ' + oyster['description']['verbose-description'])
         for matching_invocation in matching_invocations:
             for line in display_invocation(matching_invocation):
                 print(line)
-
 
 def main():
     parser = argparse.ArgumentParser(description='search CmdOysters')
