@@ -42,7 +42,7 @@ def print_oysters(topdir, query):
             except ValueError:
                 sys.stderr.write("Invalid JSON for file: `{}'\n".format(
                     json_file.name))
-                sys.exit(1)
+                raise
 
         if query.commands:
             if not set(query.commands).issubset(
@@ -70,7 +70,7 @@ def print_oysters(topdir, query):
                 sys.stderr.write(
                     "Error: no 'invocation-string' in file `{}'\n".format(
                         json_file.name))
-                sys.exit(1)
+                raise
 
             if query.substring:
                 if not query.substring in invocation_string:
