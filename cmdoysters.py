@@ -142,12 +142,12 @@ def main():
     parser.add_argument(
         '-t',
         '--tokens',
-        help="token subset command search (case-sensitive, order doesn't matter)",
+        help="command token subset command search (case-sensitive, order doesn't matter)",
         nargs='+')
     parser.add_argument(
         '-d',
         '--description',
-        help="description substring search (case-sensitive, order matters)",
+        help="description substring search (case-insensitive, order matters)",
         nargs=1)
     parser.add_argument(
         '-D',
