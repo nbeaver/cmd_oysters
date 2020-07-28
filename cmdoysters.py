@@ -20,6 +20,14 @@ def lowercase_subset(A, B):
     set_b = set([b.lower() for b in B])
     return set_a.issubset(set_b)
 
+def display_invocation(invocation):
+    try :
+        comment = invocation["comment"]
+        for line in comment.splitlines():
+            yield "# " + line
+    except KeyError:
+        pass
+    yield invocation["invocation-string"]
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='search CmdOysters')
@@ -114,18 +122,11 @@ if __name__ == '__main__':
                     # so try the next invocation.
                     continue
             # At this point, the command must be a match.
-            if 'comment' in invocation.keys():
-                matching_invocations.append((invocation_string,
-                                             invocation['comment']))
-            else:
-                matching_invocations.append((invocation_string, None))
+            matching_invocations.append(invocation)
 
         if len(matching_invocations) > 0:
             print('# ' + filepath)
-            # TODO: break the description on 80 lines (without splitting words)
-            # and add a comment character at each point.
             print('# ' + command['description']['verbose-description'])
-            for invocation_string, comment in matching_invocations:
-                if comment:
-                    print('# ' + comment)
-                print(invocation_string)
+        for matching_invocation in matching_invocations:
+            for line in display_invocation(matching_invocation):
+                print(line)
