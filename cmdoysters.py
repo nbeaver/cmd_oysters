@@ -34,60 +34,10 @@ class QueryInfo:
     pass
 
 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='search CmdOysters')
-    parser.add_argument(
-        '-c',
-        '--commands',
-        help='component command search',
-        required=False,
-        nargs='+')
-    parser.add_argument(
-        '-s',
-        '--substring',
-        help='simple command substring search',
-        required=False)
-    parser.add_argument(
-        '-t',
-        '--tokens',
-        help='unordered token subset command search',
-        required=False,
-        nargs='+')
-    parser.add_argument(
-        '-d', '--description', help='command description', required=False)
-    parser.add_argument(
-        '-D',
-        '--description-tokens',
-        help='description token search (case-insensitive)',
-        required=False,
-        nargs='+')
-
-    default_json_path = os.path.join(
-        sys.path[0],
-        "cmdoysters")  # need to do it this way for symlinks to work.
-    parser.add_argument(
-        '-j',
-        '--json',
-        help='path to root directory of JSON input files',
-        required=False,
-        default=default_json_path)
-
-    args = parser.parse_args()
-
-    if len(sys.argv) < 2:
-        parser.print_help()
-        sys.exit(1)
-
-    cmd_query = QueryInfo()
-    cmd_query.commands = args.commands
-    cmd_query.substring = args.substring
-    cmd_query.tokens = args.tokens
-    cmd_query.description = args.description
-    cmd_query.description_tokens = args.description_tokens
-
-    json_filepaths = glob.glob(args.json + "/*.json")
+def print_oysters(topdir, query):
+    json_filepaths = glob.glob(topdir + "/*.json")
     for filepath in json_filepaths:
-        with open(os.path.join(args.json, filepath)) as json_file:
+        with open(os.path.join(topdir, filepath)) as json_file:
             try:
                 command = json.load(json_file)
             except ValueError:
@@ -142,3 +92,56 @@ if __name__ == '__main__':
         for matching_invocation in matching_invocations:
             for line in display_invocation(matching_invocation):
                 print(line)
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='search CmdOysters')
+    parser.add_argument(
+        '-c',
+        '--commands',
+        help='component command search',
+        required=False,
+        nargs='+')
+    parser.add_argument(
+        '-s',
+        '--substring',
+        help='simple command substring search',
+        required=False)
+    parser.add_argument(
+        '-t',
+        '--tokens',
+        help='unordered token subset command search',
+        required=False,
+        nargs='+')
+    parser.add_argument(
+        '-d', '--description', help='command description', required=False)
+    parser.add_argument(
+        '-D',
+        '--description-tokens',
+        help='description token search (case-insensitive)',
+        required=False,
+        nargs='+')
+
+    default_json_path = os.path.join(
+        sys.path[0],
+        "cmdoysters")  # need to do it this way for symlinks to work.
+    parser.add_argument(
+        '-j',
+        '--json',
+        help='path to root directory of JSON input files',
+        required=False,
+        default=default_json_path)
+
+    args = parser.parse_args()
+
+    if len(sys.argv) < 2:
+        parser.print_help()
+        sys.exit(1)
+
+    cmd_query = QueryInfo()
+    cmd_query.commands = args.commands
+    cmd_query.substring = args.substring
+    cmd_query.tokens = args.tokens
+    cmd_query.description = args.description
+    cmd_query.description_tokens = args.description_tokens
+
+    print_oysters(args.json, cmd_query)
