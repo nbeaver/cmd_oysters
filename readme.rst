@@ -81,11 +81,11 @@ This is an example of the contents of a minimal but valid CmdOyster JSON file::
         "description": {
             "verbose-description": "List contents of a directory."
         },
-        "invocations": {
+        "invocations": [
             {
                 "invocation-string": "ls"
             }
-        },
+        ],
         "uuid": "535f7bb6-09ae-4105-a69c-e576ece9b113"
     }
 
