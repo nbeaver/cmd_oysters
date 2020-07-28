@@ -15,6 +15,9 @@
     },
     "invocations": [
         {
+            "example-outputs": [
+                " 1 /usr/share/texlive/texmf-dist/doc/latex/siunitx/siunitx.pdf\n   = Package documentation\n 2 /usr/share/texlive/texmf-dist/doc/latex/siunitx/README.md\n   = Readme\nEnter number of file to view, RET to view 1, anything else to skip:"
+            ],
             "invocation-string": "texdoc -l -s siunitx"
         }
     ],
