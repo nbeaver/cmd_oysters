@@ -42,6 +42,7 @@ def display_invocation(invocation):
         pass
 
 def oyster_matches(oyster, query):
+    matching_invocations = []
     if query.commands:
         if not set(query.commands).issubset(
                 set(oyster['component-commands'])):
