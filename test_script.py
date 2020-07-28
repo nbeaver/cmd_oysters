@@ -61,34 +61,6 @@ class CmdOysterTest(unittest.TestCase):
             cmdoysters.get_matching_invocations(oyster, query)
         logging.disable(logging.NOTSET)
 
-    def test_invalid_oyster_no_invocation_string(self):
-        query = cmdoysters.QueryInfo()
-        query.commands = ['ls']
-        query.substring = None
-        query.tokens = None
-        query.description = None
-        query.description_tokens = None
-
-        oyster = {
-            "component-commands": [
-                "ls"
-            ],
-            "description": {
-                "verbose-description": "List contents of a directory."
-            },
-            "invocations": [
-                {
-                    "comment": "example comment"
-                }
-            ],
-            "uuid": "27885a94-c25f-4fb6-b6ac-c381869c87ce"
-        }
-
-        logging.disable(logging.ERROR)
-        with self.assertRaises(KeyError) as e:
-            cmdoysters.get_matching_invocations(oyster, query)
-        logging.disable(logging.NOTSET)
-
     def test_oyster_match_component_command_single(self):
         query = cmdoysters.QueryInfo()
         query.commands = ['ls']
