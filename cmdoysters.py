@@ -81,27 +81,26 @@ def oyster_matches(oyster, query):
 
     return True
 
-def get_matching_invocations(oyster, query, filepath):
+def invocation_matches(invocation, query):
+    invocation_string = invocation['invocation-string']
+    if query.substring:
+        if not query.substring in invocation_string:
+            # The substring isn't in the invocation,
+            # so it doesn't match.
+            return False
+    if query.tokens:
+        invocation_tokens = invocation_string.split()
+        if not set(query.tokens).issubset(set(invocation_tokens)):
+            # At least one of the query tokens doesn't match.
+            return False
+    # At this point, the command invocation must be a match.
+    return True
+
+def get_matching_invocations(oyster, query):
     matching_invocations = []
     for invocation in oyster['invocations']:
-        try:
-            invocation_string = invocation['invocation-string']
-        except KeyError:
-            logging.error("no 'invocation-string' in file '{}'".format(filepath))
-            raise
-
-        if query.substring:
-            if not query.substring in invocation_string:
-                # This doesn't match, so try the next invocation.
-                continue
-        if query.tokens:
-            invocation_tokens = invocation_string.split()
-            if not set(query.tokens).issubset(set(invocation_tokens)):
-                # At least one of the query tokens doesn't match,
-                # so try the next invocation.
-                continue
-        # At this point, the command must be a match.
-        matching_invocations.append(invocation)
+        if invocation_matches(invocation, query):
+            matching_invocations.append(invocation)
     return matching_invocations
 
 def print_oysters(topdir, query):
@@ -118,7 +117,14 @@ def print_oysters(topdir, query):
             # Try next oyster.
             continue
 
-        matching_invocations = get_matching_invocations(oyster, query, filepath)
+        try:
+            matching_invocations = get_matching_invocations(oyster, query)
+        except KeyError:
+            logging.error("in file '{}'".format(json_file.name))
+            raise
+        except IndexError:
+            logging.error("in file '{}'".format(json_file.name))
+            raise
 
         if len(matching_invocations) > 0:
             print('# ' + filepath)
