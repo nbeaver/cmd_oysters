@@ -64,7 +64,7 @@ class CmdOysterTest(unittest.TestCase):
             cmdoysters.get_matching_invocations(oyster, query, filepath)
         logging.disable(logging.NOTSET)
 
-    def test_oyster_match_component_command(self):
+    def test_oyster_match_component_command_single(self):
         query = cmdoysters.QueryInfo()
         query.commands = ['ls']
         query.substring = None
@@ -113,6 +113,115 @@ class CmdOysterTest(unittest.TestCase):
         }
         assert cmdoysters.oyster_matches(oyster_4, query) == False
 
+
+    def test_oyster_match_component_commands_double(self):
+        query = cmdoysters.QueryInfo()
+        query.commands = ['awk', 'grep']
+        query.substring = None
+        query.tokens = None
+        query.description = None
+        query.description_tokens = None
+
+        oyster_1 = {
+            "component-commands": [
+                "awk"
+            ],
+            "description": {
+                "verbose-description": "Example"
+            },
+        }
+        assert cmdoysters.oyster_matches(oyster_1, query) == False
+
+        oyster_2 = {
+            "component-commands": [
+                "grep"
+            ],
+            "description": {
+                "verbose-description": "Example"
+            },
+        }
+        assert cmdoysters.oyster_matches(oyster_2, query) == False
+
+        oyster_3 = {
+            "component-commands": [
+                "awk",
+                "grep"
+            ],
+            "description": {
+                "verbose-description": "Example"
+            },
+        }
+        assert cmdoysters.oyster_matches(oyster_3, query) == True
+
+        oyster_4 = {
+            "component-commands": [
+                "lscpu",
+                "awk",
+                "grep"
+            ],
+            "description": {
+                "verbose-description": "Example"
+            },
+        }
+        assert cmdoysters.oyster_matches(oyster_4, query) == True
+
+        oyster_5 = {
+            "component-commands": [
+                "awk",
+                "example",
+                "grep"
+            ],
+            "description": {
+                "verbose-description": "Example"
+            },
+        }
+        assert cmdoysters.oyster_matches(oyster_5, query) == True
+
+        oyster_6 = {
+            "component-commands": [
+                "grep",
+                "example",
+                "awk"
+            ],
+            "description": {
+                "verbose-description": "Example"
+            },
+        }
+        assert cmdoysters.oyster_matches(oyster_6, query) == True
+
+        oyster_7 = {
+            "component-commands": [
+                "awk"
+                "ugrep",
+            ],
+            "description": {
+                "verbose-description": "Example"
+            },
+        }
+        assert cmdoysters.oyster_matches(oyster_7, query) == False
+
+        oyster_8 = {
+            "component-commands": [
+                "gawk"
+                "grep",
+            ],
+            "description": {
+                "verbose-description": "Example"
+            },
+        }
+        assert cmdoysters.oyster_matches(oyster_8, query) == False
+
+        oyster_9 = {
+            "component-commands": [
+                "gawk"
+                "ugrep",
+            ],
+            "description": {
+                "verbose-description": "Example"
+            },
+        }
+        assert cmdoysters.oyster_matches(oyster_9, query) == False
+
     def test_oyster_match_description(self):
         query = cmdoysters.QueryInfo()
         query.commands = None
@@ -150,6 +259,24 @@ class CmdOysterTest(unittest.TestCase):
             },
         }
         assert cmdoysters.oyster_matches(oyster_3, query) == True
+
+    def test_oyster_match_description_tokens(self):
+        query = cmdoysters.QueryInfo()
+        query.commands = None
+        query.substring = None
+        query.tokens = None
+        query.description = None
+        query.description_tokens = ["contents", "directory"]
+
+        oyster_1 = {
+            "component-commands": [
+                "ls"
+            ],
+            "description": {
+                "verbose-description": "List directory contents."
+            },
+        }
+        assert cmdoysters.oyster_matches(oyster_1, query) == True
 
     def test_display_invocation_minimal(self):
         invocation = {"invocation-string": "ls"}
