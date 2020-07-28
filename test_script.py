@@ -76,6 +76,36 @@ class CmdOysterTest(unittest.TestCase):
         assert cmdoysters.invocation_matches(invocation_4, query) == False
 
 
+    def test_invocation_tokens(self):
+        query = cmdoysters.QueryInfo()
+        query.commands = None
+        query.substring = None
+        query.tokens =  ['|', '*']
+        query.description = None
+        query.description_tokens = None
+
+        invocation_1 = {
+            "invocation-string": "mimetype * | sort -k 2 | less"
+        }
+        assert cmdoysters.invocation_matches(invocation_1, query) == True
+        invocation_2 = {
+            "invocation-string": "head -n -0 * | less"
+        }
+        assert cmdoysters.invocation_matches(invocation_2, query) == True
+        invocation_3 = {
+            "invocation-string": "readlink /sys/class/net/*/device/driver | xargs -L 1 basename"
+        }
+        assert cmdoysters.invocation_matches(invocation_3, query) == False
+        invocation_4 = {
+            "invocation-string": "|*"
+        }
+        assert cmdoysters.invocation_matches(invocation_4, query) == False
+        invocation_5 = {
+            "invocation-string": "*|"
+        }
+        assert cmdoysters.invocation_matches(invocation_5, query) == False
+
+
     def test_oyster_match_component_command_single(self):
         query = cmdoysters.QueryInfo()
         query.commands = ['ls']
@@ -271,6 +301,7 @@ class CmdOysterTest(unittest.TestCase):
             },
         }
         assert cmdoysters.oyster_matches(oyster_3, query) == True
+
 
     def test_oyster_match_description_tokens(self):
         query = cmdoysters.QueryInfo()
