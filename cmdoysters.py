@@ -29,6 +29,11 @@ def display_invocation(invocation):
         pass
     yield invocation["invocation-string"]
 
+
+class QueryInfo:
+    pass
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='search CmdOysters')
     parser.add_argument(
@@ -73,6 +78,13 @@ if __name__ == '__main__':
         parser.print_help()
         sys.exit(1)
 
+    cmd_query = QueryInfo()
+    cmd_query.commands = args.commands
+    cmd_query.substring = args.substring
+    cmd_query.tokens = args.tokens
+    cmd_query.description = args.description
+    cmd_query.description_tokens = args.description_tokens
+
     json_filepaths = glob.glob(args.json + "/*.json")
     for filepath in json_filepaths:
         with open(os.path.join(args.json, filepath)) as json_file:
@@ -83,21 +95,21 @@ if __name__ == '__main__':
                     json_file.name))
                 sys.exit(1)
 
-        if args.commands:
-            if not set(args.commands).issubset(
+        if cmd_query.commands:
+            if not set(cmd_query.commands).issubset(
                     set(command['component-commands'])):
                 # The command list is not a subset of the component commands,
                 # so try next command.
                 continue
 
-        if args.description:
-            if not args.description.lower(
+        if cmd_query.description:
+            if not cmd_query.description.lower(
             ) in command['description']['verbose-description'].lower():
                 continue
 
-        if args.description_tokens:
+        if cmd_query.description_tokens:
             if not lowercase_subset(
-                    args.description_tokens,
+                    cmd_query.description_tokens,
                     tokenize(command['description']['verbose-description'])):
                 continue
 
@@ -111,13 +123,13 @@ if __name__ == '__main__':
                         json_file.name))
                 sys.exit(1)
 
-            if args.substring:
-                if not args.substring in invocation_string:
+            if cmd_query.substring:
+                if not cmd_query.substring in invocation_string:
                     # This doesn't match, so try the next invocation.
                     continue
-            if args.tokens:
+            if cmd_query.tokens:
                 invocation_tokens = invocation_string.split()
-                if not set(args.tokens).issubset(set(invocation_tokens)):
+                if not set(cmd_query.tokens).issubset(set(invocation_tokens)):
                     # At least one of the query tokens doesn't match,
                     # so try the next invocation.
                     continue
