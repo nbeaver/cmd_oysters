@@ -80,6 +80,7 @@ class CmdOysterTest(unittest.TestCase):
                 "verbose-description": "List contents of a directory."
             },
         }
+        assert cmdoysters.oyster_matches(oyster_1, query) == True
 
         oyster_2 = {
             "component-commands": [
@@ -89,6 +90,7 @@ class CmdOysterTest(unittest.TestCase):
                 "verbose-description": "Show the current date and time."
             },
         }
+        assert cmdoysters.oyster_matches(oyster_2, query) == False
 
         oyster_3 = {
             "component-commands": [
@@ -99,9 +101,54 @@ class CmdOysterTest(unittest.TestCase):
                 "verbose-description": "Filter the output of ls."
             },
         }
+        assert cmdoysters.oyster_matches(oyster_3, query) == True
 
+        oyster_4 = {
+            "component-commands": [
+                "lsmod"
+            ],
+            "description": {
+                "verbose-description": "List kernel modules."
+            },
+        }
+        assert cmdoysters.oyster_matches(oyster_4, query) == False
+
+    def test_oyster_match_description(self):
+        query = cmdoysters.QueryInfo()
+        query.commands = None
+        query.substring = None
+        query.tokens = None
+        query.description = "list"
+        query.description_tokens = None
+
+        oyster_1 = {
+            "component-commands": [
+                "ls"
+            ],
+            "description": {
+                "verbose-description": "List directory contents."
+            },
+        }
         assert cmdoysters.oyster_matches(oyster_1, query) == True
+
+        oyster_2 = {
+            "component-commands": [
+                "date"
+            ],
+            "description": {
+                "verbose-description": "Show the current date and time."
+            },
+        }
         assert cmdoysters.oyster_matches(oyster_2, query) == False
+
+        oyster_3 = {
+            "component-commands": [
+                "lsof"
+            ],
+            "description": {
+                "verbose-description": "Show a list of open files."
+            },
+        }
         assert cmdoysters.oyster_matches(oyster_3, query) == True
 
     def test_display_invocation_minimal(self):
