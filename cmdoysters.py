@@ -143,8 +143,7 @@ def main():
     parser.add_argument(
         '-s',
         '--substring',
-        help='command substring search (case-sensitive, order matters)',
-        nargs=1)
+        help='command substring search (case-sensitive, order matters)')
     parser.add_argument(
         '-t',
         '--tokens',
@@ -153,8 +152,7 @@ def main():
     parser.add_argument(
         '-d',
         '--description',
-        help="description substring search (case-insensitive, order matters)",
-        nargs=1)
+        help="description substring search (case-insensitive, order matters)")
     parser.add_argument(
         '-D',
         '--description-tokens',
