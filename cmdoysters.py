@@ -93,7 +93,8 @@ def print_oysters(topdir, query):
             for line in display_invocation(matching_invocation):
                 print(line)
 
-if __name__ == '__main__':
+
+def main():
     parser = argparse.ArgumentParser(description='search CmdOysters')
     parser.add_argument(
         '-c',
@@ -145,3 +146,6 @@ if __name__ == '__main__':
     cmd_query.description_tokens = args.description_tokens
 
     print_oysters(args.json, cmd_query)
+
+if __name__ == '__main__':
+    main()
