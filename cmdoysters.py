@@ -32,6 +32,14 @@ def display_invocation(invocation):
     except KeyError:
         pass
     yield invocation["invocation-string"]
+    try :
+        example_outputs = invocation["example-outputs"]
+        for i, output in enumerate(example_outputs):
+            yield "# Example output:".format(i+1)
+            for line in output.splitlines():
+                yield line
+    except KeyError:
+        pass
 
 def oyster_matches(oyster, query):
     if query.commands:
