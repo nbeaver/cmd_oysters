@@ -132,7 +132,7 @@ Specific items by file, in no particular order
     -   [ ] Make the description search case-insensitive.
     -   [ ] Make the description search into a full regex search.
 
--   [ ] Do some unit tests instead of the hacky makefile tests (use `unittest` module).
+-   [x] Do some unit tests instead of the hacky makefile tests (use `unittest` module).
 
 -   [x] Add a description token search, stripping out punctuation.
     -   [ ] Add [stemming](https://pythonhosted.org/Whoosh/stemming.html) or [lemmatising](http://marcobonzanini.com/2015/01/26/stemming-lemmatisation-and-pos-tagging-with-python-and-nltk/).
