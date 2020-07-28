@@ -33,7 +33,7 @@ class CmdOysterTest(unittest.TestCase):
         assert cmdoysters.lowercase_subset(l3, l2) == False
         assert cmdoysters.lowercase_subset(l3, l1) == False
 
-    def test_invalid_oyster_no_invocation_string(self):
+    def test_no_invocation_string(self):
         query = cmdoysters.QueryInfo()
         query.commands = ['ls']
         query.substring = None
@@ -41,25 +41,40 @@ class CmdOysterTest(unittest.TestCase):
         query.description = None
         query.description_tokens = None
 
-        oyster = {
-            "component-commands": [
-                "ls"
-            ],
-            "description": {
-                "verbose-description": "List contents of a directory."
-            },
-            "invocations": [
-                {
-                    "comment": "example comment"
-                }
-            ],
-            "uuid": "27885a94-c25f-4fb6-b6ac-c381869c87ce"
+        invocation = {
+            "comment": "example comment"
         }
 
         logging.disable(logging.ERROR)
         with self.assertRaises(KeyError) as e:
-            cmdoysters.get_matching_invocations(oyster, query)
+            cmdoysters.invocation_matches(invocation, query)
         logging.disable(logging.NOTSET)
+
+    def test_invocation_substring(self):
+        query = cmdoysters.QueryInfo()
+        query.commands = None
+        query.substring = "ls"
+        query.tokens = None
+        query.description = None
+        query.description_tokens = None
+
+        invocation_1 = {
+            "invocation-string": "ls"
+        }
+        assert cmdoysters.invocation_matches(invocation_1, query) == True
+        invocation_2 = {
+            "invocation-string": "lsmod"
+        }
+        assert cmdoysters.invocation_matches(invocation_2, query) == True
+        invocation_3 = {
+            "invocation-string": "ld"
+        }
+        assert cmdoysters.invocation_matches(invocation_3, query) == False
+        invocation_4 = {
+            "invocation-string": "l s"
+        }
+        assert cmdoysters.invocation_matches(invocation_4, query) == False
+
 
     def test_oyster_match_component_command_single(self):
         query = cmdoysters.QueryInfo()
