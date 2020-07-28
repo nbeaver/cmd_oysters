@@ -33,6 +33,27 @@ def display_invocation(invocation):
         pass
     yield invocation["invocation-string"]
 
+def oyster_matches(oyster, query):
+    if query.commands:
+        if not set(query.commands).issubset(
+                set(oyster['component-commands'])):
+            # The command list is not a subset of the component commands,
+            # so it's not a match.
+            return False
+
+    if query.description:
+        if not query.description.lower(
+        ) in oyster['description']['verbose-description'].lower():
+            return False
+
+    if query.description_tokens:
+        if not lowercase_subset(
+                query.description_tokens,
+                tokenize(oyster['description']['verbose-description'])):
+            return False
+
+    return True
+
 def print_oysters(topdir, query):
     json_filepaths = glob.glob(topdir + "/*.json")
     for filepath in json_filepaths:
@@ -44,23 +65,9 @@ def print_oysters(topdir, query):
                     json_file.name))
                 raise
 
-        if query.commands:
-            if not set(query.commands).issubset(
-                    set(oyster['component-commands'])):
-                # The command list is not a subset of the component commands,
-                # so try next oyster.
-                continue
-
-        if query.description:
-            if not query.description.lower(
-            ) in oyster['description']['verbose-description'].lower():
-                continue
-
-        if query.description_tokens:
-            if not lowercase_subset(
-                    query.description_tokens,
-                    tokenize(oyster['description']['verbose-description'])):
-                continue
+        if not oyster_matches(oyster, query):
+            # Try next oyster.
+            continue
 
         matching_invocations = []
         for invocation in oyster['invocations']:
