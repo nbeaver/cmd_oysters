@@ -9,8 +9,27 @@ import string
 import logging
 
 class QueryInfo:
-    pass
+    def __dict__(self):
+        info_dict = {
+            "commands" : self.commands,
+            "substring" : self.substring,
+            "tokens": self.tokens,
+            "description": self.description,
+            "description_tokens": self.description_tokens,
+        }
+        return info_dict
 
+    def __repr__(self):
+        return str(self.__dict__())
+
+    def __str__(self):
+        info = ''
+        info += "commands = {}\n".format(self.commands)
+        info += "substring = {}\n".format(self.substring)
+        info += "tokens = {}\n".format(self.tokens)
+        info += "description = {}\n".format(self.description)
+        info += "description_tokens = {}\n".format(self.description_tokens)
+        return info
 
 def tokenize(text):
     """Strip punctuation from free text sentences and split into tokens."""
