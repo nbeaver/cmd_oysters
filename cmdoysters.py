@@ -54,6 +54,31 @@ def oyster_matches(oyster, query):
 
     return True
 
+def get_matching_invocations(oyster, query, filepath):
+    matching_invocations = []
+    for invocation in oyster['invocations']:
+        try:
+            invocation_string = invocation['invocation-string']
+        except KeyError:
+            sys.stderr.write(
+                "Error: no 'invocation-string' in file `{}'\n".format(
+                    filepath))
+            raise
+
+        if query.substring:
+            if not query.substring in invocation_string:
+                # This doesn't match, so try the next invocation.
+                continue
+        if query.tokens:
+            invocation_tokens = invocation_string.split()
+            if not set(query.tokens).issubset(set(invocation_tokens)):
+                # At least one of the query tokens doesn't match,
+                # so try the next invocation.
+                continue
+        # At this point, the command must be a match.
+        matching_invocations.append(invocation)
+    return matching_invocations
+
 def print_oysters(topdir, query):
     json_filepaths = glob.glob(topdir + "/*.json")
     for filepath in json_filepaths:
@@ -69,28 +94,7 @@ def print_oysters(topdir, query):
             # Try next oyster.
             continue
 
-        matching_invocations = []
-        for invocation in oyster['invocations']:
-            try:
-                invocation_string = invocation['invocation-string']
-            except KeyError:
-                sys.stderr.write(
-                    "Error: no 'invocation-string' in file `{}'\n".format(
-                        json_file.name))
-                raise
-
-            if query.substring:
-                if not query.substring in invocation_string:
-                    # This doesn't match, so try the next invocation.
-                    continue
-            if query.tokens:
-                invocation_tokens = invocation_string.split()
-                if not set(query.tokens).issubset(set(invocation_tokens)):
-                    # At least one of the query tokens doesn't match,
-                    # so try the next invocation.
-                    continue
-            # At this point, the command must be a match.
-            matching_invocations.append(invocation)
+        matching_invocations = get_matching_invocations(oyster, query, filepath)
 
         if len(matching_invocations) > 0:
             print('# ' + filepath)
