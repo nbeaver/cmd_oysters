@@ -106,6 +106,7 @@ def get_matching_invocations(oyster, query):
 def print_oysters(topdir, query):
     json_filepaths = glob.glob(topdir + "/*.json")
     for filepath in json_filepaths:
+        logging.debug("filepath = {}".format(filepath))
         with open(os.path.join(topdir, filepath)) as json_file:
             try:
                 oyster = json.load(json_file)
@@ -115,20 +116,23 @@ def print_oysters(topdir, query):
 
         if not oyster_matches(oyster, query):
             # Try next oyster.
+            logging.info("file does not match: {}".format(json_file.name))
             continue
 
+        logging.info("file matches: {}".format(json_file.name))
         try:
             matching_invocations = get_matching_invocations(oyster, query)
-        except KeyError:
-            logging.error("in file '{}'".format(json_file.name))
-            raise
-        except IndexError:
+        except:
             logging.error("in file '{}'".format(json_file.name))
             raise
 
         if len(matching_invocations) > 0:
             print('# ' + filepath)
             print('# ' + oyster['description']['verbose-description'])
+        else:
+            logging.info("no matching invocations: {}".format(json_file.name))
+            continue
+
         for matching_invocation in matching_invocations:
             for line in display_invocation(matching_invocation):
                 print(line)
@@ -158,6 +162,22 @@ def main():
         '--description-tokens',
         help="description token search (case-insensitive, order doesn't matter)",
         nargs='+')
+    parser.add_argument(
+        '-v',
+        '--verbose',
+        help='More verbose logging',
+        dest="loglevel",
+        default=logging.WARNING,
+        action="store_const",
+        const=logging.INFO,
+    )
+    parser.add_argument(
+        '--debug',
+        help='Enable debugging logs',
+        action="store_const",
+        dest="loglevel",
+        const=logging.DEBUG,
+    )
 
     default_json_path = os.path.join(
         sys.path[0],
@@ -169,6 +189,7 @@ def main():
         default=default_json_path)
 
     args = parser.parse_args()
+    logging.basicConfig(level=args.loglevel)
 
     if len(sys.argv) < 2:
         parser.print_help()
