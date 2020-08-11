@@ -4,7 +4,6 @@ import jsonschema
 import sys
 import os
 import glob
-import traceback
 import argparse
 
 
