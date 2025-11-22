@@ -635,10 +635,9 @@ Here are some highlights, in no particular order:
 Similar projects
 ----------------
 
+- https://github.com/denisidoro/navi/
 - https://github.com/knqyf263/pet
-
 - https://github.com/ok-borg/borg
-
 - https://github.com/orkohunter/keep
-
+- https://github.com/plainas/icl
 - https://launchpad.net/clicompanion
