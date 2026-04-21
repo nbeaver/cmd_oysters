@@ -8,7 +8,13 @@ CmdOysters: shell commands with metadata.
 :Date: $Date: 2016-02-10 (Wednesday, 10 February 2016) $
 :Copyright: This document is licensed under a Creative Commons Attribution 4.0 International license.
 
-See also `<todo.md>`_.
+Update 2026-04-21: This project is deprecated and will no longer be maintained.
+I've migrated the best parts of this project to a my-one-liners,
+and much simpler and more useful implementation of this idea:
+
+https://github.com/nbeaver/my-one-liners/
+
+The original readme follows below.
 
 .. contents::
 
